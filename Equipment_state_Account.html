@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<style>
+
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<header class="mui-bar mui-bar-nav titBackg">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">设备资产台账</h1>
+			</header>
+			<div class="mui-content Equipment_state_Account_con" id="Account_con">
+				<div class="Equipment_first">
+					<p style="width: 35%;">名称</p>
+					<p style="width: 25%;">编号</p>
+					<p style="width: 15%;">状态</p>
+					<p style="width: 25%;">类别</p>
+				</div>
+				<div class="Equipment_c2" id="Equipment_c2">
+					<div>
+						<p style="width: 35%;">烟感报警器</p>
+						<p style="width: 25%;">CD45S64W4514</p>
+						<p style="width: 15%;">正常</p>
+						<p style="width: 25%;">监控警报</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/echarts.common.min.js"></script>
+		<script src="js/Equipment_state_Account.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.ready(function() {
+				mui('#Equipment_c2').on('tap', '.conSend', function() {
+					var code = this.firstChild.value;
+//					console.log(code)
+					localStorage.setItem('userNumCode', code)
+					mui.openWindow({
+						url: 'Equipment_state_query.html',
+						id: 'Equipment_state_query.html',
+						styles: {
+							top: 0, //新页面顶部位置
+							bottom: 0, //新页面底部位置
+						},
+						extras: {
+
+						},
+						show: {
+							duration: '300'
+						},
+						waiting: {
+							autoShow: true, //自动显示等待框，默认为true
+							title: '加载中...', //等待对话框上显示的提示内容
+						}
+					});
+
+				})
+
+			})
+		</script>
+	</body>
+
+</html>

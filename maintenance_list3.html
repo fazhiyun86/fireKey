@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<style>
+			.mui-bar-nav~.mui-content {
+				padding: 50px 0 5px 0;
+			}
+			
+			.Micro_task_tit a {
+				color: #666666;
+				font-size: 0.8rem;
+			}
+			
+			#address11 {
+				width: 100%;
+				text-align: left;
+				/*padding: 0 0 0 1rem;*/
+				margin: 0;
+			}
+			
+			.Equipment_patrol_con_list {
+				margin-top: 0.5rem;
+			}
+			
+			.Equipment_patrol_con_list>p {
+				width: 20%;
+				white-space: nowrap;
+			}
+			
+			.Equipment_patrol_con1 {
+				padding: 0.5rem 0.3rem 0.2rem 0.6rem;
+			}
+			
+			#Equipment_patrol_con1 .Equipment_patrol_con1:first-child {
+				margin-top: 0.2rem;
+			}
+			
+			.Equipment_patrol_con1 p {
+				margin: 0;
+				/*height: 48px;*/
+			}
+			
+			.Equipment_patrol_con1 p:first-child {
+				/*margin-top: 0.5rem;*/
+			}
+			
+			.Equipment_patrol_con1 p span {
+				float: left;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				display: block;
+				width: 100%;
+				/*margin-top: 0.3rem;*/
+			}
+			
+			.Equipment_patrol_con1 p span:first-child {
+				font-size: 0.76rem;
+				color: #666666;
+			}
+			
+			.Equipment_patrol_con1 p span:nth-child(2) {
+				font-size: 0.7rem;
+				color: #999999;
+			}
+			
+			.Equipment_patrol_con1 p img {
+				width: 100%;
+				height: 83%;
+			}
+			
+			.Equipment_patrol_ccon2 {
+				width: 100%;
+			}
+			
+			.Equipment_patrol_ccon2 p {
+				padding-left: 0;
+			}
+			
+			.Equipment_patrol_ccon2 p:first-child {
+				margin: 0!important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content Equipment_patrol_con ">
+
+			<div id="Equipment_patrol_con1">
+				<!--<div class="Equipment_patrol_con1">
+					<p class="maintenance_list3_p1">
+						<img src="images/systemImg1.png" />
+					</p>
+					<p class="maintenance_list3_p2">
+						<span class="maintenance_list3_datat">123</span>
+						<span class="maintenance_list3_datab">abc</span>
+					</p>
+					<p class="maintenance_list3_p3">
+						<span class="maintenance_list3_datat">123</span>
+						<span class="maintenance_list3_datab">abc</span>
+					</p>
+					<p class="maintenance_list3_p4">
+						<span class="maintenance_list3_datat">123</span>
+						<span class="maintenance_list3_datab">abc</span>
+					</p>
+				</div>-->
+			</div>
+
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.ready(function() {
+
+				// 显示当前时间
+				var myDate = new Date();
+				var operationStatistics_year = myDate.getFullYear();
+				var operationStatistics_month = ((myDate.getMonth() + 1) < 10 ? "0" : "") + (myDate.getMonth() + 1);
+				var operationStatistics_time = myDate.getFullYear() + '-' + ((myDate.getMonth() + 1) < 10 ? "0" : "") + (myDate.getMonth() + 1);
+				var present = operationStatistics_year + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate();
+
+				function WebApp_GetBrandFailureRate(UnitCode) {
+					var urlTask = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetBrandFailureRate?dataKey=00-00-00-00&ID=&UnitCode=' + UnitCode;
+					console.log(urlTask);
+					mui.ajax(urlTask, {
+						data: null,
+						dataType: 'json', //返回
+						type: 'get',
+						timeout: 5000,
+						success: function(data) {
+							var getDatas = data['DataSource']['Tables'][0]['Datas'];
+							var html = '';
+
+							mui.each(getDatas, function(index, item) {
+								var imgSrc = item.logo;
+								if(imgSrc == null || imgSrc == undefined || imgSrc == "") {
+									imgSrc = "images/star1.png";
+								} else {
+									imgSrc = "data:image/png;base64," + imgSrc;
+								};
+
+								html +=
+									'<div class="Equipment_patrol_con1">' +
+									'<input class="sendId1" type="hidden"value="' + item.ID + '" />' +
+									'<p class="maintenance_list3_p1">' +
+									'<img src = "' + imgSrc + '"/ > ' +
+									'</p>' +
+									'<p class="maintenance_list3_p2">' +
+									'<span class="maintenance_list3_datat">' + item.enterprisename + '</span>' +
+									'<span class="maintenance_list3_datab">' + '设备数量：' + item.eqnum + '</span>' +
+									'</p>' +
+									'<p class="maintenance_list3_p3">' +
+									'<span class="maintenance_list3_datat">' + '出现故障' + '</span>' +
+									'<span class="maintenance_list3_datab">' + item.faultnum + '</span>' +
+									'</p>' +
+									'<p class="maintenance_list3_p4">' +
+									'<span class="maintenance_list3_datat">' + '故障率' + '</span>' +
+									'<span class="maintenance_list3_datab">' + item.rate + '%</span>' +
+									'</p>' +
+									'</div>';
+
+							})
+							document.getElementById('Equipment_patrol_con1').innerHTML = html;
+							var imgwh = $(".maintenance_list3_p1 img").width();
+							$(".maintenance_list3_p1 img").height(imgwh);
+						},
+						error: function() {
+							//异常处理
+							mui.toast('数据请求失败')
+						}
+
+					});
+				}
+				WebApp_GetBrandFailureRate(localStorage.getItem('UnitCode'));
+
+				mui('#Equipment_patrol_con1').on('tap', '.Equipment_patrol_con1', function() {
+					var OrganiseUnitCode = localStorage.getItem('OrganiseUnitCode');
+					mui.openWindow({
+						url: 'operationStatistics_brand-manifestation_childWeb.html',
+						id: 'operationStatistics_brand-manifestation_childWeb.html',
+						styles: {
+							top: 0, //新页面顶部位置
+							bottom: 0, //新页面底部位置
+						},
+						extras: {
+							Id: this.firstChild.value,
+							OrganiseUnitCode: OrganiseUnitCode,
+							year: operationStatistics_year,
+							today: present
+						},
+						show: {
+							duration: '300'
+						},
+						waiting: {
+							autoShow: true, //自动显示等待框，默认为true
+							title: '加载中...', //等待对话框上显示的提示内容
+						}
+					});
+				})
+			})
+		</script>
+	</body>
+
+</html>

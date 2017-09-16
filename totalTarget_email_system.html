@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/totalTarget_email_system.css"/>
+		<style>
+								.mui-bar .mui-icon {
+				margin-top: -10px;
+				padding-top: 0;
+			}
+			
+			.mui-bar .mui-title {
+				margin-top: -20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<section class="header-for-time-area">
+			<div class="mui-bar mui-bar-nav">
+				<span class="mui-icon mui-icon-arrowleft mui-pull-left" id="back" style="color: white;"></span>
+				<h1 class="mui-title" style="color: white;">系统消息</h1>
+			</div>	
+		</section>
+		<div class="mui-content"> 
+			<article class="title">
+				<div class="titleContent">
+					<!--17年第四季度巡检人员系统次培训-->
+				</div>
+				<div class="titleDetail">
+					<div class="titleContentLeft">
+						<!--安全管理处-->
+					</div>
+					<div class="titleContentMiddle">
+						<!--发出：张常友-->
+					</div>
+					<div class="titleContentRight">
+						<!--2017-12-1 16:23-->
+					</div>
+				</div>
+			</article>
+			<div class="content">
+				
+			</div>
+			
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				swipeBack: false,
+//				keyEventBind: {
+//						backbutton: false  //关闭back按键监听
+//					}
+			});
+			mui.plusReady(function (){
+				document.querySelector('#back').addEventListener('tap',function (){
+					mui.back(); 
+				});
+				var self = plus.webview.currentWebview();
+				WebApp_GetSysMessageDetai(self.MessageID);
+				function WebApp_GetSysMessageDetai (MessageID) {
+					mui.ajax('http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetSysMessageDetail?dataKey=00-00-00-00&MessageID=' + MessageID, {
+						data: null,
+						dataType: 'json', //返回
+						type: 'get',
+						timeout: 5000,
+						success: function(data) {
+							//服务器返回响应，根据响应结果，分析是否登陆成功
+							var getDatas = data['DataSource']['Tables'][0]['Datas'];
+							document.querySelector('.titleContent').innerHTML = getDatas[0].MessageTitle;
+							document.querySelector('.titleContentLeft').innerHTML = getDatas[0].OrganiseUnitName;
+							document.querySelector('.titleContentMiddle').innerHTML = '发布:' + getDatas[0].Publisher;
+							document.querySelector('.titleContentRight').innerHTML = getDatas[0].PublishDate;
+							document.querySelector('.content').innerHTML = getDatas[0].Content.replace(/や/g, "<br/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp");
+						
+						},
+						error: function() {
+							//异常处理
+							mui.toast('数据请求失败')
+						}
+					});	
+				}
+			
+			})
+		</script>
+	</body>
+
+</html>

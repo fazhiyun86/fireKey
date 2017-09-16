@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>重点单位监管版</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<style>
+			body {
+				background-color: #efeff4;
+			}
+			
+			.title {
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			
+			@font-face {
+				font-family: myFont;
+				src: url('css/11438.ttf');
+			}
+			
+			.fontFace {
+				font-family: 'myFont';
+			}
+			
+			.index_list_content>div:first-child {
+				padding-bottom: 1rem;
+			}
+
+		</style>
+	</head>
+
+	<body id="bodyId">
+
+		<!--下拉刷新-->
+
+		<!--<div class="mui-content">-->
+		<!--侧滑菜单容器-->
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable" style="width: 100%!important;padding: 0!important;margin: 0!important;">
+			<aside id="offCanvasSide" class="mui-off-canvas-right">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="title scroll_top">
+							<p class="scroll_top_text"><img src="images/jing.png" /><span>组织机构选择</span></p>
+						</div>
+
+						<ul id="table_view" class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
+
+						</ul>
+					</div>
+				</div>
+			</aside>
+
+			<!--<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">-->
+			<div class="index_content mui-inner-wrap ">
+
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper" style="z-index: 9999999999;">
+
+					<div id="offCanvasCon" style="float: left;">
+						<div class="offCanvasConClass">
+							<div class="tit_text">
+
+								<span class="zdd">重点单位监管版</span>
+								<!--<a href="#offCanvasSide">-->
+								<a id="searchCode">
+									<p class="tit_text_p mui-icon mui-icon-search"></p>
+								</a>
+
+							</div>
+							<div class="tit_text_list">
+								<div class="tit_text_list_con">
+									<div id="offCanvasShow">
+										<font class="mui-icon mui-icon-arrowdown"></font>
+										<span class="tit_text_list_sp1" id="index_zhongdian">重点单位监管版</span>
+										<span class="tit_text_list_sp2" id="2017date">2017年5月31日</span>
+									</div>
+								</div>
+								<div class="index_list_content">
+									<div class="index_list_content_may in_index">
+										<div class="index_list_content_may_first">设备状态</div>
+										<div class="index_list_content_may_two">
+											<p class="index_list_content_may_two_data" style="margin-left: -0.5rem;">
+												<span></span>
+												<span>正常使用</span>
+											</p>
+											<p class="index_list_content_may_two_data">
+												<span></span>
+												<span>停用停机</span>
+											</p>
+											<p class="index_list_content_may_two_data" style="margin-left: -0.5rem;">
+												<span></span>
+												<span>故障维修</span>
+											</p>
+											<p class="index_list_content_may_two_data">
+												<span></span>
+												<span>报废处理</span>
+											</p>
+										</div>
+										<div class="index_list_content_may_three">
+											<div id="indicatorContainer">
+												<!--<span>完好率</span>-->
+											</div>
+										</div>
+									</div>
+
+									<input id="arrFor1" type="hidden" />
+									<div class="index_list_content_maymore in_index">
+										<div class="index_list_content_maymore_first">动火检查</div>
+										<div class="index_list_content_maymore_two" style="padding-top: 36px;">
+											<img src="images/donghuo11.png" />
+										</div>
+										<div class="index_list_content_maymore_three maymore_three_first">
+											<p>
+												<span id="fire1" class="fontFace">0</span>
+												<span>动火作业</span>
+											</p>
+											<p>
+												<span id="fire4" class="fontFace" style="color:#FF4081">0</span>
+												<span>动火点</span>
+											</p>
+											<p>
+												<span id="fire2" class="fontFace"  style="color: #FF6633;">0</span>
+												<span>检查内容</span>
+											</p>
+											
+											<p>
+												<span id="fire3" class="fontFace">0</span>
+												<span>发现问题</span>
+											</p>
+											<p>
+												<span id="fire5" class="fontFace" style="color:#FF4081">0</span>
+												<span>确认解决</span>
+											</p>
+											<p>
+												<span id="fire6" class="fontFace"  style="color: #FF6633;">0</span>
+												<span>遗留问题</span>
+											</p>
+											
+										</div>
+									</div>
+									<!--<div class="index_list_content_maymore in_index">
+										<div class="index_list_content_maymore_first">动火作业</div>
+										<div class="index_list_content_maymore_two" style="padding-top: 36px;">
+											<img src="images/donghuo11.png" />
+										</div>
+										<div class="index_list_content_maymore_three maymore_three_first">
+											<p>
+												<span id="fire1_1" class="fontFace">0</span>
+												<span>今日作业</span>
+											</p>
+											<p>
+												<span id="fire4_1" class="fontFace" style="color:#FF4081">0</span>
+												<span>检查内容</span>
+											</p>
+											<p>
+												<span id="fire2_1" class="fontFace" style="color: #FF6633;">0</span>
+												<span>作业完成</span>
+											</p>
+
+											<p>
+												<span id="fire3_1" class="fontFace">0</span>
+												<span>发现问题</span>
+											</p>
+											<p>
+												<span id="fire5_1" class="fontFace" style="color:#FF4081">0</span>
+												<span>确认解决</span>
+											</p>
+											<p>
+												<span id="fire6_1" class="fontFace" style="color: #FF6633;">0</span>
+												<span>遗留问题</span>
+											</p>
+
+										</div>
+									</div>-->
+
+									<div class="index_list_content_maymore in_index">
+										<div class="index_list_content_maymore_first">设备巡检</div>
+										<div class="index_list_content_maymore_two maymore_two">
+											<img src="images/shebeixunjian11.png" />
+										</div>
+										<div class="index_list_content_maymore_three">
+											<p class="threep_double">
+												<span id="xj1"class="fontFace"></span>
+												<span>检查任务</span>
+											</p>
+											<p class="threep_double">
+												<span id="xj2"class="fontFace"></span>
+												<span>检查设备</span>
+											</p>
+
+										</div>
+										<div class="index_list_content_maymore_three"></div>
+										<div class="index_list_content_maymore_three">
+											<p class="threep_double">
+												<span id="xj3" style="color: #FF6633;"class="fontFace"></span>
+												<span>逾期未完成</span>
+
+											</p>
+											<p class="threep_double">
+												<span id="xj4" style="color: #FF6633;"class="fontFace"></span>
+												<span>异常设备</span>
+											</p>
+
+										</div>
+
+									</div>
+
+									<div class="index_list_content_maymore in_index">
+										<div class="index_list_content_maymore_first">设备运维</div>
+										<div class="index_list_content_maymore_two">
+											<img src="images/shebeiyunwei11.png" style="padding-top: 10px;" />
+										</div>
+										<div class="index_list_content_maymore_three maymore_three_first">
+											<p>
+												<span style="color: #E67E1E;" id="yunwei1"class="fontFace">0</span>
+												<span>故障设备</span>
+											</p>
+											<p>
+												<span id="yunwei2"class="fontFace">0</span>
+												<span>今日维修</span>
+											</p>
+											<p>
+												<span id="yunwei3"class="fontFace">0</span>
+												<span>维修审批</span>
+											</p>
+										</div>
+
+									</div>
+
+									<div class="index_list_content_maymore in_index">
+										<div class="index_list_content_maymore_first">规范检查</div>
+										<div class="index_list_content_maymore_two maymore_two">
+											<img src="images/guifanjiancha.png" />
+										</div>
+										<div class="index_list_content_maymore_three">
+											<p class="threep_double">
+												<span id="guifan1" class="fontFace">0</span>
+												<span>检查任务</span>
+											</p>
+											<p class="threep_double">
+												<span id="guifan2" class="fontFace">0</span>
+												<span>检查项</span>
+											</p>
+
+										</div>
+										<div class="index_list_content_maymore_three"></div>
+										<div class="index_list_content_maymore_three">
+											<p class="threep_double">
+												<span style="color: #FF6633;" id="guifan3" class="fontFace">0</span>
+												<span>逾期未完成</span>
+
+											</p>
+											<p class="threep_double">
+												<!--<span style="color: #FF6633;" id="guifan4" class="fontFace">0</span>
+												<span>异常设备</span>-->
+											</p>
+
+										</div>
+
+									</div>
+
+									<div class="index_list_content_maymore in_index">
+										<div class="index_list_content_maymore_first">隐患整改</div>
+										<div class="index_list_content_maymore_two">
+											<img src="images/yinhuanzhenggai11.png" style="padding-top: 10px;" />
+										</div>
+										<div class="index_list_content_maymore_three maymore_three_first">
+											<p>
+												<span style="color: #E51C23;" id="yh1"class="fontFace">0/0</span>
+												<span>隐患整改</span>
+											</p>
+											<p>
+												<span style="color: #E51C23;" id="yh2"class="fontFace">0</span>
+												<span>逾期未完成</span>
+											</p>
+											<p>
+												<span id="yh3"class="fontFace">0</span>
+												<span>等待验收</span>
+											</p>
+										</div>
+									</div>
+
+									<div class="index_list_content_maymore in_index">
+										<div class="index_list_content_maymore_first">证照资质</div>
+										<div class="index_list_content_maymore_two" style="padding-top: 10px;">
+											<img src="images/zhengzhaozizhi11.png" />
+										</div>
+										<div class="index_list_content_maymore_three maymore_three_first">
+											<p style="width: 33.3%;">
+												<span id="zzzz1" style="color: #E67E1E;" class="fontFace">0</span>
+												<span>证照总数</span>
+											</p>
+											<p style="width: 33.3%;">
+												<span id="zzzz2" class="fontFace">0</span>
+												<span>临期数量</span>
+											</p>
+											<p style="width: 33.3%;">
+												<span id="zzzz3" class="fontFace">0</span>
+												<span>过期数量</span>
+											</p>
+										</div>
+
+									</div>
+
+									<div class="index_list_content_maymore in_index">
+										<div class="index_list_content_maymore_first">设备保养</div>
+										<div class="index_list_content_maymore_two maymore_two">
+											<img src="images/jianxiubaoyang11.png" />
+										</div>
+										<div class="index_list_content_maymore_three">
+											<p class="threep_double">
+												<span id="jx1"class="fontFace">0/0</span>
+												<span>检查任务</span>
+											</p>
+											<p class="threep_double">
+												<span id="jx3"class="fontFace">0/0</span>
+												<span>检查设备</span>
+											</p>
+
+										</div>
+										<div class="index_list_content_maymore_three"></div>
+										<div class="index_list_content_maymore_three">
+											<p class="threep_double">
+												<span style="color: #FF6633;" id="jx2"class="fontFace">0</span>
+												<span>逾期未完成</span>
+
+											</p>
+											<p class="threep_double">
+												<span style="color: #FF6633;" id="jx4"class="fontFace">0</span>
+												<span>异常设备</span>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- off-canvas backdrop -->
+					<div class="mui-off-canvas-backdrop"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script src="js/mui.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/index.js"></script>
+	<script src="js/area.js"></script>
+	<script src="js/searchCode.js"></script>
+	<script src="js/radialIndicator.js"></script>
+	<script>
+		mui.init({
+			swipeBack: false, //启用右滑关闭功能		
+		});
+
+		mui.plusReady(function() {
+
+			var in_index = document.getElementsByClassName('in_index');
+			var pageArr = ['Equipment_state.html',
+				'Fire_work.html',
+//				'Fire_Formally_work.html',
+				'Equipment_patrol.html',
+				'maintenance.html',
+				'Equipment_guifan.html',
+				'Danger_Rectification.html',
+				'Licence_adopt.html',
+				'Inspect_Maintain.html'
+			];
+			var num = 0;
+			for(var i = 0; i < in_index.length; i++) {
+				in_index[i].index = i;
+				in_index[i].addEventListener('tap', function() {
+					mui.openWindow({
+						url: pageArr[this.index],
+						id: pageArr[this.index],
+						styles: {
+							top: 0, //新页面顶部位置
+							bottom: 0, //新页面底部位置
+						},
+						extras: {
+							//自定义扩展参数，可以用来处理页面间传值
+						},
+						show: {
+							duration: '300'
+						},
+						waiting: {
+							autoShow: true, //自动显示等待框，默认为true
+							title: '加载中...', //等待对话框上显示的提示内容
+						}
+					});
+				})
+			}
+
+			mui.init({
+				swipeBack: false,
+			});
+			//侧滑容器父节点
+			var offCanvasWrapper = mui('#offCanvasWrapper');
+			//主界面容器
+			var offCanvasInner = offCanvasWrapper[0].querySelector('.mui-inner-wrap');
+			//菜单容器
+			var offCanvasSide = document.getElementById("offCanvasSide");
+			//Android暂不支持整体移动动画
+			//			if (!mui.os.android) {
+			//				document.getElementById("move-togger").classList.remove('mui-hidden');
+			//				var spans = document.querySelectorAll('.android-only');
+			//				for (var i = 0, len = spans.length; i < len; i++) {
+			//					spans[i].style.display = "none";
+			//				}
+			//			}
+			//移动效果是否为整体移动
+			var moveTogether = false;
+			//侧滑容器的class列表，增加.mui-slide-in即可实现菜单移动、主界面不动的效果；
+			var classList = offCanvasWrapper[0].classList;
+			//变换侧滑动画移动效果；
+			offCanvasSide.classList.remove('mui-transitioning');
+			offCanvasSide.setAttribute('style', '');
+			classList.remove('mui-slide-in');
+			classList.remove('mui-scalable');
+			classList.add('mui-slide-in');
+			offCanvasWrapper.offCanvas().refresh();
+			document.getElementById('offCanvasShow').addEventListener('tap', function() {
+				offCanvasWrapper.offCanvas('show');
+			});
+			//			document.getElementById('offCanvasHide').addEventListener('tap', function() {
+			//				offCanvasWrapper.offCanvas('close');
+			//			});
+			//主界面和侧滑菜单界面均支持区域滚动；
+			mui('#offCanvasSideScroll').scroll();
+			mui('#offCanvasContentScroll').scroll();
+
+			//实现ios平台的侧滑关闭页面；
+			if(mui.os.plus && mui.os.ios) {
+				offCanvasWrapper[0].addEventListener('shown', function(e) { //菜单显示完成事件
+					plus.webview.currentWebview().setStyle({
+						'popGesture': 'none'
+					});
+				});
+				offCanvasWrapper[0].addEventListener('hidden', function(e) { //菜单关闭完成事件
+					plus.webview.currentWebview().setStyle({
+						'popGesture': 'close'
+					});
+				});
+			}
+
+			//提示退出应用
+			var backcount = 0;
+			mui.back = function() {
+				if(mui.os.ios) return;
+				if(backcount > 0) {
+					if(window.plus) plus.runtime.quit();
+					return;
+				};
+				mui.toast('再点一次退出应用');
+				backcount++;
+				setTimeout(function() {
+					backcount = 0;
+				}, 2000);
+			};
+
+		})
+	</script>
+
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<style>
+			.mui-content {
+				padding: 56px 0 5px 0!important;
+			}
+			
+			body {
+				overflow-x: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<header class="mui-bar mui-bar-nav titBackg">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">设备查询</h1>
+			</header>
+
+			<div class="mui-content Equipment_state_query_con">
+				<div class="Equipment_state_query_tit">
+					<a href="Equipment_state_query_page1.html">
+						<p class="titAcyive">
+							<span><i class="iconfont icon-fangkuai"></i></span>
+							<span>设备状态</span>
+						</p>
+					</a>
+					<a href="Equipment_state_query_page2.html">
+						<p>
+							<span><i class="iconfont icon-dangan"></i></span>
+							<span>设备档案</span>
+						</p>
+					</a>
+					<a href="Equipment_state_query_page3.html">
+						<p>
+							<span><i class="iconfont icon-shezhi"></i></span>
+							<span>维修记录</span>
+						</p>
+					</a>
+					<a href="Equipment_state_query_page4.html">
+						<p>
+							<span><i class="iconfont icon-dierge"></i></span>
+							<span>保养记录</span>
+						</p>
+					</a>
+					<a href="Equipment_state_query_page5.html">
+						<p>
+							<span><i class="iconfont icon-dangan1"></i></span>
+							<span>巡检记录</span>
+						</p>
+					</a>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<meta charset="UTF-8">
+		<!--<script src="js/Equipment_state_query.js"></script>-->
+		<script src="js/echarts.min.js"></script>
+		<script>
+			var subpages = ['Equipment_state_query_page1.html', 'Equipment_state_query_page2.html', 'Equipment_state_query_page3.html', 'Equipment_state_query_page4.html', 'Equipment_state_query_page5.html'];
+			var subpage_style = {
+				top: '125px',
+				bottom: '0px'
+			};
+			var aniShow = {};
+
+			//创建子页面，首个选项卡页面显示，其它均隐藏；
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				for(var i = 0; i < 5; i++) {
+					var temp = {};
+					var sub = plus.webview.create(subpages[i], subpages[i], subpage_style);
+					if(i > 0) {
+						sub.hide();
+					} else {
+						temp[subpages[i]] = "true";
+						mui.extend(aniShow, temp);
+					}
+					self.append(sub);
+				}
+			});
+			//当前激活选项
+			var activeTab = subpages[0];
+			var title = document.getElementById("title");
+			//选项卡点击事件
+			mui('.Equipment_state_query_tit').on('tap', 'a', function(e) {
+				$('.Equipment_state_query_tit a p').removeClass('titAcyive');
+				$(this).find('p').addClass('titAcyive');
+				var targetTab = this.getAttribute('href');
+//					console.log(targetTab)
+				if(targetTab == activeTab) {
+					return;
+				}
+				if(mui.os.ios || aniShow[targetTab]) {
+					plus.webview.show(targetTab);
+				} else {
+					//否则，使用fade-in动画，且保存变量
+					var temp = {};
+					temp[targetTab] = "true";
+					mui.extend(aniShow, temp);
+					plus.webview.show(targetTab, "none", 250);
+				}
+
+				var temp = {};
+				temp[targetTab] = "true";
+				mui.extend(aniShow, temp);
+				plus.webview.show(targetTab, "fade-in", 250);
+				//隐藏当前;
+				plus.webview.hide(activeTab);
+				//更改当前活跃的选项卡
+				activeTab = targetTab;
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<style>
+			.mui-bar-nav~.mui-content {
+				padding: 50px 0 5px 0;
+			}
+			
+			.Micro_task_tit a {
+				color: #666666;
+				font-size: 0.8rem;
+			}
+			
+			#address11 {
+				width: 100%;
+				text-align: left;
+				/*padding: 0 0 0 1rem;*/
+				margin: 0;
+			}
+			
+			.Equipment_patrol_con_list {
+				margin-top: 0.5rem;
+			}
+			
+			.Equipment_patrol_con_list>p {
+				width: 20%;
+				white-space: nowrap;
+			}
+			
+			.Equipment_patrol_con1 {
+				height: 170px;
+			}
+			
+			.Equipment_patrol_con1 div p {
+				float: left;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			
+			.Equipment_patrol_ccon2 {
+				width: 100%;
+			}
+			
+			.Equipment_patrol_ccon2 p {
+				padding-left: 0;
+			}
+			.Equipment_patrol_ccon2 p:first-child {
+				margin: 0!important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content Equipment_patrol_con ">
+			<div class="maintenance_list2_top">
+				<p class="maintenance_list2_top_p1">设备故障趋势</p>
+				<!--<p class="maintenance_list2_top_p2"><span>全部设备 </span><i class="iconfont icon-duduyinleappicon0701"></i></p>-->
+			</div>
+			<div class="Equipment_patrol_con1" id="malist2_1"></div>
+			<div class="maintenance_list2_top">
+				<p class="maintenance_list2_top_p1">设备故障分布及数量</p>
+			</div>
+			<div class="Equipment_patrol_con1" id="malist2_2"></div>
+			<!--<div class="maintenance_list2_top">
+				<p class="maintenance_list2_top_p1">每千小时动设备故障次数</p>
+			</div>
+			<div class="Equipment_patrol_con1" id="malist2_3"></div>
+			<div class="maintenance_list2_top">
+				<p class="maintenance_list2_top_p1">每千小时动设备故障停机时长（小时）</p>
+			</div>
+			<div class="Equipment_patrol_con1" id="malist2_4"></div>-->
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/echarts.min.js"></script>
+		<script src="js/maintenance.js"></script>
+	</body>
+
+</html>

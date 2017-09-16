@@ -1,0 +1,22 @@
+
+.itemName{
+	height: 30px;
+	width: 100%;
+	background: white;
+	color: #999;
+	text-align: center;
+	margin-top: 5px;
+	line-height: 40px;
+	font-size: 1rem;
+}
+
+.echartsContentFather{
+	height: 180px;
+	width: 100%;
+	background: white;
+	overflow: auto;
+}
+.echartsContent{
+	border: none;
+	
+}

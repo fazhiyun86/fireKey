@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<style>
+			.mui-bar-nav~.mui-content {
+				padding: 50px 0 5px 0;
+			}
+			
+			.Micro_task_tit a {
+				color: #666666;
+				font-size: 0.8rem;
+				width: 20%;
+			}
+			
+			.taskColorActive_fire {
+				border-bottom: 3px solid #DB4527;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav titBackg">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">动火作业</h1>
+		</header>
+		<div class="mui-content">
+			<nav class="mui-bar-tab">
+				<div class="Micro_task_tit">
+					<a href="Fire_Formally_work_xiangqing_1.html" class="taskColorActive_fire"><span>动火证</span></a>
+					<a href="Fire_Formally_work_xiangqing_2.html"><span>动前检查</span></a>
+					<a href="Fire_Formally_work_xiangqing_3.html"><span>动火巡检</span></a>
+					<a href="Fire_Formally_work_xiangqing_4.html"><span>施工清理</span></a>
+					<a href="Fire_Formally_work_xiangqing_5.html"><span>整改记录</span></a>
+				</div>
+		</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			var subpages = ['Fire_Formally_work_xiangqing_1.html', 'Fire_Formally_work_xiangqing_2.html', 'Fire_Formally_work_xiangqing_3.html', 'Fire_Formally_work_xiangqing_4.html', 'Fire_Formally_work_xiangqing_5.html'];
+			var id = ['Fire_Formally_work_xiangqing_1.html', 'Fire_Formally_work_xiangqing_2.html', 'Fire_Formally_work_xiangqing_3.html', 'Fire_Formally_work_xiangqing_4.html', 'Fire_Formally_work_xiangqing_5.html'];
+			var subpage_style = {
+				top: '83px',
+				bottom: '0'
+			};
+
+			var aniShow = {};
+
+			//创建子页面，首个选项卡页面显示，其它均隐藏；
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				var TaskGroupID = self.TaskGroupID;
+				var TaskName = self.TaskName;
+
+				for(var i = 0; i < 6; i++) {
+					var temp = {};
+					var sub = plus.webview.create(subpages[i], id[i], subpage_style);
+					if(i > 0) {
+						sub.hide();
+					} else {
+						temp[subpages[i]] = "true";
+						mui.extend(aniShow, temp);
+					}
+					self.append(sub);
+				}
+
+				//当前激活选项
+				var activeTab = subpages[0];
+				var title = document.getElementById("title");
+				//选项卡点击事件
+				mui('.Micro_task_tit').on('tap', 'a', function(e) {
+					var targetTab = this.getAttribute('href');
+					//var targetName = this.children[1].innerHTML;
+//					console.log(targetTab)
+
+					//if(targetTab == 'Micro_task_1.html' || targetTab == 'Micro_task_2.html'|| targetTab == 'Micro_task_3.html') {
+//					var reload = plus.webview.getWebviewById(targetTab);
+//					reload.reload();
+					//					}
+					
+					
+					
+				function WebApp_GetFireworkDetail() {
+					var PermitIDFire = localStorage.getItem('PermitIDFire');
+					var urlTask = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetFireworkDetail?dataKey=00-00-00-00&PermitID=' + PermitIDFire;
+					console.log(urlTask);
+					mui.ajax(urlTask, {
+						data: null,
+						dataType: 'json', //返回
+						type: 'get',
+						timeout: 5000,
+						success: function(data) {
+							var getDatas = data['DataSource']['Tables'][0]['Datas'];
+							var getDatas1 = data['DataSource']['Tables'][1]['Datas'];
+//							console.log(getDatas[0].FullName)
+							localStorage.setItem('dhwz',getDatas[0].FullName);
+							
+						},
+						error: function() {
+							//异常处理
+							mui.toast('数据请求失败')
+						}
+					})
+				}
+				WebApp_GetFireworkDetail();
+				
+
+					$('.Micro_task_tit').find('a').removeClass('taskColorActive_fire');
+					$(this).addClass('taskColorActive_fire');
+					//console.log(targetTab)
+					if(targetTab == activeTab) {
+						return;
+					}
+
+					//更换标题
+					//title.innerHTML = this.querySelector('.mui-tab-label').innerHTML;
+
+					//显示目标选项卡
+					//若为iOS平台或非首次显示，则直接显示
+					if(mui.os.ios || aniShow[targetTab]) {
+						plus.webview.show(targetTab);
+					} else {
+						//否则，使用fade-in动画，且保存变量
+						var temp = {};
+						temp[targetTab] = "true";
+						mui.extend(aniShow, temp);
+						plus.webview.show(targetTab, "fade-in", 250);
+					}
+					//隐藏当前;
+					plus.webview.hide(activeTab);
+					//更改当前活跃的选项卡
+					activeTab = targetTab;
+				});
+			});
+			//自定义事件，模拟点击“首页选项卡”
+			document.addEventListener('gohome', function() {
+				var defaultTab = document.getElementById("defaultTab");
+				//模拟首页点击
+				mui.trigger(defaultTab, 'tap');
+				//切换选项卡高亮
+				//				var current = document.querySelector(".mui-bar-tab>.mui-tab-item.mui-active");
+
+				if(defaultTab !== current) {
+					current.classList.remove('mui-active');
+					defaultTab.classList.add('mui-active');
+				}
+			});
+		</script>
+	</body>
+
+</html>

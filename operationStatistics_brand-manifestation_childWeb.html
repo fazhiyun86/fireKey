@@ -1,0 +1,346 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="css/operationStatistics.css"/>
+		<link rel="stylesheet" type="text/css" href="css/operationStatistics_brand_manifestation_childWeb.css"/>
+		<style>
+			section>.mui-bar-nav{
+				margin-top: 0.5rem;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<section class="header-for-time-area">
+			<div class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title" style="color: white;">厂商评价</h1>
+			</div>			
+		</section>
+		<div class="mui-content">
+		    <div class="item1"></div>
+		    <div class="itemName">2017年设备故障趋势</div>
+		    <div class="echartsContentFather">
+		    	<div class="echartsContent" id="item2"></div>
+		    </div>
+		    
+		    <div class="itemName">2017年设备故障率</div>
+		    <div class="echartsContentFather">
+		    	<div class="echartsContent" id="item3"></div>
+		    </div>
+		    
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/echarts.min.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				swipeBack: true,
+			});
+			mui.plusReady(function () {
+				var self = plus.webview.currentWebview();
+				function WebApp_GetBrandFailureRate(year,OrganiseUnitCode,Id) {
+					mui.ajax('http://'+localStorage.getItem("serverAddress")+':'+localStorage.getItem("portNum")+'/WebApi/DataExchange/GetData/WebApp_GetBrandFailureRate?dataKey=00-00-00-00&year=' + year + '&UnitCode=' + OrganiseUnitCode + '&ID=' + Id,{
+						data: null,
+						dataType : 'json',//返回
+						type : 'get',
+						timeout : 5000,	
+						success :  function (data) {
+							//服务器返回响应，根据响应结果，分析是否登陆成功
+							 var getDatas = data['DataSource']['Tables'][0]['Datas'];
+							 var html = '';
+							  if ( getDatas.length == 0) {
+								 	html = "<div class='checkStatistics_content'>"+					
+									"<dl>"+ 
+										"<img src='images/star1.png'>"+
+									"</dl>"+
+									"<dl>"+
+										"<dt><p>该公司目前暂无数据</p><p>出现故障</p><p>故障率</p></dt>"+
+										"<dd><p>无</p><p>0</p><p>0%</p></dd>"+
+									"</dl>"+
+									"<div>"+
+										"<span class='mui-icon '></span>"+
+									"</div>"+
+									"<input type = 'hidden' value =''>"+		
+								"</div>" 
+								 } else {
+							mui.each(getDatas,function (index,item) {
+									var imgSrc = item.logo;
+								 	if ( imgSrc == null || imgSrc == undefined || imgSrc == "") {
+								 		imgSrc = "images/star1.png";
+								 	} else {
+								 		imgSrc = "data:image/png;base64," + imgSrc;
+								 		};
+								 	html += "<div class='checkStatistics_content'>"+					
+									"<dl>"+ 
+										"<img src="+imgSrc+">"+
+									"</dl>"+
+									"<dl>"+
+										"<dt><p>"+item.enterprisename+"</p><p>出现故障</p><p>故障率</p></dt>"+
+										"<dd><p>"+item.Address+"</p><p>"+item.faultnum+"</p><p>"+item.rate+"%</p></dd>"+
+									"</dl>"+
+									"<div>"+
+										"<span class='mui-icon '></span>"+
+									"</div>"+
+									"<input type = 'hidden' value ='" + item.ID + "'>"+		
+								"</div>" 
+							});
+								 }
+							 
+							document.querySelector(".item1").innerHTML = html;
+						},
+						error : function () {
+							//异常处理 
+							mui.toast('数据请求失败')
+						}
+					})
+				}
+				WebApp_GetBrandFailureRate(self.year,self.OrganiseUnitCode,self.Id);
+				
+				
+				function item2 (year,OrganiseUnitCode,today,Id) {
+					mui.ajax('http://'+localStorage.getItem("serverAddress")+':'+localStorage.getItem("portNum")+'/WebApi/DataExchange/GetData/WebApp_Repair_Repair?dataKey=00-00-00-00&UnitCode='+ OrganiseUnitCode +'&ClassCode=&StartTime=' + year + '-1-1&EndTime=' + today + '&DateType=2&EnterpriseID='+Id,{
+						data : null,
+						dataType : 'json',//返回
+						type : 'get',
+						timeout : 5000,	
+						success :  function (data) {
+							//服务器返回响应，根据响应结果，分析是否登陆成功
+							 var getDatas = data['DataSource']['Tables'][0]['Datas'];
+							 var arr = [];
+							 var arrVal = [];
+							 mui.each(getDatas, function (index, item) {     
+			                   		arr.push(index+1);
+			                   		arrVal.push(item.Total);
+			                    });
+							
+							yunFirst(arr,arrVal)
+						
+					 },
+						error : function () {
+							//异常处理 
+							mui.toast('数据请求失败')
+						}
+					})
+				};
+				item2(self.year,self.OrganiseUnitCode,self.today,self.Id)
+				
+				function item3 (ApplicationID,year,OrganiseUnitCode,Id) {
+					var url = 'http://'+localStorage.getItem("serverAddress")+':'+localStorage.getItem("portNum")+'/WebApi/DataExchange/GetData/WebApp_GetEnterpriseFaultrePair?dataKey=00-00-00-00&&ApplicationID='+ApplicationID+'&year=' + year + '&UnitCode=' + OrganiseUnitCode + '&EnterpriseID=' + Id;	
+					mui.ajax(url,{
+						data : null,
+						dataType : 'json',//返回
+						type : 'get',
+						timeout : 5000,	
+						success :  function (data) {
+							//服务器返回响应，根据响应结果，分析是否登陆成功
+							 var getDatas = data['DataSource']['Tables'][0]['Datas'];
+							 var arr = [];
+							 var arrVal = [];
+							 mui.each(getDatas, function (index, item) {     
+			                 	  	arr.push(item.ClassName);
+			                 	  	arrVal.push(item.total);
+			                  });
+							
+							yunForth(arr,arrVal);
+						
+						 },
+						error : function () {
+							//异常处理 
+							mui.toast('数据请求失败') 
+						}
+					})
+				}
+
+				
+				item3(localStorage.getItem('ApplicationID'),self.year,self.OrganiseUnitCode,self.Id)
+				function yunFirst(arr,arrVal) {
+	  			document.getElementById('item2').style.width = (document.documentElement.clientWidth - 0) + 'px';
+	  			document.getElementById('item2').style.height = '180px';
+				var faultChart = echarts.init(document.getElementById("item2"));
+					option = {	
+						tooltip: {
+							show : true,
+							trigger: 'axis',
+							triggerOn : "click",
+							alwaysShowContent : false,
+							hideDelay :0,
+							axisPointer : {
+								type : "line",
+							},
+						},
+						
+						
+						grid: {
+							show : false,
+							left: '3%',
+							right: '4%',
+							bottom: '5%',
+							top : '8%',
+							containLabel: true,
+							
+						},
+						xAxis: [{
+							type: 'category',
+							boundaryGap: false,
+							axisLine:{
+								show:false,
+							},
+							axisTick:{
+								show:false,
+							},
+							axisLabel:{interval: 0,rotate:0,
+								textStyle : {
+									fontSize: 8,
+									color:'#999999'
+								}
+							},
+							data: arr,
+						}],
+						yAxis: [{
+							type: 'value',
+							axisLabel:{
+								textStyle:{
+									fontSize:11,
+									color:'#999999'
+								}
+							},
+							axisLine:{
+								show:false,
+								lineStyle:{
+									color:'#666666'
+								}
+							}
+						}],
+						series: [
+
+							{
+								name: '故障数',
+								type: 'line',
+								/*stack: '总量',*/
+								symbol : "emptyCircle",
+								label: {
+									normal: {
+										show: false,
+										position: 'top'
+									}
+								},
+								lineStyle : {
+									normal : {
+										color : "#3399cc",
+										width : 1,
+									}
+								},
+								areaStyle: {
+									/*normal: {
+										color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+										  offset: 0, color: '#5051fd' // 0% 处的颜色
+										}, {
+										  offset: 1, color: '#b8b8fe' // 100% 处的颜色
+										}], false)
+									},*/
+								},
+								data: arrVal,
+							}
+						]
+					};
+
+					faultChart.setOption(option);
+		}
+				
+		function yunForth (arr,arrVal) {
+			document.getElementById('item3').style.width = (document.documentElement.clientWidth - 0) + 'px';
+  			document.getElementById('item3').style.height = '180px';
+			var myChart = echarts.init(document.getElementById('item3'));
+			option = {
+				color: ['#6699cc'],
+				backgroundColor:'#ffffff',
+				tooltip: {
+					show:false,
+					showContent:false,
+					trigger: 'axis',
+					triggerOn:'click',
+					axisPointer: { // 坐标轴指示器，坐标轴触发有效
+						type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+					}
+				},
+				grid: {
+					left: '1%',
+					right: "3%",
+					bottom: '3%',
+					top:'8%',
+					height: "90%",
+					width: "95%",
+					containLabel: true
+				},
+				xAxis: [{
+		
+					type: 'category',
+					boundaryGap: true,
+					data: arr,
+					axisLabel:{interval: 0,rotate:0,
+								textStyle : {
+									fontSize: 8,
+									color:'#666'
+								}
+							},
+					axisTick: {
+						show:false,
+						alignWithLabel: true
+					},
+					axisLine:{
+						show:false
+					}
+				}],
+				yAxis: [{
+					type: 'value',
+					axisLine: {
+						show: false
+					},
+					axisTick:{
+						show:false
+					},
+					axisLabel: {
+						textStyle: {
+							color: "#666",
+							fontSize:11
+						}
+					},
+					splitLine: {
+						show: "false",
+						lineStyle: {
+							type: "solid",
+							color: "#cccccc"
+						}
+					},
+				}],
+				series: [{
+					name: '每千小时动设备故障停机时长',
+					type: 'bar',
+					barWidth: '70%',
+					data: arrVal,
+					label : {
+		            	normal : {
+		            		show : true,
+		            		position : 'top',
+		            		formatter: '{c} %'
+		            	}
+		            },
+				}]
+			};
+		
+			myChart.setOption(option);
+		};			
+				
+				
+				
+	})
+		</script>
+	</body>
+</html>

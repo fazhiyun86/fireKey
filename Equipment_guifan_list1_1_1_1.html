@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/imageViewer.css" />
+		<style>
+			.mui-bar-nav~.mui-content {
+				padding: 56px 0 5px 0;
+			}
+			
+			.Equipment_patrol_con_list {
+				/*padding: 0 1rem;*/
+			}
+			
+			.Equipment_patrol_con_list>p {
+				float: left;
+				width: 100%;
+				text-align: left;
+				/*margin-bottom: 0.2rem;*/
+			}
+			
+			.Equipment_patrol_con1 {
+				/*padding: 0.3rem 0 0.2rem 0;*/
+			}
+			
+			.Equipment_patrol_con1>div:first-child {
+				width: 3%;
+			}
+			
+			.Equipment_patrol_con1>div:nth-child(2) {
+				width: 97%;
+			}
+			
+			.Equipment_patrol_con_list p {
+				font-size: 0.8rem;
+			}
+			
+			.Equipment_patrol_1_1_con1 {
+				width: 100%!important;
+				/*padding-left: 3%;*/
+			}
+			
+			.Equipment_patrol_1_1_con1>div {
+				width: 100%!important;
+				float: left;
+			}
+			
+			.Equipment_patrol_1_1_con1>div p {
+				float: left;
+				text-align: left;
+				width: 100%;
+				color: #666666;
+				font-size: 0.75rem!important;
+				margin-bottom: 0!important;
+			}
+			
+			.Equipment_patrol_1_1_con1>div p:first-child {
+				width: 40%!important;
+				text-align: left;
+				white-space: initial;
+			}
+			
+			.Equipment_patrol_1_1_con1>div p:last-child {
+				width: 60%!important;
+				white-space: initial;
+			}
+			
+			.Equipment_patrol_1_1_con11 p span:nth-child(2) {
+				padding-left: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav titBackg">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">规范检查</h1>
+
+		</header>
+		<div class="mui-content Equipment_patrol_con">
+			<div class="Equipment_patrol_con_list">
+				<p id="Equipment_patrol111"></p>
+				<p id="Equipment_name1"></p>
+			</div>
+			<div class="Equipment_patrol_con1">
+
+				<div class="Equipment_patrol_1_1_con1">
+					<div>
+						<p id="patrol1"></p>
+						<p id="patrol2"></p>
+					</div>
+				</div>
+
+			</div>
+			<div class="Equipment_patrol_1_1_con11">
+				<div id="guifan1">
+					<!--<p>
+					<span><i class="iconfont icon-dangan1"></i><font >运行状态</font></span>
+					<span id="patrolfont1">运行</span>
+				</p>
+				<p><span><i class="iconfont icon-dangan1"></i><font>空压机油水分分离器及排水</font></span><span id="patrolfont2">正常</span></p>
+				<p><span><i class="iconfont icon-dangan1"></i><font>传动皮带松紧状态及设备接地情况</font></span><span id="patrolfont3">良好</span></p>
+				<p><span><i class="iconfont icon-dangan1"></i><font>电机轴承润滑油液位高度</font></span><span id="patrolfont4">27.23℃</span></p>
+				<p><span><i class="iconfont icon-iconshandianfahuo active-org"></i><font>清洁过滤器和油水分离器排污</font></span><span class="active-org" id="patrolfont5">异常</span></p>-->
+				</div>
+				<p class="Equipment_patrol_1_1_con11_img" id="patrol_img">
+					<!--<span >
+						<img src="images/1.png" style="height: 3.5rem;"/>
+						<font style="word-break:break-all;">12312312312312312312312</font>
+					</span>-->
+				</p>
+				<p class="Equipment_patrol_1_1_con11_img" id="patrol_video">
+					<!--<span class="eqVideo">
+						<img src="images/1.png" style="height: 3.5rem;"/>
+						<font style="word-break:break-all;">12312312312312312312312</font>
+					</span>-->
+				</p>
+				<p class="Equipment_patrol_1_1_con11_img" id="patrol_mp3">
+					<!--<span class="Micro_task_pspan_img" style="    margin-top: 0;width:98%!important;display:block;">
+					<audio style="height: 40px;width:100%;" src=""controls="controls">
+					</span>-->
+				</p>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/Equipment_guifan_list1_1_1_1.js"></script>
+		<script src="js/mui.zoom.js"></script>
+		<script src="js/mui.previewimage.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</body>
+
+</html>

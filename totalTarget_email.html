@@ -1,0 +1,303 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/totalTarget-email.css"/>
+		<style>
+			.mui-bar .mui-icon {
+				margin-top: -10px;
+				padding-top: 0;
+			}
+			
+			.mui-bar .mui-title {
+				margin-top: -20px;
+			}
+			
+			.nav>div {
+				height: 40px;
+			}
+			
+			.nav>div>p {
+				height: 41px;
+				line-height: 44px;
+			}
+			
+			.num {
+				right: 7px;
+				top: 10px;
+			}
+			.taskName{
+				margin-bottom: 0.5rem;
+				font-size: 1.15rem;
+			}
+			.taskTime{
+				margin-bottom: 0;
+				color: #999999;
+			}
+			.emailDd{
+				color: #999999;
+			}
+		</style>
+	</head>
+
+	<body id="body">
+		<section class="header-for-time-area">
+			<div class="mui-bar mui-bar-nav">
+				<!--<span class="mui-icon mui-icon-arrowleft mui-pull-left" id="back"></span>-->
+				<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+				<h1 class="mui-title" style="color: white;">消息通知</h1>
+			</div>	
+		</section>
+		<div class="mui-content"> 
+			<nav class="nav">
+				<div class="left_nav"><p class="active a" style="color: #666666;font-size: 1.15rem;">业务消息</p><span class="" id="messageNum"><!--6--></span></div>	
+				<div class="right_nav "><p class="a"  style="color: #666666;font-size: 1.15rem;">系统消息</p><span class="" id="sysMessageNum"><!--9--></span></div>
+			</nav>
+			<div class='contentBusiness' id="contentBusiness">
+			
+				<!--<dl class="contentArticle contentArticleLeft">
+					<dt class="emailDt">
+						<p class="taskName">消防设施安全周检查任务</p>
+						<p class="taskTime">2017年12月28日</p>
+					</dt>
+					<dd class="emailDd">计划任务,任务时期:2017年12月8日至2017年12月20日</dd>
+				</dl>
+				<dl class="contentArticle contentArticleLeft">
+					<dt class="emailDt">
+						<p class="taskName">消防设施安全周检查任务</p>
+						<p class="taskTime">2017年12月28日</p>
+					</dt>
+					<dd class="emailDd">计划任务,任务时期:2017年12月8日至2017年12月20日</dd>
+				</dl>
+				<dl class="contentArticle contentArticleLeft">
+					<dt class="emailDt">
+						<p class="taskName">消防设施安全周检查任务</p>
+						<p class="taskTime">2017年12月28日</p>
+					</dt>
+					<dd class="emailDd">计划任务,任务时期:2017年12月8日至2017年12月20日</dd>
+				</dl>-->
+				<!--<div class="contentArticle contentArticleRight">
+					<p class="systemTaskName">17年第四季度巡检人员系统次培训</p>
+					<p class="systemTaskContent">17年第四季度巡检人员系统次培训17年第四季度巡检人员系统次培训17年第四季度巡检人员系统次培训</p>
+					<div class="systemTaskDetail">
+						<p>安全处</p>
+						<p>发布:张常友</p>
+						<p>2017-12-1 16:43:00</p>
+					</div>
+				</div>-->
+			</div>
+		</div>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript">
+		mui.init({
+			swipeBack: false,
+			
+		});
+		mui.plusReady(function() {	
+//			document.querySelector('#back').addEventListener('tap',function (){
+//				mui.back(); 
+				
+//			});
+			
+			function WebApp_GetMessageList (UnitCode) {
+				mui.ajax('http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetMessageList?dataKey=00-00-00-00&UnitCode=' + UnitCode, {
+					data: null,
+					dataType: 'json', //返回
+					type: 'get',
+					timeout: 5000,
+					success: function(data) {
+						//服务器返回响应，根据响应结果，分析是否登陆成功
+						var getDatas = data['DataSource']['Tables'][0]['Datas'];
+						var html = '';
+//						console.log(JSON.stringify(getDatas))
+						if ( getDatas.length == 0) {
+//							document.getElementById('messageNum').innerHTML = 0;
+							html =  "<dl class='contentArticle contentArticleLeft'>" + 
+									"<dt class='emailDt'>" +
+										"<p class='taskName messagewu' style='text-align: center;height:23px;'><span>暂无消息</span></p>" +
+										"<p class='taskTime'></p>" +
+									"</dt>" +
+									"<dd class='emailDd'></dd>" +
+							"</dl>"		
+					
+						document.getElementById('contentBusiness').innerHTML = html;
+							
+						}else {
+//							document.getElementById('messageNum').innerHTML = getDatas.length;
+
+							mui.each(getDatas, function(index, item) {	
+								html +=  "<dl class='contentArticle contentArticleLeft'>" + 
+										"<input type = 'hidden' value = " + item.TaskDataKey + ">" +
+										"<input type = 'hidden' value = " + item.OperType + ">" +
+										"<dt class='emailDt'>" +
+											"<p class='taskName'>" + item.TaskName +"</p>" +
+//											"<p class='taskTime'>任务类型:"+ item.TaskType + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;消息时间:" + item.PublishDate +"</p>" +
+											"<p class='taskTime'>消息时间:" + item.PublishDate+"</p>"+
+										"</dt>" +
+										"<dd class='emailDd'>"+ item.TaskTime +"</dd>" +
+								"</dl>"		
+							});
+							document.getElementById('contentBusiness').innerHTML = html; 
+							}
+						
+					},
+					error: function() {
+						//异常处理 
+						mui.toast('数据请求失败')
+					}
+				});
+				
+				mui.ajax('http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetSysMessageList?dataKey=00-00-00-00&PublishDate=' + localStorage.getItem('time'), {
+					data: null,
+					dataType: 'json', //返回
+					type: 'get',
+					timeout: 5000,
+					success: function(data) {
+						//服务器返回响应，根据响应结果，分析是否登陆成功
+						var getDatas = data['DataSource']['Tables'][0]['Datas'];
+						var html = '';
+//						document.getElementById('sysMessageNum').innerHTML = getDatas.length;
+					},
+					error: function() {
+						//异常处理
+						mui.toast('数据请求失败')
+					}
+				});		
+			}
+			WebApp_GetMessageList(localStorage.getItem('UnitCode'))
+			function WebApp_GetSysMessageList (time) {
+				mui.ajax('http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetSysMessageList?dataKey=00-00-00-00&PublishDate=' + time, {
+					data: null,
+					dataType: 'json', //返回
+					type: 'get',
+					timeout: 5000,
+					success: function(data) {
+						//服务器返回响应，根据响应结果，分析是否登陆成功
+						var getDatas = data['DataSource']['Tables'][0]['Datas'];
+						var html = '';
+						if ( getDatas.length == 0){
+//							document.getElementById('sysMessageNum').innerHTML = getDatas.length;
+								html =  "<div class='contentArticle contentArticleRight'>" +
+											"<p class='systemTaskName messagewu' style='text-align: center;height:20px;'><span>暂无消息</span></p>" +
+											"<p class='systemTaskContent'></p>" +
+											"<div class='systemTaskDetail'>" +
+												"<p></p>" + 
+												"<p></p>" +
+												"<p></p>" +
+											"</div>" +
+										"</div>" 
+						
+							document.getElementById('contentBusiness').innerHTML = html;
+								
+							
+						} else {
+//							document.getElementById('sysMessageNum').innerHTML = getDatas.length;
+							mui.each(getDatas, function(index, item) {	
+								html +=  "<div class='contentArticle contentArticleRight'>" +
+											"<input type = 'hidden' value = " + item.MessageID + ">" +
+											"<p class='systemTaskName'>"+item.MessageTitle +"</p>" +
+											"<p class='systemTaskContent'>" + item.Content + "</p>" +
+											"<div class='systemTaskDetail'>" +
+												"<p>"+ item.OrganiseUnitName +"</p>" + 
+												"<p>" +"发布:"+ item.Publisher+ "</p>" +
+												"<p>" + item.PublishDate + "</p>" +
+											"</div>" +
+										"</div>" 
+							});
+							document.getElementById('contentBusiness').innerHTML = html;
+						}
+					},
+					error: function() {
+						//异常处理
+						mui.toast('数据请求失败')
+					}
+				});
+			};
+			mui('.nav').on('tap','div',function (){
+				for ( var i = 0; i < document.getElementsByClassName('a').length; i ++) {
+					document.getElementsByClassName('a')[i].className = 'a';
+				}
+				this.firstChild.className = 'a active'; 
+				if(this.firstChild.innerHTML == '业务消息'){
+					WebApp_GetMessageList(localStorage.getItem('UnitCode'));
+				}
+				if (this.firstChild.innerHTML == '系统消息'){
+					WebApp_GetSysMessageList(localStorage.getItem('time'));
+				}
+				
+				
+			})
+			//修改返回键
+			/*plus.key.addEventListener("backbutton",function (){
+					mui.fire(plus.webview.currentWebview().opener(),"dtpicker:close");
+				});*/
+				
+			mui('.contentBusiness').on('tap','.contentArticleLeft',function () {
+				mui.openWindow({
+					url : 'totalTarget_email_business.html',
+					id  : 'totalTarget_email_business.html',
+					extras:{
+						TaskDataKey : this.firstChild.value,
+						OperType    : this.firstChild.nextSibling.value,
+					},
+					show : {
+						 autoShow:true,//页面loaded事件发生后自动显示，默认为true
+					     aniShow:'slide-in-right',//页面显示动画，默认为”slide-in-right“；
+					     duration:200//页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+					},
+				    waiting:{
+				      autoShow:true,//自动显示等待框，默认为true
+				      title:'正在加载',//等待对话框上显示的提示内容
+				    }
+				});
+			});
+			mui('.contentBusiness').on('tap','.contentArticleRight',function () {
+				mui.openWindow({
+					url : 'totalTarget_email_system.html',
+					id  : 'totalTarget_email_system.html',
+					show : {
+						 autoShow:true,//页面loaded事件发生后自动显示，默认为true
+					     aniShow:'slide-in-right',//页面显示动画，默认为”slide-in-right“；
+					     duration:200//页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+					},
+				    waiting:{
+				      autoShow:true,//自动显示等待框，默认为true
+				      title:'正在加载',//等待对话框上显示的提示内容
+				     },
+					extras:{
+						MessageID : this.firstChild.value,
+					}
+				});
+			})
+				
+			
+			function changeContent(){
+				mui.ajax();
+			}
+			
+				//提示退出应用
+			var backcount = 0;
+			mui.back = function() {
+				if(mui.os.ios) return;
+				if(backcount > 0) {
+					if(window.plus) plus.runtime.quit();
+					return;
+				};
+				mui.toast('再点一次退出应用');
+				backcount++; 
+				setTimeout(function() {
+					backcount = 0;
+				}, 2000);
+			};
+
+		})
+				
+	</script>
+
+</html>

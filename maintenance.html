@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<style>
+			.mui-bar-nav~.mui-content {
+				padding: 50px 0 5px 0;
+			}
+			
+			.Micro_task_tit a {
+				color: #666666;
+				font-size: 0.8rem;
+			}
+			
+			#address11 {
+				width: 100%;
+				text-align: left;
+				/*padding: 0 0 0 1rem;*/
+				margin: 0;
+			}
+			
+			.Equipment_patrol_con1 div p {
+				float: left;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			
+			.Equipment_patrol_ccon2 {
+				width: 100%;
+			}
+			
+			.Equipment_patrol_ccon2 p {
+				padding-left: 0;
+			}
+			
+			.Equipment_patrol_ccon2 p:first-child {
+				margin: 0!important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav titBackg">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">设备运维</h1>
+			<!--<a id='searchCode' class="mui-icon mui-icon-search equipStatus_search"></a>-->
+			<!--<a class="mui-icon mui-icon-search"></a>-->
+		</header>
+		<script src="js/mui.min.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				//				gestureConfig: {
+				//					doubletap: true
+				//				},
+				subpages: [{
+					url: 'maintenance_Pullup.html',
+					id: 'maintenance_Pullup.html',
+					styles: {
+						top: '0',
+						bottom: '0px',
+					}
+				}]
+			});
+
+			var contentWebview = null;
+			document.querySelector('header').addEventListener('doubletap', function() {
+				if(contentWebview == null) {
+					contentWebview = plus.webview.currentWebview().children()[0];
+				}
+				contentWebview.evalJS("mui('#Equipment_patrol_con1').pullRefresh().scrollTo(0,0,100)");
+			});
+		</script>
+	</body>
+
+</html>
