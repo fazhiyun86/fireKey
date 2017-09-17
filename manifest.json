@@ -379,7 +379,8 @@
 					"maintenance.html",
 					"Danger_Rectification.html",
 					"Inspect_Maintain.html",
-					"Equipment_guifan_pull_main.html"
+					"Equipment_guifan_pull_main.html",
+					"Risk_height.html"
 				],
 				"priority": 0
 			},
@@ -1737,6 +1738,14 @@
 			"Equipment_patrol_PullupC.html": {
 				"resources": [
 					"js/Equipment_PullupC.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Risk_height.html": {
+				"resources": [
+					"css/Equipment_state.css",
+					"images/header_base_01.png"
 				],
 				"refer": [],
 				"priority": 0
