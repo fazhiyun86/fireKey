@@ -234,15 +234,15 @@ input {
 	background: #FFFFFF;
 	margin-top: 10px;
 	padding: 10px 7px 0 0.8rem;
-	border-radius: 4px;
-	/* border: 1px solid #CFCFCF; */
-	box-shadow: 0 1px 5px #999999;
+	/*border-radius: 4px;*/
+	 border: 1px solid #CFCFCF; 
+	/*box-shadow: 0 1px 5px #999999;*/
 }
-
+/*左边的颜色 s*/
+/*
 .index_list_content>div:first-child {
 	margin-top: 0;
 	border-left: 5px solid #61FF00;
-	/*height: 7.78rem;*/
 }
 
 .index_list_content>div:nth-child(3) {
@@ -271,7 +271,8 @@ input {
 
 .index_list_content>div:nth-child(9) {
 	border-left: 5px solid #2A5CAA;
-}
+}*/
+/*左边的颜色 s*/
 
 .index_list_content .index_list_content_may{
 	font-family: "Microsoft YaHei";
@@ -306,6 +307,7 @@ input {
 	padding-left: 11px;
 	/*background: sandybrown;*/
 }
+
 
 .index_list_content_may .index_list_content_may_two>p {
 	width: 17%;
@@ -353,6 +355,35 @@ input {
 .index_list_content_may,
 .index_list_content_maymore {
 	overflow: hidden;
+	position: relative;
+}
+.index_list_content_maymore::before {
+	width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid red;
+	display: inline-block;
+	content: " ";
+	position: absolute;
+	right: -1px;
+	top: -5px;
+	z-index: 100;
+	transform: rotate(-45deg);
+}
+.index_list_content_maymore::after {
+	width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid red;
+	display: inline-block;
+	content: " ";
+	position: absolute;
+	left: -1px;
+	bottom: -5px;
+	z-index: 100;
+	transform: rotate(-45deg); 
 }
 
 .index_list_content_maymore .index_list_content_maymore_first {
@@ -391,6 +422,7 @@ input {
 	width: 33.3%;
 	float: left;
 	margin-bottom: 0.4rem;
+	text-align: center
 }
 
 .index_list_content_maymore .index_list_content_maymore_three>p span {
@@ -454,7 +486,8 @@ input {
 	background: url(../images/login_01_01.png);
 	background-repeat: no-repeat;
 	background-size: 100%;
-	height: 174px;
+	/*height: 174px;*/
+	height: 90px;
 }
 
 .scroll_top {
@@ -1711,4 +1744,41 @@ canvas {
 }
 .dataDcl{ 
 	border-bottom: 2px solid #FF0000; 
+}
+
+
+/*list页面内容布局*/
+.list_main_flex {
+	display: flex;
+	color: #000000;
+}
+.flex_left {
+	padding-left: 10px;
+	padding-top: 20px;
+}
+.flex_left > span {
+	font-size: 30px!important;
+	color: #228B22; 
+}
+.flex_left > p {
+	font-size: 0.69rem;
+}
+.flex_item {
+	flex-grow: 1;
+}
+.flex_item2 {
+	flex-grow: 2;	
+}
+.flex_item2 > p {
+	float: left;
+	width: 50%;
+	text-align: center;
+	margin-bottom: 0px;
+}
+.right_num {
+	font-size: 18px;
+}
+.right_desc {
+	font-size: 0.69rem;
+	color: #999999;
 }
