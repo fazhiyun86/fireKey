@@ -194,21 +194,24 @@ input {
 }
 
 .tit_text_list .tit_text_list_sp1 {
-	float: left;
+	float: left;	
 }
 
 .tit_text_list .tit_text_list_sp2 {
-	float: right;
+	/*width: 49px;
+	padding-right: 0;*/
+	float: left;
+	margin-left:129px ;
 }
 
 .tit_text_list font {
-	float: left;
 	display: block;
+	float: right;
 	height: 1.25rem;
 	line-height: 1.4rem;
 	font-size: 1rem;
 	font-weight: 600;
-	padding-right: 3px;
+	/*margin-left: 2rem;*/
 }
 
 .tit_text_list_con {
@@ -270,75 +273,82 @@ input {
 	border-left: 5px solid #2A5CAA;
 }
 
-.index_list_content_may .index_list_content_may_first {
+.index_list_content .index_list_content_may{
 	font-family: "Microsoft YaHei";
 	font-size: 0.9rem;
 	width: 100%;
-	padding-left: 5px;
+	padding-left: 1rem;
+	padding-bottom: 1rem;
 	color: #494949;
 }
 
+.index_list_content_may .index_list_content_may_first {
+	width: 77%!important;
+}
+
+.index_list_content_may
+.index_list_content_may_three>img {
+	width: 2.5rem;
+}
+
 .index_list_content_may .index_list_content_may_two {
-	width: 55%;
-	/*height: 115px;*/
+	width: 77%!important;
+	width: 25.5%;
 	float: left;
-	/*background: darkcyan;*/
+	padding: 12px 0 0 3px;
 }
 
 .index_list_content_may .index_list_content_may_three {
-	width: 45%;
-	/*height: 115px;*/
-	/*padding-top: 5px;*/
-	margin-top: -0.5rem;
+	width: 23%;
 	float: left;
+	/*padding-top: 36px;*/
+	text-align: left;
+	padding-left: 11px;
+	/*background: sandybrown;*/
 }
 
 .index_list_content_may .index_list_content_may_two>p {
-	width: 50%;
+	width: 17%;
 	float: left;
-	/*height: 50px;*/
-	margin: 0;
-	padding-top: 0.7rem;
-	padding-left: 5px;
-	text-align: left;
-	padding-left: 1rem;
+	margin-bottom: 0.4rem;
+	margin-left: 1rem;
 }
 
-.index_list_content_may .index_list_content_may_two>p:nth-child(2n) {
-	text-align: center!important;
-	padding-left: 1.3rem;
+.index_list_content_may .index_list_content_may_two>p:first-child{
+	margin-left: 0;
 }
+/*.index_list_content_may .index_list_content_may_two>p:nth-child(2n) {
+	/*text-align: center!important;
+	padding-left: 1.3rem;*/
+/*}*/
 
 .index_list_content_may .index_list_content_may_two>p span {
 	display: block;
-	float: left;
 	width: 100%;
 }
 
 .index_list_content_may .index_list_content_may_two>p span:first-child {
-	font-size: 1.3rem;
+	font-size: 1.4rem;
 	color: #494949;
-	text-align: left;
-	line-height: 0.8rem;
-	/*padding-left: 16%;*/
 }
 
 .index_list_content_may .index_list_content_may_two>p span:last-child {
 	font-size: 0.69rem;
+	margin-top: 0.3rem;
+	white-space: nowrap;
 	color: #999999;
-	text-align: left;
 }
 
-.index_list_content_may .index_list_content_may_three>p {
+/*.index_list_content_may .index_list_content_may_three>p {
 	/*background: yellow;*/
-}
+/*}*/
 
-.index_list_content_may .index_list_content_may_three>p span {
+/*.index_list_content_may .index_list_content_may_three>p span {
 	display: block;
 	float: left;
 	width: 100%;
 	color: #494949;
-}
+}*/
 
 .index_list_content_may,
 .index_list_content_maymore {
