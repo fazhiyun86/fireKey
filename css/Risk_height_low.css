@@ -57,6 +57,7 @@
 	flex-grow: 2;	
 }
 
+
 .flex_left {
 	padding-left: 10px;
 	padding-top: 20px;
@@ -77,7 +78,7 @@
 }
 .right_num {
 	font-size: 18px;
-	display: block;
+	display: block!important;
 }
 .right_desc {
 	font-size: 0.69rem;

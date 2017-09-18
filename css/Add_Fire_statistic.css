@@ -9,6 +9,7 @@
 	border: 1px solid #ccc;
 	padding: 5px;
 	margin-bottom: 10px;
+	width: 100%;
 }
 .box-item > h2 {
 	font-size: 1rem;

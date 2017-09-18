@@ -189,7 +189,7 @@ input {
 }
 
 .tit_text_list span {
-	/*display: block;*/
+	display: block;
 	font-family: "Microsoft YaHei";
 }
 

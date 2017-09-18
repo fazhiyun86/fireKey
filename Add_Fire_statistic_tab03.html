@@ -100,7 +100,7 @@
 							<!--<div id="Equipment_patrol_con1">
 								
 							</div>-->
-							<div id="certificSend" class="content-wrap">
+							<div id="" class="content-wrap">
 								<section class="box-item">
 									<h2>本周总数量</h2>
 									<div id="weekSum1" style="width: 100%;height:150px;"></div>
@@ -216,11 +216,7 @@
 		</script>
 		
 		<script>
-//				$(".mui-scroll-wrapper").scroll({
-//					bounce: false,//滚动条是否有弹力默认是true
-//					indicators: false, //是否显示滚动条,默认是true
-//				});
-			(function($){
+			mui.ready(function () {
 				var myChart1 = echarts.init(document.getElementById('weekSum1'));
 				var myChart2 = echarts.init(document.getElementById('weekSum2'));
 				var myChart3 = echarts.init(document.getElementById('weekSum3'));
@@ -268,7 +264,57 @@
 				indicators: false, //是否显示滚动条,默认是true
 				
 				});
-	        })(mui)
+			})
+			
+//			(function($){
+//				var myChart1 = echarts.init(document.getElementById('weekSum1'));
+//				var myChart2 = echarts.init(document.getElementById('weekSum2'));
+//				var myChart3 = echarts.init(document.getElementById('weekSum3'));
+//				
+//				option = {
+//				    tooltip : {
+//				        trigger: 'item',
+//				        formatter: "{a} <br/>{b} : {c} ({d}%)"
+//				    },
+//				    legend: {
+//				        orient: 'vertical',
+//				        right: 'right',
+//				        data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+//				    },
+//				    series : [
+//				        {
+//				            name: '访问来源',
+//				            type: 'pie',
+//				            radius : '55%',
+//				            center: ['35%', '60%'],
+//				            data:[
+//				                {value:335, name:'直接访问'},
+//				                {value:310, name:'邮件营销'},
+//				                {value:234, name:'联盟广告'},
+//				                {value:135, name:'视频广告'},
+//				                {value:1548, name:'搜索引擎'}
+//				            ],
+//				            itemStyle: {
+//				                emphasis: {
+//				                    shadowBlur: 10,
+//				                    shadowOffsetX: 0,
+//				                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+//				                }
+//				            }
+//				        }
+//				    ]
+//				};
+//
+//		        myChart1.setOption(option);
+//		        myChart2.setOption(option);
+//		        myChart3.setOption(option);
+//		        
+//	        	$(".mui-scroll-wrapper").scroll({
+//				bounce: false,//滚动条是否有弹力默认是true
+//				indicators: false, //是否显示滚动条,默认是true
+//				
+//				});
+//	        })(mui)
 		</script>
 	</body>
 
