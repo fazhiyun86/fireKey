@@ -1,1494 +1,1494 @@
 {
-	"login.html": {
-		"resources": [
-			"images/user.png",
-			"css/login.css",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"js/login.js",
-			"css/mui.min.css",
-			"images/119logo.png",
-			"images/password.png",
-			"images/systemImg.png",
-			"images/systemImg1.png",
-			"js/jquery.min.js"
-		],
-		"refer": [
-			"main.html"
-		]
-	},
-	"main.html": {
-		"resources": [
-			"js/app.js",
-			"tab-webview-subpage-about.html",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"tab-webview-subpage-setting.html",
-			"index.html",
-			"list.html",
-			"js/jquery.min.js",
-			"images/m2.png",
-			"images/m4.png",
-			"images/m3.png",
-			"images/m1-1.png",
-			"images/m2-1.png",
-			"images/m3-1.png",
-			"images/m4-1.png",
-			"js/area.js",
-			"totalTarget_email.html"
-		],
-		"refer": [
-			"setting.html",
-			"tab-webview-subpage-setting.html",
-			"tab-webview-subpage-chat.html",
-			"tab-webview-subpage-contact.html",
-			"index.html",
-			"message.html",
-			"list.html",
-			"Password_edit.html",
-			"totalTarget_email.html",
-			"Micro_task.html"
-		]
-	},
-	"setting.html": {
-		"resources": [
-			"libs/easymob-webim-sdk/easemob.im-1.0.5.js",
-			"libs/easymob-webim-sdk/json2.js",
-			"libs/easymob-webim-sdk/jquery-1.11.1.js",
-			"js/mui.locker.js",
-			"js/feedback.js",
-			"css/feedback-page.css",
-			"js/feedback-page.js",
-			"libs/easymob-webim-sdk/strophe-custom-2.0.0.js",
-			"js/mui.view.js"
-		],
-		"refer": []
-	},
-	"tab-webview-main.html": {
-		"resources": [
-			"tab-webview-subpage-about.html",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"tab-webview-subpage-about.html",
-			"tab-webview-subpage-setting.html",
-			"tab-webview-subpage-chat.html",
-			"tab-webview-subpage-contact.html"
-		]
-	},
-	"tab-webview-subpage-contact.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/mui.min.css"
-		],
-		"refer": []
-	},
-	"tab-webview-subpage-about.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/mui.min.css"
-		],
-		"refer": []
-	},
-	"index.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/login_01_01.png",
-			"fonts/mui.ttf",
-			"images/donghuozuoye.png",
-			"images/shebeixunjian.png",
-			"images/shebeiyunwei.png",
-			"images/guifanjiancha.png",
-			"images/yinhuanzhenggai.png",
-			"images/zhengzhaozizhi.png",
-			"images/jianxiubaoyang.png",
-			"js/radialIndicator.min.js",
-			"js/jquery.min.js",
-			"js/radialIndicator.js",
-			"images/jing.png",
-			"fire.html",
-			"Equipment_state.html",
-			"js/index.js",
-			"js/area.js",
-			"js/searchCode.js",
-			"css/11438.ttf",
-			"images/donghuo11.png",
-			"images/guifanjiancha11.png",
-			"images/shebeixunjian11.png",
-			"images/zhengzhaozizhi11.png",
-			"images/shebeiyunwei11.png",
-			"images/yinhuanzhenggai11.png",
-			"images/jianxiubaoyang11.png"
-		],
-		"refer": [
-			"fire.html",
-			"state.html",
-			"Equipment_state.html",
-			"Equipment_patrol.html",
-			"Licence_adopt.html",
-			"area.html",
-			"Equipment_state_query.html",
-			"Scancode.html",
-			"Fire_work.html",
-			"Equipment_state_Account.html",
-			" Equipment_guifan.html",
-			"Equipment_guifan.html",
-			"Fire_Formally_work.html",
-			"maintenance.html",
-			"Danger_Rectification.html",
-			"Inspect_Maintain.html",
-			"Equipment_guifan_pull_main.html",
-			"Risk_height.html"
-		]
-	},
-	"list.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/mui.min.css"
-		],
-		"refer": []
-	},
-	"state.html": {
-		"resources": [
-			"images/header_base_01.png",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/style.css",
-			"js/echarts.common.min.js"
-		],
-		"refer": []
-	},
-	"Equipment_state.html": {
-		"resources": [
-			"images/header_base_01.png",
-			"js/echarts.common.min.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/style.css",
-			"js/echarts.min.js",
-			"js/Equipment_state.js",
-			"images/5.png",
-			"css/Equipment_state.css",
-			"images/1.png",
-			"images/jing.png",
-			"images/login_01_01.png",
-			"js/area.js",
-			"js/searchCode.js"
-		],
-		"refer": [
-			"Equipment_state_Account.html",
-			"Equipment_state_query.html",
-			"Scancode.html"
-		]
-	},
-	"Equipment_state_Account.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"js/echarts.common.min.js",
-			"fonts/mui.ttf",
-			"js/Equipment_state_Account.js",
-			"css/Equipment_state_Account.css"
-		],
-		"refer": [
-			"Equipment_state_query.html"
-		]
-	},
-	"Equipment_state_query.html": {
-		"resources": [
-			"css/iconfont.css",
-			"css/iconfont.woff",
-			"js/echarts.min.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"Equipment_state_query_page1.html",
-			"js/jquery.min.js",
-			"css/iconfont.ttf",
-			"js/Equipment_state_query.js"
-		],
-		"refer": [
-			"Equipment_state_query_page2.html",
-			"Equipment_state_query_page3.html",
-			"Equipment_state_query_page4.html",
-			"Equipment_state_query_page5.html",
-			"Equipment_state_query_page1.html"
-		]
-	},
-	"Equipment_state_query_page2.html": {
-		"resources": [
-			"js/echarts.min.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"css/iconfont.woff",
-			"images/header_base_01.png",
-			"css/iconfont.ttf",
-			"js/Equipment_state_query_page2.js"
-		],
-		"refer": []
-	},
-	"Equipment_state_query_page1.html": {
-		"resources": [
-			"js/echarts.min.js",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"css/style.css",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/iconfont.woff",
-			"images/header_base_01.png",
-			"js/jquery.min.js",
-			"js/Equipment_state_query_page1.js"
-		],
-		"refer": []
-	},
-	"Equipment_state_query_page3.html": {
-		"resources": [
-			"js/echarts.min.js",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"js/Equipment_state_query_page3.js"
-		],
-		"refer": []
-	},
-	"Equipment_state_query_page4.html": {
-		"resources": [
-			"js/echarts.min.js",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"js/Equipment_state_query_page4.js"
-		],
-		"refer": []
-	},
-	"Equipment_state_query_page5.html": {
-		"resources": [
-			"js/echarts.min.js",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"js/Equipment_state_query_page5.js"
-		],
-		"refer": []
-	},
-	"Equipment_patrol.html": {
-		"resources": [
-			"css/iconfont.css",
-			"css/iconfont.woff",
-			"images/header_base_01.png",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"css/style.css",
-			"fonts/mui.ttf",
-			"css/iconfont.ttf",
-			"js/Equipment_patrol.js",
-			"Equipment_patrol_child.html",
-			"Equipment_patrol_Pullup.html",
-			"Equipment_patrol_PullupA.html"
-		],
-		"refer": [
-			"Equipment_patrol_list1.html",
-			"Equipment_patrol_list1_1.html",
-			"Equipment_patrol_child.html",
-			"Equipment_patrol_Pullup.html",
-			"Equipment_patrol_PullupA.html"
-		]
-	},
-	"Equipment_patrol_list1.html": {
-		"resources": [
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"css/iconfont.woff",
-			"images/header_base_01.png",
-			"css/iconfont.ttf"
-		],
-		"refer": [
-			"Equipment_patrol_list1_1.html"
-		]
-	},
-	"Equipment_patrol_list1_1.html": {
-		"resources": [
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"css/iconfont.woff",
-			"images/header_base_01.png",
-			"js/Equipment_patrol_list1_1.js",
-			"js/jquery.min.js",
-			"Equipment_patrol_list1_1_child.html",
-			"Equipment_patrol_list1_1_Pullup.html",
-			"js/Equipment_patrol_list1_1_Pullup.js"
-		],
-		"refer": [
-			"Equipment_patrol_list1_1_1.html",
-			"Equipment_patrol_list1_1_child.html",
-			"Equipment_patrol_list1_1_Pullup.html"
-		]
-	},
-	"Equipment_patrol_list1_1_1.html": {
-		"refer": [
-			"Equipment_patrol_list1_1_1_1.html"
-		],
-		"resources": [
-			"fonts/mui.ttf",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"js/Equipment_patrol_list1_1_1.js"
-		]
-	},
-	"Licence_adopt.html": {
-		"resources": [
-			"images/header_base_01.png",
-			"css/fire.css",
-			"css/iconfont.css",
-			"css/iconfont.woff",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"css/style.css",
-			"fonts/mui.ttf",
-			"images/linqi.png",
-			"images/guoqi.png",
-			"Licence_adopt_page1.html",
-			"Licence_adopt_page2.html",
-			"Licence_adopt_page3.html",
-			"js/jquery.min.js"
-		],
-		"refer": [
-			"Equipment_state_query_page4.html",
-			"Licence_adopt_page1.html",
-			"Licence_adopt_page3.html",
-			"Licence_adopt_page2.html"
-		]
-	},
-	"Licence_adopt_page1.html": {
-		"resources": [
-			"images/guoqi.png",
-			"images/linqi.png",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"js/Licence_adopt.js",
-			"js/Licence_adopt1.js",
-			"Licence_adopt_page1_Pullup.html",
-			"js/Licence_adopt1_Publlup.js"
-		],
-		"refer": [
-			"Licence_adopt_page1_Pullup.html"
-		]
-	},
-	"Licence_adopt_page2.html": {
-		"resources": [
-			"images/guoqi.png",
-			"images/linqi.png",
-			"js/Licence_adopt1.js",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"js/Licence_adopt2.js",
-			"Licence_adopt_page2_Pullup.html"
-		],
-		"refer": [
-			"Licence_adopt_page2_Pullup.html"
-		]
-	},
-	"Licence_adopt_page3.html": {
-		"resources": [
-			"images/guoqi.png",
-			"images/linqi.png",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"js/Licence_adopt3.js",
-			"Licence_adopt_page3_Pullup.html"
-		],
-		"refer": [
-			"Licence_adopt_page3_Pullup.html"
-		]
-	},
-	"Equipment_patrol_list1_1_1_1.html": {
-		"resources": [
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"css/iconfont.woff",
-			"images/119logo.png",
-			"js/Equipment_patrol_list1_1_1_1.js",
-			"css/iconfont.ttf",
-			"js/mui.zoom.js",
-			"css/imageViewer.css",
-			"js/mui.previewimage.js",
-			"js/jquery.min.js"
-		],
-		"refer": [
-			"Video.html"
-		]
-	},
-	"area.html": {
-		"resources": [
-			"images/totalTarget_area.png",
-			"css/area.css",
-			"images/systemImg.png",
-			"images/totalTarget_userImg.png",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css"
-		],
-		"refer": []
-	},
-	"Scancode.html": {
-		"resources": [
-			"images/scan_qrcode_3_.png",
-			"css/base.css",
-			"css/totalTarget_equipRefer.css",
-			"images/scan_qrcode_2_.png",
-			"images/scan_qrcode_1_.png",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"images/header_base_01.png"
-		],
-		"refer": [
-			"Equipment_state_query.html"
-		]
-	},
-	"Fire_work.html": {
-		"resources": [
-			"css/fire.css",
-			"images/header_base_01.png",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"js/echarts.min.js",
-			"js/Fire_work.js",
-			"css/iconfont.css",
-			"css/iconfont.woff",
-			"css/iconfont.ttf",
-			"css/iconfont.svg"
-		],
-		"refer": [
-			"Equipment_patrol_list1_1_1.html",
-			"Fire_xiangqing.html"
-		]
-	},
-	"Password_edit.html": {
-		"resources": [
-			"images/header_base_01.png",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/user-photo.png"
-		],
-		"refer": [
-			"login.html"
-		]
-	},
-	"totalTarget_email.html": {
-		"refer": [
-			"totalTarget_email_business.html",
-			"totalTarget_email_system.html"
-		],
-		"resources": [
-			"css/totalTarget-email.css",
-			"css/base.css",
-			"images/header_base_01.png",
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"fonts/mui.ttf"
-		]
-	},
-	"Fire_xiangqing.html": {
-		"resources": [
-			"js/Fire_xiangqing.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"js/jquery.min.js",
-			"css/iconfont.woff",
-			"css/iconfont.ttf"
-		],
-		"refer": [
-			"Equipment_patrol_list1_1_1_1.html",
-			"Fire_work_1_1_1.html",
-			"Fire_work1_1_1_1.html"
-		]
-	},
-	"totalTarget_email_business.html": {
-		"resources": [
-			"css/base.css",
-			"css/totalTarget_email_business.css",
-			"css/mui.min.css",
-			"fonts/mui.ttf",
-			"js/mui.min.js",
-			"images/header_base_01.png"
-		]
-	},
-	" Equipment_guifan.html": {
-		"resources": [
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"js/Equipment_patrol.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"css/iconfont.woff",
-			"images/header_base_01.png",
-			"js/Equipment_guifanl.js"
-		]
-	},
-	"Equipment_guifan_list1_1.html": {
-		"resources": [
-			"js/Equipment_guifan_list1_1.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png"
-		],
-		"refer": [
-			"Equipment_guifan_list1_1_1.html"
-		]
-	},
-	"Equipment_guifan.html": {
-		"resources": [
-			"js/Equipment_guifanl.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"css/iconfont.woff",
-			"images/header_base_01.png",
-			"js/Equipment_guifan.js",
-			"js/jquery.min.js",
-			"images/loading.gif",
-			"css/iconfont.ttf",
-			"Equipment_guifan_Pullup.html"
-		],
-		"refer": [
-			"Equipment_guifan_list1_1.html",
-			"Equipment_guifan_Pullup.html"
-		]
-	},
-	"Equipment_guifan_list1_1_1.html": {
-		"resources": [
-			"js/Equipment_patrol_list1_1_1.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"js/Equipment_guifan_list1_1_1.js"
-		],
-		"refer": [
-			"Equipment_guifan_list1_1_1_1.html"
-		]
-	},
-	"Equipment_guifan_list1_1_1_1.html": {
-		"resources": [
-			"js/Equipment_patrol_list1_1_1_1.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"js/Equipment_guifan_list1_1_1_1.js",
-			"css/iconfont.woff",
-			"images/119logo.png",
-			"css/imageViewer.css",
-			"js/mui.zoom.js",
-			"js/mui.previewimage.js",
-			"images/1.png",
-			"js/jquery.min.js",
-			"images/shipin.png"
-		],
-		"refer": [
-			"Video.html"
-		]
-	},
-	"Micro_task.html": {
-		"refer": [
-			"Equipment_patrol_list1_1.html",
-			"Micro_task_1.html",
-			"Micro_task_3.html",
-			"Micro_task_2.html"
-		],
-		"resources": [
-			"fonts/mui.ttf",
-			"css/iconfont.woff",
-			"images/header_base_01.png",
-			"js/mui.min.js",
-			"js/Equipment_patrol.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"Micro_task_1.html",
-			"js/jquery.min.js",
-			"Micro_task_2.html",
-			"js/Micro_task_1.js"
-		]
-	},
-	"Micro_task_2.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"css/iconfont.woff",
-			"js/mui.min.js",
-			"js/Equipment_patrol.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"Micro_task_1.html",
-			"images/header_base_01.png",
-			"css/iconfont.ttf",
-			"js/Micro_task_2.js"
-		],
-		"refer": [
-			"Micro_task_1.html",
-			"Micro_task_3.html",
-			"Micro_task_2_list.html"
-		]
-	},
-	"Micro_task_1.html": {
-		"resources": [
-			"css/iconfont.woff",
-			"fonts/mui.ttf",
-			"js/mui.min.js",
-			"js/Equipment_patrol.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"Micro_task_2.html",
-			"css/iconfont.ttf",
-			"js/Micro_task_1.js"
-		],
-		"refer": [
-			"Equipment_patrol_list1_1.html",
-			"Micro_task_3.html",
-			"Micro_task_2.html",
-			"Micro_task_1_list.html"
-		]
-	},
-	"Micro_task_3.html": {
-		"resources": [
-			"js/Equipment_patrol.js",
-			"fonts/mui.ttf",
-			"css/iconfont.woff",
-			"images/header_base_01.png",
-			"Micro_task_1.html",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"css/iconfont.ttf",
-			"js/Micro_task_3.js",
-			"js/Guid.js",
-			"js/Uuid.js",
-			"js/mui.picker.min.js",
-			"css/mui.picker.min.css"
-		],
-		"refer": [
-			"Micro_task_1.html",
-			"Micro_task_2.html"
-		]
-	},
-	"Micro_task_1_list.html": {
-		"resources": [
-			"js/Equipment_patrol.js",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"css/iconfont.woff",
-			"fonts/mui.ttf",
-			"images/header_base_01.png",
-			"images/119logo.png",
-			"images/1.png",
-			"js/Micro_task_1_list.js",
-			"js/mui.zoom.js",
-			"js/mui.previewimage.js",
-			"css/imageViewer.css",
-			"js/jquery.min.js",
-			"images/shipin.png"
-		],
-		"refer": [
-			"Video.html",
-			"VideoWei.html"
-		]
-	},
-	"Micro_task_2_list.html": {
-		"resources": [
-			"images/1.png",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"js/Equipment_patrol.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/119logo.png",
-			"images/header_base_01.png",
-			"css/iconfont.woff",
-			"css/iconfont.ttf",
-			"js/Micro_task_2_list.js",
-			"js/mui.zoom.js",
-			"js/mui.previewimage.js",
-			"css/imageViewer.css",
-			"js/jquery.min.js",
-			"images/shipin.png"
-		],
-		"refer": [
-			"Video.html"
-		]
-	},
-	"Fire_work1_1_1_1.html": {
-		"resources": [
-			"js/Fire_work1_1_1_1.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"css/iconfont.woff"
-		]
-	},
-	"Equipment_patrol_list1_1_child.html": {
-		"resources": [
-			"js/Equipment_patrol_list1_1_child.js",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css"
-		]
-	},
-	"Equipment_patrol_child.html": {
-		"resources": [
-			"js/Equipment_patrol_child.js",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"css/iconfont.woff",
-			"images/loading.gif",
-			"js/jquery.min.js"
-		],
-		"refer": [
-			"Equipment_patrol_list1_1.html"
-		]
-	},
-	"Fire_Formally_work.html": {
-		"resources": [
-			"css/mui.min.css",
-			"css/style.css",
-			"js/Fire_Formally_work.js",
-			"js/Equipment_patrol_child.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/iconfont.woff",
-			"images/header_base_01.png",
-			"Fire_Formally_work_Pullup.html"
-		],
-		"refer": [
-			"Fire_Formally_work_xiangqing.html",
-			"Fire_Formally_work_Pullup.html"
-		]
-	},
-	"Fire_Formally_work_xiangqing_4.html": {
-		"resources": [
-			"Micro_task_1.html",
-			"js/jquery.min.js",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"js/mui.zoom.js",
-			"css/imageViewer.css",
-			"js/mui.previewimage.js",
-			"images/119logo.png"
-		],
-		"refer": [
-			"Micro_task_1.html",
-			"Micro_task_3.html",
-			"Micro_task_2.html"
-		]
-	},
-	"Fire_Formally_work_xiangqing_3.html": {
-		"resources": [
-			"Micro_task_1.html",
-			"js/jquery.min.js",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"js/mui.zoom.js",
-			"css/imageViewer.css",
-			"js/mui.previewimage.js",
-			"images/119logo.png",
-			"images/shipin.png"
-		],
-		"refer": [
-			"Micro_task_1.html",
-			"Micro_task_3.html",
-			"Micro_task_2.html",
-			"Video.html"
-		]
-	},
-	"Fire_Formally_work_xiangqing_5.html": {
-		"resources": [
-			"Micro_task_1.html",
-			"js/jquery.min.js",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"js/mui.zoom.js",
-			"css/imageViewer.css",
-			"js/mui.previewimage.js",
-			"images/119logo.png",
-			"images/shipin.png"
-		],
-		"refer": [
-			"Micro_task_1.html",
-			"Micro_task_3.html",
-			"Micro_task_2.html",
-			"Video.html"
-		]
-	},
-	"Fire_Formally_work_xiangqing_2.html": {
-		"resources": [
-			"Micro_task_1.html",
-			"js/jquery.min.js",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"js/mui.zoom.js",
-			"css/imageViewer.css",
-			"js/mui.previewimage.js",
-			"images/119logo.png",
-			"images/shipin.png"
-		],
-		"refer": [
-			"Micro_task_1.html",
-			"Micro_task_3.html",
-			"Micro_task_2.html",
-			"Video.html"
-		]
-	},
-	"Fire_Formally_work_xiangqing.html": {
-		"resources": [
-			"Fire_Formally_work_xiangqing_1.html",
-			"js/jquery.min.js",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"fonts/mui.ttf"
-		],
-		"refer": [
-			"Fire_Formally_work_xiangqing_4.html",
-			"Fire_Formally_work_xiangqing_3.html",
-			"Fire_Formally_work_xiangqing_5.html",
-			"Fire_Formally_work_xiangqing_2.html",
-			"Fire_Formally_work_xiangqing_1.html"
-		]
-	},
-	"Fire_Formally_work_xiangqing_1.html": {
-		"resources": [
-			"js/jquery.min.js",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"js/mui.zoom.js",
-			"css/imageViewer.css",
-			"js/mui.previewimage.js",
-			"js/Micro_task_1_list.js",
-			"fonts/mui.ttf"
-		]
-	},
-	"maintenance.html": {
-		"resources": [
-			"Micro_task_1.html",
-			"js/jquery.min.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"maintenance_list1.html",
-			"maintenance_list3.html",
-			"maintenance_list2.html",
-			"maintenance_Pullup.html"
-		],
-		"refer": [
-			"Micro_task_1.html",
-			"Micro_task_3.html",
-			"Micro_task_2.html",
-			"maintenance_list2.html",
-			"maintenance_list3.html",
-			"maintenance_list1.html",
-			"maintenance_Pullup.html"
-		]
-	},
-	"maintenance_list2.html": {
-		"resources": [
-			"Micro_task_1.html",
-			"js/jquery.min.js",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"js/echarts.min.js",
-			"js/maintenance.js",
-			"css/iconfont.woff",
-			"maintenance.html"
-		],
-		"refer": [
-			"Micro_task_1.html",
-			"Micro_task_3.html",
-			"Micro_task_2.html",
-			"maintenance.html"
-		]
-	},
-	"maintenance_list3.html": {
-		"resources": [
-			"Micro_task_1.html",
-			"js/jquery.min.js",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"js/maintenance.js",
-			"images/119logo.png",
-			"maintenance.html",
-			"images/guoqi.png",
-			"images/exit.png",
-			"images/feilei_1.png",
-			"images/systemImg1.png",
-			"images/star1.png",
-			"css/iconfont.woff"
-		],
-		"refer": [
-			"Micro_task_1.html",
-			"Micro_task_3.html",
-			"Micro_task_2.html",
-			"maintenance.html",
-			"maintenance_list3_1.html",
-			"operationStatistics_brand-manifestation_childWeb.html"
-		]
-	},
-	"maintenance_list1.html": {
-		"resources": [
-			"Micro_task_1.html",
-			"js/jquery.min.js",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"fonts/mui.ttf",
-			"images/header_base_01.png"
-		],
-		"refer": [
-			"Micro_task_1.html",
-			"Micro_task_3.html",
-			"Micro_task_2.html",
-			"maintenance_list1_1.html"
-		]
-	},
-	"maintenance_list1_1.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"fonts/mui.ttf",
-			"images/header_base_01.png",
-			"images/119logo.png",
-			"css/imageViewer.css",
-			"js/mui.zoom.js",
-			"js/jquery.min.js",
-			"js/mui.previewimage.js",
-			"images/shipin.png"
-		],
-		"refer": [
-			"peijian.html",
-			"Video.html"
-		]
-	},
-	"peijian.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"js/mui.min.js"
-		]
-	},
-	"maintenance_list3_1.html": {
-		"resources": [
-			"css/mui.min.css",
-			"css/style.css"
-		]
-	},
-	"operationStatistics_brand-manifestation_childWeb.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"css/operationStatistics_brand_manifestation_childWeb.css",
-			"css/operationStatistics.css",
-			"css/base.css",
-			"css/mui.min.css"
-		]
-	},
-	"Danger_Rectification.html": {
-		"resources": [
-			"css/mui.min.css",
-			"css/style.css",
-			"Danger_Rectification_child.html",
-			"fonts/mui.ttf",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"images/header_base_01.png",
-			"Danger_Rectification_Pullup.html"
-		],
-		"refer": [
-			"Danger_Rectification_child.html",
-			"Danger_Rectification_Pullup.html"
-		]
-	},
-	"Danger_Rectification_child.html": {
-		"resources": [
-			"js/Danger_Rectification_child.js",
-			"css/mui.min.css",
-			"css/style.css",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/iconfont.woff"
-		],
-		"refer": [
-			"Danger_Rectification_1.html"
-		]
-	},
-	"Danger_Rectification_1.html": {
-		"resources": [
-			"js/mui.zoom.js",
-			"js/Danger_Rectification_1.js",
-			"css/imageViewer.css",
-			"fonts/mui.ttf",
-			"js/mui.previewimage.js",
-			"images/119logo.png",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"images/1.png",
-			"js/jquery.min.js",
-			"images/shipin.png"
-		],
-		"refer": [
-			"Video.html"
-		]
-	},
-	"Inspect_Maintain.html": {
-		"resources": [
-			"Inspect_Maintain_1.html",
-			"Equipment_patrol_child.html",
-			"css/mui.min.css",
-			"css/style.css",
-			"Inspect_Maintain_Pullup.html",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"images/header_base_01.png"
-		],
-		"refer": [
-			"Inspect_Maintain_1.html",
-			"Equipment_patrol_child.html",
-			"Inspect_Maintain_Pullup.html",
-			"Equipment_patrol_Pullup.html"
-		]
-	},
-	"Inspect_Maintain_1.html": {
-		"resources": [
-			"js/Inspect_Maintain_1.js"
-		]
-	},
-	"Equipment_guifan_pull_main.html": {
-		"resources": [
-			"js/Equipment_guifan.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"css/iconfont.woff",
-			"images/header_base_01.png",
-			"Equipment_guifan.html"
-		],
-		"refer": [
-			"Equipment_guifan.html"
-		]
-	},
-	"Equipment_guifan_Pullup.html": {
-		"resources": [
-			"js/Equipment_guifan.js",
-			"css/mui.min.css",
-			"css/style.css",
-			"js/jquery.min.js",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/iconfont.woff",
-			"fonts/mui.ttf"
-		],
-		"refer": [
-			"Equipment_guifan_list1_1.html"
-		]
-	},
-	"Equipment_patrol_Pullup.html": {
-		"resources": [
-			"css/mui.min.css",
-			"css/style.css",
-			"images/loading.gif",
-			"js/Equipment_patrol_child.js",
-			"js/Equipment_Pullup.js",
-			"css/iconfont.woff",
-			"js/jquery.min.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/iconfont.ttf"
-		],
-		"refer": [
-			"Equipment_patrol_list1_1.html"
-		]
-	},
-	"Danger_Rectification_Pullup.html": {
-		"resources": [
-			"js/Danger_Rectification_Pullup.js",
-			"css/mui.min.css",
-			"css/style.css",
-			"css/iconfont.woff",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"js/jquery.min.js"
-		],
-		"refer": [
-			"Danger_Rectification_1.html"
-		]
-	},
-	"Fire_Formally_work_Pullup.html": {
-		"resources": [
-			"js/Fire_Formally_work_Pullup.js",
-			"css/mui.min.css",
-			"css/style.css",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/iconfont.woff"
-		],
-		"refer": [
-			"Fire_Formally_work_xiangqing.html"
-		]
-	},
-	"maintenance_Pullup.html": {
-		"resources": [
-			"css/mui.min.css",
-			"css/style.css",
-			"maintenance_list1_Pullup.html",
-			"maintenance_list1.html",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"js/jquery.min.js",
-			"fonts/mui.ttf",
-			"images/header_base_01.png",
-			"maintenance_list2.html"
-		],
-		"refer": [
-			"maintenance_list2.html",
-			"maintenance_list1_Pullup.html",
-			"maintenance_list3.html",
-			"maintenance_list1.html"
-		]
-	},
-	"Inspect_Maintain_Pullup.html": {
-		"resources": [
-			"js/Inspect_Maintain_Pullup.js",
-			"js/jquery.min.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"css/iconfont.woff",
-			"css/iconfont.ttf"
-		],
-		"refer": [
-			"Equipment_patrol_list1_1.html",
-			"Inspect_Maintain_list1_1.html"
-		]
-	},
-	"Inspect_Maintain_list1_1.html": {
-		"resources": [
-			"js/Inspect_Maintain_list1_1.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png"
-		],
-		"refer": [
-			"Equipment_patrol_list1_1_1.html",
-			"Inspect_Maintain_list1_1_1.html"
-		]
-	},
-	"Inspect_Maintain_list1_1_1.html": {
-		"resources": [
-			"js/Inspect_Maintain_list1_1_1.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png"
-		],
-		"refer": [
-			"Equipment_patrol_list1_1_1_1.html",
-			"Inspect_Maintain_list1_1_1_1.html"
-		]
-	},
-	"Inspect_Maintain_list1_1_1_1.html": {
-		"resources": [
-			"js/Inspect_Maintain_list1_1_1_1.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"js/mui.zoom.js",
-			"js/mui.previewimage.js",
-			"css/imageViewer.css",
-			"js/jquery.min.js",
-			"images/shipin.png",
-			"css/iconfont.woff"
-		],
-		"refer": [
-			"Video.html"
-		]
-	},
-	"totalTarget_email_system.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"css/totalTarget_email_system.css",
-			"css/base.css",
-			"css/mui.min.css",
-			"images/header_base_01.png",
-			"js/mui.min.js"
-		]
-	},
-	"Equipment_patrol_list1_1_Pullup.html": {
-		"resources": [
-			"js/Equipment_patrol_list1_1_Pullup.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png"
-		]
-	},
-	"Licence_adopt_page1_Pullup.html": {
-		"resources": [
-			"js/Licence_adopt1.js",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"js/Licence_adopt1_Publlup.js",
-			"fonts/mui.ttf",
-			"images/linqi.png",
-			"images/guoqi.png"
-		]
-	},
-	"Licence_adopt_page2_Pullup.html": {
-		"resources": [
-			"js/Licence_adopt2.js",
-			"js/mui.min.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"js/Licence_adopt2_Pullup.js",
-			"fonts/mui.ttf",
-			"images/guoqi.png",
-			"images/linqi.png"
-		]
-	},
-	"Licence_adopt_page3_Pullup.html": {
-		"resources": [
-			"js/mui.min.js",
-			"js/Licence_adopt3_Pullup.js",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"fonts/mui.ttf",
-			"images/linqi.png",
-			"images/guoqi.png"
-		]
-	},
-	"Video.html": {
-		"resources": [
-			"css/mui.min.css",
-			"css/style.css",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"images/header_base_01.png"
-		]
-	},
-	"VideoWei.html": {
-		"resources": [
-			"css/mui.min.css",
-			"css/style.css",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"images/header_base_01.png"
-		]
-	},
-	"Equipment_patrol_PullupA.html": {
-		"resources": [
-			"js/Equipment_PullupA.js",
-			"css/iconfont.woff",
-			"js/jquery.min.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css"
-		],
-		"refer": [
-			"Equipment_patrol_list1_1.html",
-			"Equipment_patrol_PullupB.html",
-			"Equipment_patrol_PullupC.html",
-			"login.html"
-		]
-	},
-	"Equipment_patrol_PullupB.html": {
-		"resources": [
-			"js/Equipment_PullupB.js",
-			"js/jquery.min.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css",
-			"css/iconfont.woff",
-			"images/header_base_01.png"
-		]
-	},
-	"Equipment_patrol_PullupC.html": {
-		"resources": [
-			"js/Equipment_PullupC.js"
-		]
-	},
-	"Risk_height.html": {
-		"resources": [
-			"css/Equipment_state.css",
-			"images/header_base_01.png",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/style.css",
-			"js/searchCode.js",
-			"css/Risk_height_low.css"
-		],
-		"refer": [
-			"Risk_height_1.html"
-		]
-	},
-	"Risk_height_4.html": {
-		"resources": [
-			"images/119logo.png",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"js/searchCode.js",
-			"css/Risk_height_low.css"
-		]
-	},
-	"Risk_height_1.html": {
-		"refer": [
-			"Risk_height_2.html"
-		]
-	},
-	"Risk_height_3.html": {
-		"refer": [
-			"Risk_height_4.html"
-		]
-	},
-	"Risk_height_2.html": {
-		"refer": [
-			"Risk_height_3.html"
-		],
-		"resources": [
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"js/searchCode.js",
-			"css/Risk_height_low.css"
-		]
-	}
+  "login.html": {
+    "resources": [
+      "images/user.png",
+      "css/login.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "js/login.js",
+      "css/mui.min.css",
+      "images/119logo.png",
+      "images/password.png",
+      "images/systemImg.png",
+      "images/systemImg1.png",
+      "js/jquery.min.js"
+    ],
+    "refer": [
+      "main.html"
+    ]
+  },
+  "main.html": {
+    "resources": [
+      "js/app.js",
+      "tab-webview-subpage-about.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "tab-webview-subpage-setting.html",
+      "index.html",
+      "list.html",
+      "js/jquery.min.js",
+      "images/m2.png",
+      "images/m4.png",
+      "images/m3.png",
+      "images/m1-1.png",
+      "images/m2-1.png",
+      "images/m3-1.png",
+      "images/m4-1.png",
+      "js/area.js",
+      "totalTarget_email.html"
+    ],
+    "refer": [
+      "setting.html",
+      "tab-webview-subpage-setting.html",
+      "tab-webview-subpage-chat.html",
+      "tab-webview-subpage-contact.html",
+      "index.html",
+      "message.html",
+      "list.html",
+      "Password_edit.html",
+      "totalTarget_email.html",
+      "Micro_task.html"
+    ]
+  },
+  "setting.html": {
+    "resources": [
+      "libs/easymob-webim-sdk/easemob.im-1.0.5.js",
+      "libs/easymob-webim-sdk/json2.js",
+      "libs/easymob-webim-sdk/jquery-1.11.1.js",
+      "js/mui.locker.js",
+      "js/feedback.js",
+      "css/feedback-page.css",
+      "js/feedback-page.js",
+      "libs/easymob-webim-sdk/strophe-custom-2.0.0.js",
+      "js/mui.view.js"
+    ],
+    "refer": []
+  },
+  "tab-webview-main.html": {
+    "resources": [
+      "tab-webview-subpage-about.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "tab-webview-subpage-about.html",
+      "tab-webview-subpage-setting.html",
+      "tab-webview-subpage-chat.html",
+      "tab-webview-subpage-contact.html"
+    ]
+  },
+  "tab-webview-subpage-contact.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "tab-webview-subpage-about.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "index.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/login_01_01.png",
+      "fonts/mui.ttf",
+      "images/donghuozuoye.png",
+      "images/shebeixunjian.png",
+      "images/shebeiyunwei.png",
+      "images/guifanjiancha.png",
+      "images/yinhuanzhenggai.png",
+      "images/zhengzhaozizhi.png",
+      "images/jianxiubaoyang.png",
+      "js/radialIndicator.min.js",
+      "js/jquery.min.js",
+      "js/radialIndicator.js",
+      "images/jing.png",
+      "fire.html",
+      "Equipment_state.html",
+      "js/index.js",
+      "js/area.js",
+      "js/searchCode.js",
+      "css/11438.ttf",
+      "images/donghuo11.png",
+      "images/guifanjiancha11.png",
+      "images/shebeixunjian11.png",
+      "images/zhengzhaozizhi11.png",
+      "images/shebeiyunwei11.png",
+      "images/yinhuanzhenggai11.png",
+      "images/jianxiubaoyang11.png"
+    ],
+    "refer": [
+      "fire.html",
+      "state.html",
+      "Equipment_state.html",
+      "Equipment_patrol.html",
+      "Licence_adopt.html",
+      "area.html",
+      "Equipment_state_query.html",
+      "Scancode.html",
+      "Fire_work.html",
+      "Equipment_state_Account.html",
+      " Equipment_guifan.html",
+      "Equipment_guifan.html",
+      "Fire_Formally_work.html",
+      "maintenance.html",
+      "Danger_Rectification.html",
+      "Inspect_Maintain.html",
+      "Equipment_guifan_pull_main.html",
+      "Risk_height.html"
+    ]
+  },
+  "list.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "state.html": {
+    "resources": [
+      "images/header_base_01.png",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/echarts.common.min.js"
+    ],
+    "refer": []
+  },
+  "Equipment_state.html": {
+    "resources": [
+      "images/header_base_01.png",
+      "js/echarts.common.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/echarts.min.js",
+      "js/Equipment_state.js",
+      "images/5.png",
+      "css/Equipment_state.css",
+      "images/1.png",
+      "images/jing.png",
+      "images/login_01_01.png",
+      "js/area.js",
+      "js/searchCode.js"
+    ],
+    "refer": [
+      "Equipment_state_Account.html",
+      "Equipment_state_query.html",
+      "Scancode.html"
+    ]
+  },
+  "Equipment_state_Account.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "js/echarts.common.min.js",
+      "fonts/mui.ttf",
+      "js/Equipment_state_Account.js",
+      "css/Equipment_state_Account.css"
+    ],
+    "refer": [
+      "Equipment_state_query.html"
+    ]
+  },
+  "Equipment_state_query.html": {
+    "resources": [
+      "css/iconfont.css",
+      "css/iconfont.woff",
+      "js/echarts.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "Equipment_state_query_page1.html",
+      "js/jquery.min.js",
+      "css/iconfont.ttf",
+      "js/Equipment_state_query.js"
+    ],
+    "refer": [
+      "Equipment_state_query_page2.html",
+      "Equipment_state_query_page3.html",
+      "Equipment_state_query_page4.html",
+      "Equipment_state_query_page5.html",
+      "Equipment_state_query_page1.html"
+    ]
+  },
+  "Equipment_state_query_page2.html": {
+    "resources": [
+      "js/echarts.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/iconfont.woff",
+      "images/header_base_01.png",
+      "css/iconfont.ttf",
+      "js/Equipment_state_query_page2.js"
+    ],
+    "refer": []
+  },
+  "Equipment_state_query_page1.html": {
+    "resources": [
+      "js/echarts.min.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/style.css",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/iconfont.woff",
+      "images/header_base_01.png",
+      "js/jquery.min.js",
+      "js/Equipment_state_query_page1.js"
+    ],
+    "refer": []
+  },
+  "Equipment_state_query_page3.html": {
+    "resources": [
+      "js/echarts.min.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/Equipment_state_query_page3.js"
+    ],
+    "refer": []
+  },
+  "Equipment_state_query_page4.html": {
+    "resources": [
+      "js/echarts.min.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/Equipment_state_query_page4.js"
+    ],
+    "refer": []
+  },
+  "Equipment_state_query_page5.html": {
+    "resources": [
+      "js/echarts.min.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/Equipment_state_query_page5.js"
+    ],
+    "refer": []
+  },
+  "Equipment_patrol.html": {
+    "resources": [
+      "css/iconfont.css",
+      "css/iconfont.woff",
+      "images/header_base_01.png",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/style.css",
+      "fonts/mui.ttf",
+      "css/iconfont.ttf",
+      "js/Equipment_patrol.js",
+      "Equipment_patrol_child.html",
+      "Equipment_patrol_Pullup.html",
+      "Equipment_patrol_PullupA.html"
+    ],
+    "refer": [
+      "Equipment_patrol_list1.html",
+      "Equipment_patrol_list1_1.html",
+      "Equipment_patrol_child.html",
+      "Equipment_patrol_Pullup.html",
+      "Equipment_patrol_PullupA.html"
+    ]
+  },
+  "Equipment_patrol_list1.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/iconfont.woff",
+      "images/header_base_01.png",
+      "css/iconfont.ttf"
+    ],
+    "refer": [
+      "Equipment_patrol_list1_1.html"
+    ]
+  },
+  "Equipment_patrol_list1_1.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/iconfont.woff",
+      "images/header_base_01.png",
+      "js/Equipment_patrol_list1_1.js",
+      "js/jquery.min.js",
+      "Equipment_patrol_list1_1_child.html",
+      "Equipment_patrol_list1_1_Pullup.html",
+      "js/Equipment_patrol_list1_1_Pullup.js"
+    ],
+    "refer": [
+      "Equipment_patrol_list1_1_1.html",
+      "Equipment_patrol_list1_1_child.html",
+      "Equipment_patrol_list1_1_Pullup.html"
+    ]
+  },
+  "Equipment_patrol_list1_1_1.html": {
+    "refer": [
+      "Equipment_patrol_list1_1_1_1.html"
+    ],
+    "resources": [
+      "fonts/mui.ttf",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "js/Equipment_patrol_list1_1_1.js"
+    ]
+  },
+  "Licence_adopt.html": {
+    "resources": [
+      "images/header_base_01.png",
+      "css/fire.css",
+      "css/iconfont.css",
+      "css/iconfont.woff",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/style.css",
+      "fonts/mui.ttf",
+      "images/linqi.png",
+      "images/guoqi.png",
+      "Licence_adopt_page1.html",
+      "Licence_adopt_page2.html",
+      "Licence_adopt_page3.html",
+      "js/jquery.min.js"
+    ],
+    "refer": [
+      "Equipment_state_query_page4.html",
+      "Licence_adopt_page1.html",
+      "Licence_adopt_page3.html",
+      "Licence_adopt_page2.html"
+    ]
+  },
+  "Licence_adopt_page1.html": {
+    "resources": [
+      "images/guoqi.png",
+      "images/linqi.png",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/Licence_adopt.js",
+      "js/Licence_adopt1.js",
+      "Licence_adopt_page1_Pullup.html",
+      "js/Licence_adopt1_Publlup.js"
+    ],
+    "refer": [
+      "Licence_adopt_page1_Pullup.html"
+    ]
+  },
+  "Licence_adopt_page2.html": {
+    "resources": [
+      "images/guoqi.png",
+      "images/linqi.png",
+      "js/Licence_adopt1.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/Licence_adopt2.js",
+      "Licence_adopt_page2_Pullup.html"
+    ],
+    "refer": [
+      "Licence_adopt_page2_Pullup.html"
+    ]
+  },
+  "Licence_adopt_page3.html": {
+    "resources": [
+      "images/guoqi.png",
+      "images/linqi.png",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/Licence_adopt3.js",
+      "Licence_adopt_page3_Pullup.html"
+    ],
+    "refer": [
+      "Licence_adopt_page3_Pullup.html"
+    ]
+  },
+  "Equipment_patrol_list1_1_1_1.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "css/iconfont.woff",
+      "images/119logo.png",
+      "js/Equipment_patrol_list1_1_1_1.js",
+      "css/iconfont.ttf",
+      "js/mui.zoom.js",
+      "css/imageViewer.css",
+      "js/mui.previewimage.js",
+      "js/jquery.min.js"
+    ],
+    "refer": [
+      "Video.html"
+    ]
+  },
+  "area.html": {
+    "resources": [
+      "images/totalTarget_area.png",
+      "css/area.css",
+      "images/systemImg.png",
+      "images/totalTarget_userImg.png",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "Scancode.html": {
+    "resources": [
+      "images/scan_qrcode_3_.png",
+      "css/base.css",
+      "css/totalTarget_equipRefer.css",
+      "images/scan_qrcode_2_.png",
+      "images/scan_qrcode_1_.png",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/header_base_01.png"
+    ],
+    "refer": [
+      "Equipment_state_query.html"
+    ]
+  },
+  "Fire_work.html": {
+    "resources": [
+      "css/fire.css",
+      "images/header_base_01.png",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/echarts.min.js",
+      "js/Fire_work.js",
+      "css/iconfont.css",
+      "css/iconfont.woff",
+      "css/iconfont.ttf",
+      "css/iconfont.svg"
+    ],
+    "refer": [
+      "Equipment_patrol_list1_1_1.html",
+      "Fire_xiangqing.html"
+    ]
+  },
+  "Password_edit.html": {
+    "resources": [
+      "images/header_base_01.png",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/user-photo.png"
+    ],
+    "refer": [
+      "login.html"
+    ]
+  },
+  "totalTarget_email.html": {
+    "refer": [
+      "totalTarget_email_business.html",
+      "totalTarget_email_system.html"
+    ],
+    "resources": [
+      "css/totalTarget-email.css",
+      "css/base.css",
+      "images/header_base_01.png",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf"
+    ]
+  },
+  "Fire_xiangqing.html": {
+    "resources": [
+      "js/Fire_xiangqing.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "js/jquery.min.js",
+      "css/iconfont.woff",
+      "css/iconfont.ttf"
+    ],
+    "refer": [
+      "Equipment_patrol_list1_1_1_1.html",
+      "Fire_work_1_1_1.html",
+      "Fire_work1_1_1_1.html"
+    ]
+  },
+  "totalTarget_email_business.html": {
+    "resources": [
+      "css/base.css",
+      "css/totalTarget_email_business.css",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "js/mui.min.js",
+      "images/header_base_01.png"
+    ]
+  },
+  " Equipment_guifan.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "js/Equipment_patrol.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/iconfont.woff",
+      "images/header_base_01.png",
+      "js/Equipment_guifanl.js"
+    ]
+  },
+  "Equipment_guifan_list1_1.html": {
+    "resources": [
+      "js/Equipment_guifan_list1_1.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png"
+    ],
+    "refer": [
+      "Equipment_guifan_list1_1_1.html"
+    ]
+  },
+  "Equipment_guifan.html": {
+    "resources": [
+      "js/Equipment_guifanl.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/iconfont.woff",
+      "images/header_base_01.png",
+      "js/Equipment_guifan.js",
+      "js/jquery.min.js",
+      "images/loading.gif",
+      "css/iconfont.ttf",
+      "Equipment_guifan_Pullup.html"
+    ],
+    "refer": [
+      "Equipment_guifan_list1_1.html",
+      "Equipment_guifan_Pullup.html"
+    ]
+  },
+  "Equipment_guifan_list1_1_1.html": {
+    "resources": [
+      "js/Equipment_patrol_list1_1_1.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "js/Equipment_guifan_list1_1_1.js"
+    ],
+    "refer": [
+      "Equipment_guifan_list1_1_1_1.html"
+    ]
+  },
+  "Equipment_guifan_list1_1_1_1.html": {
+    "resources": [
+      "js/Equipment_patrol_list1_1_1_1.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "js/Equipment_guifan_list1_1_1_1.js",
+      "css/iconfont.woff",
+      "images/119logo.png",
+      "css/imageViewer.css",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js",
+      "images/1.png",
+      "js/jquery.min.js",
+      "images/shipin.png"
+    ],
+    "refer": [
+      "Video.html"
+    ]
+  },
+  "Micro_task.html": {
+    "refer": [
+      "Equipment_patrol_list1_1.html",
+      "Micro_task_1.html",
+      "Micro_task_3.html",
+      "Micro_task_2.html"
+    ],
+    "resources": [
+      "fonts/mui.ttf",
+      "css/iconfont.woff",
+      "images/header_base_01.png",
+      "js/mui.min.js",
+      "js/Equipment_patrol.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "Micro_task_1.html",
+      "js/jquery.min.js",
+      "Micro_task_2.html",
+      "js/Micro_task_1.js"
+    ]
+  },
+  "Micro_task_2.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/iconfont.woff",
+      "js/mui.min.js",
+      "js/Equipment_patrol.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "Micro_task_1.html",
+      "images/header_base_01.png",
+      "css/iconfont.ttf",
+      "js/Micro_task_2.js"
+    ],
+    "refer": [
+      "Micro_task_1.html",
+      "Micro_task_3.html",
+      "Micro_task_2_list.html"
+    ]
+  },
+  "Micro_task_1.html": {
+    "resources": [
+      "css/iconfont.woff",
+      "fonts/mui.ttf",
+      "js/mui.min.js",
+      "js/Equipment_patrol.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "Micro_task_2.html",
+      "css/iconfont.ttf",
+      "js/Micro_task_1.js"
+    ],
+    "refer": [
+      "Equipment_patrol_list1_1.html",
+      "Micro_task_3.html",
+      "Micro_task_2.html",
+      "Micro_task_1_list.html"
+    ]
+  },
+  "Micro_task_3.html": {
+    "resources": [
+      "js/Equipment_patrol.js",
+      "fonts/mui.ttf",
+      "css/iconfont.woff",
+      "images/header_base_01.png",
+      "Micro_task_1.html",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/iconfont.ttf",
+      "js/Micro_task_3.js",
+      "js/Guid.js",
+      "js/Uuid.js",
+      "js/mui.picker.min.js",
+      "css/mui.picker.min.css"
+    ],
+    "refer": [
+      "Micro_task_1.html",
+      "Micro_task_2.html"
+    ]
+  },
+  "Micro_task_1_list.html": {
+    "resources": [
+      "js/Equipment_patrol.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/iconfont.woff",
+      "fonts/mui.ttf",
+      "images/header_base_01.png",
+      "images/119logo.png",
+      "images/1.png",
+      "js/Micro_task_1_list.js",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js",
+      "css/imageViewer.css",
+      "js/jquery.min.js",
+      "images/shipin.png"
+    ],
+    "refer": [
+      "Video.html",
+      "VideoWei.html"
+    ]
+  },
+  "Micro_task_2_list.html": {
+    "resources": [
+      "images/1.png",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "js/Equipment_patrol.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/119logo.png",
+      "images/header_base_01.png",
+      "css/iconfont.woff",
+      "css/iconfont.ttf",
+      "js/Micro_task_2_list.js",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js",
+      "css/imageViewer.css",
+      "js/jquery.min.js",
+      "images/shipin.png"
+    ],
+    "refer": [
+      "Video.html"
+    ]
+  },
+  "Fire_work1_1_1_1.html": {
+    "resources": [
+      "js/Fire_work1_1_1_1.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "css/iconfont.woff"
+    ]
+  },
+  "Equipment_patrol_list1_1_child.html": {
+    "resources": [
+      "js/Equipment_patrol_list1_1_child.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css"
+    ]
+  },
+  "Equipment_patrol_child.html": {
+    "resources": [
+      "js/Equipment_patrol_child.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/iconfont.woff",
+      "images/loading.gif",
+      "js/jquery.min.js"
+    ],
+    "refer": [
+      "Equipment_patrol_list1_1.html"
+    ]
+  },
+  "Fire_Formally_work.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css",
+      "js/Fire_Formally_work.js",
+      "js/Equipment_patrol_child.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/iconfont.woff",
+      "images/header_base_01.png",
+      "Fire_Formally_work_Pullup.html"
+    ],
+    "refer": [
+      "Fire_Formally_work_xiangqing.html",
+      "Fire_Formally_work_Pullup.html"
+    ]
+  },
+  "Fire_Formally_work_xiangqing_4.html": {
+    "resources": [
+      "Micro_task_1.html",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "js/mui.zoom.js",
+      "css/imageViewer.css",
+      "js/mui.previewimage.js",
+      "images/119logo.png"
+    ],
+    "refer": [
+      "Micro_task_1.html",
+      "Micro_task_3.html",
+      "Micro_task_2.html"
+    ]
+  },
+  "Fire_Formally_work_xiangqing_3.html": {
+    "resources": [
+      "Micro_task_1.html",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "js/mui.zoom.js",
+      "css/imageViewer.css",
+      "js/mui.previewimage.js",
+      "images/119logo.png",
+      "images/shipin.png"
+    ],
+    "refer": [
+      "Micro_task_1.html",
+      "Micro_task_3.html",
+      "Micro_task_2.html",
+      "Video.html"
+    ]
+  },
+  "Fire_Formally_work_xiangqing_5.html": {
+    "resources": [
+      "Micro_task_1.html",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "js/mui.zoom.js",
+      "css/imageViewer.css",
+      "js/mui.previewimage.js",
+      "images/119logo.png",
+      "images/shipin.png"
+    ],
+    "refer": [
+      "Micro_task_1.html",
+      "Micro_task_3.html",
+      "Micro_task_2.html",
+      "Video.html"
+    ]
+  },
+  "Fire_Formally_work_xiangqing_2.html": {
+    "resources": [
+      "Micro_task_1.html",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "js/mui.zoom.js",
+      "css/imageViewer.css",
+      "js/mui.previewimage.js",
+      "images/119logo.png",
+      "images/shipin.png"
+    ],
+    "refer": [
+      "Micro_task_1.html",
+      "Micro_task_3.html",
+      "Micro_task_2.html",
+      "Video.html"
+    ]
+  },
+  "Fire_Formally_work_xiangqing.html": {
+    "resources": [
+      "Fire_Formally_work_xiangqing_1.html",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "Fire_Formally_work_xiangqing_4.html",
+      "Fire_Formally_work_xiangqing_3.html",
+      "Fire_Formally_work_xiangqing_5.html",
+      "Fire_Formally_work_xiangqing_2.html",
+      "Fire_Formally_work_xiangqing_1.html"
+    ]
+  },
+  "Fire_Formally_work_xiangqing_1.html": {
+    "resources": [
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "js/mui.zoom.js",
+      "css/imageViewer.css",
+      "js/mui.previewimage.js",
+      "js/Micro_task_1_list.js",
+      "fonts/mui.ttf"
+    ]
+  },
+  "maintenance.html": {
+    "resources": [
+      "Micro_task_1.html",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "maintenance_list1.html",
+      "maintenance_list3.html",
+      "maintenance_list2.html",
+      "maintenance_Pullup.html"
+    ],
+    "refer": [
+      "Micro_task_1.html",
+      "Micro_task_3.html",
+      "Micro_task_2.html",
+      "maintenance_list2.html",
+      "maintenance_list3.html",
+      "maintenance_list1.html",
+      "maintenance_Pullup.html"
+    ]
+  },
+  "maintenance_list2.html": {
+    "resources": [
+      "Micro_task_1.html",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/echarts.min.js",
+      "js/maintenance.js",
+      "css/iconfont.woff",
+      "maintenance.html"
+    ],
+    "refer": [
+      "Micro_task_1.html",
+      "Micro_task_3.html",
+      "Micro_task_2.html",
+      "maintenance.html"
+    ]
+  },
+  "maintenance_list3.html": {
+    "resources": [
+      "Micro_task_1.html",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/maintenance.js",
+      "images/119logo.png",
+      "maintenance.html",
+      "images/guoqi.png",
+      "images/exit.png",
+      "images/feilei_1.png",
+      "images/systemImg1.png",
+      "images/star1.png",
+      "css/iconfont.woff"
+    ],
+    "refer": [
+      "Micro_task_1.html",
+      "Micro_task_3.html",
+      "Micro_task_2.html",
+      "maintenance.html",
+      "maintenance_list3_1.html",
+      "operationStatistics_brand-manifestation_childWeb.html"
+    ]
+  },
+  "maintenance_list1.html": {
+    "resources": [
+      "Micro_task_1.html",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "fonts/mui.ttf",
+      "images/header_base_01.png"
+    ],
+    "refer": [
+      "Micro_task_1.html",
+      "Micro_task_3.html",
+      "Micro_task_2.html",
+      "maintenance_list1_1.html"
+    ]
+  },
+  "maintenance_list1_1.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "fonts/mui.ttf",
+      "images/header_base_01.png",
+      "images/119logo.png",
+      "css/imageViewer.css",
+      "js/mui.zoom.js",
+      "js/jquery.min.js",
+      "js/mui.previewimage.js",
+      "images/shipin.png"
+    ],
+    "refer": [
+      "peijian.html",
+      "Video.html"
+    ]
+  },
+  "peijian.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "js/mui.min.js"
+    ]
+  },
+  "maintenance_list3_1.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css"
+    ]
+  },
+  "operationStatistics_brand-manifestation_childWeb.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/operationStatistics_brand_manifestation_childWeb.css",
+      "css/operationStatistics.css",
+      "css/base.css",
+      "css/mui.min.css"
+    ]
+  },
+  "Danger_Rectification.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css",
+      "Danger_Rectification_child.html",
+      "fonts/mui.ttf",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "images/header_base_01.png",
+      "Danger_Rectification_Pullup.html"
+    ],
+    "refer": [
+      "Danger_Rectification_child.html",
+      "Danger_Rectification_Pullup.html"
+    ]
+  },
+  "Danger_Rectification_child.html": {
+    "resources": [
+      "js/Danger_Rectification_child.js",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/iconfont.woff"
+    ],
+    "refer": [
+      "Danger_Rectification_1.html"
+    ]
+  },
+  "Danger_Rectification_1.html": {
+    "resources": [
+      "js/mui.zoom.js",
+      "js/Danger_Rectification_1.js",
+      "css/imageViewer.css",
+      "fonts/mui.ttf",
+      "js/mui.previewimage.js",
+      "images/119logo.png",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "images/1.png",
+      "js/jquery.min.js",
+      "images/shipin.png"
+    ],
+    "refer": [
+      "Video.html"
+    ]
+  },
+  "Inspect_Maintain.html": {
+    "resources": [
+      "Inspect_Maintain_1.html",
+      "Equipment_patrol_child.html",
+      "css/mui.min.css",
+      "css/style.css",
+      "Inspect_Maintain_Pullup.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "images/header_base_01.png"
+    ],
+    "refer": [
+      "Inspect_Maintain_1.html",
+      "Equipment_patrol_child.html",
+      "Inspect_Maintain_Pullup.html",
+      "Equipment_patrol_Pullup.html"
+    ]
+  },
+  "Inspect_Maintain_1.html": {
+    "resources": [
+      "js/Inspect_Maintain_1.js"
+    ]
+  },
+  "Equipment_guifan_pull_main.html": {
+    "resources": [
+      "js/Equipment_guifan.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/iconfont.woff",
+      "images/header_base_01.png",
+      "Equipment_guifan.html"
+    ],
+    "refer": [
+      "Equipment_guifan.html"
+    ]
+  },
+  "Equipment_guifan_Pullup.html": {
+    "resources": [
+      "js/Equipment_guifan.js",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/iconfont.woff",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "Equipment_guifan_list1_1.html"
+    ]
+  },
+  "Equipment_patrol_Pullup.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css",
+      "images/loading.gif",
+      "js/Equipment_patrol_child.js",
+      "js/Equipment_Pullup.js",
+      "css/iconfont.woff",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/iconfont.ttf"
+    ],
+    "refer": [
+      "Equipment_patrol_list1_1.html"
+    ]
+  },
+  "Danger_Rectification_Pullup.html": {
+    "resources": [
+      "js/Danger_Rectification_Pullup.js",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/iconfont.woff",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "js/jquery.min.js"
+    ],
+    "refer": [
+      "Danger_Rectification_1.html"
+    ]
+  },
+  "Fire_Formally_work_Pullup.html": {
+    "resources": [
+      "js/Fire_Formally_work_Pullup.js",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/iconfont.woff"
+    ],
+    "refer": [
+      "Fire_Formally_work_xiangqing.html"
+    ]
+  },
+  "maintenance_Pullup.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css",
+      "maintenance_list1_Pullup.html",
+      "maintenance_list1.html",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "js/jquery.min.js",
+      "fonts/mui.ttf",
+      "images/header_base_01.png",
+      "maintenance_list2.html"
+    ],
+    "refer": [
+      "maintenance_list2.html",
+      "maintenance_list1_Pullup.html",
+      "maintenance_list3.html",
+      "maintenance_list1.html"
+    ]
+  },
+  "Inspect_Maintain_Pullup.html": {
+    "resources": [
+      "js/Inspect_Maintain_Pullup.js",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/iconfont.woff",
+      "css/iconfont.ttf"
+    ],
+    "refer": [
+      "Equipment_patrol_list1_1.html",
+      "Inspect_Maintain_list1_1.html"
+    ]
+  },
+  "Inspect_Maintain_list1_1.html": {
+    "resources": [
+      "js/Inspect_Maintain_list1_1.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png"
+    ],
+    "refer": [
+      "Equipment_patrol_list1_1_1.html",
+      "Inspect_Maintain_list1_1_1.html"
+    ]
+  },
+  "Inspect_Maintain_list1_1_1.html": {
+    "resources": [
+      "js/Inspect_Maintain_list1_1_1.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png"
+    ],
+    "refer": [
+      "Equipment_patrol_list1_1_1_1.html",
+      "Inspect_Maintain_list1_1_1_1.html"
+    ]
+  },
+  "Inspect_Maintain_list1_1_1_1.html": {
+    "resources": [
+      "js/Inspect_Maintain_list1_1_1_1.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js",
+      "css/imageViewer.css",
+      "js/jquery.min.js",
+      "images/shipin.png",
+      "css/iconfont.woff"
+    ],
+    "refer": [
+      "Video.html"
+    ]
+  },
+  "totalTarget_email_system.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/totalTarget_email_system.css",
+      "css/base.css",
+      "css/mui.min.css",
+      "images/header_base_01.png",
+      "js/mui.min.js"
+    ]
+  },
+  "Equipment_patrol_list1_1_Pullup.html": {
+    "resources": [
+      "js/Equipment_patrol_list1_1_Pullup.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png"
+    ]
+  },
+  "Licence_adopt_page1_Pullup.html": {
+    "resources": [
+      "js/Licence_adopt1.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/Licence_adopt1_Publlup.js",
+      "fonts/mui.ttf",
+      "images/linqi.png",
+      "images/guoqi.png"
+    ]
+  },
+  "Licence_adopt_page2_Pullup.html": {
+    "resources": [
+      "js/Licence_adopt2.js",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/Licence_adopt2_Pullup.js",
+      "fonts/mui.ttf",
+      "images/guoqi.png",
+      "images/linqi.png"
+    ]
+  },
+  "Licence_adopt_page3_Pullup.html": {
+    "resources": [
+      "js/mui.min.js",
+      "js/Licence_adopt3_Pullup.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "fonts/mui.ttf",
+      "images/linqi.png",
+      "images/guoqi.png"
+    ]
+  },
+  "Video.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "images/header_base_01.png"
+    ]
+  },
+  "VideoWei.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "images/header_base_01.png"
+    ]
+  },
+  "Equipment_patrol_PullupA.html": {
+    "resources": [
+      "js/Equipment_PullupA.js",
+      "css/iconfont.woff",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css"
+    ],
+    "refer": [
+      "Equipment_patrol_list1_1.html",
+      "Equipment_patrol_PullupB.html",
+      "Equipment_patrol_PullupC.html",
+      "login.html"
+    ]
+  },
+  "Equipment_patrol_PullupB.html": {
+    "resources": [
+      "js/Equipment_PullupB.js",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "css/iconfont.woff",
+      "images/header_base_01.png"
+    ]
+  },
+  "Equipment_patrol_PullupC.html": {
+    "resources": [
+      "js/Equipment_PullupC.js"
+    ]
+  },
+  "Risk_height.html": {
+    "resources": [
+      "css/Equipment_state.css",
+      "images/header_base_01.png",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/searchCode.js",
+      "css/Risk_height_low.css"
+    ],
+    "refer": [
+      "Risk_height_1.html"
+    ]
+  },
+  "Risk_height_4.html": {
+    "resources": [
+      "images/119logo.png",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "js/searchCode.js",
+      "css/Risk_height_low.css"
+    ]
+  },
+  "Risk_height_1.html": {
+    "refer": [
+      "Risk_height_2.html"
+    ]
+  },
+  "Risk_height_3.html": {
+    "refer": [
+      "Risk_height_4.html"
+    ]
+  },
+  "Risk_height_2.html": {
+    "refer": [
+      "Risk_height_3.html"
+    ],
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "js/searchCode.js",
+      "css/Risk_height_low.css"
+    ]
+  }
 }
