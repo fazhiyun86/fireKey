@@ -1782,3 +1782,6 @@ canvas {
 	font-size: 0.69rem;
 	color: #999999;
 }
+.index_four_item {
+	display: flex;
+}
