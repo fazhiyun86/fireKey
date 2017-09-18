@@ -31,10 +31,13 @@
 
 	<body>
 
+			</aside>-->
+		<div class="mui-inner-wrap">
 
-		<div class="mui-inner-wrap" style="background: #F5F5F5;">
 			<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
 				<div class="mui-scroll">
+					<div class="mui-scroll">
+
 					<header class="mui-bar mui-bar-nav titBackg" style="z-index: 99999999;">
 						<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 						<h1 class="mui-title">设备状态</h1>
@@ -70,7 +73,7 @@
 							</div>
 						</div>
 					</div>
-			<div class="mui-content">
+					<div class="mui-content">
 						<div id="state_content_con state_content_skip" class="base">
 							<div class="state_content_con">
 							<div id="state_title">
@@ -167,15 +170,14 @@
 		</div>
 		<script src="js/mui.min.js"></script>
 		<script src="js/echarts.min.js"></script>
-		<script src="js/Equipment_state.js"></script>
+		<!--<script src="js/Equipment_state.js"></script>-->
 		<script src="js/area.js"></script>
 		<script src="js/searchCode.js"></script>
 		<script type="text/javascript">
 
 
 			mui.ready(function() {
-
-				mui('.state_content_con').on('tap', '.state_content_con', function() {
+				mui('.state_content_skip').on('tap', '.state_content_skip', function() {
 					var ddNum = this.firstChild.value;
 					//				var idD1 = localStorage.getItem('');
 					mui.openWindow({
