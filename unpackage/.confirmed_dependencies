@@ -196,7 +196,8 @@
 			"images/header_base_01.png",
 			"js/echarts.common.min.js",
 			"fonts/mui.ttf",
-			"js/Equipment_state_Account.js"
+			"js/Equipment_state_Account.js",
+			"css/Equipment_state_Account.css"
 		],
 		"refer": [
 			"Equipment_state_query.html"
@@ -1447,6 +1448,45 @@
 			"fonts/mui.ttf",
 			"css/mui.min.css",
 			"css/style.css",
+			"js/searchCode.js",
+			"css/Risk_height_low.css"
+		],
+		"refer": [
+			"Risk_height_1.html"
+		]
+	},
+	"Risk_height_4.html": {
+		"resources": [
+			"images/119logo.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/searchCode.js",
+			"css/Risk_height_low.css"
+		]
+	},
+	"Risk_height_1.html": {
+		"refer": [
+			"Risk_height_2.html"
+		]
+	},
+	"Risk_height_3.html": {
+		"refer": [
+			"Risk_height_4.html"
+		]
+	},
+	"Risk_height_2.html": {
+		"refer": [
+			"Risk_height_3.html"
+		],
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
 			"js/searchCode.js",
 			"css/Risk_height_low.css"
 		]

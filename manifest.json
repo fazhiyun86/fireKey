@@ -438,7 +438,8 @@
 					"images/header_base_01.png",
 					"js/echarts.common.min.js",
 					"fonts/mui.ttf",
-					"js/Equipment_state_Account.js"
+					"js/Equipment_state_Account.js",
+					"css/Equipment_state_Account.css"
 				],
 				"refer": [
 					"Equipment_state_query.html"
@@ -1745,9 +1746,60 @@
 			"Risk_height.html": {
 				"resources": [
 					"css/Equipment_state.css",
-					"images/header_base_01.png"
+					"images/header_base_01.png",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"js/searchCode.js",
+					"css/Risk_height_low.css"
+				],
+				"refer": [
+					"Risk_height_1.html"
+				],
+				"priority": 0
+			},
+			"Risk_height_4.html": {
+				"resources": [
+					"images/119logo.png",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"js/searchCode.js",
+					"css/Risk_height_low.css"
 				],
 				"refer": [],
+				"priority": 0
+			},
+			"Risk_height_1.html": {
+				"resources": [],
+				"refer": [
+					"Risk_height_2.html"
+				],
+				"priority": 0
+			},
+			"Risk_height_3.html": {
+				"resources": [],
+				"refer": [
+					"Risk_height_4.html"
+				],
+				"priority": 0
+			},
+			"Risk_height_2.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"js/searchCode.js",
+					"css/Risk_height_low.css"
+				],
+				"refer": [
+					"Risk_height_3.html"
+				],
 				"priority": 0
 			}
 		},

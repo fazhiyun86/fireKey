@@ -1,0 +1,38 @@
+html,body{
+	padding: 0;
+}
+.equipment_tab{
+	width: 100%;
+	height: 2.8rem;
+	margin-top: 50px;
+	margin-left: 0;
+}
+
+.equipment_tab ul{
+	width: 100%;
+	height: 2.8rem;
+	padding: 0;
+	margin: 0;
+}
+
+.equipment_tab>ul>li a{
+	text-align: center;
+	color: #000000;
+	display: block;
+	width: 25%;
+	font-size: 0.9rem;
+	line-height: 2.8rem;
+	float: left;
+	background: #E7E7E7;
+}
+
+.equipment_tab>ul>li a:hover{
+	background: none;
+}
+
+.Equipment_state_Account_con {
+    padding:0!important;
+}
+.Equipment_state_Account_con .Equipment_first{
+	background: none;
+}
