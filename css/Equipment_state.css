@@ -148,3 +148,46 @@ input[type=text] {
 .mui-content>dl:last-child>dd>ul>li:last-child>dl:last-child {
 	margin-right: 20px;
 }
+
+#state_title{
+	width: 100%;
+	height: 1.3rem;
+	margin-bottom: 1rem;
+}
+
+#state_title .state_title_area{
+	width: 40%;
+	height: 1.3rem;
+	float: left;
+	font-size: 0.8rem;
+	line-height: 1.3rem;
+}
+
+#state_title .state_title_offo{
+	display: block;
+	width: 25%;
+	height: 1.3rem;
+	float: left;
+	float: right;
+	font-size: 0.7rem;
+	line-height: 1.3rem;
+}
+
+.state_content_con_first .state_count{
+	display: block;
+	font-size: 1.5rem;
+	line-height: 2.5rem;
+}
+
+.state_content_con{
+	overflow: hidden;
+	margin-bottom: -0.3rem;
+}
+
+.state_content_con p{
+	color:#666666;
+}
+.pc_color span:nth-child(2){
+	color: #D1D1D1;
+}
+
