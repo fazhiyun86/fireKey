@@ -1576,7 +1576,7 @@ canvas {
 	font-size: 0.78rem;
 	border-right: 1px solid #BBBBBB;
 	line-height: 25px;
-	margin: 5px 0 0 0;
+	/*margin: 5px 0 0 0;*/
 	text-align: center;
 	font-family: "Microsoft YaHei";
 }
@@ -1794,4 +1794,7 @@ canvas {
 .right_desc {
 	font-size: 0.69rem;
 	color: #999999;
+}
+.index_four_item {
+	display: flex;
 }
