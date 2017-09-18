@@ -26,6 +26,7 @@
 			.state_content_con {
 				padding: 0.3rem 0.2rem 0.3rem 1rem;
 			}
+
 		</style>
 	</head>
 
@@ -35,15 +36,14 @@
 		<div class="mui-inner-wrap">
 
 			<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
-				<div class="mui-scroll">
-					<div class="mui-scroll">
 
 					<header class="mui-bar mui-bar-nav titBackg" style="z-index: 99999999;">
 						<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 						<h1 class="mui-title">设备状态</h1>
 						<a id='searchCode' class="mui-icon mui-icon-search equipStatus_search"></a>
 					</header>
-					
+<div class="wrap" style="margin-top: 50px;">
+	
 					<div class="mui-content">
 						<div id="state_content_con state_content_skip" class="base">
 								<div class="state_content_con" style="background: #F5F5F5;">
@@ -165,21 +165,21 @@
 							</div>
 						</div>
 					</div>
-
-			</div>
-		</div>
+</div>
 		<script src="js/mui.min.js"></script>
 		<script src="js/echarts.min.js"></script>
-		<!--<script src="js/Equipment_state.js"></script>-->
+		<script src="js/Equipment_state.js"></script>
 		<script src="js/area.js"></script>
 		<script src="js/searchCode.js"></script>
-		<script type="text/javascript">
-
-
-			mui.ready(function() {
-				mui('.state_content_skip').on('tap', '.state_content_skip', function() {
-					var ddNum = this.firstChild.value;
-					//				var idD1 = localStorage.getItem('');
+			<script type="text/javascript">
+			(function($){
+				$(".mui-scroll-wrapper").scroll({
+					bounce: false,//滚动条是否有弹力默认是true
+					indicators: false, //是否显示滚动条,默认是true
+				});
+				
+				mui('.wrap').on('tap', '.state_content_con', function() {
+					
 					mui.openWindow({
 						url: 'Equipment_state_Account.html',
 						id: 'Equipment_state_Account.html',
@@ -188,7 +188,7 @@
 							bottom: 0, //新页面底部位置
 						},
 						extras: {
-							ClassCode: ddNum
+							ClassCode: "ddNum"
 							//自定义扩展参数，可以用来处理页面间传值
 						},
 						show: {
@@ -199,9 +199,10 @@
 							title: '加载中...', //等待对话框上显示的提示内容
 						}
 					});
+						
 				})
-
-			})
+				
+			})(mui);
 		</script>
 	</body>
 
