@@ -7,6 +7,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/Equipment_state_Account.css"/>
 		<style>
 
 		</style>
@@ -18,30 +19,34 @@
 				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 				<h1 class="mui-title">设备资产台账</h1>
 			</header>
-			<div class="mui-content Equipment_state_Account_con" id="Account_con">
+			<div class="equipment_tab">
+				<ul>
+					<li class="equipment_tab_list tab_list"><a id="list1">故障维修</a></li>
+					<li class="equipment_tab_list tab_list"><a id="list1">停用停机</a></li>
+					<li class="equipment_tab_list tab_list"><a id="list1">正常使用</a></li>
+					<li class="equipment_tab_list tab_list"><a id="list1">报废处理</a></li>
+				</ul>
+			</div>
+			
+			<div class="mui-content Equipment_state_Account_con" id="Account_con" style="padding-top: 0px;">
 				<div class="Equipment_first">
-					<p style="width: 35%;">名称</p>
-					<p style="width: 25%;">编号</p>
-					<p style="width: 15%;">状态</p>
-					<p style="width: 25%;">类别</p>
+					<p style="width: 25%;">名称</p>
+					<p style="width: 30%;">编号</p> 
+					<p style="width: 35%;">位置</p>
 				</div>
 				<div class="Equipment_c2" id="Equipment_c2">
 					<div>
-						<p style="width: 35%;">烟感报警器</p>
-						<p style="width: 25%;">CD45S64W4514</p>
-						<p style="width: 15%;">正常</p>
-						<p style="width: 25%;">监控警报</p>
+						<p style="width: 25%;">烟感报警器</p>
+						<p style="width: 30%;">A200050</p>
+						<p style="width: 35%;">正常</p>
 					</div>
 				</div>
 			</div>
-
-		</div>
-
 		</div>
 		<script src="js/mui.min.js"></script>
-		<script src="js/echarts.common.min.js"></script>
+		<!--<script src="js/echarts.common.min.js"></script>-->
 		<script src="js/Equipment_state_Account.js"></script>
-		<script type="text/javascript">
+		<script type="text/javascript">s
 			mui.init();
 			mui.ready(function() {
 				mui('#Equipment_c2').on('tap', '.conSend', function() {
