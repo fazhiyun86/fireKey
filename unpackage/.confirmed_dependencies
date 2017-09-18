@@ -1442,7 +1442,13 @@
 	"Risk_height.html": {
 		"resources": [
 			"css/Equipment_state.css",
-			"images/header_base_01.png"
+			"images/header_base_01.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/searchCode.js",
+			"css/Risk_height_low.css"
 		]
 	}
 }
