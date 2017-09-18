@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/Risk_height_low.css" />
+		<style>
+			.mui-scroll-wrapper {
+				overflow: auto!important;
+			}
+			
+			.state_content_con_first {
+				text-align: left;
+			}
+			
+			.state_content_con_first span {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			
+			.state_content_con {
+				padding: 0.3rem 0.2rem 0.3rem 1rem;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="mui-off-canvas-wrap mui-draggable">
+		  
+			<div class="mui-inner-wrap">
+				<!-- 主页面标题 -->
+					<p style="padding: 5px 20px;margin-bottom: 5px;">
+
+					</p>
+					<header class="mui-bar mui-bar-nav titBackg" style="z-index: 99999999;">
+						<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+						<h1 class="mui-title">设备巡检</h1>
+						<a id='searchCode' class="mui-icon mui-icon-search equipStatus_search"></a>
+					</header>
+				
+				<div class="mui-content mui-scroll-wrapper">
+					<div id="riskContent" class="mui-scroll">
+						<p class="state_titp padb0">消火栓覆盖范围及周边动火点的检查任务(2017091607)</p>
+						<p class="state_titp padt5">行政办公区A1项目</p>
+						
+						<!--显示的盒子 start-->
+						<div class="risk_wrap">
+							<div class="risk_item height-2-item">
+								<p class="risk_item_tit">消火栓</p>
+								<div class="item_content_top height-3-item">
+										<div class="flex_item">
+											<p>设备编号：A203009</p>
+											<p>检查时间：2017-09-06</p>
+										</div>
+										<div class="flex_item">
+											<p>设备型号：DN65</p>
+											<p>设备位置：西区-地下室-B1-西区</p>
+										</div>
+								</div>
+								<p class="fonts69">检查人员：史天帅</p>
+							</div>
+						</div>
+						<!--显示的盒子 end-->
+						<ul class="Risk-height-4-ul">
+							<li>
+								<p class="height-4-li-tit">消火栓接头</p>
+								<p class="height-4-li-con">无渗漏</p>
+							</li>
+							<li>
+								<p class="height-4-li-tit">消火栓配件</p>
+								<p class="height-4-li-con">不齐全</p>
+							</li>
+							<li>
+								<p class="height-4-li-tit">附近设置库房</p>
+								<p class="height-4-li-con">有库房</p>
+							</li>
+							<li>
+								<p class="height-4-li-tit">覆盖范围内</p>
+								<p class="height-4-li-con">无可燃易燃物</p>
+							</li>
+							<li>
+								<p class="height-4-li-tit">处理结果</p>
+								<p class="height-4-li-con">已处理</p>
+							</li>
+							<li>
+								<p class="height-4-li-tit">问题说明</p>
+								<p class="height-4-li-con">水带脱落，已接好</p>
+							</li>
+							<li>
+								<p class="height-4-li-tit">处理确认人</p>
+								<p class="height-4-li-con">郭云祥</p>
+							</li>
+							<li>
+								<p class="height-4-li-tit">确认时间</p>
+								<p class="height-4-li-con">2017-09-12 15:34:24</p>
+							</li>
+							<br />
+						 	<img src="./images/119logo.png" alt="" width="70px"/>
+						</ul>
+					</div>
+				</div>  
+		    </div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/searchCode.js"></script>
+		<script type="text/javascript">
+			
+			(function($){
+				$(".mui-scroll-wrapper").scroll({
+					bounce: false,//滚动条是否有弹力默认是true
+					indicators: false, //是否显示滚动条,默认是true
+				});
+				
+			})(mui);
+		</script>
+	</body>
+</html>

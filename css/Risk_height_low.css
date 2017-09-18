@@ -18,6 +18,16 @@
 	border-right: 8px solid #db4426;
 }
 
+.padb0 {
+	padding-bottom: 0px!important;
+}
+.padt5 {
+	padding-top: 5px!important;
+}
+
+.fonts69 {
+	font-size: 0.69rem!important;
+}
 /*公共样式 end*/
 
 .risk_wrap {
@@ -114,3 +124,36 @@
 	z-index: 100;
 	transform: rotate(-45deg); 
 }
+
+/*Risk_height_2 page style start*/
+.height-2-item div {
+	font-size: 0.69rem;
+}
+.color-green {
+	color: #258d25;
+}
+
+/*Risk_height_2 page style end*/
+
+/*Risk_height_3 page style start*/
+.height-3-item p {
+	font-size: 0.69rem;
+}
+/*Risk_height_3 page style end*/
+
+/*Risk_height_4 page style start*/
+.Risk-height-4-ul {
+	padding: 10px!important;
+}
+.Risk-height-4-ul li {
+	border-bottom: 1px solid #ccc;
+	padding: 5px 10px;
+	display: flex;
+	font-size: 0.69rem!important;
+}
+.height-4-li-tit, .height-4-li-con {
+	width: 50%!important;
+	font-size: 0.69rem!important;
+	margin-bottom: 0px;
+}
+/*Risk_height_4 page style end*/

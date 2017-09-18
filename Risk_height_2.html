@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/Risk_height_low.css" />
+		<style>
+			.mui-scroll-wrapper {
+				overflow: auto!important;
+			}
+			
+			.state_content_con_first {
+				text-align: left;
+			}
+			
+			.state_content_con_first span {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			
+			.state_content_con {
+				padding: 0.3rem 0.2rem 0.3rem 1rem;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="mui-off-canvas-wrap mui-draggable">
+		  
+			<div class="mui-inner-wrap">
+				<!-- 主页面标题 -->
+					<p style="padding: 5px 20px;margin-bottom: 5px;">
+
+					</p>
+					<header class="mui-bar mui-bar-nav titBackg" style="z-index: 99999999;">
+						<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+						<h1 class="mui-title">北京城建集团</h1>
+						<a id='searchCode' class="mui-icon mui-icon-search equipStatus_search"></a>
+					</header>
+				
+				<div class="mui-content mui-scroll-wrapper">
+					<div id="riskContent" class="mui-scroll">
+						<p class="state_titp">
+							<span id="state_zong">2017年第46周  2017-09-11-2017-09-17</span>
+							<span id="state_diqu"></span>
+							<span id="offCanvasShow" style="display: none;" class="mui-icon mui-icon-list"></span>
+						</p>
+						<!--显示的盒子 start-->
+						<div class="risk_wrap">
+							<div class="risk_item height-2-item">
+								<div>行政办公区A1项目</div>
+								<div class="color-green">消火栓覆盖范围及周边动火点的检查任务(2017091607)</div>
+								<div>任务期限：2017年09月02日-2017年09月09日</div>
+								<div>检查进度: 100%       应检：79      已检：79      异常：1      处理：1</div>
+							</div>
+						</div>
+						<!--显示的盒子 end-->
+						 
+					</div>
+				</div>  
+		    </div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/searchCode.js"></script>
+		<script type="text/javascript">
+			
+			(function($){
+				$(".mui-scroll-wrapper").scroll({
+					bounce: false,//滚动条是否有弹力默认是true
+					indicators: false, //是否显示滚动条,默认是true
+				});
+				
+				mui('#riskContent').on('tap', '.risk_wrap', function() {
+					
+					mui.openWindow({
+						url: 'Risk_height_3.html',
+						id: 'Risk_height_3.html',
+						styles: {
+							top: 0, //新页面顶部位置
+							bottom: 0, //新页面底部位置
+						},
+						extras: {
+							ClassCode: "ddNum"
+							//自定义扩展参数，可以用来处理页面间传值
+						},
+						show: {
+							duration: '300'
+						},
+						waiting: {
+							autoShow: true, //自动显示等待框，默认为true
+							title: '加载中...', //等待对话框上显示的提示内容
+						}
+					});
+						
+				})
+				
+			})(mui);
+		</script>
+	</body>
+</html>
