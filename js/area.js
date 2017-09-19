@@ -20,6 +20,7 @@ function WebApp_GetOrganiseUnit() {
 			var html = '';
 			var OrUnitName = [];
 			var OrganiseUnitID = [];
+			
 			for(var i = 0; i < getDatas.length; i++) {
 //				if(getDatas[i].OrganiseUnitCode.)
 				html += '<li class="OrganiseUnitIDLi">' +

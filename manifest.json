@@ -362,7 +362,8 @@
 					"images/zhengzhaozizhi11.png",
 					"images/shebeiyunwei11.png",
 					"images/yinhuanzhenggai11.png",
-					"images/jianxiubaoyang11.png"
+					"images/jianxiubaoyang11.png",
+					"js/common.js"
 				],
 				"refer": [
 					"state.html",
@@ -380,7 +381,8 @@
 					"Danger_Rectification.html",
 					"Inspect_Maintain.html",
 					"Equipment_guifan_pull_main.html",
-					"Risk_height.html"
+					"Risk_height.html",
+					"Add_Fire_statistic.html"
 				],
 				"priority": 0
 			},
@@ -1800,6 +1802,57 @@
 				"refer": [
 					"Risk_height_3.html"
 				],
+				"priority": 0
+			},
+			"Add_Fire_statistic_tab01.html": {
+				"resources": [
+					"js/echarts.min.js",
+					"js/mui.min.js",
+					"css/Add_Fire_statistic.css",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Add_Fire_statistic_tab.html": {
+				"resources": [
+					"Add_Fire_statistic_tab01.html",
+					"js/jquery.min.js",
+					"css/iconfont.css"
+				],
+				"refer": [
+					"Add_Fire_statistic_tab02.html",
+					"Add_Fire_statistic_tab03.html"
+				],
+				"priority": 0
+			},
+			"Add_Fire_statistic.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/Add_Fire_statistic.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"Add_Fire_statistic_tab.html",
+					"css/style.css",
+					"images/header_base_01.png",
+					"js/searchCode.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Add_Fire_statistic_tab03.html": {
+				"resources": [
+					"js/echarts.min.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"css/Add_Fire_statistic.css",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},

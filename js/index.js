@@ -536,7 +536,7 @@ mui.plusReady(function() {
 				localStorage.setItem('UserName', getDatas[0].UserName);
 				localStorage.setItem('UserOrganiseUnitName', getDatas[0].OrganiseUnitName);
 
-			}
+			} 
 		})
 	}
 
