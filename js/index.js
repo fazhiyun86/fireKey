@@ -557,7 +557,6 @@ mui.plusReady(function() {
 			EndDate: localStorage.getItem("endTime")
 		}
 		
-		
 		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_HighRisk?dataKey=00-00-00-00';
 		
 		mui.ajax(urlg, {
