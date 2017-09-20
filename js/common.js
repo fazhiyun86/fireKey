@@ -137,6 +137,119 @@
 		
 	}
 	
+	common.riskCompanyDataChange = function (info) {
+		var tempName = {};
+		var res = [];
+		var len = info.length;
+		for(var i = 0; i < len; i++) {
+			var item = info[i];
+			var name = item['OrganiseUnitID'];
+			var obj = {
+				k: item.DisplayName,
+				v: item.AbnormalIndicatorCount
+			}
+			if(tempName[name]) {
+				obj.k ? tempName[name].subItem.push(obj) : '';
+			} else {
+				obj.k ? item.subItem = [obj] : item.subItem = [];
+				tempName[name] = item;
+			}
+		}
+		for(var key in tempName) {
+			res.push(tempName[key])
+		}
+		
+		return res;
+	}
+
+	var t = [
+                    {
+                        "ID": "5cbe4eac-9ddf-11e7-814d-fa163e4635ff",
+                        "OrganiseUnitID": "20c45a5c-66c7-11e7-9bf0-fa163ea287f1",
+                        "OrganiseUnitName": "北京建工集团",
+                        "ObjectCount": "1150",
+                        "AbnormalCount": "0",
+                        "AuditCount": "0",
+                        "Rate": "0/8",
+                        "Ratio": "0.00%",
+                        "AbnormalIndicatorCount": "",
+                        "DisplayName": "",
+                        "IndicatorClassID": "",
+                        "IsEnd": "0"
+                    },
+                    {
+                        "ID": "5cbe4f19-9ddf-11e7-814d-fa163e4635ff",
+                        "OrganiseUnitID": "25d11426-4a61-11e7-9bf0-fa163ea287f1",
+                        "OrganiseUnitName": "北京城建集团",
+                        "ObjectCount": "812",
+                        "AbnormalCount": "2",
+                        "AuditCount": "0",
+                        "Rate": "1/7",
+                        "Ratio": "21.89%",
+                        "AbnormalIndicatorCount": "1",
+                        "DisplayName": "接头是否无渗漏",
+                        "IndicatorClassID": "24fd8c4a-9db9-11e7-814d-fa163e4635ff",
+                        "IsEnd": "0"
+                    },
+                    {
+                        "ID": "5cbe4f4c-9ddf-11e7-814d-fa163e4635ff",
+                        "OrganiseUnitID": "25d11426-4a61-11e7-9bf0-fa163ea287f1",
+                        "OrganiseUnitName": "北京城建集团",
+                        "ObjectCount": "812",
+                        "AbnormalCount": "2",
+                        "AuditCount": "0",
+                        "Rate": "1/7",
+                        "Ratio": "21.89%",
+                        "AbnormalIndicatorCount": "2",
+                        "DisplayName": "消防通道是否畅通",
+                        "IndicatorClassID": "4fe97a77-9db9-11e7-814d-fa163e4635ff",
+                        "IsEnd": "0"
+                    },
+                    {
+                        "ID": "5cbe4f6a-9ddf-11e7-814d-fa163e4635ff",
+                        "OrganiseUnitID": "25d11426-4a61-11e7-9bf0-fa163ea287f1",
+                        "OrganiseUnitName": "北京城建集团",
+                        "ObjectCount": "812",
+                        "AbnormalCount": "2",
+                        "AuditCount": "0",
+                        "Rate": "1/7",
+                        "Ratio": "21.89%",
+                        "AbnormalIndicatorCount": "1",
+                        "DisplayName": "覆盖区域是否有烟头",
+                        "IndicatorClassID": "48e0c2df-9db9-11e7-814d-fa163e4635ff",
+                        "IsEnd": "0"
+                    },
+                    {
+                        "ID": "5cbe4f89-9ddf-11e7-814d-fa163e4635ff",
+                        "OrganiseUnitID": "9db33c3a-6fab-11e7-9bf0-fa163ea287f1",
+                        "OrganiseUnitName": "中国建筑一局(集团)有限公司",
+                        "ObjectCount": "248",
+                        "AbnormalCount": "0",
+                        "AuditCount": "0",
+                        "Rate": "0/2",
+                        "Ratio": "20.08%",
+                        "AbnormalIndicatorCount": "",
+                        "DisplayName": "",
+                        "IndicatorClassID": "",
+                        "IsEnd": "0"
+                    },
+                    {
+                        "ID": "5cbe4fa8-9ddf-11e7-814d-fa163e4635ff",
+                        "OrganiseUnitID": "e469992f-726b-11e7-9bf0-fa163ea287f1",
+                        "OrganiseUnitName": "北京住总集团",
+                        "ObjectCount": "0",
+                        "AbnormalCount": "0",
+                        "AuditCount": "0",
+                        "Rate": "0/0",
+                        "Ratio": "0.00%",
+                        "AbnormalIndicatorCount": "",
+                        "DisplayName": "",
+                        "IndicatorClassID": "",
+                        "IsEnd": "0"
+                    }
+                ]
+	
+	console.log(common.riskCompanyDataChange(t))
 	
 	
 	window.common = common

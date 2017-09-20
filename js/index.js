@@ -604,6 +604,7 @@ mui.plusReady(function() {
 			StartDate: localStorage.getItem("startTime"),  
 			EndDate: localStorage.getItem("endTime")
 		}
+		console.log(JSON.stringify(data))
 		//地址（接口）
 		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_LowRisk?dateKey=00-00-00-00';
 		
