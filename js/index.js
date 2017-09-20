@@ -761,12 +761,12 @@ mui.plusReady(function() {
 			var info = data['DataSource']['Tables'][0]["Datas"][0];
 			var NormalCount = info["NormalCount"]; //正常使用
 			var AuditCount = info["StopCount"]; //停用停机
-			var StopCount = info["RepairCount"];  //故障维修
+			var RepairCount = info["RepairCount"];  //故障维修
 			var ScrapCount = info["ScrapCount"];  //报废数量
 			
 			document.getElementsByClassName("Status1").innerHTML = NormalCount || 0;
 			document.getElementsByClassName("Status2").innerHTML = AuditCount || 0;
-			document.getElementsByClassName("Status3").innerHTML = StopCount || 0;
+			document.getElementsByClassName("Status3").innerHTML = RepairCount || 0;
 			document.getElementsByClassName("Status4").innerHTML = ScrapCount || 0;
 			
 		}
