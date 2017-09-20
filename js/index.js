@@ -24,8 +24,6 @@ mui.init({
 	//	}
 });
 
-var a = common.getTimeNow("2017-06-01", "2017-09-19")
-console.log(a)
 mui.plusReady(function() {
 	
 	plus.nativeUI.showWaiting();
@@ -130,7 +128,7 @@ mui.plusReady(function() {
 			}
 		});
 	}
-	equipState(localStorage.getItem('UnitCode'));
+//	equipState(localStorage.getItem('UnitCode'));
 	//通过时间的值和unitCode来得到设备巡检的数据
 
 	function WebApp_GetISMStatistical(time, UnitCode) {
@@ -188,7 +186,7 @@ mui.plusReady(function() {
 			plus.nativeUI.closeWaiting();
 		}, 500);
 	}
-	WebApp_GetISMStatistical(time, localStorage.getItem('UnitCode'));
+//	WebApp_GetISMStatistical(time, localStorage.getItem('UnitCode'));
 
 	//证照状态通过UnitCode来获取
 	function WebApp_GetCertificateInfo(UnitCode) {
@@ -223,7 +221,7 @@ mui.plusReady(function() {
 			}
 		});
 	}
-	WebApp_GetCertificateInfo(localStorage.getItem('UnitCode'))
+//	WebApp_GetCertificateInfo(localStorage.getItem('UnitCode'))
 
 	//动火检查
 	function WebApp_GetFrieWorkExamine_Statistical(UnitCode) {
@@ -285,7 +283,7 @@ mui.plusReady(function() {
 			}
 		});
 	}
-	WebApp_GetFrieWorkExamine_Statistical(localStorage.getItem('UnitCode'));
+//	WebApp_GetFrieWorkExamine_Statistical(localStorage.getItem('UnitCode'));
 
 	//正式动火作业
 	function WebApp_GetFireworkStatistical(UnitCode) {
@@ -439,7 +437,7 @@ mui.plusReady(function() {
 			}
 		});
 	}
-	WebApp_GetEXAMStatistical(localStorage.getItem('UnitCode'));
+//	WebApp_GetEXAMStatistical(localStorage.getItem('UnitCode'));
 
 	//隐患整改
 	function WebApp_GetRectify(UnitCode) {
@@ -478,7 +476,7 @@ mui.plusReady(function() {
 			}
 		});
 	}
-	WebApp_GetRectify(localStorage.getItem('UnitCode'));
+//	WebApp_GetRectify(localStorage.getItem('UnitCode'));
 
 	//检修保养
 	function WebApp_GetEMMStatistical(UnitCode) {
@@ -523,7 +521,7 @@ mui.plusReady(function() {
 			}
 		});
 	}
-	WebApp_GetEMMStatistical(localStorage.getItem('UnitCode'));
+//	WebApp_GetEMMStatistical(localStorage.getItem('UnitCode'));
 
 	//用户信息全局存储
 	function WebApp_GetUserInfo(userCodeVa) {
@@ -534,14 +532,12 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data) {
-				 
 				var getServerStartTime = data['DataSource']["Tables"][0]["Datas"][0]["StartTime"]
 				var getServerEndTime = data['DataSource']["Tables"][0]["Datas"][0]["EndTime"]
 
 				var dataArrays = common.getTimeNow(getServerEndTime, getServerStartTime)
 				common.setAsideDate(dataArrays)
 				
-				localStorage.setItem("serverTime", serverTime)
 				var getDatas = data['DataSource']['Tables'][0]['Datas'];
 				localStorage.setItem('UserOrganiseUnitID', getDatas[0].OrganiseUnitID);
 				localStorage.setItem('UserName', getDatas[0].UserName);
@@ -555,30 +551,48 @@ mui.plusReady(function() {
 	
 	//高风险数据获取
 	function WebApp_GetRiskHeight (UnitCode) {
+	
+		var data = {
+			OrganiseUnitID: localStorage.getItem("UnitCode"),
+			StartDate: localStorage.getItem("startTime"),
+			EndDate: localStorage.getItem("endTime")
+		}
 		
-//		var data = {
-//			OrganiseUnitID: localStorage.getItem("UnitCode"),
-//			StartDate: 
-//		}
+		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_HighRisk?dataKey=00-00-00-00';
 		
-		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_HighRisk?dataKey=00-00-00-00&UnitCode=' + UnitCode;
-		//		console.log(urlg)
 		mui.ajax(urlg, {
-			data: null,
+			data: data,
 			dataType: 'json', //返回
 			type: 'get',
 			timeout: 5000,
 			success: function(data) {
-				var info = JSON.stringify(data)
-				alert(info)
+				setHtml(data)
+				
 			},
 			error: function() {
 				//异常处理
 				mui.toast('数据请求失败')
 			}
 		});
+		
+		function setHtml (data) { 
+			var info = data["DataSource"]['Tables'][0]["Datas"][0]
+			var ObjectCount = info["ObjectCount"];
+			var AbnormalCount = info["AbnormalCount"];
+			var AuditCount = info["AuditCount"];
+			var Rate = info["Rate"];
+			var Ratio = info["Ratio"];
+			
+			document.getElementById("Ratio").innerHTML = Ratio || 0; 
+			document.getElementById("ObjectCount").innerHTML = ObjectCount || 0; 
+			document.getElementById("AbnormalCount").innerHTML = AbnormalCount || 0; 
+			document.getElementById("AuditCount").innerHTML = AuditCount || 0; 
+			document.getElementById("Rate").innerHTML = Rate || 0;
+			
+		}
 	}
-//	WebApp_GetRiskHeight(localStorage.getItem('UnitCode'))
+	
+	WebApp_GetRiskHeight(localStorage.getItem('UnitCode'))
 
 	//单位切换-----------------------------------------------------------------------
 	var offCanvasWrapper = mui('#offCanvasWrapper');

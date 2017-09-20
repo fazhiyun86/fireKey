@@ -36,13 +36,14 @@ function WebApp_GetOrganiseUnit() {
 			}
 			
 			localStorage.setItem('OrganiseUnitID',OrganiseUnitID[0]);
-			document.getElementById('2017date').innerHTML = OrUnitName[0];
-			document.getElementById('table_view').innerHTML = html;
+//			document.getElementById('2017date').innerHTML = OrUnitName[0];
+//			document.getElementById('table_view').innerHTML = html;
 			localStorage.setItem('index_name',OrUnitName[0]);
 //			console.log(html)
 			
 			mui('#table_view').on('tap', '.OrganiseUnitIDLi', function() {
-				console.log(this.firstChild.value)
+//				alert("ASDf")
+//				console.log(this.firstChild.value)
 //				document.getElementById('index_zhongdian').innerHTML = this.children[1].value;
 //				localStorage.setItem('UnitCode', this.firstChild.value);
 //				offCanvasWrapper111.offCanvas('close');

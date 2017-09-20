@@ -1,6 +1,7 @@
 (function() {
 	var common = {}
-
+	
+	
 	/**
 	 * 时间相加减
 	 * date  需要转化字符串
@@ -115,8 +116,16 @@
 			'</li>';
 		}
 		
+		var storageData = data[0]
+		storageData = storageData.split(" ")[1]
+		storageData = storageData.split("~")
+		
+		localStorage.setItem("startTime", storageData[0])
+		localStorage.setItem("endTime", storageData[1])
+		
 		wrap.innerHTML = html
 	}
+	
 	
 	
 	window.common = common

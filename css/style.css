@@ -1772,6 +1772,7 @@ canvas {
 .flex_left > span {
 	font-size: 30px!important;
 	color: #228B22; 
+	text-align: center;
 }
 .flex_left > p {
 	font-size: 0.69rem;
@@ -1797,4 +1798,8 @@ canvas {
 }
 .index_four_item {
 	display: flex;
+}
+
+.text_center {
+	text-align: center;
 }
