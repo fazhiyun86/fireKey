@@ -24,7 +24,10 @@ mui.init({
 	//	}
 });
 
+var a = common.getTimeNow("2017-06-01", "2017-09-19")
+console.log(a)
 mui.plusReady(function() {
+	
 	plus.nativeUI.showWaiting();
 
 	//页面显示当前时间 
@@ -531,6 +534,14 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data) {
+				 
+				var getServerStartTime = data['DataSource']["Tables"][0]["Datas"][0]["StartTime"]
+				var getServerEndTime = data['DataSource']["Tables"][0]["Datas"][0]["EndTime"]
+
+				var dataArrays = common.getTimeNow(getServerEndTime, getServerStartTime)
+				common.setAsideDate(dataArrays)
+				
+				localStorage.setItem("serverTime", serverTime)
 				var getDatas = data['DataSource']['Tables'][0]['Datas'];
 				localStorage.setItem('UserOrganiseUnitID', getDatas[0].OrganiseUnitID);
 				localStorage.setItem('UserName', getDatas[0].UserName);
@@ -539,8 +550,35 @@ mui.plusReady(function() {
 			} 
 		})
 	}
-
+	
 	WebApp_GetUserInfo(localStorage.getItem('userCodeVa'))
+	
+	//高风险数据获取
+	function WebApp_GetRiskHeight (UnitCode) {
+		
+//		var data = {
+//			OrganiseUnitID: localStorage.getItem("UnitCode"),
+//			StartDate: 
+//		}
+		
+		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_HighRisk?dataKey=00-00-00-00&UnitCode=' + UnitCode;
+		//		console.log(urlg)
+		mui.ajax(urlg, {
+			data: null,
+			dataType: 'json', //返回
+			type: 'get',
+			timeout: 5000,
+			success: function(data) {
+				var info = JSON.stringify(data)
+				alert(info)
+			},
+			error: function() {
+				//异常处理
+				mui.toast('数据请求失败')
+			}
+		});
+	}
+//	WebApp_GetRiskHeight(localStorage.getItem('UnitCode'))
 
 	//单位切换-----------------------------------------------------------------------
 	var offCanvasWrapper = mui('#offCanvasWrapper');

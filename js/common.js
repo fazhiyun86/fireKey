@@ -5,7 +5,7 @@
 	 * 时间相加减
 	 * date  需要转化字符串
 	 */
-	common.addDate = function(date, days) {
+	addDate = function(date, days) {
 		var d = new Date(date);
 		d.setDate(d.getDate() + days);
 		var month = d.getMonth() + 1;
@@ -23,7 +23,7 @@
 	 * 当前日期在当前年为第几周
 	 * a 当前时间年；  b 当前时间月； c 当前时间日；
 	 */
-	var getYearWeek = function(a, b, c) {
+	common.getYearWeek = function(a, b, c) {
 		//date1是当前日期
 		//date2是当年第一天
 		//d是当前日期是今年第多少天
@@ -55,13 +55,13 @@
 		return fmt;
 	}
 
-	document.getElementById("dat").onclick = getTimeNow("2017-06-01", "2017-09-19");
+//	document.getElementById("dat").onclick = getTimeNow("2017-06-01", "2017-09-19");
 
 	/**
 	 * 首页时间选择（当前总周数， 本周结束时间， 本周起始时间）
 	 */
 
-	var getTimeNow = function(stardata, endata) {
+	common.getTimeNow = function(stardata, endata) {
 		var array = [];
 		var CurrentDate; //当前时间
 		var CurrentWeek; //当前周几
@@ -76,11 +76,11 @@
 		var M = CurrentDate.Format("MM");
 		var D = CurrentDate.Format("dd");
 
-		AllWeek = getYearWeek(Y, M, D); //当前总周数
+		AllWeek = common.getYearWeek(Y, M, D); //当前总周数
 		CurrentWeek = CurrentDate.getDay(); //当前周几
 		//本周起始时间（当前时间-当前周几+1）
 		CurrentDate = new Date(addDate(date, 1 - CurrentWeek));
-		DateJoinStr = AllWeek + ',' + addDate(CurrentDate.toString(), 6) + ',' + CurrentDate.Format("yyyy-MM-dd");
+		DateJoinStr = '第' + AllWeek + '周 ' + addDate(CurrentDate.toString(), 6) + '~' + CurrentDate.Format("yyyy-MM-dd");
 		array.push(DateJoinStr);
 		CurrentDate = new Date(addDate(CurrentDate.toString(), -1));
 
@@ -90,18 +90,32 @@
 			if((CurrentDate.getDay()) % 7 == 0) {
 				AllWeek = AllWeek - 1;
 				//字符串拼接本周结束时间
-				DateJoinStr = AllWeek + ',' + CurrentDate.Format("yyyy-MM-dd");
+				DateJoinStr ='第'+ AllWeek + '周 ' + CurrentDate.Format("yyyy-MM-dd");
 			}
 			//当前周数%7为1的时候， 字符串拼接本周起始时间，并添加到文本数组中
 			if((CurrentDate.getDay()) % 7 == 1) {
-				DateJoinStr = DateJoinStr + ',' + CurrentDate.Format("yyyy-MM-dd");
+				DateJoinStr = DateJoinStr + '~' + CurrentDate.Format("yyyy-MM-dd");
 				array.push(DateJoinStr);
 			}
 			//当前时间减一天
 			CurrentDate = new Date(addDate(CurrentDate.toString(), -1));
 		}
-
+		return array;
 	}
-
+	
+	common.setAsideDate =  function (data) {
+		var wrap = document.getElementById("table_view");
+		
+		var html = "";
+		for(var i = 0; i < data.length; i++) {
+			html += '<li class="OrganiseUnitIDLi">' +
+				'<span class="table-view_Name">' + data[i] + '</span>' +
+			'</li>';
+		}
+		
+		wrap.innerHTML = html
+	}
+	
+	
 	window.common = common
 })()

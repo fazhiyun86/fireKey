@@ -15,6 +15,7 @@ function WebApp_GetOrganiseUnit() {
 		type: 'get',
 		timeout: 5000,
 		success: function(data) {
+			
 			var offCanvasWrapper111 = mui('#offCanvasWrapper');
 			var getDatas = data['DataSource']['Tables'][0]['Datas'];
 			var html = '';
@@ -39,7 +40,7 @@ function WebApp_GetOrganiseUnit() {
 			document.getElementById('table_view').innerHTML = html;
 			localStorage.setItem('index_name',OrUnitName[0]);
 //			console.log(html)
-
+			
 			mui('#table_view').on('tap', '.OrganiseUnitIDLi', function() {
 				console.log(this.firstChild.value)
 //				document.getElementById('index_zhongdian').innerHTML = this.children[1].value;
