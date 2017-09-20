@@ -689,7 +689,7 @@ mui.plusReady(function() {
 		}
 	}
 	
-	Web_FireStatistical(localStorage.getItem(UnitCode));
+	Web_FireStatistical(localStorage.getItem('UnitCode'));
 	
 	//设备维修
 	function Web_EquipmentOperat (UnitCode){

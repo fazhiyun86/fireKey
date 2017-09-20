@@ -44,11 +44,17 @@
 .risk_item_tit {
 	margin-bottom: 0;
 }
-.item_content_top, .item_content_bottom {
+.item_content_top {
 	display: flex;
 }
 .item_content_bottom {
+	overflow: hidden;
 	margin-top: 10px;
+}
+.item_content_bottom p {
+	width: 50%;
+	float: left;
+	text-align: center;
 }
 .flex_item {
 	flex-grow: 1;
