@@ -55,7 +55,6 @@
 		return fmt;
 	}
 
-	document.getElementById("dat").onclick = getTimeNow("2017-06-01", "2017-09-19");
 
 	/**
 	 * 首页时间选择（当前总周数， 本周结束时间， 本周起始时间）
