@@ -603,7 +603,7 @@ mui.plusReady(function() {
 			EndDate: localStorage.getItem("endTime")
 		}
 		//地址（接口）
-		var urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_LowRisk?dataKey=00-00-00-00';
+		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_LowRisk?dateKey=00-00-00-00';
 		
 		//ajax请求
 		mui.ajax(urlg, {
@@ -647,6 +647,136 @@ mui.plusReady(function() {
 	WebApp_GetRisklow(localStorage.getItem('UnitCode'));
 	
 
+	//动火统计
+	function Web_FireStatistical (UnitCode) {
+		
+		var data = {
+			OrganiseUnitID: localStorage.getItem("UnitCode"),
+			StartDate: localStorage.getItem("startTime"),
+			EndDate: localStorage.getItem("endTime")
+		};
+		
+		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_FWTask_Statistical?dateKey=00-00-00-00';
+		
+		mui.ajax(urlg, {
+			data: data,
+			dataType: 'json',
+			type: 'get',
+			timeout: 5000,
+			success: function(data){
+				
+				setHtml(data)
+				
+			},
+			
+			error: function(){
+				mui.toast('数据请求失败')
+			}
+		});
+
+
+		function setHtml(data) {
+			
+			var info = data['DataSource']['Tables'][0]["Datas"][0];
+			var FireCount = info["FireCount"]; //动火数量
+			var AuditCount = info["AbnormalCount"]; //发现问题
+			var AuditCount = info["AuditCount"];  //解决问题
+			
+			document.getElementsByClassName("fire1").innerHTML = FireCount || 0;
+			document.getElementsByClassName("fire2").innerHTML = AbnormalCount || 0;
+			document.getElementsByClassName("fire3").innerHTML = AuditCount || 0;
+		}
+	}
+	
+	Web_FireStatistical(localStorage.getItem(UnitCode));
+	
+	//设备维修
+	function Web_EquipmentOperat (UnitCode){
+		
+		var data ={
+			OrganiseUnitID: localStorage.getItem("UnitCode"),
+			StartDate: localStorage.getItem("startTime"),
+			EndDate: localStorage.getItem("endTime")
+		};
+		
+		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_EMFRepair_Statistical?dateKey=00-00-00-00';
+		
+		mui.ajax(urlg, {
+			data: data,
+			dataType: 'json',
+			type: 'get',
+			timeout: 5000,
+			success: function(data){
+				
+				setHtml(data)
+				
+			},
+			
+			error: function(){
+				mui.toast('数据请求失败')
+			}
+		});
+		
+		function setHtml(data){
+			var info = data['DataSource']['Tables'][0]["Datas"][0];
+			var RepairCoun = info["RepairCoun"]; //故障设备
+			var TodayRepairCount = info["TodayRepairCount"]; //维修数量
+			var WeekRepairCount = info["WeekRepairCount"];  //维修审批
+			
+			document.getElementsByClassName("Operat1").innerHTML = RepairCoun || 0;
+			document.getElementsByClassName("Operat2").innerHTML = TodayRepairCount || 0;
+			document.getElementsByClassName("Operat3").innerHTML = WeekRepairCount || 0;
+		}
+		
+	}
+	
+	Web_EquipmentOperat(localStorage.getItem("UnitCode"));
+	
+	//设备状态
+	function Web_EquipmentStatus (UnitCode){
+		
+		var data ={
+			OrganiseUnitID: localStorage.getItem("UnitCode")
+		};
+		
+		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_EMBEquipment_Statistical?dateKey=00-00-00-00';
+		
+		mui.ajax(urlg, {
+			data: data,
+			dataType: 'json',
+			type: 'get',
+			timeout: 5000,
+			success: function(data){
+				
+				setHtml(data)
+				
+			},
+			
+			error: function(){
+				mui.toast('数据请求失败')
+			}
+		});
+		
+		function setHtml(data){
+			var info = data['DataSource']['Tables'][0]["Datas"][0];
+			var NormalCount = info["NormalCount"]; //正常使用
+			var AuditCount = info["StopCount"]; //停用停机
+			var StopCount = info["RepairCount"];  //故障维修
+			var ScrapCount = info["ScrapCount"];  //报废数量
+			
+			document.getElementsByClassName("Status1").innerHTML = NormalCount || 0;
+			document.getElementsByClassName("Status2").innerHTML = AuditCount || 0;
+			document.getElementsByClassName("Status3").innerHTML = StopCount || 0;
+			document.getElementsByClassName("Status4").innerHTML = ScrapCount || 0;
+			
+		}
+		
+	}
+	
+	Web_EquipmentStatus(localStorage.getItem("UnitCode"));
+	
+	
+	
 	//单位切换-----------------------------------------------------------------------
 	var offCanvasWrapper = mui('#offCanvasWrapper');
 	mui('#table_view').on('tap', '.OrganiseUnitIDLi', function() {
