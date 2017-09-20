@@ -635,11 +635,11 @@ mui.plusReady(function() {
 			var Rate = info["Rate"];  //任务进度
 			var Ratio = info["Ratio"]  //本周检查进度
 			
-			document.getElementById("Ratio").innerHTML = Ratio || 0; 
-			document.getElementById("ObjectCount").innerHTML = ObjectCount || 0; 
-			document.getElementById("AbnormalCount").innerHTML = AbnormalCount || 0; 
-			document.getElementById("AuditCount").innerHTML = AuditCount || 0; 
-			document.getElementById("Rate").innerHTML = Rate || 0;
+			document.getElementById("LowRatio").innerHTML = Ratio || 0; 
+			document.getElementById("LowObjectCount").innerHTML = ObjectCount || 0; 
+			document.getElementById("LowAbnormalCount").innerHTML = AbnormalCount || 0; 
+			document.getElementById("LowAuditCount").innerHTML = AuditCount || 0; 
+			document.getElementById("LowRate").innerHTML = Rate || 0;
 		}
 		
 	}
