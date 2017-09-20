@@ -551,12 +551,12 @@ mui.plusReady(function() {
 	
 	//高风险数据获取
 	function WebApp_GetRiskHeight (UnitCode) {
-	
 		var data = {
 			OrganiseUnitID: localStorage.getItem("UnitCode"),
 			StartDate: localStorage.getItem("startTime"),
 			EndDate: localStorage.getItem("endTime")
 		}
+		
 		
 		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_HighRisk?dataKey=00-00-00-00';
 		
@@ -593,10 +593,18 @@ mui.plusReady(function() {
 	}
 	
 	WebApp_GetRiskHeight(localStorage.getItem('UnitCode'))
-
+	
 	//单位切换-----------------------------------------------------------------------
 	var offCanvasWrapper = mui('#offCanvasWrapper');
 	mui('#table_view').on('tap', '.OrganiseUnitIDLi', function() {
+		
+		offCanvasWrapper.offCanvas('close');
+		var targetStr = this.innerText
+		common.setStorageTime(targetStr)
+		
+		WebApp_GetRiskHeight(localStorage.getItem('UnitCode')); //重新获取高风的数据
+		
+	/*
 		//console.log(this.firstChild.value)
 		document.getElementById('2017date').innerHTML = this.children[1].value;
 		localStorage.setItem('UnitCode', this.firstChild.value);
@@ -614,8 +622,9 @@ mui.plusReady(function() {
 		WebApp_Emf_Faultrepair(localStorage.getItem('UnitCode'));
 		WebApp_GetRectify(localStorage.getItem('UnitCode'));
 		WebApp_GetEMMStatistical(localStorage.getItem('UnitCode'));
-
+	*/
 	})
+	
 
 	document.getElementById("bodyId").addEventListener("swipedown", function() {
 		equipState(localStorage.getItem('UnitCode'));
