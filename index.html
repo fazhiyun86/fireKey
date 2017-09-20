@@ -51,7 +51,7 @@
 						</div>
 
 						<ul id="table_view" class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
-
+							
 						</ul>
 					</div>
 				</div>
@@ -77,10 +77,10 @@
 								<div class="tit_text_list_con">
 									<div id="offCanvasShow">
 										<span class="tit_text_list_sp1" id="index_zhongdian">北京城市副中心行政办公区</span>
-									<div class="data_font">
-										<span class="tit_text_list_sp2" id="2017date">第38周</span>
-										<a><font class="mui-icon mui-icon-arrowdown"></font></a>
-									</div>
+										<div class="data_font" id="selectDateWrap">
+											<span class="tit_text_list_sp2" id="2017date">第38周</span>
+											<a><font class="mui-icon mui-icon-arrowdown"></font></a>
+										</div>
 									</div>
 								</div>
 								<div  class="index_list_content">
@@ -219,7 +219,6 @@
 									</div>
 									<!--设备状态  end-->
 									
-								
 								</div>
 							</div>
 						</div>
@@ -235,7 +234,7 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/common.js"></script>
 	<script src="js/index.js"></script>
-	<script src="js/area.js"></script>
+	<!--<script src="js/area.js"></script>-->
 	<script src="js/searchCode.js"></script>
 	<script src="js/radialIndicator.js"></script>
 	<script>
@@ -245,7 +244,7 @@
 		});
 
 		mui.plusReady(function() {
-
+			
 			var in_index = document.getElementsByClassName('in_index');
 			
 //			var pageArr = [
@@ -303,6 +302,7 @@
 			var offCanvasWrapper = mui('#offCanvasWrapper');
 			//主界面容器
 			var offCanvasInner = offCanvasWrapper[0].querySelector('.mui-inner-wrap');
+		
 			//菜单容器
 			var offCanvasSide = document.getElementById("offCanvasSide");
 			//Android暂不支持整体移动动画
@@ -324,7 +324,9 @@
 			classList.remove('mui-scalable');
 			classList.add('mui-slide-in');
 			offCanvasWrapper.offCanvas().refresh();
-			document.getElementById('offCanvasShow').addEventListener('tap', function() {
+			//选择时间的点击事件，
+			document.getElementById('selectDateWrap').addEventListener('tap', function() {
+				
 				offCanvasWrapper.offCanvas('show');
 			});
 			//			document.getElementById('offCanvasHide').addEventListener('tap', function() {
