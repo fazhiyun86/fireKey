@@ -546,7 +546,7 @@ mui.plusReady(function() {
 	var offCanvasWrapper = mui('#offCanvasWrapper');
 	mui('#table_view').on('tap', '.OrganiseUnitIDLi', function() {
 		//console.log(this.firstChild.value)
-		document.getElementById('index_zhongdian').innerHTML = this.children[1].value;
+		document.getElementById('2017date').innerHTML = this.children[1].value;
 		localStorage.setItem('UnitCode', this.firstChild.value);
 		localStorage.setItem('index_name', this.children[1].value);
 		localStorage.setItem('OrganiseUnitID', this.children[2].value);

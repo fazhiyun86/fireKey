@@ -35,7 +35,7 @@ function WebApp_GetOrganiseUnit() {
 			}
 			
 			localStorage.setItem('OrganiseUnitID',OrganiseUnitID[0]);
-			document.getElementById('index_zhongdian').innerHTML = OrUnitName[0];
+			document.getElementById('2017date').innerHTML = OrUnitName[0];
 			document.getElementById('table_view').innerHTML = html;
 			localStorage.setItem('index_name',OrUnitName[0]);
 //			console.log(html)
