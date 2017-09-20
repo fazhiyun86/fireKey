@@ -245,6 +245,39 @@
 					indicators: false, //是否显示滚动条,默认是true
 				});
 				
+				mui.plusReady(function() {
+					
+				})
+				function getData () {
+					
+					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_HighRisk?dataKey=00-00-00-00';
+					
+					var data = {
+						OrganiseUnitID: localStorage.getItem("UnitCode"),
+						StartDate: localStorage.getItem("startTime"),
+						EndDate: localStorage.getItem("endTime")
+					}
+		
+					mui.ajax(url, {
+						data: data,
+						dataType:'json',//服务器返回json格式数据
+						type:'get',//HTTP请求类型
+						timeout:5000,//超时时间设置为10秒；
+						headers:{'Content-Type':'application/json'},	              
+						success:function(data){
+							//服务器返回响应，根据响应结果，分析是否登录成功；
+//							...
+						},
+						error:function(xhr,type,errorThrown){
+							//异常处理；
+							console.log(type);
+						}
+					});
+					
+				}
+				
+				
+				
 				mui('#riskContent').on('tap', '.risk_wrap', function() {
 					
 					mui.openWindow({
