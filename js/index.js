@@ -564,7 +564,10 @@ mui.plusReady(function() {
 			dataType: 'json', //返回
 			type: 'get',
 			timeout: 5000,
+			
 			success: function(data) {
+				alert(JSON.stringify(data));
+				
 				setHtml(data)
 				
 			},
@@ -648,7 +651,7 @@ mui.plusReady(function() {
 	
 
 	//动火统计
-	function Web_FireStatistical (UnitCode) {
+	function WebApp_FireStatistical (UnitCode) {
 		
 		var data = {
 			OrganiseUnitID: localStorage.getItem("UnitCode"),
@@ -688,10 +691,10 @@ mui.plusReady(function() {
 		}
 	}
 	
-	Web_FireStatistical(localStorage.getItem(UnitCode));
+	WebApp_FireStatistical(localStorage.getItem('UnitCode'));
 	
 	//设备维修
-	function Web_EquipmentOperat (UnitCode){
+	function WebApp_EquipmentOperat (UnitCode){
 		
 		var data ={
 			OrganiseUnitID: localStorage.getItem("UnitCode"),
@@ -730,10 +733,10 @@ mui.plusReady(function() {
 		
 	}
 	
-	Web_EquipmentOperat(localStorage.getItem("UnitCode"));
+	WebApp_EquipmentOperat(localStorage.getItem('UnitCode'));
 	
 	//设备状态
-	function Web_EquipmentStatus (UnitCode){
+	function WebApp_EquipmentStatus (UnitCode){
 		
 		var data ={
 			OrganiseUnitID: localStorage.getItem("UnitCode")
@@ -773,7 +776,7 @@ mui.plusReady(function() {
 		
 	}
 	
-	Web_EquipmentStatus(localStorage.getItem("UnitCode"));
+	WebApp_EquipmentStatus(localStorage.getItem('UnitCode'));
 	
 	
 	
