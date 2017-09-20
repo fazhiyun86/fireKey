@@ -566,7 +566,6 @@ mui.plusReady(function() {
 			timeout: 5000,
 			
 			success: function(data) {
-				alert(JSON.stringify(data));
 				
 				setHtml(data)
 				
