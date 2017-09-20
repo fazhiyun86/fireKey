@@ -1754,7 +1754,8 @@
 					"css/mui.min.css",
 					"css/style.css",
 					"js/searchCode.js",
-					"css/Risk_height_low.css"
+					"css/Risk_height_low.css",
+					"js/common.js"
 				],
 				"refer": [
 					"Risk_height_1.html"
