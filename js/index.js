@@ -598,13 +598,12 @@ mui.plusReady(function() {
 	function WebApp_GetRisklow (UnitCode){
 		
 		var data = {
-			//数据参数    起、止时间
 			OrganiseUnitID: localStorage.getItem("UnitCode"), 
 			StartDate: localStorage.getItem("startTime"),  
 			EndDate: localStorage.getItem("endTime")
 		}
 		//地址（接口）
-		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + 'WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_LowRisk?dateKey=00-00-00-00';
+		var urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_LowRisk?dataKey=00-00-00-00';
 		
 		//ajax请求
 		mui.ajax(urlg, {
@@ -613,8 +612,9 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data){
+				
 //				var s = JSON.stringify(data);
-//				alert(s);
+//				console.log(s)
 				//回掉函数返回数据
 				setHtml(data)
 				
@@ -628,12 +628,12 @@ mui.plusReady(function() {
 		
 		function setHtml (data) {
 			
-			var info = data['DataSource']['Table'][0]["Datas"][0];  //要取得数据
+			var info = data['DataSource']['Tables'][0]["Datas"][0];  //要取得数据
 			var ObjectCount = info["ObjectCount"];  //检查设备数量
 			var AbnormalCount = info["AbnormalCount"]; //异常数量
 			var AuditCount = info["AuditCount"];  //解决问题数量
 			var Rate = info["Rate"];  //任务进度
-			var Ratio = info["Ratio"]  //本周检查进度
+			var Ratio = info["Ratio"];  //本周检查进度
 			
 			document.getElementById("LowRatio").innerHTML = Ratio || 0; 
 			document.getElementById("LowObjectCount").innerHTML = ObjectCount || 0; 
@@ -680,6 +680,7 @@ mui.plusReady(function() {
 	
 
 	document.getElementById("bodyId").addEventListener("swipedown", function() {
+		/*
 		equipState(localStorage.getItem('UnitCode'));
 		WebApp_GetISMStatistical(time, localStorage.getItem('UnitCode'));
 		WebApp_GetCertificateInfo(localStorage.getItem('UnitCode'));
@@ -690,6 +691,7 @@ mui.plusReady(function() {
 		WebApp_Emf_Faultrepair(localStorage.getItem('UnitCode'));
 		WebApp_GetRectify(localStorage.getItem('UnitCode'));
 		WebApp_GetEMMStatistical(localStorage.getItem('UnitCode'));
+		*/
 	})
 
 })
