@@ -117,13 +117,24 @@
 		}
 		
 		var storageData = data[0]
-		storageData = storageData.split(" ")[1]
-		storageData = storageData.split("~")
+		common.setStorageTime(storageData)
 		
-		localStorage.setItem("startTime", storageData[0])
-		localStorage.setItem("endTime", storageData[1])
+//		storageData = storageData.split(" ")[1]
+//		storageData = storageData.split("~")
+//		
+//		localStorage.setItem("startTime", storageData[0])
+//		localStorage.setItem("endTime", storageData[1])
 		
 		wrap.innerHTML = html
+	}
+	common.setStorageTime = function (str) {
+		var storageData = str;
+		storageData = storageData.split(" ")[1];
+		storageData = storageData.split("~");
+		
+		localStorage.setItem("startTime", storageData[0]);
+		localStorage.setItem("endTime", storageData[1]);
+		
 	}
 	
 	

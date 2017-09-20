@@ -1472,6 +1472,15 @@
 	"Risk_height_1.html": {
 		"refer": [
 			"Risk_height_2.html"
+		],
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/searchCode.js",
+			"css/Risk_height_low.css"
 		]
 	},
 	"Risk_height_3.html": {

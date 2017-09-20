@@ -551,7 +551,6 @@ mui.plusReady(function() {
 	
 	//高风险数据获取
 	function WebApp_GetRiskHeight (UnitCode) {
-	
 		var data = {
 			OrganiseUnitID: localStorage.getItem("UnitCode"),
 			StartDate: localStorage.getItem("startTime"),
@@ -592,64 +591,19 @@ mui.plusReady(function() {
 		}
 	}
 	
-	WebApp_GetRiskHeight(localStorage.getItem('UnitCode'));
-
-	//低风险数据获取
-	function WebApp_GetRisklow (UnitCode){
-		
-		var data = {
-			//数据参数    、起、止时间
-			OrganiseUnitID: localStorage.getItem("UnitCode"), 
-			StartDate: localStorage.getItem("startTime"),  
-			EndDate: localStorage.getItem("endTime")
-		}
-		//地址（接口）
-		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + 'WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_LowRisk?dateKey=00-00-00-00';
-		
-		//ajax请求
-		mui.ajax(urlg, {
-			data: data,  //传入数据
-			dataType: 'json',  //返回
-			type: 'get',
-			timeout: 5000,
-			success: function(data){
-//				var s = JSON.stringify(data);
-//				alert(s);
-				//回掉函数返回数据
-				setHtml(data)
-				
-			},
-
-			error: function(){
-				//异常处理
-				mui.toast('数据请求失败')
-			}
-		});
-		
-		function setHtml (data) {
-			
-			var info = data['DataSource']['Table'][0]["Datas"][0];  //要取得数据
-			var ObjectCount = info["ObjectCount"];  //检查设备数量
-			var AbnormalCount = info["AbnormalCount"]; //异常数量
-			var AuditCount = info["AuditCount"];  //解决问题数量
-			var Rate = info["Rate"];  //任务进度
-			var Ratio = info["Ratio"]  //本周检查进度
-			
-			document.getElementById("Ratio").innerHTML = Ratio || 0; 
-			document.getElementById("ObjectCount").innerHTML = ObjectCount || 0; 
-			document.getElementById("AbnormalCount").innerHTML = AbnormalCount || 0; 
-			document.getElementById("AuditCount").innerHTML = AuditCount || 0; 
-			document.getElementById("Rate").innerHTML = Rate || 0;
-		}
-		
-	}
-	
-	WebApp_GetRisklow(localStorage.getItem('UnitCode'));
-	
+	WebApp_GetRiskHeight(localStorage.getItem('UnitCode'))
 	
 	//单位切换-----------------------------------------------------------------------
 	var offCanvasWrapper = mui('#offCanvasWrapper');
 	mui('#table_view').on('tap', '.OrganiseUnitIDLi', function() {
+		
+		offCanvasWrapper.offCanvas('close');
+		var targetStr = this.innerText
+		common.setStorageTime(targetStr)
+		
+		WebApp_GetRiskHeight(localStorage.getItem('UnitCode')); //重新获取高风的数据
+		
+	/*
 		//console.log(this.firstChild.value)
 		document.getElementById('2017date').innerHTML = this.children[1].value;
 		localStorage.setItem('UnitCode', this.firstChild.value);
@@ -667,8 +621,9 @@ mui.plusReady(function() {
 		WebApp_Emf_Faultrepair(localStorage.getItem('UnitCode'));
 		WebApp_GetRectify(localStorage.getItem('UnitCode'));
 		WebApp_GetEMMStatistical(localStorage.getItem('UnitCode'));
-
+	*/
 	})
+	
 
 	document.getElementById("bodyId").addEventListener("swipedown", function() {
 		equipState(localStorage.getItem('UnitCode'));
