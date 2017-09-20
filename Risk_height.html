@@ -50,6 +50,9 @@
 							<span id="state_diqu"></span>
 							<span id="offCanvasShow" style="display: none;" class="mui-icon mui-icon-list"></span>
 						</p>
+						<div id="riskContentWrap">
+							
+						</div>
 						<!--显示的盒子 start-->
 						<div class="risk_wrap">
 							<div class="risk_item">
@@ -225,7 +228,7 @@
 									</div>
 								</div>
 							</div>
-							<!--两个三角形的样式 -->
+							
 							<i class="triangle-top red-top"></i>
 							<i class="triangle-bottom red-bottom"></i>
 						</div>
@@ -246,36 +249,103 @@
 				});
 				
 				mui.plusReady(function() {
-					
+					getData()
 				})
+				//获取数据的请求
 				function getData () {
 					
 					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_ChildrenOrg_ISMTask_Statistical?dataKey=00-00-00-00';
 					
 					var data = {
-						OrganiseUnitID: localStorage.getItem("UnitCode"),
-						StartDate: localStorage.getItem("startTime"),
-						EndDate: localStorage.getItem("endTime")
+						OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
+						StartDate: localStorage.getItem("endTime"),
+						EndDate: localStorage.getItem("startTime"),
+						ProjectType: 2
 					}
-		
+					
 					mui.ajax(url, {
 						data: data,
-						dataType:'json',//服务器返回json格式数据
-						type:'get',//HTTP请求类型
-						timeout:5000,//超时时间设置为10秒；
-						headers:{'Content-Type':'application/json'},	              
-						success:function(data){
-							//服务器返回响应，根据响应结果，分析是否登录成功；
-//							...
+						dataType:'json',
+						type:'get',
+						timeout: 5000,            
+						success: function(data){
+							setHtml(data["DataSource"]["Tables"][0]["Datas"])
 						},
-						error:function(xhr,type,errorThrown){
-							//异常处理；
-							console.log(type);
+						error: function(){
+							mui.toast('数据请求失败')
 						}
 					});
-					
 				}
-				
+				// 数据的显示
+				function setHtml (data) {
+					var html = '';
+					for (var i = 0; i < data.length; i++) {
+						var item = data[i];
+						
+						html += '<div class="risk_wrap" data-id="'+ item.ID +'">'+
+							'<div class="risk_item">' +
+								'<p class="risk_item_tit">asdfa</p>' +
+								'<div class="risk_item_content">' +
+									'<div class="item_content_top">' +
+										'<div class="flex_item flex_left">' +
+											'<span class="flex_left_num">89.5%</span>' +
+											'<p>本周检查进度</p>' +
+										'</div>' +
+										'<div class="flex_item2">' +
+											'<p>' +
+												'<span class="right_num">1/3</span>'+
+												'<span class="right_desc">检查任务</span>' +
+											'</p>' +
+											'<p>' +
+												'<span class="right_num">1232</span>' +
+												'<span class="right_desc">检查设备</span>' +
+											'</p>'+
+											'<p>'+
+												'<span class="right_num">12</span>'+
+												'<span class="right_desc">异常问题</span>'+
+											'</p>'+
+											'<p>'+
+												'<span class="right_num">13</span>'+
+												'<span class="right_desc">解决问题</span>'+
+											'</p>'+
+										'</div>'+
+									'</div>'+
+									'<div class="item_content_bottom">'+
+										'<div class="flex_item">'+
+											'<p>'+
+												'<span class="bottom_box">消火栓接头有渗漏</span> <span class="bottom_num">0</span>'+
+											'</p>'+
+											'<p>'+
+												'<span class="bottom_box">消火栓接头有渗漏</span> <span class="bottom_num">0</span>'+
+											'</p>'+
+											'<p>'+
+												'<span class="bottom_box">消火栓接头有渗漏</span> <span class="bottom_num">0</span>'+
+											'</p>'+
+										'</div>'+
+										'<div class="flex_item">'+
+											'<p>'+
+												'<span class="bottom_box">消火栓接头有渗漏</span> <span class="bottom_num">0</span>'+
+											'</p>'+
+											'<p>'+
+												'<span class="bottom_box">消火栓接头有渗漏</span> <span class="bottom_num">0</span>'+
+											'</p>'+
+											'<p>'+
+												'<span class="bottom_box">消火栓接头有渗漏</span> <span class="bottom_num">0</span>'+
+											'</p>'+
+										'</div>'+
+									'</div>'+
+								'</div>'+
+							'</div>'+
+							'<i class="triangle-top red-top"></i>'+
+							'<i class="triangle-bottom red-bottom"></i>'+
+						'</div>';
+					}
+					document.getElementById('riskContentWrap').innerHTML = html
+					
+					function setIcon () {
+						
+					}
+				}
 				
 				
 				mui('#riskContent').on('tap', '.risk_wrap', function() {
