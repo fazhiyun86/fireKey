@@ -598,7 +598,7 @@ mui.plusReady(function() {
 	function WebApp_GetRisklow (UnitCode){
 		
 		var data = {
-			//数据参数    、起、止时间
+			//数据参数    起、止时间
 			OrganiseUnitID: localStorage.getItem("UnitCode"), 
 			StartDate: localStorage.getItem("startTime"),  
 			EndDate: localStorage.getItem("endTime")
