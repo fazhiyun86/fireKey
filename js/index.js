@@ -39,7 +39,7 @@ mui.plusReady(function() {
 	}
 	//	 localStorage.setItem('ApplicationName',getDatas[0].ApplicationName);
 	document.querySelector(".zdd").innerHTML = localStorage.getItem('ApplicationName');
-	
+	 
 	var time = myDate.getFullYear() + '-' + ((myDate.getMonth() + 1) < 10 ? "0" : "") + (myDate.getMonth() + 1) + '-' + (myDate.getDate() < 10 ? "0" : "") + myDatex;
 	var starttime = myDate.getFullYear() + '年' + ((myDate.getMonth() + 1) < 10 ? "0" : "") + (myDate.getMonth() + 1) + '月' + myDatex + '日';
 	document.getElementById("2017date").innerHTML = starttime;
@@ -349,9 +349,9 @@ mui.plusReady(function() {
 	//设备运维
 	function WebApp_Emf_Faultrepair(UnitCode) {
 		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_Emf_Faultrepair?dataKey=00-00-00-00&organiseunitcode=' + UnitCode;
-		console.log(urlg);
+//		console.log(urlg);
 		mui.ajax(urlg, {
-			data: null,
+			data: null, 
 			dataType: 'json', //返回
 			type: 'get',
 			timeout: 5000,
@@ -552,13 +552,12 @@ mui.plusReady(function() {
 	//高风险数据获取
 	function WebApp_GetRiskHeight (UnitCode) {
 		var data = {
-			OrganiseUnitID: localStorage.getItem("UnitCode"),
+			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
 			StartDate: localStorage.getItem("startTime"),
 			EndDate: localStorage.getItem("endTime")
 		}
-		
 		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_HighRisk?dataKey=00-00-00-00';
-		
+	
 		mui.ajax(urlg, {
 			data: data,
 			dataType: 'json', //返回
@@ -566,9 +565,7 @@ mui.plusReady(function() {
 			timeout: 5000,
 			
 			success: function(data) {
-				
 				setHtml(data)
-				
 			},
 			error: function() {
 				//异常处理
@@ -600,32 +597,26 @@ mui.plusReady(function() {
 	function WebApp_GetRisklow (UnitCode){
 		
 		var data = {
-			OrganiseUnitID: localStorage.getItem("UnitCode"), 
+			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"), 
 			StartDate: localStorage.getItem("startTime"),  
 			EndDate: localStorage.getItem("endTime")
 		}
-		console.log(JSON.stringify(data))
-		//地址（接口）
-		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_LowRisk?dateKey=00-00-00-00';
 		
-		//ajax请求
+		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_LowRisk?dataKey=00-00-00-00';
+	
 		mui.ajax(urlg, {
-			data: data,  //传入数据
-			dataType: 'json',  //返回
+			data: data, 
+			dataType: 'json',
 			type: 'get',
 			timeout: 5000,
 			success: function(data){
-				
-//				var s = JSON.stringify(data);
-//				console.log(s)
-				//回掉函数返回数据
 				setHtml(data)
-				
 			},
 
 			error: function(){
 				//异常处理
 				mui.toast('数据请求失败')
+				console.log("低风险请求数据失败!")
 			}
 		});
 		
@@ -652,14 +643,14 @@ mui.plusReady(function() {
 
 	//动火统计
 	function WebApp_FireStatistical (UnitCode) {
-		
+		console.log("动火统计")
 		var data = {
-			OrganiseUnitID: localStorage.getItem("UnitCode"),
+			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
 			StartDate: localStorage.getItem("startTime"),
 			EndDate: localStorage.getItem("endTime")
 		};
 		
-		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_FWTask_Statistical?dateKey=00-00-00-00';
+		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_FWTask_Statistical?dataKey=00-00-00-00';
 		
 		mui.ajax(urlg, {
 			data: data,
@@ -667,13 +658,12 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data){
-				
 				setHtml(data)
-				
 			},
 			
 			error: function(){
 				mui.toast('数据请求失败')
+				console.log("动火统计请求报错")
 			}
 		});
 
@@ -697,12 +687,12 @@ mui.plusReady(function() {
 	function WebApp_EquipmentOperat (UnitCode){
 		
 		var data ={
-			OrganiseUnitID: localStorage.getItem("UnitCode"),
+			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
 			StartDate: localStorage.getItem("startTime"),
 			EndDate: localStorage.getItem("endTime")
 		};
 		
-		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_EMFRepair_Statistical?dateKey=00-00-00-00';
+		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_EMFRepair_Statistical?dataKey=00-00-00-00';
 		
 		mui.ajax(urlg, {
 			data: data,
@@ -710,13 +700,12 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data){
-				
 				setHtml(data)
-				
 			},
 			
 			error: function(){
 				mui.toast('数据请求失败')
+				console.log("设备维修请求报错")
 			}
 		});
 		
@@ -739,10 +728,10 @@ mui.plusReady(function() {
 	function WebApp_EquipmentStatus (UnitCode){
 		
 		var data ={
-			OrganiseUnitID: localStorage.getItem("UnitCode")
+			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID")
 		};
 		
-		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_EMBEquipment_Statistical?dateKey=00-00-00-00';
+		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_EMBEquipment_Statistical?dataKey=00-00-00-00';
 		
 		mui.ajax(urlg, {
 			data: data,
