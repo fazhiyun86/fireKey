@@ -51,10 +51,8 @@
 		<script type="text/javascript">
 
 				var list = document.getElementsByClassName("tab_list");
-
 				var Account_con = document.getElementById("Account_con");
 				var tabWrap = document.getElementById("tabWrap");
-
 
 				mui("#tabWrap").on('tap', '.tab_list', function(e) {
 					var targetVal = this.getAttribute("data-target");
@@ -63,41 +61,91 @@
           		
           		function getData (targetVal) {
           			
-          		}
-       		});
+          			function WebApp_GetEqListByClass(UnitCode) {
+          				
+	          			var data ={
+							OrganiseUnitID: localStorage.getItem("UnitCode")
+						};
+						urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EMBEquipmentStatus_Statistical?dateKey=00-00-00-00';
+						
+						mui.ajax(urlg, {
+							data: data,
+							dataType: 'json',
+							type: 'get',
+							timeout: 5000,
+							success: function(data){
+								
+//								var info = data['DataSource']['Tables'][0]["Datas"][0];
+//								var html = '';								
+//								var ClassName = info["ClassName"]; 	//设备分类名字/消火栓
+//								var OrganiseUnitID = info["OrganiseUnitID"]; 	//单位ID
+//								var OrganiseUnitName = info["OrganiseUnitName"]; 	//单位名称
+//								var ParentOrganiseUnitName = info["ParentOrganiseUnitName"]; 			//父单位名称
+//								var AllCount = info["AllCount"]; 		//消火栓总数量
+//								var NormalCount = info["NormalCount"];			 //正常使用
+//								var StopCount = info["StopCount"]; 			//停用停机
+
+								mui.each(info, function(index, item) {
+									//					<div>
+									//						<p>烟感报警器</p>
+									//						<p style="width:35%">CD45S64W4514</p>
+									//						<p style="width:15%">正常</p>
+									//					</div>
+									html += 
+										'<div class="conSend" style="overflow-x: hidden;">' +
+										'<input class="sendId1" type="hidden"value="' + item.EquipmentCode + '" />' +
+										'<p style="width:25%">' + item.EquipmentName + '</p>' +
+										'<p style="width:30%">' + item.EquipmentCode + '</p>' +
+										'<p style="width:35%">' + item.EquipmentStatus + '</p>' +
+										'</div>';
+								})
+						
+							document.getElementById("Equipment_c2").innerHTML = html;
+										
+							},
+									
+							error: function(){
+								mui.toast('数据请求失败')
+							}						
+						});		
+					}
+					WebApp_GetEqListByClass(localStorage.getItem('UnitCode'))
+		    	}
+
 			(function($){			
 				$(".mui-scroll-wrapper").scroll({
 					bounce: false,//滚动条是否有弹力默认是true
 					indicators: false, //是否显示滚动条,默认是true
 				});
 
-			mui.ready(function() {   
-				mui('#Equipment_c2').on('tap', '.conSend', function() {
-					var code = this.firstChild.value;
-//					console.log(code)
-					localStorage.setItem('userNumCode', code)
-					mui.openWindow({
-						url: 'Equipment_state_query.html',
-						id: 'Equipment_state_query.html',
-						styles: {
-							top: 0, //新页面顶部位置
-							bottom: 0, //新页面底部位置
-						},
-						extras: {
-
-						},
-						show: {
-							duration: '300'
-						},
-						waiting: {
-							autoShow: true, //自动显示等待框，默认为true
-							title: '加载中...', //等待对话框上显示的提示内容
-						}
-					});
-
+				mui.ready(function() {   
+					mui('#Equipment_c2').on('tap', '.conSend', function() {
+						var code = this.firstChild.value;
+	//					console.log(code)
+						localStorage.setItem('userNumCode', code)
+						mui.openWindow({
+							url: 'Equipment_state_query.html',
+							id: 'Equipment_state_query.html',
+							styles: {
+								top: 0, //新页面顶部位置
+								bottom: 0, //新页面底部位置
+							},
+							extras: {
+	
+							},
+							show: {
+								duration: '300'
+							},
+							waiting: {
+								autoShow: true, //自动显示等待框，默认为true
+								title: '加载中...', //等待对话框上显示的提示内容
+							}
+						});
+	
+					})
+	
 				})
-
-			})
+				
 			});(mui);
 		</script>
 	</body>
