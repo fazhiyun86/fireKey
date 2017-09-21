@@ -19,6 +19,7 @@
 				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 				<h1 class="mui-title">设备资产台账</h1>
 			</header>
+			<div id="bg_tab">
 			<div class="equipment_tab">
 				<ul>
 					<li class="equipment_tab_list tab_list"><a id="list1">故障维修</a></li>
@@ -42,13 +43,18 @@
 					</div>
 				</div>
 			</div>
+			</div>
 		</div>
 		<script src="js/mui.min.js"></script>
 		<!--<script src="js/echarts.common.min.js"></script>-->
 		<script src="js/Equipment_state_Account.js"></script>
-		<script type="text/javascript">s
+		<script type="text/javascript">
 			mui.init();
 			mui.ready(function() {
+				
+				mui('.tab_list').on('tap', '#bg_tab', function() {
+				alert(2);			
+			});
 				mui('#Equipment_c2').on('tap', '.conSend', function() {
 					var code = this.firstChild.value;
 //					console.log(code)

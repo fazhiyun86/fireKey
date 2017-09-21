@@ -423,7 +423,8 @@
 					"images/jing.png",
 					"images/login_01_01.png",
 					"js/area.js",
-					"js/searchCode.js"
+					"js/searchCode.js",
+					"js/Equipment_state_two.js"
 				],
 				"refer": [
 					"Equipment_state_Account.html",
