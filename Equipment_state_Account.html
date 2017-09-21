@@ -20,41 +20,73 @@
 				<h1 class="mui-title">设备资产台账</h1>
 			</header>
 			<div id="bg_tab">
-			<div class="equipment_tab">
-				<ul>
-					<li class="equipment_tab_list tab_list"><a id="list1">故障维修</a></li>
-					<li class="equipment_tab_list tab_list"><a id="list1">停用停机</a></li>
-					<li class="equipment_tab_list tab_list"><a id="list1">正常使用</a></li>
-					<li class="equipment_tab_list tab_list"><a id="list1">报废处理</a></li>
-				</ul>
-			</div>
-			
-			<div class="mui-content Equipment_state_Account_con" id="Account_con" style="padding-top: 0px;">
-				<div class="Equipment_first">
-					<p style="width: 25%;">名称</p>
-					<p style="width: 30%;">编号</p> 
-					<p style="width: 35%;">位置</p>
+				<div class="equipment_tab" id="tabWrap">
+					<ul>
+						<li class="equipment_tab_list tab_list" data-target="1"><a >故障维修</a></li>
+						<li class="equipment_tab_list tab_list" data-target="2"><a>停用停机</a></li>
+						<li class="equipment_tab_list tab_list" data-target="3"><a>正常使用</a></li>
+						<li class="equipment_tab_list tab_list" data-target="4"><a>报废处理</a></li>
+					</ul>
 				</div>
-				<div class="Equipment_c2" id="Equipment_c2">
-					<div>
-						<p style="width: 25%;">烟感报警器</p>
-						<p style="width: 30%;">A200050</p>
-						<p style="width: 35%;">正常</p>
+				
+				<div class="mui-content Equipment_state_Account_con" id="Account_con" style="padding-top: 0px;">
+					<div class="Equipment_first">
+						<p style="width: 25%;">名称</p>
+						<p style="width: 30%;">编号</p> 
+						<p style="width: 35%;">位置</p>
+					</div>
+					<div class="Equipment_c2" id="Equipment_c2">
+						<div>
+							<p style="width: 25%;">消火栓</p>
+							<p style="width: 30%;">A200050</p>
+							<p style="width: 35%;">行政办公区A1工程区</p>
+						</div>
 					</div>
 				</div>
-			</div>
 			</div>
 		</div>
 		<script src="js/mui.min.js"></script>
 		<!--<script src="js/echarts.common.min.js"></script>-->
 		<script src="js/Equipment_state_Account.js"></script>
 		<script type="text/javascript">
-			mui.init();
-			mui.ready(function() {
-				
-				mui('.tab_list').on('tap', '#bg_tab', function() {
-				alert(2);			
-			});
+
+				var list = document.getElementsByClassName("tab_list");
+
+				var Account_con = document.getElementById("Account_con");
+				var tabWrap = document.getElementById("tabWrap");
+
+//				for(var i=0; i<list.length; i++){
+//				mui.each(list, function(index, item) {
+				mui("#tabWrap").on('tap', '.tab_list', function(e) {
+					var targetVal = this.getAttribute("data-target")
+					getData(targetVal)
+          		});
+          		
+          		function getData (targetVal) {
+          			
+          		}
+//        		list2.addEventListener('tap', function() {
+//					list1.style.background = "none";
+//        			
+//						alert(2);
+//        		});
+//        		list3.addEventListener('tap', function() {
+//					list1.style.background = "none";
+//        			
+//						alert(3);
+//        		});
+//        		list4.addEventListener('tap', function() {
+//					list1.style.background = "none";
+//        			
+//						alert(4);
+//        		});
+			(function($){			
+				$(".mui-scroll-wrapper").scroll({
+					bounce: false,//滚动条是否有弹力默认是true
+					indicators: false, //是否显示滚动条,默认是true
+				});
+
+			mui.ready(function() {   
 				mui('#Equipment_c2').on('tap', '.conSend', function() {
 					var code = this.firstChild.value;
 //					console.log(code)
@@ -81,6 +113,7 @@
 				})
 
 			})
+			});(mui);
 		</script>
 	</body>
 
