@@ -1567,5 +1567,15 @@
 			"css/mui.min.css",
 			"css/style.css"
 		]
+	},
+	"Add_Fire_statistic_tab02.html": {
+		"resources": [
+			"js/echarts.min.js",
+			"js/mui.min.js",
+			"css/Add_Fire_statistic.css",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css"
+		]
 	}
 }
