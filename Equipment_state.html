@@ -197,7 +197,7 @@
 //								var getInfo = data['DataSource']['Tables'][0]["Datas"][0];
 								var html = '';
 								
-								var Hydrant = info["Hydrant"]; 	//消火栓
+								var ClassName = info["ClassName"]; 	//设备分类名字/消火栓
 								var OrganiseUnitID = info["OrganiseUnitID"]; 	//单位ID
 								var OrganiseUnitName = info["OrganiseUnitName"]; 	//单位名称
 								var ParentOrganiseUnitName = info["ParentOrganiseUnitName"]; 			//父单位名称
@@ -208,7 +208,7 @@
 								var ScrapCount = info["ScrapCount"];  	//报废数量
 								
 								function setHtml(data){
-									document.getElementById("Hydrant").innerHTML = Hydrant || 0;
+									document.getElementById("Hydrant").innerHTML = ClassName || 0;
 									document.getElementById("HydrantCount").innerHTML = NormalCount || 0; //消火栓总数量或者为 0
 									document.getElementById("NormalUse").innerHTML = NormalCount || 0;
 									document.getElementById("StopUse").innerHTML = StopCount || 0;
