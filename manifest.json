@@ -1889,7 +1889,49 @@
 					"css/mui.min.css",
 					"css/style.css"
 				],
+				"refer": [
+					"Add_Fire_statistic_tab02_1.html"
+				],
+				"priority": 0
+			},
+			"Add_Fire_statistic_tab02_1.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/Risk_height_low.css",
+					"js/common.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"js/searchCode.js"
+				],
+				"refer": [
+					"Add_Fire_statistic_tab02_2.html"
+				],
+				"priority": 0
+			},
+			"Add_Fire_statistic_tab02_3.html": {
+				"resources": [
+					"js/mui.zoom.js",
+					"css/imageViewer.css",
+					"js/mui.previewimage.js"
+				],
 				"refer": [],
+				"priority": 0
+			},
+			"Add_Fire_statistic_tab02_2.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"js/searchCode.js",
+					"css/Risk_height_low.css"
+				],
+				"refer": [
+					"Add_Fire_statistic_tab02_3.html"
+				],
 				"priority": 0
 			}
 		},
