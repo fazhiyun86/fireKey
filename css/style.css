@@ -1803,3 +1803,7 @@ canvas {
 .text_center {
 	text-align: center;
 }
+
+.no-word {
+	text-align: center;
+}

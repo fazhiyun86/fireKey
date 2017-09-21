@@ -7,6 +7,7 @@
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/Risk_height_low.css" />
+		<link rel="stylesheet" type="text/css" href="css/imageViewer.css" />
 		<style>
 			.mui-scroll-wrapper {
 				overflow: auto!important;
@@ -24,6 +25,9 @@
 			
 			.state_content_con {
 				padding: 0.3rem 0.2rem 0.3rem 1rem;
+			}
+			#riskContentImg {
+				padding: 0 10px;
 			}
 		</style>
 	</head>
@@ -44,12 +48,12 @@
 				
 				<div class="mui-content mui-scroll-wrapper">
 					<div id="riskContent" class="mui-scroll">
-						<p class="state_titp padb0">消火栓覆盖范围及周边动火点的检查任务(2017091607)</p>
-						<p class="state_titp padt5">行政办公区A1项目</p>
+						<p id="taskWrap" class="state_titp padb0">...</p>
+						<p id="proWrap" class="state_titp padt5">...</p>
 						
 						<!--显示的盒子 start-->
-						<div class="risk_wrap">
-							<div class="risk_item height-2-item">
+						<div class="risk_wrap" id="riskContentInfo">
+							<!--<div class="risk_item height-2-item">
 								<p class="risk_item_tit">消火栓</p>
 								<div class="item_content_top height-3-item">
 										<div class="flex_item">
@@ -62,51 +66,26 @@
 										</div>
 								</div>
 								<p class="fonts69">检查人员：史天帅</p>
-							</div>
+							</div>-->
 						</div>
 						<!--显示的盒子 end-->
-						<ul class="Risk-height-4-ul">
-							<li>
+						<ul id="riskContentInfoList" class="Risk-height-4-ul">
+							<!--<li>
 								<p class="height-4-li-tit">消火栓接头</p>
 								<p class="height-4-li-con">无渗漏</p>
-							</li>
-							<li>
-								<p class="height-4-li-tit">消火栓配件</p>
-								<p class="height-4-li-con">不齐全</p>
-							</li>
-							<li>
-								<p class="height-4-li-tit">附近设置库房</p>
-								<p class="height-4-li-con">有库房</p>
-							</li>
-							<li>
-								<p class="height-4-li-tit">覆盖范围内</p>
-								<p class="height-4-li-con">无可燃易燃物</p>
-							</li>
-							<li>
-								<p class="height-4-li-tit">处理结果</p>
-								<p class="height-4-li-con">已处理</p>
-							</li>
-							<li>
-								<p class="height-4-li-tit">问题说明</p>
-								<p class="height-4-li-con">水带脱落，已接好</p>
-							</li>
-							<li>
-								<p class="height-4-li-tit">处理确认人</p>
-								<p class="height-4-li-con">郭云祥</p>
-							</li>
-							<li>
-								<p class="height-4-li-tit">确认时间</p>
-								<p class="height-4-li-con">2017-09-12 15:34:24</p>
-							</li>
-							<br />
-						 	<img src="./images/119logo.png" alt="" width="70px"/>
+							</li>-->
 						</ul>
+						<div id="riskContentImg">
+							<!--<img src="./images/119logo.png" alt="" width="70px" data-preview-src="" data-preview-group="1"/>-->
+						</div>
 					</div>
 				</div>  
 		    </div>
 		</div>
 		<script src="js/mui.min.js"></script>
 		<script src="js/searchCode.js"></script>
+		<script src="js/mui.zoom.js"></script>
+		<script src="js/mui.previewimage.js"></script>
 		<script type="text/javascript">
 			
 			(function($){
@@ -114,6 +93,106 @@
 					bounce: false,//滚动条是否有弹力默认是true
 					indicators: false, //是否显示滚动条,默认是true
 				});
+				
+				
+				mui.plusReady(function() {
+					plus.nativeUI.showWaiting();
+					
+					//设置标题的名字
+					var selfView = plus.webview.currentWebview();
+					var info = selfView.info || {};
+					
+					document.getElementById("taskWrap").innerHTML = info.taskName;
+					document.getElementById("proWrap").innerHTML = info.projectName;
+					
+					getData(info.TaskObjectID)
+					plus.nativeUI.closeWaiting(); 
+				})
+				//获取数据的请求
+				function getData (TaskObjectID) {
+					
+					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_ISMTaskObjectInfo?dataKey=00-00-00-00';
+					
+					var data = {
+						TaskObjectID: TaskObjectID,
+						IndicatorBusinessType: 1
+					}
+					
+					mui.ajax(url, {
+						data: data,
+						dataType:'json',
+						type:'get',
+						timeout: 5000,            
+						success: function(data){
+							
+							plus.nativeUI.closeWaiting();
+							setHtmlList(data["DataSource"]["Tables"][0]["Datas"])
+							setHtmlInfo(data["DataSource"]["Tables"][1]["Datas"])
+							setImg(data["DataSource"]["Tables"][1]["Datas"])
+						},
+						error: function(){
+							console.log("Risk_height_3.html 数据请求报错！");
+							plus.nativeUI.closeWaiting(); 
+							mui.toast('数据请求失败')
+						}
+					});
+				}
+				// 数据的显示
+				function setHtmlList (data) {
+					var html = '';
+					
+					for (var i = 0; i < data.length; i++) {
+						var item = data[i];
+						
+						html += '<li>\
+								<p class="height-4-li-tit">'+item.IndicatorDisplayName+'</p>\
+								<p class="height-4-li-con">'+item.IndicatorValue+'</p>\
+							</li>';
+					}
+					document.getElementById("riskContentInfoList").innerHTML = html
+					
+					//隐藏加载
+					plus.nativeUI.closeWaiting();
+				}
+				function setHtmlInfo (data) {
+					var html = '';
+					var item = data[0];
+						html += '<div class="risk_item height-2-item">\
+								<p class="risk_item_tit">'+item.ObjectName+'</p>\
+								<div class="item_content_top height-3-item">\
+										<div class="flex_item">\
+											<p>设备编号：'+item.EquipmentCode+'</p>\
+											<p>检查时间：'+item.InspectTime+'</p>\
+										</div>\
+										<div class="flex_item">\
+											<p>设备型号：'+item.ModelName+'</p>\
+											<p>设备位置：'+item.Positions+'</p>\
+										</div>\
+								</div>\
+								<p class="fonts69">检查人员：'+item.InspectUser+'</p>\
+							</div>';
+					document.getElementById("riskContentInfo").innerHTML = html;
+				}
+				//设置图片
+				function setImg (data) {
+					data = data[0]
+					var imgUrls = data.AttachUrl;
+					var imgContents = data.AttachTitle;
+					
+					imgUrls = imgUrls.split(',')
+					imgContents = imgContents.split(',')
+					var html = '';
+					for(var i = 0; i < imgUrls.length; i++) {
+						var urlItem = imgUrls[i];
+						var conItem = imgContents[i];
+						
+						html += '<img src="'+ urlItem +'" alt="" width="70px" data-preview-src="" data-preview-group="1"/>'
+					}
+					document.getElementById("riskContentImg").innerHTML = html
+				}
+				
+				//MUI图片预览
+				mui.previewImage();
 				
 			})(mui);
 		</script>

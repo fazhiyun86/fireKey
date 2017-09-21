@@ -25,6 +25,9 @@
 			.state_content_con {
 				padding: 0.3rem 0.2rem 0.3rem 1rem;
 			}
+			.red-color {
+				color: #DB4527;
+			}
 		</style>
 	</head>
 	<body>
@@ -44,11 +47,13 @@
 				
 				<div class="mui-content mui-scroll-wrapper">
 					<div id="riskContent" class="mui-scroll">
-						<p class="state_titp padb0">消火栓覆盖范围及周边动火点的检查任务(2017091607)</p>
-						<p class="state_titp padt5">行政办公区A1项目</p>
-						
+						<p id="taskWrap" class="state_titp padb0">消火栓覆盖范围及周边动火点的检查任务(2017091607)</p>
+						<p id="proWrap" class="state_titp padt5">行政办公区A1项目</p>
+						<div id="riskContentWrap">
+							
+						</div>
 						<!--显示的盒子 start-->
-						<div class="risk_wrap">
+						<!--<div class="risk_wrap">
 							<div class="risk_item height-2-item">
 								<p class="risk_item_tit">消火栓</p>
 								<div class="item_content_top height-3-item">
@@ -62,27 +67,9 @@
 										</div>
 								</div>
 							</div>
-						</div>
+						</div>-->
 						<!--显示的盒子 end-->
 						
-						<!--显示的盒子 start-->
-						<div class="risk_wrap">
-							<div class="risk_item height-2-item">
-								<p class="risk_item_tit">消火栓</p>
-								<div class="item_content_top height-3-item">
-										<div class="flex_item">
-											<p>设备编号：A203009</p>
-											<p>检查时间：2017-09-06</p>
-										</div>
-										<div class="flex_item">
-											<p>设备型号：DN65</p>
-											<p>设备位置：西区-地下室-B1-西区</p>
-										</div>
-								</div>
-							</div>
-						</div>
-						<!--显示的盒子 end-->
-						 
 					</div>
 				</div>  
 		    </div>
@@ -97,7 +84,88 @@
 					indicators: false, //是否显示滚动条,默认是true
 				});
 				
+				mui.plusReady(function() {
+					plus.nativeUI.showWaiting();
+					
+					//设置标题的名字
+					var selfView = plus.webview.currentWebview();
+					var info = selfView.info || {};
+					
+					document.getElementById("taskWrap").innerHTML = info.taskName;
+					document.getElementById("proWrap").innerHTML = info.projectName;
+					
+					getData(info.taskID)
+					
+				})
+				//获取数据的请求
+				function getData (taskID) {
+					
+					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_ISMTaskObjectList?dataKey=00-00-00-00';
+					
+					var data = {
+						TaskID: taskID
+					}
+					
+					mui.ajax(url, {
+						data: data,
+						dataType:'json',
+						type:'get',
+						timeout: 5000,            
+						success: function(data){
+							plus.nativeUI.closeWaiting();
+							setHtml(data["DataSource"]["Tables"][0]["Datas"])
+							console.log(JSON.stringify(data))
+						},
+						error: function(){
+							console.log("Risk_height_3.html 数据请求报错！");
+							plus.nativeUI.closeWaiting(); 
+							mui.toast('数据请求失败')
+						}
+					});
+				}
+				// 数据的显示
+				function setHtml (data) {
+					
+					var html = '';
+					for (var i = 0; i < data.length; i++) {
+						var item = data[i];
+						html += '<div class="risk_wrap" data-id="'+ item.TaskObjectID +'">\
+							<div class="risk_item height-2-item">\
+								<p class="risk_item_tit '+ abnormalHandle(item.InspectIsNormal) +'">'+ item.ObjectName +'</p>\
+								<div class="item_content_top height-3-item">\
+										<div class="flex_item">\
+											<p>设备编号：'+ item.EquipmentCode +'</p>\
+											<p>检查时间：'+ item.InspectTime +'</p>\
+										</div>\
+										<div class="flex_item">\
+											<p>设备型号：'+ item.ModelName +'</p>\
+											<p>设备位置：'+ item.Positions +'</p>\
+										</div>\
+								</div>\
+							</div>\
+						</div>';
+					}
+					if(data.length === 0) {
+						html += '<p class="no-word">暂无数据</p>'
+					}
+					document.getElementById('riskContentWrap').innerHTML = html
+					
+					function abnormalHandle(val) {
+						var html = '';
+						if(val === '0') {
+							html = 'red-color';
+						}
+						return html;
+					}
+					
+					//隐藏加载
+					plus.nativeUI.closeWaiting();
+				}
+				
 				mui('#riskContent').on('tap', '.risk_wrap', function() {
+					var id = this.getAttribute('data-id');
+					var taskName = document.getElementById("taskWrap").innerHTML;
+					var proName = document.getElementById("proWrap").innerHTML
 					
 					mui.openWindow({
 						url: 'Risk_height_4.html',
@@ -107,8 +175,11 @@
 							bottom: 0, //新页面底部位置
 						},
 						extras: {
-							ClassCode: "ddNum"
-							//自定义扩展参数，可以用来处理页面间传值
+							info: {
+								TaskObjectID: id,
+								taskName: taskName,
+								projectName: proName
+							}
 						},
 						show: {
 							duration: '300'

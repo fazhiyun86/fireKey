@@ -349,7 +349,7 @@ mui.plusReady(function() {
 	//设备运维
 	function WebApp_Emf_Faultrepair(UnitCode) {
 		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_Emf_Faultrepair?dataKey=00-00-00-00&organiseunitcode=' + UnitCode;
-//		console.log(urlg);
+
 		mui.ajax(urlg, {
 			data: null, 
 			dataType: 'json', //返回
@@ -523,9 +523,11 @@ mui.plusReady(function() {
 	}
 //	WebApp_GetEMMStatistical(localStorage.getItem('UnitCode'));
 
+//以上东西没用(但是不能删除)-----------------------------------------------------------------------------------------------------------------------------------
+
 	//用户信息全局存储
 	function WebApp_GetUserInfo(userCodeVa) {
-		console.log('http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetUserInfo?dataKey=00-00-00-00&userID=' + userCodeVa);
+		
 		mui.ajax('http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetUserInfo?dataKey=00-00-00-00&userID=' + userCodeVa, {
 			data: null,
 			dataType: 'json', //返回
