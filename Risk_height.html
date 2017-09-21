@@ -6,7 +6,6 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<!--<link rel="stylesheet" type="text/css" href="css/Equipment_state.css" />-->
 		<link rel="stylesheet" type="text/css" href="css/Risk_height_low.css" />
 		<style>
 			.mui-scroll-wrapper {
@@ -54,7 +53,7 @@
 							
 						</div>
 						<!--显示的盒子 样式 start-->
-						<div class="risk_wrap">
+						<!--<div class="risk_wrap">
 							<div class="risk_item">
 								<p class="risk_item_tit">北京城建集团</p>
 								<div class="risk_item_content">
@@ -106,7 +105,7 @@
 							</div>
 							<i class="triangle-top yellow-top"></i>
 							<i class="triangle-bottom yellow-bottom"></i>
-						</div>
+						</div>-->
 						<!--显示的盒子 end-->
 
 					</div>
@@ -125,6 +124,7 @@
 				});
 				
 				mui.plusReady(function() {
+					plus.nativeUI.showWaiting();
 					getData()
 				})
 				//获取数据的请求
@@ -145,9 +145,12 @@
 						type:'get',
 						timeout: 5000,            
 						success: function(data){
+							
 							setHtml(data["DataSource"]["Tables"][0]["Datas"])
+							plus.nativeUI.closeWaiting();
 						},
 						error: function(){
+							console.log("高风险子数据请求报错！");
 							mui.toast('数据请求失败')
 						}
 					});

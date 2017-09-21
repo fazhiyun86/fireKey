@@ -29,8 +29,12 @@ html,body{
 .equipment_tab>ul>li a:hover{
 	background: none;
 }
+/*.active{
+	background: none;
+}*/
 
 .Equipment_state_Account_con {
+	display: none;
     padding:0!important;
 }
 .Equipment_state_Account_con .Equipment_first{
