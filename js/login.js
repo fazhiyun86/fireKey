@@ -18,6 +18,7 @@ mui.plusReady(function() {
 		serverAddress = document.getElementById("serverAddress").value;
 		portNum = document.getElementById("portNum").value;
 		localStorage.setItem("serverAddress", serverAddress);
+		portNum = 8002;
 		localStorage.setItem("portNum", portNum);
 	}
 

@@ -534,7 +534,8 @@ mui.plusReady(function() {
 			success: function(data) {
 				var getServerStartTime = data['DataSource']["Tables"][0]["Datas"][0]["StartTime"]
 				var getServerEndTime = data['DataSource']["Tables"][0]["Datas"][0]["EndTime"]
-
+				
+				//侧边的时间样式展示和存取起始时间
 				var dataArrays = common.getTimeNow(getServerEndTime, getServerStartTime)
 				common.setAsideDate(dataArrays)
 				
@@ -542,7 +543,6 @@ mui.plusReady(function() {
 				localStorage.setItem('UserOrganiseUnitID', getDatas[0].OrganiseUnitID);
 				localStorage.setItem('UserName', getDatas[0].UserName);
 				localStorage.setItem('UserOrganiseUnitName', getDatas[0].OrganiseUnitName);
-
 			} 
 		})
 	}
@@ -550,7 +550,7 @@ mui.plusReady(function() {
 	WebApp_GetUserInfo(localStorage.getItem('userCodeVa'))
 	
 	//高风险数据获取
-	function WebApp_GetRiskHeight (UnitCode) {
+	function WebApp_GetRiskHeight () {
 		var data = {
 			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
 			StartDate: localStorage.getItem("startTime"),
@@ -566,6 +566,7 @@ mui.plusReady(function() {
 			
 			success: function(data) {
 				setHtml(data)
+				plus.nativeUI.closeWaiting();
 			},
 			error: function() {
 				//异常处理
@@ -591,10 +592,10 @@ mui.plusReady(function() {
 	}
 	
 
-	WebApp_GetRiskHeight(localStorage.getItem('UnitCode'));
+	WebApp_GetRiskHeight();
 
 	//低风险数据获取
-	function WebApp_GetRisklow (UnitCode){
+	function WebApp_GetRisklow (){
 		
 		var data = {
 			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"), 
@@ -603,7 +604,7 @@ mui.plusReady(function() {
 		}
 		
 		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_LowRisk?dataKey=00-00-00-00';
-	
+		
 		mui.ajax(urlg, {
 			data: data, 
 			dataType: 'json',
@@ -638,12 +639,11 @@ mui.plusReady(function() {
 		
 	}
 	
-	WebApp_GetRisklow(localStorage.getItem('UnitCode'));
+	WebApp_GetRisklow();
 	
 
 	//动火统计
-	function WebApp_FireStatistical (UnitCode) {
-		console.log("动火统计")
+	function WebApp_FireStatistical () {
 		var data = {
 			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
 			StartDate: localStorage.getItem("startTime"),
@@ -681,10 +681,10 @@ mui.plusReady(function() {
 		}
 	}
 	
-	WebApp_FireStatistical(localStorage.getItem('UnitCode'));
+	WebApp_FireStatistical();
 	
 	//设备维修
-	function WebApp_EquipmentOperat (UnitCode){
+	function WebApp_EquipmentOperat (){
 		
 		var data ={
 			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
@@ -692,7 +692,7 @@ mui.plusReady(function() {
 			EndDate: localStorage.getItem("endTime")
 		};
 		
-		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_EMFRepair_Statistical?dataKey=00-00-00-00';
+		var urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_EMFRepair_Statistical?dataKey=00-00-00-00';
 		
 		mui.ajax(urlg, {
 			data: data,
@@ -700,6 +700,7 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data){
+				console.log("设备维修")
 				setHtml(data)
 			},
 			
@@ -715,17 +716,17 @@ mui.plusReady(function() {
 			var TodayRepairCount = info["TodayRepairCount"]; //维修数量
 			var WeekRepairCount = info["WeekRepairCount"];  //维修审批
 			
-			document.getElementsByClassName("Operat1").innerHTML = RepairCoun || 0;
-			document.getElementsByClassName("Operat2").innerHTML = TodayRepairCount || 0;
-			document.getElementsByClassName("Operat3").innerHTML = WeekRepairCount || 0;
+			document.getElementsByClassName("Operat1")[0].innerHTML = RepairCoun || 0;
+			document.getElementsByClassName("Operat2")[0].innerHTML = TodayRepairCount || 0;
+			document.getElementsByClassName("Operat3")[0].innerHTML = WeekRepairCount || 0;
 		}
 		
 	}
 	
-	WebApp_EquipmentOperat(localStorage.getItem('UnitCode'));
+	WebApp_EquipmentOperat();
 	
 	//设备状态
-	function WebApp_EquipmentStatus (UnitCode){
+	function WebApp_EquipmentStatus (){
 		
 		var data ={
 			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID")
@@ -739,9 +740,7 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data){
-				
 				setHtml(data)
-				
 			},
 			
 			error: function(){
@@ -756,28 +755,32 @@ mui.plusReady(function() {
 			var RepairCount = info["RepairCount"];  //故障维修
 			var ScrapCount = info["ScrapCount"];  //报废数量
 			
-			document.getElementsByClassName("Status1").innerHTML = NormalCount || 0;
-			document.getElementsByClassName("Status2").innerHTML = AuditCount || 0;
-			document.getElementsByClassName("Status3").innerHTML = RepairCount || 0;
-			document.getElementsByClassName("Status4").innerHTML = ScrapCount || 0;
-			
+			document.getElementsByClassName("Status1")[0].innerHTML = NormalCount || 0;
+			document.getElementsByClassName("Status2")[0].innerHTML = AuditCount || 0;
+			document.getElementsByClassName("Status3")[0].innerHTML = RepairCount || 0;
+			document.getElementsByClassName("Status4")[0].innerHTML = ScrapCount || 0;
 		}
-		
 	}
 	
-	WebApp_EquipmentStatus(localStorage.getItem('UnitCode'));
-	
-	
+	WebApp_EquipmentStatus();
 	
 	//单位切换-----------------------------------------------------------------------
+	//时间切换-----------------------------------------------------------------------
+	
 	var offCanvasWrapper = mui('#offCanvasWrapper');
 	mui('#table_view').on('tap', '.OrganiseUnitIDLi', function() {
 		
 		offCanvasWrapper.offCanvas('close');
-		var targetStr = this.innerText
+		// 存取当前选中的时间段
+		var targetStr = this.innerText;
 		common.setStorageTime(targetStr)
 		
-		WebApp_GetRiskHeight(localStorage.getItem('UnitCode')); //重新获取高风的数据
+		WebApp_GetRiskHeight(); //重新获取高风的数据
+		WebApp_GetRisklow(); //低风险获取数据
+		WebApp_FireStatistical(); //动火统计
+		WebApp_EquipmentOperat(); // 设备维修
+		WebApp_EquipmentStatus(); // 设备状态
+		
 		
 	/*
 		//console.log(this.firstChild.value)
