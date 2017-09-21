@@ -1457,7 +1457,8 @@
 			"js/common.js"
 		],
 		"refer": [
-			"Risk_height_1.html"
+			"Risk_height_1.html",
+			"Scancode.html"
 		]
 	},
 	"Risk_height_4.html": {
@@ -1469,7 +1470,10 @@
 			"css/style.css",
 			"images/header_base_01.png",
 			"js/searchCode.js",
-			"css/Risk_height_low.css"
+			"css/Risk_height_low.css",
+			"js/mui.previewimage.js",
+			"css/imageViewer.css",
+			"js/mui.zoom.js"
 		]
 	},
 	"Risk_height_1.html": {

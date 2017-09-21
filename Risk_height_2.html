@@ -122,7 +122,7 @@
 					for (var i = 0; i < data.length; i++) {
 						var item = data[i];
 						
-						html += '<div class="risk_wrap" data-id="'+ item.TaskID +'">\
+						html += '<div class="risk_wrap" data-id="'+ item.TaskID +'" data-task="'+item.TaskName+'" data-pro="'+ item.OrganiseUnitName +'">\
 								<div class="risk_item height-2-item">\
 									<div>'+ item.OrganiseUnitName +'</div>\
 									<div class="color-green">'+ item.TaskName +'</div>\
@@ -140,9 +140,10 @@
 				mui('#riskContent').on('tap', '.risk_wrap', function() {
 					
 					var id = this.getAttribute('data-id');
-					var taskName = '';
-					var projectName = '';
-					
+					var taskName = this.getAttribute('data-task');
+					var projectName = this.getAttribute('data-pro');
+					console.log("Risk_height_2")
+					console.log(id)
 					mui.openWindow({
 						url: 'Risk_height_3.html',
 						id: 'Risk_height_3.html',
