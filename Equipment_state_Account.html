@@ -55,31 +55,16 @@
 				var Account_con = document.getElementById("Account_con");
 				var tabWrap = document.getElementById("tabWrap");
 
-//				for(var i=0; i<list.length; i++){
-//				mui.each(list, function(index, item) {
+
 				mui("#tabWrap").on('tap', '.tab_list', function(e) {
-					var targetVal = this.getAttribute("data-target")
+					var targetVal = this.getAttribute("data-target");
 					getData(targetVal)
           		});
           		
           		function getData (targetVal) {
           			
           		}
-//        		list2.addEventListener('tap', function() {
-//					list1.style.background = "none";
-//        			
-//						alert(2);
-//        		});
-//        		list3.addEventListener('tap', function() {
-//					list1.style.background = "none";
-//        			
-//						alert(3);
-//        		});
-//        		list4.addEventListener('tap', function() {
-//					list1.style.background = "none";
-//        			
-//						alert(4);
-//        		});
+       		});
 			(function($){			
 				$(".mui-scroll-wrapper").scroll({
 					bounce: false,//滚动条是否有弹力默认是true

@@ -29,7 +29,6 @@ mui.plusReady(function() {
 					//						<p>烟感报警器</p>
 					//						<p style="width:35%">CD45S64W4514</p>
 					//						<p style="width:15%">正常</p>
-					//						<p>监控警报</p>
 					//					</div>
 					html += 
 						'<div class="conSend" style="overflow-x: hidden;">' +
@@ -37,7 +36,6 @@ mui.plusReady(function() {
 						'<p style="width:35%">' + item.EquipmentName + '</p>' +
 						'<p style="width:25%">' + item.EquipmentCode + '</p>' +
 						'<p style="width:15%">' + item.EquipmentStatus + '</p>' +
-						'<p style="width:25%">' + item.ClassName + '</p>' +
 						'</div>';
 				})
 				document.getElementById("Equipment_c2").innerHTML = html;
