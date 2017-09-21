@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/Risk_height_low.css" />
+		<style>
+			.mui-scroll-wrapper {
+				overflow: auto!important;
+			}
+			
+			.state_content_con_first {
+				text-align: left;
+			}
+			
+			.state_content_con_first span {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			
+			.state_content_con {
+				padding: 0.3rem 0.2rem 0.3rem 1rem;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="mui-off-canvas-wrap mui-draggable">
+		  
+			<div class="mui-inner-wrap">
+				<!-- 主页面标题 -->
+					<p style="padding: 5px 20px;margin-bottom: 5px;">
+
+					</p>
+					<header class="mui-bar mui-bar-nav titBackg" style="z-index: 99999999;">
+						<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+						<h1 class="mui-title">高风险巡检</h1>
+						<a id='searchCode' class="mui-icon mui-icon-search equipStatus_search"></a>
+					</header>
+				
+				<div class="mui-content mui-scroll-wrapper">
+					<div id="riskContent" class="mui-scroll">
+						<p class="state_titp">
+							<span id="state_zong">2017年第46周  2017-09-11-2017-09-17</span>
+							<span id="state_diqu"></span>
+							<span id="offCanvasShow" style="display: none;" class="mui-icon mui-icon-list"></span>
+						</p>
+						<div id="riskContentWrap">
+							
+						</div>
+						<!--显示的盒子 样式 start-->
+						<!--<div class="risk_wrap">
+							<div class="risk_item">
+								<p class="risk_item_tit">北京城建集团</p>
+								<div class="risk_item_content">
+									<div class="item_content_top">
+										<div class="flex_item flex_left">
+											<span class="flex_left_num">89.5%</span>
+											<p>本周检查进度</p>
+										</div>
+										<div class="flex_item2">
+											<p>
+												<span class="right_num">1/3</span>
+												<span class="right_desc">检查任务</span>
+											</p>
+											<p>
+												<span class="right_num">1232</span>
+												<span class="right_desc">检查设备</span>
+											</p>
+											<p>
+												<span class="right_num">12</span>
+												<span class="right_desc">异常问题</span>
+											</p>
+											<p>
+												<span class="right_num">13</span>
+												<span class="right_desc">解决问题</span>
+											</p>
+										</div>
+									</div>
+									<div class="item_content_bottom">
+											<p>
+												<span class="bottom_box">消火栓接头有渗漏</span> <span class="bottom_num">0</span>
+											</p>
+											<p>
+												<span class="bottom_box">周围有可燃易燃物</span> <span class="bottom_num">0</span>
+											</p>
+											<p>
+												<span class="bottom_box">消防通道不通畅</span> <span class="bottom_num">0</span>
+											</p>
+											<p>
+												<span class="bottom_box">消火栓配件不齐全</span> <span class="bottom_num">0</span>
+											</p>
+											<p>
+												<span class="bottom_box">覆盖区有烟头</span> <span class="bottom_num">0</span>
+											</p>
+											<p>
+												<span class="bottom_box">库房存放可燃物</span> <span class="bottom_num">0</span>
+											</p>
+									</div>
+								</div>
+							</div>
+							<i class="triangle-top yellow-top"></i>
+							<i class="triangle-bottom yellow-bottom"></i>
+						</div>-->
+						<!--显示的盒子 end-->
+
+					</div>
+				</div>  
+		    </div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/searchCode.js"></script>
+		<script src="js/common.js"></script>
+		<script type="text/javascript">
+
+			(function($){
+				$(".mui-scroll-wrapper").scroll({
+					bounce: false,//滚动条是否有弹力默认是true
+					indicators: false, //是否显示滚动条,默认是true
+				});
+				
+				mui.plusReady(function() {
+					plus.nativeUI.showWaiting();
+					getData()
+				})
+				//获取数据的请求
+				function getData () {
+					
+					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_ChildrenOrg_ISMTask_Statistical?dataKey=00-00-00-00';
+					
+					var data = {
+						OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
+						StartDate: localStorage.getItem("startTime"),
+						EndDate: localStorage.getItem("endTime"),
+						ProjectType: 2
+					}
+					
+					mui.ajax(url, {
+						data: data,
+						dataType:'json',
+						type:'get',
+						timeout: 5000,            
+						success: function(data){
+							setHtml(data["DataSource"]["Tables"][0]["Datas"])
+						},
+						error: function(){
+							console.log("高风险子数据请求报错！");
+							mui.toast('数据请求失败')
+						}
+					});
+				}
+				// 数据的显示
+				function setHtml (data) {
+					data = common.riskCompanyDataChange(data)
+					var html = '';
+					for (var i = 0; i < data.length; i++) {
+						var item = data[i];
+						html += '<div class="risk_wrap" data-id="'+ item.OrganiseUnitID +'">'+
+							'<div class="risk_item">' +
+								'<p class="risk_item_tit">'+ item.OrganiseUnitName +'</p>' +
+								'<div class="risk_item_content">' +
+									'<div class="item_content_top">' +
+										'<div class="flex_item flex_left">' +
+											'<span class="flex_left_num">'+ item.Ratio +'</span>' +
+											'<p>本周检查进度</p>' +
+										'</div>' +
+										'<div class="flex_item2">' +
+											'<p>' +
+												'<span class="right_num">'+ item.Rate +'</span>'+
+												'<span class="right_desc">检查任务</span>' +
+											'</p>' +
+											'<p>' +
+												'<span class="right_num">'+ item.ObjectCount +'</span>' +
+												'<span class="right_desc">检查设备</span>' +
+											'</p>'+
+											'<p>'+
+												'<span class="right_num">'+ item.AbnormalCount +'</span>'+
+												'<span class="right_desc">异常问题</span>'+
+											'</p>'+
+											'<p>'+
+												'<span class="right_num">'+ item.AuditCount +'</span>'+
+												'<span class="right_desc">解决问题</span>'+
+											'</p>'+
+										'</div>'+
+									'</div>'+
+									'<div class="item_content_bottom">' + setSubItem(item.subItem) +
+									'</div>'+
+								'</div>'+
+							'</div>'+ setIcon(item.Ratio) +
+						'</div>';
+					}
+					document.getElementById('riskContentWrap').innerHTML = html
+					
+					function setSubItem (val) {
+						var html = '';
+						var len = val.length;
+						for(var i = 0; i < len; i++) {
+							var item = val[i];
+							html += '<p><span class="bottom_box">'+ item.k +'</span> <span class="bottom_num">'+ item.v +'</span></p>'
+						}
+						return html;
+					}
+					
+					function setIcon (val) {
+						val = val - 0;
+						var html = '';
+						if(val = 100) {
+							html += '<i class="triangle-top green-top"></i>'+
+							'<i class="triangle-bottom green-bottom"></i>';
+						} else if(val >= 80 && val < 100) {
+							html += '<i class="triangle-top yellow-top"></i>'+
+							'<i class="triangle-bottom yellow-bottom"></i>';
+						} else if(val < 80) {
+							html += '<i class="triangle-top red-top"></i>'+
+							'<i class="triangle-bottom red-bottom"></i>';
+						}
+						return html;
+					}
+					//隐藏加载
+					plus.nativeUI.closeWaiting();
+				}
+				
+				
+				mui('#riskContent').on('tap', '.risk_wrap', function() {
+					var title = this.getElementsByTagName("p")[0].innerHTML;
+					var id = this.getAttribute('data-id')
+
+					mui.openWindow({
+						url: 'Risk_low_1.html',
+						id: 'Risk_low_1.html',
+						styles: {
+							top: 0, //新页面顶部位置
+							bottom: 0, //新页面底部位置
+						},
+						extras: {
+							info: {
+								title: title,
+								idVal: id
+							}
+							//自定义扩展参数，可以用来处理页面间传值
+						},
+						show: {
+							duration: '300'
+						},
+						waiting: {
+							autoShow: true, //自动显示等待框，默认为true
+							title: '加载中...', //等待对话框上显示的提示内容
+						}
+					});
+						
+				})
+				
+			})(mui);
+		</script>
+	</body>
+</html>
