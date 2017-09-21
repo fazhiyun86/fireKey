@@ -382,7 +382,8 @@
 					"Inspect_Maintain.html",
 					"Equipment_guifan_pull_main.html",
 					"Risk_height.html",
-					"Add_Fire_statistic.html"
+					"Add_Fire_statistic.html",
+					"Risk_height_2.html"
 				],
 				"priority": 0
 			},
@@ -423,7 +424,8 @@
 					"images/jing.png",
 					"images/login_01_01.png",
 					"js/area.js",
-					"js/searchCode.js"
+					"js/searchCode.js",
+					"js/Equipment_state_two.js"
 				],
 				"refer": [
 					"Equipment_state_Account.html",
@@ -1784,7 +1786,8 @@
 					"css/style.css",
 					"images/header_base_01.png",
 					"js/searchCode.js",
-					"css/Risk_height_low.css"
+					"css/Risk_height_low.css",
+					"js/common.js"
 				],
 				"refer": [
 					"Risk_height_2.html"
@@ -1792,7 +1795,15 @@
 				"priority": 0
 			},
 			"Risk_height_3.html": {
-				"resources": [],
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"js/searchCode.js",
+					"css/Risk_height_low.css"
+				],
 				"refer": [
 					"Risk_height_4.html"
 				],
@@ -1806,7 +1817,8 @@
 					"css/style.css",
 					"images/header_base_01.png",
 					"js/searchCode.js",
-					"css/Risk_height_low.css"
+					"css/Risk_height_low.css",
+					"js/common.js"
 				],
 				"refer": [
 					"Risk_height_3.html"
