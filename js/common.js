@@ -118,7 +118,7 @@
 			var myTime = weekName[1].split("~");
 			
 			html += '<li class="OrganiseUnitIDLi">' +
-				'<span class="table-view_Name">'+weekName[0]+''+ myTime[1] +'~'+ myTime[0] + '</span>' +
+				'<span class="table-view_Name">'+weekName[0]+' '+ myTime[1] +'~'+ myTime[0] + '</span>' +
 			'</li>';
 			if(i === 0) {
 				oneStr += weekName[0]+' '+ myTime[1] +'~'+ myTime[0];
@@ -130,9 +130,11 @@
 		wrap.innerHTML = html
 	}
 	common.setStorageTime = function (str) {
-		var storageData = str;
-		storageData = storageData.split(" ")[1];
-		storageData = storageData.split("~");
+		
+		var oneArray = str.split(" ");
+		var storageData = oneArray[1].split("~");
+		
+		document.getElementById("2017date").innerHTML = oneArray[0];
 		
 		localStorage.setItem("startTime", storageData[0]);
 		localStorage.setItem("endTime", storageData[1]);	
