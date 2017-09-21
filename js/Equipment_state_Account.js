@@ -5,6 +5,10 @@ mui.init({
 //		backbutton: false //关闭back按键监听
 	}
 });
+
+
+
+
 mui.plusReady(function() {
 	var self = plus.webview.currentWebview();
 	var ClassCode = self.ClassCode;
