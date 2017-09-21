@@ -184,7 +184,7 @@
 						var data ={
 							OrganiseUnitID: localStorage.getItem("UnitCode")
 						};
-						urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_EMBEquipment_Statistical?dateKey=00-00-00-00';
+						urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EMBEquipmentStatus_Statistical?dateKey=00-00-00-00';
 						
 						mui.ajax(urlg, {
 							data: data,
@@ -192,50 +192,57 @@
 							type: 'get',
 							timeout: 5000,
 							success: function(data){
+								
 								var info = data['DataSource']['Tables'][0]["Datas"][0];
+//								var getInfo = data['DataSource']['Tables'][0]["Datas"][0];
 								var html = '';
+								
+								var Hydrant = info["Hydrant"]; 	//消火栓
+								var OrganiseUnitID = info["OrganiseUnitID"]; 	//单位ID
+								var OrganiseUnitName = info["OrganiseUnitName"]; 	//单位名称
+								var ParentOrganiseUnitName = info["ParentOrganiseUnitName"]; 			//父单位名称
+								var AllCount = info["AllCount"]; 		//消火栓总数量
+								var NormalCount = info["NormalCount"];			 //正常使用
+								var StopCount = info["StopCount"]; 			//停用停机
+								var RepairCount = info["RepairCount"];  		//故障维修
+								var ScrapCount = info["ScrapCount"];  	//报废数量
+								
 								function setHtml(data){
-									
-									var HydrantCount = info["HydrantCount"]; //消火栓数量
-									var NormalCount = info["NormalCount"]; //正常使用
-									var AuditCount = info["StopCount"]; //停用停机
-									var RepairCount = info["RepairCount"];  //故障维修
-									var ScrapCount = info["ScrapCount"];  //报废数量
-		
-									document.getElementById("HydrantCount").innerHTML = NormalCount || 0;
+									document.getElementById("Hydrant").innerHTML = Hydrant || 0;
+									document.getElementById("HydrantCount").innerHTML = NormalCount || 0; //消火栓总数量或者为 0
 									document.getElementById("NormalUse").innerHTML = NormalCount || 0;
-									document.getElementById("StopUse").innerHTML = AuditCount || 0;
+									document.getElementById("StopUse").innerHTML = StopCount || 0;
 									document.getElementById("FailureRepair").innerHTML = RepairCount || 0;
 									document.getElementById("ScrapProcess").innerHTML = ScrapCount || 0;
 									
 								};
 								
-								mui.each(info, function(index, item) {
-							
+								mui.each(getInfo, function(index, item) {
+									
 									//列表拼接
 									html += '<div id="state_title">' + 
-												'<p id="engineering" class="state_title_area">' + '行政办公区A1工程' + '</p>' + 
-												'<span id="group" class="state_title_offo">' + '北京城建集团' + '</span>' + 
+												'<p id="engineering" class="state_title_area">' + item.OrganiseUnitName + '</p>' + 
+												'<span id="group" class="state_title_offo">' + item.ParentOrganiseUnitName + '</span>' + 
 											'</div>' + 
 											'<p class="state_content_con_first" style="margin-right: 1rem;">' + 
-												'<span id="EquipmentAll" class="state_count">' + '217' + '</span>' + 
+												'<span id="EquipmentAll" class="state_count">' + item.AllCount + '</span>' + 
 											'</p>' + 
 		
 											'<p class="pc_color">' + 
-												'<span>' + '940' + '</span>' + 
+												'<span>' + item.NormalCount + '</span>' + 
 												'<span>' + '正常使用' + '</span>' + 
 											'</p>' + 
 											'<p class="pc_color">' + 
-												'<span>' + '31' + '</span>' + 
+												'<span>' + item.StopCount + '</span>' + 
 												'<span>' + '停用停机' + '</span>' + 
 											'</p>' + 
 											'<p class="pc_color">' + 
-												'<span>' + '8' + '</span>' + 
+												'<span>' + item.RepairCount + '</span>' + 
 												'<span>' + '故障维修' + '</span>' + 
 											'</p>' + 
 											'<p class="pc_color">' + 
-												'<span>' + '0' + '</span>' + 
-												'<span>' + '报废处理' + '</span>' + 
+												'<span>' + item.ScrapCount + '</span>' + 
+												'<span>' + '报废处理' + '</span>' +
 											'</p>';
 
 								});

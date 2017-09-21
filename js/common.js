@@ -121,7 +121,7 @@
 				'<span class="table-view_Name">'+weekName[0]+' '+ myTime[1] +'~'+ myTime[0] + '</span>' +
 			'</li>';
 			if(i === 0) {
-				oneStr += weekName[0]+' '+ myTime[1] +'~'+ myTime[0];
+				oneStr += weekName[0]+' '+ myTime[1] +'~'+ myTime[0]; 
 			}
 		}
 		
