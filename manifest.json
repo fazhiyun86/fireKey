@@ -364,9 +364,15 @@
 					"images/yinhuanzhenggai11.png",
 					"images/jianxiubaoyang11.png",
 					"js/common.js",
+<<<<<<< HEAD
 					"images/icon_zhuangtai.png",
 					"images/icon_donghuo.png",
 					"images/icon_shebeiyunwei.png"
+=======
+					"images/icon_donghuo.png",
+					"images/icon_shebeiyunwei.png",
+					"images/icon_zhuangtai.png"
+>>>>>>> 6d81c617f28b780d5ebb60bced0c4844101929f8
 				],
 				"refer": [
 					"state.html",
@@ -386,7 +392,8 @@
 					"Equipment_guifan_pull_main.html",
 					"Risk_height.html",
 					"Add_Fire_statistic.html",
-					"Risk_low.html"
+					"Risk_low.html",
+					"Change_Rush.html"
 				],
 				"priority": 0
 			},
@@ -1367,7 +1374,12 @@
 					"css/operationStatistics_brand_manifestation_childWeb.css",
 					"css/operationStatistics.css",
 					"css/base.css",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"images/header_base_01.png",
+					"js/echarts.min.js",
+					"js/mui.min.js",
+					"images/star1.png",
+					"css/iconfont.css"
 				],
 				"refer": [],
 				"priority": 0
@@ -1951,12 +1963,22 @@
 				"priority": 0
 			},
 			"Risk_low_1.html": {
-				"resources": [],
+				"resources": [
+					"js/common.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"js/searchCode.js",
+					"css/Risk_height_low.css"
+				],
 				"refer": [
 					"Risk_low_2.html"
 				],
 				"priority": 0
 			},
+<<<<<<< HEAD
 			"Risk_low_2.html": {
 				"resources": [],
 				"refer": [
@@ -1969,14 +1991,38 @@
 					"js/mui.zoom.js",
 					"css/imageViewer.css",
 					"js/mui.previewimage.js"
+=======
+			"Change_Rush.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/Add_Fire_statistic.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"js/searchCode.js",
+					"Change_Rush_detail.html"
+>>>>>>> 6d81c617f28b780d5ebb60bced0c4844101929f8
 				],
 				"refer": [],
 				"priority": 0
 			},
+<<<<<<< HEAD
 			"Risk_low_3.html": {
 				"resources": [],
 				"refer": [
 					"Risk_low_4.html"
+=======
+			"Change_Rush_detail.html": {
+				"resources": [
+					"Add_Fire_statistic_tab01.html",
+					"js/jquery.min.js",
+					"css/iconfont.css"
+				],
+				"refer": [
+					"Add_Fire_statistic_tab02.html",
+					"Add_Fire_statistic_tab03.html"
+>>>>>>> 6d81c617f28b780d5ebb60bced0c4844101929f8
 				],
 				"priority": 0
 			}
