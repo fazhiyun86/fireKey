@@ -11,7 +11,11 @@
 			"images/shebeixunjian11.png",
 			"images/login_01_01.png",
 			"js/searchCode.js",
-			"js/index.js"
+			"js/index.js",
+			"js/jquery.min.js",
+			"images/icon_zhuangtai.png",
+			"images/icon_donghuo.png",
+			"images/icon_shebeiyunwei.png"
 		]
 	},
 	"Add_Fire_statistic_tab02.html": {
@@ -52,6 +56,11 @@
 	"Micro_task.html": {
 		"resources": [
 			"images/header_base_01.png"
+		],
+		"refer": [
+			"Micro_task_1.html",
+			"Micro_task_3.html",
+			"Micro_task_2.html"
 		]
 	},
 	"Password_edit.html": {
@@ -68,6 +77,13 @@
 	"Micro_task_2.html": {
 		"resources": [
 			"js/Micro_task_2.js"
+		]
+	},
+	"Add_Fire_statistic_tab.html": {
+		"refer": [
+			"Add_Fire_statistic_tab01.html",
+			"Add_Fire_statistic_tab02.html",
+			"Add_Fire_statistic_tab03.html"
 		]
 	}
 }

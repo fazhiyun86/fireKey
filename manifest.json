@@ -363,7 +363,10 @@
 					"images/shebeiyunwei11.png",
 					"images/yinhuanzhenggai11.png",
 					"images/jianxiubaoyang11.png",
-					"js/common.js"
+					"js/common.js",
+					"images/icon_zhuangtai.png",
+					"images/icon_donghuo.png",
+					"images/icon_shebeiyunwei.png"
 				],
 				"refer": [
 					"state.html",
