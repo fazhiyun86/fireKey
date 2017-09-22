@@ -1773,7 +1773,10 @@
 					"css/style.css",
 					"images/header_base_01.png",
 					"js/searchCode.js",
-					"css/Risk_height_low.css"
+					"css/Risk_height_low.css",
+					"js/mui.zoom.js",
+					"css/imageViewer.css",
+					"js/mui.previewimage.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -1871,7 +1874,8 @@
 					"css/Add_Fire_statistic.css",
 					"css/iconfont.css",
 					"css/mui.min.css",
-					"css/style.css"
+					"css/style.css",
+					"js/common.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -1949,6 +1953,29 @@
 				"resources": [],
 				"refer": [
 					"Risk_low_2.html"
+				],
+				"priority": 0
+			},
+			"Risk_low_2.html": {
+				"resources": [],
+				"refer": [
+					"Risk_low_3.html"
+				],
+				"priority": 0
+			},
+			"Risk_low_4.html": {
+				"resources": [
+					"js/mui.zoom.js",
+					"css/imageViewer.css",
+					"js/mui.previewimage.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Risk_low_3.html": {
+				"resources": [],
+				"refer": [
+					"Risk_low_4.html"
 				],
 				"priority": 0
 			}

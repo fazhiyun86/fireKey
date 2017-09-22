@@ -168,6 +168,93 @@
 		
 		return res;
 	}
+	
+	common.pipeChartsBase = function (){
+		var option = {
+		    title : {
+		        text: '',
+//		        x:'center'
+		    },
+		    tooltip : {
+		        trigger: 'item',
+		        formatter: "{a} <br/>{b} : {c} ({d}%)"
+		    },
+		    legend: {
+		        orient: 'vertical',
+		        right: 'right',
+		        data: []
+		    },
+		    series : [
+		        {
+		            name: '问题',
+		            type: 'pie',
+		            radius : '55%',
+		            center: ['35%', '60%'],
+		            data:[],
+		            itemStyle: {
+		                emphasis: {
+		                    shadowBlur: 10,
+		                    shadowOffsetX: 0,
+		                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+		                }
+		            }
+		        }
+		    ]
+		};
+		return option;
+	}
+	/**
+	 * 饼图的配置项
+	 * @param {Object} info
+	 */
+	
+	common.pipeChartsDataChange = function (info) {
+		var tempName = {};
+		var len = info.length;
+		
+		for(var i = 0; i < len; i++) {
+			var item = info[i]
+			var temp = {};
+			var name = item['OrganiseUnitID'];
+			var obj = {
+				name: item.DisplayName,
+				value: item.AbnormalIndicatorCount
+			}
+			if(tempName[name]) {
+				if(obj.name) {
+					tempName[name].data.push(obj);
+					tempName[name].legendData.push(item.DisplayName);
+				}
+			} else {
+				temp.title = item.OrganiseUnitName;
+				if (obj.name) {
+					temp.data = [obj];
+					temp.legendData = [item.DisplayName];
+				} else{
+					temp.data = [];
+					temp.legendData = [];
+				}
+				tempName[name] = temp;
+			}
+		}
+		
+		var res= [];
+		for(var key in tempName) {
+			res.push(tempName[key])
+		}
+		
+		var optionArr = []
+		
+		for (var i = 0; i < res.length; i++) {
+			var baseOpt = common.pipeChartsBase();
+			var item = res[i];
+			baseOpt.title.text = item.title;
+			baseOpt.legend.data = item.legendData;
+			baseOpt.series[0].data = item.data;
+			optionArr.push(baseOpt);
+		}
+		return optionArr
+	}
 
 	window.common = common
 })()

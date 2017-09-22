@@ -702,7 +702,6 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data){
-				console.log("设备维修")
 				setHtml(data)
 			},
 			
