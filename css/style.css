@@ -252,12 +252,11 @@ input {
 	/*box-shadow: 0 1px 5px #999999;*/
 }
 /*左边的颜色 s*/
+/*.index_list_content_maymore:first-child::before 
+    border-left: 8px solid yellow;
+	/*border-left: 5px solid #61FF00;
+}*/
 /*
-.index_list_content>div:first-child {
-	margin-top: 0;
-	border-left: 5px solid #61FF00;
-}
-
 .index_list_content>div:nth-child(3) {
 	border-left: 5px solid #DB4527;
 }
@@ -375,7 +374,7 @@ input {
     height: 0;
     border-top: 8px solid transparent;
     border-bottom: 8px solid transparent;
-    border-left: 8px solid red;
+    border-left: 8px solid #db4528;
 	display: inline-block;
 	content: " ";
 	position: absolute;
@@ -384,12 +383,29 @@ input {
 	z-index: 100;
 	transform: rotate(-45deg);
 }
+
+.index_list_content_maymore:nth-child(2)::before {
+    border-left: 8px solid #66b61d;
+}
+
+.index_list_content_maymore:nth-child(3)::before {
+    border-left: 8px solid #f28d02;
+}
+
+.index_list_content_maymore:nth-child(4)::before {
+    border-left: 8px solid #17a79a;
+}
+
+.index_list_content_maymore:nth-child(5)::before {
+    border-left: 8px solid #867eed;
+}
+
 .index_list_content_maymore::after {
 	width: 0;
     height: 0;
     border-top: 8px solid transparent;
     border-bottom: 8px solid transparent;
-    border-right: 8px solid red;
+    border-right: 8px solid #db4528;
 	display: inline-block;
 	content: " ";
 	position: absolute;
@@ -397,6 +413,22 @@ input {
 	bottom: -5px;
 	z-index: 100;
 	transform: rotate(-45deg); 
+}
+
+.index_list_content_maymore:nth-child(2)::after {
+    border-right: 8px solid #66b61d;
+}
+
+.index_list_content_maymore:nth-child(3)::after {
+    border-right: 8px solid #f28d02;
+}
+
+.index_list_content_maymore:nth-child(4)::after {
+    border-right: 8px solid #17a79a;
+}
+
+.index_list_content_maymore:nth-child(5)::after {
+    border-right: 8px solid #867eed;
 }
 
 .index_list_content_maymore .index_list_content_maymore_first {
