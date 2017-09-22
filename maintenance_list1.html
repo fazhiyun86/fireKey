@@ -104,16 +104,26 @@
 			function pullupRefresh() {
 				var PageSize = 20;
 				function WebApp_GetFaultRepairList(UnitCode, PageIndex, PageSize) {
-					var urlTask = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetFaultRepairList?dataKey=00-00-00-00&UnitCode=' + UnitCode + '&PageIndex=' + PageIndex + '&PageSize=' + PageSize;
+	
+					var data ={
+						UnitCode: localStorage.getItem("UnitCode"),
+						StartDate: localStorage.getItem("startTime"),
+						EndDate: localStorage.getItem("endTime"),
+					};
+					var urlTask = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_GetFaultRepairList?dataKey=00-00-00-00&PageIndex=' + PageIndex + '&PageSize=' + PageSize;
+					console.log("dataaaaa")
 					console.log(urlTask);
 					mui.ajax(urlTask, {
-						data: null,
+						data: data,
 						dataType: 'json', //返回
 						type: 'get',
 						timeout: 5000,
 						success: function(data) {
-
+							var d = JSON.stringify(data);
+						alert(d);
 							var getDatas = data['DataSource']['Tables'][0]['Datas'];
+							
+							
 							if(getDatas.length >= PageSize) {
 								mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
 							} else {
@@ -121,6 +131,18 @@
 							}
 
 							mui.each(getDatas, function(index, item) {
+								
+								var ID = getDatas["ID"]; //ID
+								var ReportTime = getDatas["ReportTime"]; //故障时间
+								var Status = getDatas["Status"]; //处理状态
+								var EquipmentName = getDatas["EquipmentName"]; //设备名称
+								var EquipmentCode = getDatas["EquipmentCode"]; //设备编号
+								var ModelName = getDatas["ModelName"]; //设备型号
+								var FaultType = getDatas["FaultType"]; //运维状态
+								var ReportOrganiseUnitName = getDatas["ReportOrganiseUnitName"]; //所属单位
+								var ReportUserName = getDatas["ReportUserName"]; //申报人
+								
+								
 								html +=
 									'<div class="Equipment_patrol_con1">' +
 									'<input class="sendId1" type="hidden"value="' + item.ID + '" />' +
@@ -130,7 +152,7 @@
 									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>设备名称：</span><span class="maintenance_list1_d3">' + item.EquipmentName + '</span></p>' +
 									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>设备编号：</span><span class="maintenance_list1_d4">' + item.EquipmentCode + '</span></p>' +
 									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>设备型号：</span><span class="maintenance_list1_d5">' + item.ModelName + '</span></p>' +
-									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>故障类型：</span><span class="maintenance_list1_d6">' + item.FaultType + '</span></p>' +
+									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>运维状态：</span><span class="maintenance_list1_d6">' + item.FaultType + '</span></p>' +
 									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>所属单位：</span><span class="maintenance_list1_d7">' + item.ReportOrganiseUnitName + '</span></p>' +
 									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>申&nbsp;报&nbsp;人：</span><span>' + item.ReportUserName + '</span></p>' +
 									'</div>' +
@@ -152,10 +174,15 @@
 			mui.plusReady(function() {
 
 				function WebApp_GetFaultRepairList(UnitCode) {
-					var urlTask = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetFaultRepairList?dataKey=00-00-00-00&UnitCode=' + UnitCode;
+					var data ={
+						UnitCode: localStorage.getItem("UnitCode"),
+						StartDate: localStorage.getItem("startTime"),
+						EndDate: localStorage.getItem("endTime"),
+					};
+					var urlTask = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_GetFaultRepairList?dataKey=00-00-00-00';
 					console.log(urlTask);
 					mui.ajax(urlTask, {
-						data: null,
+						data: data,
 						dataType: 'json', //返回
 						type: 'get',
 						timeout: 5000,
@@ -165,6 +192,17 @@
 							var html = '';
 
 							mui.each(getDatas, function(index, item) {
+								
+								var ID = getDatas["ID"]; //ID
+								var ReportTime = getDatas["ReportTime"]; //故障时间
+								var Status = getDatas["Status"]; //处理状态
+								var EquipmentName = getDatas["EquipmentName"]; //设备名称
+								var EquipmentCode = getDatas["EquipmentCode"]; //设备编号
+								var ModelName = getDatas["ModelName"]; //设备型号
+								var FaultType = getDatas["FaultType"]; //运维状态
+								var ReportOrganiseUnitName = getDatas["ReportOrganiseUnitName"]; //所属单位
+								var ReportUserName = getDatas["ReportUserName"]; //申报人
+								
 								html +=
 									'<div class="Equipment_patrol_con1">' +
 									'<input class="sendId1" type="hidden"value="' + item.ID + '" />' +
@@ -174,7 +212,7 @@
 									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>设备名称：</span><span class="maintenance_list1_d3">' + item.EquipmentName + '</span></p>' +
 									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>设备编号：</span><span class="maintenance_list1_d4">' + item.EquipmentCode + '</span></p>' +
 									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>设备型号：</span><span class="maintenance_list1_d5">' + item.ModelName + '</span></p>' +
-									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>故障类型：</span><span class="maintenance_list1_d6">' + item.FaultType + '</span></p>' +
+									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>运维状态：</span><span class="maintenance_list1_d6">' + item.FaultType + '</span></p>' +
 									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>所属单位：</span><span class="maintenance_list1_d7">' + item.ReportOrganiseUnitName + '</span></p>' +
 									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>申&nbsp;报&nbsp;人：</span><span>' + item.ReportUserName + '</span></p>' +
 									'</div>' +
