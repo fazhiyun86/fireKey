@@ -168,6 +168,9 @@
 		
 		return res;
 	}
+	/***
+	 * 饼图基本配置项
+	 */
 	
 	common.pipeChartsBase = function (){
 		var option = {
@@ -255,6 +258,117 @@
 		}
 		return optionArr
 	}
-
+	
+	/**
+	 * 柱状图基本配置项
+	 */
+	
+	common.barChartsBase = function () {
+		var option = {
+		    title: {
+				text: '-',
+			},
+            tooltip: {},
+            color: ["#eaa906"],
+            xAxis: {
+                data: []
+            },
+		    grid: {
+		        left: '3%',
+		        right: '4%',
+		        bottom: '3%',
+		        top: '5%',
+		        containLabel: true
+		    },
+            yAxis: {},
+            series: [{
+                name: '-',
+                type: 'bar',
+                data: []
+            }]
+        };
+        return option;
+	}
+	
+	var ddd = [
+            {
+                "Name": "DFI_AllCountTable",
+                "Key": "CompanyID",
+                "Datas": [
+                    {
+                        "CompanyID": "123456",
+                        "CompanyName": "A1工程",
+                        "AllFireCount": "982"
+                    }
+                ]
+            },
+            {
+                "Name": "DFI_OrgCountTable",
+                "Key": "ID",
+                "Datas": [
+                    {
+                        "ID": "f7b0990d-a03e-11e7-814d-fa163e4635ff",
+                        "DateValue": "2017/9/11 0:00:00",
+                        "CompanyID": "123456",
+                        "FireCount": "12"
+                    },
+                    {
+                        "ID": "f7b09937-a03e-11e7-814d-fa163e4635ff",
+                        "DateValue": "2017/9/12 0:00:00",
+                        "CompanyID": "123456",
+                        "FireCount": "123"
+                    },
+                ]
+            }
+        ]
+   	/***
+	 * 在柱状图里面转化时间格式
+	 */
+	
+	common.barDateSplit = function (str) {
+		str = str || "";
+		return str.split(" ")[0]
+	}
+	
+	common.barChartsDataChange = function (data) {
+		var companyDataArr = data[0]["Datas"];
+		var valueDataArr = data[1]["Datas"];
+		
+		var comLen = companyDataArr.length;
+		var valLen = valueDataArr.length;
+		
+		var result = [];
+		
+		for(var i = 0; i < comLen; i++) {
+			var item = companyDataArr[i];
+			var index = item.CompanyID;
+			
+			var XValArr = [];
+			var YValArr = [];
+			var title = item.CompanyName;
+			for(var j = 0; j < valLen; j++) {
+				var jtem = valueDataArr[j]
+				
+				var X = jtem.DateValue;
+				var Y = jtem.FireCount;
+				
+				if(index == jtem.CompanyID) {
+					XValArr.push(common.barDateSplit(X));
+					YValArr.push(Y);
+				}
+			}
+			var baseOption = common.barChartsBase();
+			
+			baseOption.title.text = title;
+			baseOption.xAxis.data = XValArr;
+			baseOption.series[0].data = YValArr;
+			
+			result.push(baseOption);
+		}
+		return result;
+	}
+	
+	console.log(common.barChartsDataChange(ddd))
+	
 	window.common = common
 })()

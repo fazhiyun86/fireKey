@@ -1837,5 +1837,5 @@ canvas {
 }
 
 .no-word {
-	text-align: center;
+	text-align: center!important;
 }

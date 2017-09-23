@@ -112,8 +112,7 @@
 						EndDate: localStorage.getItem("endTime"),
 					};
 					var urlTask = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_GetFaultRepairList?dataKey=00-00-00-00&PageIndex=' + PageIndex + '&PageSize=' + PageSize;
-					console.log("dataaaaa")
-					console.log(urlTask);
+				
 					mui.ajax(urlTask, {
 						data: data,
 						dataType: 'json', //返回
@@ -121,7 +120,7 @@
 						timeout: 5000,
 						success: function(data) {
 							var d = JSON.stringify(data);
-						alert(d);
+							console.log("运维记录的数据没数据，稍后有数据后测试")
 							var getDatas = data['DataSource']['Tables'][0]['Datas'];
 							
 							

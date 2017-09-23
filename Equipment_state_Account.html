@@ -1,131 +1,168 @@
 <!doctype html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/Equipment_state_Account.css"/>
 		<style>
-
+			#bg_tab {
+				background-color: #fff;
+			}
+			#Account_con {
+				background-color: #fff;
+				margin: 0!important;
+			}
+			.tab_list {
+				/*overflow: hidden;*/
+			}
+			.Equipment_state_Account_con .Equipment_first {
+				background-color: #fff;
+				/*border: 0 none;*/
+			}
+			.equipment_tab > ul > li a.tab-active {
+				background-color: #fff;
+			}
+			.no-word {
+				width: 100%!important;
+			}
 		</style>
 	</head>
-
 	<body>
-		<div>
-			<header class="mui-bar mui-bar-nav titBackg">
-				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-				<h1 class="mui-title">设备资产台账</h1>
-			</header>
-			<div id="bg_tab">
+		
+		<header class="mui-bar mui-bar-nav titBackg">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">设备资产台账</h1>
+		</header>
+		<div id="bg_tab pullrefresh" class=" mui-scroll-wrapper">
+			<div class="mui-scroll">
 				<div class="equipment_tab" id="tabWrap">
 					<ul>
-						<li class="equipment_tab_list tab_list" data-target="1"><a >故障维修</a></li>
-						<li class="equipment_tab_list tab_list" data-target="2"><a>停用停机</a></li>
-						<li class="equipment_tab_list tab_list" data-target="3"><a>正常使用</a></li>
-						<li class="equipment_tab_list tab_list" data-target="4"><a>报废处理</a></li>
+						<li class="equipment_tab_list"><a class="tab_list tab-active" href="javascript:;" data-target="2">故障维修</a></li>
+						<li class="equipment_tab_list"><a class="tab_list" href="javascript:;" data-target="3">停用停机</a></li>
+						<li class="equipment_tab_list"><a class="tab_list" href="javascript:;" data-target="1">正常使用</a></li>
+						<li class="equipment_tab_list"><a class="tab_list" href="javascript:;" data-target="6">报废处理</a></li>
 					</ul>
 				</div>
 				
-				<div class="mui-content Equipment_state_Account_con" id="Account_con" style="padding-top: 0px;">
+				<div class="Equipment_state_Account_con" id="Account_con" style="padding-top: 0px;overflow: hidden;">
 					<div class="Equipment_first">
 						<p style="width: 25%;">名称</p>
 						<p style="width: 30%;">编号</p> 
 						<p style="width: 35%;">位置</p>
 					</div>
-					<div class="Equipment_c2" id="Equipment_c2">
-						<div>
+					<div class="Equipment_c2 " id="Equipment_c2">
+						<div class="equiment-list">
 							<p style="width: 25%;">消火栓</p>
 							<p style="width: 30%;">A200050</p>
 							<p style="width: 35%;">行政办公区A1工程区</p>
 						</div>
 					</div>
 				</div>
+				
 			</div>
 		</div>
+		
+		<script src="js/jquery.min.js"></script>
 		<script src="js/mui.min.js"></script>
-		<!--<script src="js/echarts.common.min.js"></script>-->
-		<script src="js/Equipment_state_Account.js"></script>
 		<script type="text/javascript">
+			(function(){
+				// 局部函数
+				var OrganiseUnitID = '';
+				var initState = 2;
+			
+				
+				mui(".mui-scroll-wrapper").scroll({
+					bounce: false,//滚动条是否有弹力默认是true
+					indicators: false, //是否显示滚动条,默认是true
+				});
+			
+				mui.plusReady(function() {
+					var selfView = plus.webview.currentWebview();
+					OrganiseUnitID = selfView.id;
+					
+					//初始化的时候默认值是 2
+					getData(initState)
+				})
 
 				var list = document.getElementsByClassName("tab_list");
 				var Account_con = document.getElementById("Account_con");
 				var tabWrap = document.getElementById("tabWrap");
-
+				
+				//点击tab栏的时候的切换
 				mui("#tabWrap").on('tap', '.tab_list', function(e) {
+					e.stopPropagation();
+					
+					$(".tab_list").attr('class', 'tab_list');
+					$(this).attr("class", "tab_list tab-active");
+					
 					var targetVal = this.getAttribute("data-target");
-					getData(targetVal)
+					getData(targetVal);
           		});
           		
-          		function getData (targetVal) {
-          			
-          			function WebApp_GetEqListByClass(UnitCode) {
-          				
-	          			var data ={
-							OrganiseUnitID: localStorage.getItem("UnitCode")
-						};
-						urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EMBEquipmentStatus_Statistical?dateKey=00-00-00-00';
+          		
+	  			function getData (targetVal) {
+	  				
+	  				plus.nativeUI.showWaiting();
+	      			var data ={
+						OrganiseUnitID: OrganiseUnitID,
+						Status: targetVal
+					};
+					
+					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EMBEquipmentList?dataKey=00-00-00-00';
+					
+					mui.ajax(urlg, {
+						data: data,
+						dataType: 'json',
+						type: 'get',
+						timeout: 5000,
+						success: function(data){
+							var info = data['DataSource']['Tables'][0]['Datas']
+							setHtml(info)
+						},
+						error: function(){
+							console.log("Equipment_state_Account.html,数据请求出错。")
+							mui.toast('数据请求失败')
+						}						
+					});
+					
+					function setHtml (data) {
+						var html = '';
+						var len = data.length;
 						
-						mui.ajax(urlg, {
-							data: data,
-							dataType: 'json',
-							type: 'get',
-							timeout: 5000,
-							success: function(data){
-								
-//								var info = data['DataSource']['Tables'][0]["Datas"][0];
-//								var html = '';								
-//								var ClassName = info["ClassName"]; 	//设备分类名字/消火栓
-//								var OrganiseUnitID = info["OrganiseUnitID"]; 	//单位ID
-//								var OrganiseUnitName = info["OrganiseUnitName"]; 	//单位名称
-//								var ParentOrganiseUnitName = info["ParentOrganiseUnitName"]; 			//父单位名称
-//								var AllCount = info["AllCount"]; 		//消火栓总数量
-//								var NormalCount = info["NormalCount"];			 //正常使用
-//								var StopCount = info["StopCount"]; 			//停用停机
-
-								mui.each(info, function(index, item) {
-									//					<div>
-									//						<p>烟感报警器</p>
-									//						<p style="width:35%">CD45S64W4514</p>
-									//						<p style="width:15%">正常</p>
-									//					</div>
-									html += 
-										'<div class="conSend" style="overflow-x: hidden;">' +
-										'<input class="sendId1" type="hidden"value="' + item.EquipmentCode + '" />' +
-										'<p style="width:25%">' + item.EquipmentName + '</p>' +
-										'<p style="width:30%">' + item.EquipmentCode + '</p>' +
-										'<p style="width:35%">' + item.EquipmentStatus + '</p>' +
-										'</div>';
-								})
+						for(var i = 0; i < len; i++) {
+							var item = data[i];
+							html += '<div>\
+								<p style="width: 25%;">'+item.EquipmentName+'</p>\
+								<p style="width: 30%;">'+item.EquipmentCode+'</p>\
+								<p style="width: 35%;">'+item.OrganiseUnitName+'</p>\
+							</div>';
+						}
 						
-							document.getElementById("Equipment_c2").innerHTML = html;
-										
-							},
-									
-							error: function(){
-								mui.toast('数据请求失败')
-							}						
-						});		
+						if(len === 0) {
+							html = '<p class="no-word">暂无数据</p>'
+						}
+						console.log("")
+						document.getElementById("Equipment_c2").innerHTML = html;
+						plus.nativeUI.closeWaiting();
 					}
-					WebApp_GetEqListByClass(localStorage.getItem('UnitCode'))
-		    	}
-
-			(function($){			
-				$(".mui-scroll-wrapper").scroll({
-					bounce: false,//滚动条是否有弹力默认是true
-					indicators: false, //是否显示滚动条,默认是true
-				});
-
-				mui.ready(function() {   
-					mui('#Equipment_c2').on('tap', '.conSend', function() {
-						var code = this.firstChild.value;
-	//					console.log(code)
-						localStorage.setItem('userNumCode', code)
+				}
+	  			
+	  			
+				mui.ready(function() {
+					
+					//点击进入详情页面
+					mui('#Equipment_c2').on('tap', '.equiment-list', function() {
+//						var code = this.firstChild.value;
+//						localStorage.setItem('userNumCode', code)
+						
 						mui.openWindow({
-							url: 'Equipment_state_query.html',
-							id: 'Equipment_state_query.html',
+//							url: 'Equipment_state_query.html',
+//							id: 'Equipment_state_query.html',
+							url: 'Equipment_state_query_page2.html',
+							id: 'Equipment_state_query_page2.html',
 							styles: {
 								top: 0, //新页面顶部位置
 								bottom: 0, //新页面底部位置
@@ -141,13 +178,9 @@
 								title: '加载中...', //等待对话框上显示的提示内容
 							}
 						});
-	
 					})
-	
 				})
-				
-			})(mui);
+			})();
 		</script>
 	</body>
-
 </html>

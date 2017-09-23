@@ -66,11 +66,9 @@
 				<div class="mui-scroll">
 					<div class="list-wrapper">
 						<div class="mui-content Equipment_patrol_con ">
-							<!--<div id="Equipment_patrol_con1">
-								
-							</div>-->
 							<div id="certificSend" class="content-wrap">
-								<section class="box-item">
+								
+								<!--<section class="box-item">
 									<h2>本周总数量</h2>
 									<div id="weekSum1" style="width: 100%;height:150px;"></div>
 								</section>
@@ -81,157 +79,19 @@
 								<section class="box-item">
 									<h2>本周总数量</h2>
 									<div id="weekSum3" style="width: 100%;height:150px;"></div>
-								</section>
+								</section>-->
+								
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
+		<script src="js/jquery.min.js"></script>
 		<script src="js/mui.min.js"></script>
 		<script src="js/echarts.min.js"></script>
-		<script type="text/javascript">
-	
-			mui.init({
-				swipeBack: false,
-				keyEventBind: {
-					//		backbutton: true //关闭back按键监听
-				},
-
-//				pullRefresh: {
-//					container: "#pullrefresh", //待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
-//					up: {
-//						height: 50, // 可选.默认50.触发上拉加载拖动距离
-//						auto: true, // 可选,默认false.自动上拉加载一次
-//						contentrefresh: "正在加载...", // 可选，正在加载状态时，上拉加载控件上显示的标题内容
-//						contentnomore: '没有更多数据了', // 可选，请求完毕若没有更多数据时显示的提醒内容；
-//						callback: pullupRefresh
-//					}
-//				}
-			});
-			/**
-			 * 下拉刷新具体业务实现
-			 */
-
-			var count = -1;
-			var html = '';
-
-			function pullupRefresh() {
-				var PageSize = 20;
-				function WebApp_GetFaultRepairList(UnitCode, PageIndex, PageSize) {
-					var urlTask = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetFaultRepairList?dataKey=00-00-00-00&UnitCode=' + UnitCode + '&PageIndex=' + PageIndex + '&PageSize=' + PageSize;
-					console.log(urlTask);
-					mui.ajax(urlTask, {
-						data: null,
-						dataType: 'json', //返回
-						type: 'get',
-						timeout: 5000,
-						success: function(data) {
-
-							var getDatas = data['DataSource']['Tables'][0]['Datas'];
-							if(getDatas.length >= PageSize) {
-								mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
-							} else {
-								mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
-							}
-
-							mui.each(getDatas, function(index, item) {
-								html +=
-									'<div class="Equipment_patrol_con1">' +
-									'<input class="sendId1" type="hidden"value="' + item.ID + '" />' +
-									'<div class="Equipment_patrol_ccon2 maintenance_list1">' +
-									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>故障时间：</span><span class="maintenance_list1_d1">' + item.ReportTime + '</span></p>' +
-									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>处理状态：</span><span class="maintenance_list1_d2">' + item.Status + '</span></p>' +
-									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>设备名称：</span><span class="maintenance_list1_d3">' + item.EquipmentName + '</span></p>' +
-									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>设备编号：</span><span class="maintenance_list1_d4">' + item.EquipmentCode + '</span></p>' +
-									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>设备型号：</span><span class="maintenance_list1_d5">' + item.ModelName + '</span></p>' +
-									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>故障类型：</span><span class="maintenance_list1_d6">' + item.FaultType + '</span></p>' +
-									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>所属单位：</span><span class="maintenance_list1_d7">' + item.ReportOrganiseUnitName + '</span></p>' +
-									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>申&nbsp;报&nbsp;人：</span><span>' + item.ReportUserName + '</span></p>' +
-									'</div>' +
-									'</div>';
-							})
-							document.getElementById('Equipment_patrol_con1').innerHTML = html;
-						},
-						error: function() {
-							//异常处理
-							mui.toast('数据请求失败')
-						}
-
-					});
-				}
-				WebApp_GetFaultRepairList(localStorage.getItem('UnitCode'), ++count, PageSize);
-
-			}
-
-			mui.plusReady(function() {
-
-				function WebApp_GetFaultRepairList(UnitCode) {
-					var urlTask = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetFaultRepairList?dataKey=00-00-00-00&UnitCode=' + UnitCode;
-					console.log(urlTask);
-					mui.ajax(urlTask, {
-						data: null,
-						dataType: 'json', //返回
-						type: 'get',
-						timeout: 5000,
-						success: function(data) {
-
-							var getDatas = data['DataSource']['Tables'][0]['Datas'];
-							var html = '';
-
-							mui.each(getDatas, function(index, item) {
-								html +=
-									'<div class="Equipment_patrol_con1">' +
-									'<input class="sendId1" type="hidden"value="' + item.ID + '" />' +
-									'<div class="Equipment_patrol_ccon2 maintenance_list1">' +
-									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>故障时间：</span><span class="maintenance_list1_d1">' + item.ReportTime + '</span></p>' +
-									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>处理状态：</span><span class="maintenance_list1_d2">' + item.Status + '</span></p>' +
-									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>设备名称：</span><span class="maintenance_list1_d3">' + item.EquipmentName + '</span></p>' +
-									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>设备编号：</span><span class="maintenance_list1_d4">' + item.EquipmentCode + '</span></p>' +
-									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>设备型号：</span><span class="maintenance_list1_d5">' + item.ModelName + '</span></p>' +
-									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>故障类型：</span><span class="maintenance_list1_d6">' + item.FaultType + '</span></p>' +
-									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>所属单位：</span><span class="maintenance_list1_d7">' + item.ReportOrganiseUnitName + '</span></p>' +
-									'<p style="font-size:0.7rem;color:#666666;width: 50%;"><span>申&nbsp;报&nbsp;人：</span><span>' + item.ReportUserName + '</span></p>' +
-									'</div>' +
-									'</div>';
-							})
-							document.getElementById('Equipment_patrol_con1').innerHTML = html;
-						},
-						error: function() {
-							//异常处理
-							mui.toast('数据请求失败')
-						}
-
-					});
-				}
-				//				WebApp_GetFaultRepairList(localStorage.getItem('UnitCode'));
-
-				mui('#Equipment_patrol_con1').on('tap', '.Equipment_patrol_con1', function() {
-					mui.openWindow({
-						url: 'maintenance_list1_1.html',
-						id: 'maintenance_list1_1.html',
-						styles: {
-							top: 0, //新页面顶部位置
-							bottom: 0, //新页面底部位置
-						},
-						extras: {
-							ID: this.firstChild.value
-						},
-						show: {
-							duration: '300'
-						},
-						waiting: {
-							autoShow: true, //自动显示等待框，默认为true
-							title: '加载中...', //等待对话框上显示的提示内容
-						}
-					});
-				})
-
-			})
-		</script>
-		<script>
-			
+		<script src="js/common.js"></script>
+		<!--<script>
 			(function($){
 				var myChart1 = echarts.init(document.getElementById('weekSum1'));
 				var myChart2 = echarts.init(document.getElementById('weekSum2'));
@@ -257,6 +117,7 @@
 		                data: [5, 20, 36, 10, 10, 20, 10]
 		            }]
 		        };
+		        
 		        myChart1.setOption(option);
 		        myChart2.setOption(option);
 		        myChart3.setOption(option);
@@ -267,6 +128,81 @@
 				
 				});
 	        })(mui)
+		</script>-->
+		
+		<script>
+			(function(){
+				
+				mui.plusReady(function (){
+					plus.nativeUI.showWaiting();
+					getData()
+				})
+				
+				//获取数据的请求
+				function getData () {
+					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_FWOrgCertificate?dataKey=00-00-00-00';
+					var data = {
+						OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
+						StartDate: localStorage.getItem("startTime"),
+						EndDate: localStorage.getItem("endTime")
+					}
+					
+					mui.ajax(url, {
+						data: data,
+						dataType:'json',
+						type:'get',
+						timeout: 5000,            
+						success: function(data){
+							console.log(JSON.stringify(data))
+							var optionsArr = common.barChartsDataChange(data['DataSource']['Tables']);
+							
+//							var info = data['DataSource']['Tables'][0]['Datas']
+//							var options = common.pipeChartsDataChange(info)
+//							
+							setHtml(optionsArr)
+							plus.nativeUI.closeWaiting();
+						},
+						error: function(){
+							console.log("数据请求报错！");
+							plus.nativeUI.closeWaiting(); 
+							mui.toast('数据请求失败')
+						}
+					});
+					
+					function setHtml (options) {
+						var len = options.length; 
+						
+						for (var i = 0; i < len; i++) {
+							$("#certificSend").append('<section class="box-item">\
+												<div id="weekSum'+ i +'" style="width: 100%;height:150px;"></div>\
+											</section>')
+						}
+						setTimeout(function () {
+							setECharts(options)	
+						}, 0)
+					}
+					
+					//ECharts 图的设置
+					
+					function setECharts (options) {
+						var len = options.length;
+						for (var i = 0; i < len; i++) {
+							var option = options[i]
+							var myChart = echarts.init(document.getElementById('weekSum'+ i ));
+							myChart.setOption(option)
+						}
+					}
+				}
+				
+//				var myChart1 = echarts.init(document.getElementById('weekSum1'));
+
+//		        myChart1.setOption(option);
+		        
+	        	mui(".mui-scroll-wrapper").scroll({
+					bounce: false,//滚动条是否有弹力默认是true
+					indicators: false, //是否显示滚动条,默认是true
+				});
+	        })()
 		</script>
 	</body>
 
