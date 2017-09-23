@@ -1,1 +1,13 @@
-null
+{
+	"Equipment_state.html": {
+		"resources": [
+			"css/Equipment_state.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/searchCode.js"
+		]
+	}
+}
