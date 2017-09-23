@@ -38,7 +38,7 @@
 					</p>
 					<header class="mui-bar mui-bar-nav titBackg" style="z-index: 99999999;">
 						<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-						<h1 class="mui-title">北京城建集团</h1>
+						<h1 class="mui-title">动火检查记录</h1>
 						<a id='searchCode' class="mui-icon mui-icon-search equipStatus_search"></a>
 					</header>
 				
@@ -91,13 +91,12 @@
 				//获取数据的请求
 				function getData (taskID) {
 					
-					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_ISMTaskList?dataKey=00-00-00-00';
+					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_FWTaskList?dataKey=00-00-00-00';
 					
 					var data = {
-						OrganiseUnitID: taskID,
+						OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
 						StartDate: localStorage.getItem("startTime"),
-						EndDate: localStorage.getItem("endTime"),
-						ProjectType: 2
+						EndDate: localStorage.getItem("endTime")
 					}
 					
 					mui.ajax(url, {
@@ -117,7 +116,6 @@
 				}
 				// 数据的显示
 				function setHtml (data) {
-					
 					var html = '';
 					for (var i = 0; i < data.length; i++) {
 						var item = data[i];
@@ -144,8 +142,8 @@
 					var projectName = this.getAttribute('data-pro');
 					
 					mui.openWindow({
-						url: 'Risk_height_3.html',
-						id: 'Risk_height_3.html',
+						url: 'Add_Fire_statistic_tab02_2.html',
+						id: 'Add_Fire_statistic_tab02_2.html',
 						styles: {
 							top: 0, //新页面顶部位置
 							bottom: 0, //新页面底部位置
@@ -165,7 +163,7 @@
 							title: '加载中...', //等待对话框上显示的提示内容
 						}
 					});
-						
+					
 				})
 				
 			})(mui);

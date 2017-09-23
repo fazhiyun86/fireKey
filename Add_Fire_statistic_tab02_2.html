@@ -25,6 +25,9 @@
 			.state_content_con {
 				padding: 0.3rem 0.2rem 0.3rem 1rem;
 			}
+			.red-color {
+				color: #DB4527;
+			}
 		</style>
 	</head>
 	<body>
@@ -38,41 +41,44 @@
 					</p>
 					<header class="mui-bar mui-bar-nav titBackg" style="z-index: 99999999;">
 						<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-						<h1 class="mui-title">北京城建集团</h1>
+						<h1 class="mui-title">动火检查记录</h1>
 						<a id='searchCode' class="mui-icon mui-icon-search equipStatus_search"></a>
 					</header>
 				
 				<div class="mui-content mui-scroll-wrapper">
 					<div id="riskContent" class="mui-scroll">
-						<p class="state_titp">
-							<span id="state_zong">2017年第46周  2017-09-11-2017-09-17</span>
-							<span id="state_diqu"></span>
-							<span id="offCanvasShow" style="display: none;" class="mui-icon mui-icon-list"></span>
-						</p>
+						<p id="taskWrap" class="state_titp padb0">消火栓覆盖范围及周边动火点的检查任务(2017091607)</p>
+						<p id="proWrap" class="state_titp padt5">行政办公区A1项目</p>
 						<div id="riskContentWrap">
 							
 						</div>
 						<!--显示的盒子 start-->
 						<!--<div class="risk_wrap">
 							<div class="risk_item height-2-item">
-								<div>行政办公区A1项目</div>
-								<div class="color-green">消火栓覆盖范围及周边动火点的检查任务(2017091607)</div>
-								<div>任务期限：2017年09月02日-2017年09月09日</div>
-								<div>检查进度: 100%       应检：79      已检：79      异常：1      处理：1</div>
+								<p class="risk_item_tit">消火栓</p>
+								<div class="item_content_top height-3-item">
+										<div class="flex_item">
+											<p>设备编号：A203009</p>
+											<p>检查时间：2017-09-06</p>
+										</div>
+										<div class="flex_item">
+											<p>设备型号：DN65</p>
+											<p>设备位置：西区-地下室-B1-西区</p>
+										</div>
+								</div>
 							</div>
 						</div>-->
 						<!--显示的盒子 end-->
-						 
+						
 					</div>
 				</div>  
 		    </div>
 		</div>
 		<script src="js/mui.min.js"></script>
 		<script src="js/searchCode.js"></script>
-		<script src="js/common.js"></script>
 		<script type="text/javascript">
+			
 			(function($){
-				
 				$(".mui-scroll-wrapper").scroll({
 					bounce: false,//滚动条是否有弹力默认是true
 					indicators: false, //是否显示滚动条,默认是true
@@ -83,21 +89,21 @@
 					
 					//设置标题的名字
 					var selfView = plus.webview.currentWebview();
-					var taskID = selfView.taskID;
+					var info = selfView.info || {};
 					
-					getData(taskID)
+					document.getElementById("taskWrap").innerHTML = info.taskName;
+					document.getElementById("proWrap").innerHTML = info.projectName;
+					
+					getData(info.taskID)
 					
 				})
 				//获取数据的请求
 				function getData (taskID) {
 					
-					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_ISMTaskList?dataKey=00-00-00-00';
+					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_FWTaskObjectList?dataKey=00-00-00-00';
 					
 					var data = {
-						OrganiseUnitID: taskID,
-						StartDate: localStorage.getItem("startTime"),
-						EndDate: localStorage.getItem("endTime"),
-						ProjectType: 2
+						TaskID: taskID
 					}
 					
 					mui.ajax(url, {
@@ -106,10 +112,11 @@
 						type:'get',
 						timeout: 5000,            
 						success: function(data){
+							plus.nativeUI.closeWaiting();
 							setHtml(data["DataSource"]["Tables"][0]["Datas"])
 						},
 						error: function(){
-							console.log("高风险二级数据请求报错！");
+							console.log("Risk_height_3.html 数据请求报错！");
 							plus.nativeUI.closeWaiting(); 
 							mui.toast('数据请求失败')
 						}
@@ -121,40 +128,56 @@
 					var html = '';
 					for (var i = 0; i < data.length; i++) {
 						var item = data[i];
-						
-						html += '<div class="risk_wrap" data-id="'+ item.TaskID +'" data-task="'+item.TaskName+'" data-pro="'+ item.OrganiseUnitName +'">\
-								<div class="risk_item height-2-item">\
-									<div>'+ item.OrganiseUnitName +'</div>\
-									<div class="color-green">'+ item.TaskName +'</div>\
-									<div>任务期限:'+ item.TaskStartTime +'~~'+ item.TaskEndTime +'</div>\
-									<div>检查进度:'+item.Ratio+'%       应检:'+item.TotalObjectCount+'      已检:'+item.ExamObjectCount+'      异常:'+item.AbNormalObjectCount+'      处理:'+item.AuditCount+'</div>\
+						html += '<div class="risk_wrap" data-id="'+ item.TaskObjectID +'">\
+							<div class="risk_item height-2-item">\
+								<p class="risk_item_tit '+ abnormalHandle(item.InspectIsNormal) +'">'+ item.ObjectName +'</p>\
+								<div class="item_content_top height-3-item">\
+										<div class="flex_item">\
+											<p>设备编号：'+ item.EquipmentCode +'</p>\
+											<p>检查时间：'+ item.InspectTime +'</p>\
+										</div>\
+										<div class="flex_item">\
+											<p>设备型号：'+ item.ModelName +'</p>\
+											<p>设备位置：'+ item.Positions +'</p>\
+										</div>\
 								</div>\
-							</div>';
+							</div>\
+						</div>';
+					}
+					if(data.length === 0) {
+						html += '<p class="no-word">暂无数据</p>'
 					}
 					document.getElementById('riskContentWrap').innerHTML = html
-	
+					
+					function abnormalHandle(val) {
+						var html = '';
+						if(val === '0') {
+							html = 'red-color';
+						}
+						return html;
+					}
+					
 					//隐藏加载
 					plus.nativeUI.closeWaiting();
 				}
 				
 				mui('#riskContent').on('tap', '.risk_wrap', function() {
-					
 					var id = this.getAttribute('data-id');
-					var taskName = this.getAttribute('data-task');
-					var projectName = this.getAttribute('data-pro');
+					var taskName = document.getElementById("taskWrap").innerHTML;
+					var proName = document.getElementById("proWrap").innerHTML
 					
 					mui.openWindow({
-						url: 'Risk_height_3.html',
-						id: 'Risk_height_3.html',
+						url: 'Add_Fire_statistic_tab02_3.html',
+						id: 'Add_Fire_statistic_tab02_3.html',
 						styles: {
 							top: 0, //新页面顶部位置
 							bottom: 0, //新页面底部位置
 						},
 						extras: {
 							info: {
-								taskID: id,
+								TaskObjectID: id,
 								taskName: taskName,
-								projectName: projectName
+								projectName: proName
 							}
 						},
 						show: {

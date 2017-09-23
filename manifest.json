@@ -73,12 +73,6 @@
 		"Zip": {
 			"description": "文件压缩与解压缩"
 		},
-
-
-
-
-
-
 		"Webview": {},
 		"NativeUI": {},
 		"Navigator": {},
@@ -364,6 +358,9 @@
 					"images/yinhuanzhenggai11.png",
 					"images/jianxiubaoyang11.png",
 					"js/common.js",
+					"images/icon_zhuangtai.png",
+					"images/icon_donghuo.png",
+					"images/icon_shebeiyunwei.png",
 					"images/icon_donghuo.png",
 					"images/icon_shebeiyunwei.png",
 					"images/icon_zhuangtai.png"
@@ -1782,7 +1779,10 @@
 					"css/style.css",
 					"images/header_base_01.png",
 					"js/searchCode.js",
-					"css/Risk_height_low.css"
+					"css/Risk_height_low.css",
+					"js/mui.zoom.js",
+					"css/imageViewer.css",
+					"js/mui.previewimage.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -1850,7 +1850,10 @@
 				"resources": [
 					"Add_Fire_statistic_tab01.html",
 					"js/jquery.min.js",
-					"css/iconfont.css"
+					"css/iconfont.css",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"css/style.css"
 				],
 				"refer": [
 					"Add_Fire_statistic_tab02.html",
@@ -1880,10 +1883,64 @@
 					"css/Add_Fire_statistic.css",
 					"css/iconfont.css",
 					"css/mui.min.css",
-					"css/style.css"
+					"css/style.css",
+					"js/common.js"
 				],
 				"refer": [],
 				"priority": 0
+			},
+			"Add_Fire_statistic_tab02.html": {
+				"resources": [
+					"js/echarts.min.js",
+					"js/mui.min.js",
+					"css/Add_Fire_statistic.css",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css"
+				],
+				"refer": [
+					"Add_Fire_statistic_tab02_1.html"
+				],
+				"priority": 0
+			},
+			"Add_Fire_statistic_tab02_1.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/Risk_height_low.css",
+					"js/common.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"js/searchCode.js"
+				],
+				"refer": [
+					"Add_Fire_statistic_tab02_2.html"
+				],
+				"priority": 0
+			},
+			"Add_Fire_statistic_tab02_3.html": {
+				"resources": [
+					"js/mui.zoom.js",
+					"css/imageViewer.css",
+					"js/mui.previewimage.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Add_Fire_statistic_tab02_2.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"js/searchCode.js",
+					"css/Risk_height_low.css"
+				],
+				"refer": [
+					"Add_Fire_statistic_tab02_3.html"
+				]
 			},
 			"Risk_low.html": {
 				"resources": [
@@ -1917,6 +1974,20 @@
 				],
 				"priority": 0
 			},
+			"Risk_low_2.html": {
+				"resources": [],
+				"refer": [
+					"Risk_low_3.html"
+				],
+				"priority": 0
+			},
+			"Risk_low_4.html": {
+				"resources": [
+					"js/mui.zoom.js",
+					"css/imageViewer.css",
+					"js/mui.previewimage.js"
+				]
+			},
 			"Change_Rush.html": {
 				"resources": [
 					"js/mui.min.js",
@@ -1930,6 +2001,12 @@
 				],
 				"refer": [],
 				"priority": 0
+			},
+			"Risk_low_3.html": {
+				"resources": [],
+				"refer": [
+					"Risk_low_4.html"
+				]
 			},
 			"Change_Rush_detail.html": {
 				"resources": [
