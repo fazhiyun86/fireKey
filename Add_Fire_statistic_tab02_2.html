@@ -114,7 +114,6 @@
 						success: function(data){
 							plus.nativeUI.closeWaiting();
 							setHtml(data["DataSource"]["Tables"][0]["Datas"])
-							console.log(JSON.stringify(data))
 						},
 						error: function(){
 							console.log("Risk_height_3.html 数据请求报错！");
