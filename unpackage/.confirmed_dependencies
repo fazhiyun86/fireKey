@@ -1,24 +1,19 @@
 {
-<<<<<<< HEAD
-	"Equipment_state.html": {
-		"resources": [
-			"css/Equipment_state.css",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-=======
 	"Micro_task_1.html": {
 		"resources": [
 			"css/iconfont.woff",
-			"js/Micro_task_1.js"
-		],
-		"refer": []
+			"js/Micro_task_1.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css"
+		]
 	},
 	"totalTarget_email.html": {
 		"resources": [
 			"css/totalTarget-email.css",
 			"css/base.css"
-		],
-		"refer": []
+		]
 	},
 	"index.html": {
 		"resources": [
@@ -39,10 +34,9 @@
 			"css/mui.min.css"
 		],
 		"refer": [
+			"Equipment_state.html",
 			"maintenance.html",
 			"Add_Fire_statistic.html",
-			"Equipment_state.html",
-			"Risk_height.html",
 			"Risk_low.html"
 		]
 	},
@@ -68,9 +62,13 @@
 			"css/iconfont.css",
 			"css/mui.min.css",
 			"css/style.css",
-			"css/iconfont.woff"
-		],
-		"refer": []
+			"css/iconfont.woff",
+			"fonts/mui.ttf",
+			"images/qq.png",
+			"js/Micro_task_3_img.js",
+			"js/jquery.min.js",
+			"js/common.js"
+		]
 	},
 	"login.html": {
 		"resources": [
@@ -90,8 +88,7 @@
 	"Password_edit.html": {
 		"resources": [
 			"images/user-photo.png"
-		],
-		"refer": []
+		]
 	},
 	"Micro_task.html": {
 		"resources": [
@@ -112,8 +109,36 @@
 			"css/iconfont.css",
 			"css/mui.min.css",
 			"css/style.css"
+		]
+	},
+	"Equipment_state.html": {
+		"resources": [
+			"css/Equipment_state.css",
+			"fonts/mui.ttf",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/searchCode.js"
 		],
-		"refer": []
+		"refer": [
+			"Equipment_state_Account.html"
+		]
+	},
+	"Equipment_state_Account.html": {
+		"resources": [
+			"css/Equipment_state_Account.css",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png"
+		],
+		"refer": [
+			"Equipment_state_query_page2.html"
+		]
 	},
 	"maintenance_list2.html": {
 		"resources": [
@@ -123,8 +148,7 @@
 			"css/iconfont.css",
 			"css/mui.min.css",
 			"css/style.css"
-		],
-		"refer": []
+		]
 	},
 	"maintenance.html": {
 		"resources": [
@@ -153,17 +177,40 @@
 			"css/iconfont.css",
 			"css/mui.min.css",
 			"css/style.css"
-		],
-		"refer": []
+		]
 	},
-	"Add_Fire_statistic_tab.html": {
+	"Equipment_state_query_page2.html": {
 		"resources": [
-			"Add_Fire_statistic_tab01.html",
-			"js/jquery.min.js",
+			"js/Equipment_state_query_page2.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png"
+		]
+	},
+	"maintenance_list1.html": {
+		"resources": [
 			"js/mui.min.js",
 			"css/iconfont.css",
 			"css/mui.min.css",
 			"css/style.css"
+		]
+	},
+	"Add_Fire_statistic.html": {
+		"resources": [
+			"css/Add_Fire_statistic.css",
+			"fonts/mui.ttf",
+			"Add_Fire_statistic_tab.html"
+		],
+		"refer": [
+			"Add_Fire_statistic_tab.html"
+		]
+	},
+	"Add_Fire_statistic_tab.html": {
+		"resources": [
+			"Add_Fire_statistic_tab01.html"
 		],
 		"refer": [
 			"Add_Fire_statistic_tab01.html",
@@ -171,14 +218,65 @@
 			"Add_Fire_statistic_tab03.html"
 		]
 	},
-	"Add_Fire_statistic.html": {
+	"Risk_low.html": {
 		"resources": [
-			"css/Add_Fire_statistic.css",
-			"Add_Fire_statistic_tab.html",
-			"fonts/mui.ttf"
+			"css/Risk_height_low.css",
+			"js/common.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/searchCode.js"
 		],
 		"refer": [
-			"Add_Fire_statistic_tab.html"
+			"Risk_low_1.html"
+		]
+	},
+	"Risk_low_1.html": {
+		"refer": [
+			"Risk_low_2.html"
+		],
+		"resources": [
+			"js/common.js",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/searchCode.js",
+			"css/Risk_height_low.css"
+		]
+	},
+	"Risk_low_2.html": {
+		"refer": [
+			"Risk_low_3.html"
+		]
+	},
+	"Risk_low_4.html": {
+		"resources": [
+			"js/mui.zoom.js",
+			"css/imageViewer.css",
+			"js/mui.previewimage.js"
+		]
+	},
+	"Risk_low_3.html": {
+		"refer": [
+			"Risk_low_4.html"
+		]
+	},
+	"Add_Fire_statistic_tab01.html": {
+		"resources": [
+			"js/echarts.min.js",
+			"js/common.js",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"css/Add_Fire_statistic.css",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/loading.gif"
 		]
 	},
 	"Add_Fire_statistic_tab03.html": {
@@ -190,135 +288,8 @@
 			"css/Add_Fire_statistic.css",
 			"css/iconfont.css",
 			"css/mui.min.css",
-			"css/style.css"
-		]
-	},
-	"Equipment_state_Account.html": {
-		"resources": [
-			"js/Equipment_state_Account.js",
-			"css/Equipment_state_Account.css"
-		]
-	},
-	"Equipment_state.html": {
-		"resources": [
-			"css/Equipment_state.css",
-			"fonts/mui.ttf",
-			"js/mui.min.js",
->>>>>>> 988947e6c424bf185f5dfaba417245cd31a63854
-			"css/mui.min.css",
 			"css/style.css",
-			"images/header_base_01.png",
-			"js/searchCode.js"
-<<<<<<< HEAD
-=======
-		],
-		"refer": [
-			"Equipment_state_Account.html",
-			"Scancode.html"
-		]
-	},
-	"Risk_height.html": {
-		"resources": [
-			"css/Risk_height_low.css",
-			"fonts/mui.ttf"
-		],
-		"refer": [
-			"Risk_height_1.html"
-		]
-	},
-	"Risk_height_1.html": {
-		"refer": [
-			"Risk_height_2.html"
-		]
-	},
-	"Risk_height_2.html": {
-		"refer": [
-			"Risk_height_3.html"
-		],
-		"resources": [
-			"js/common.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"js/searchCode.js",
-			"css/Risk_height_low.css"
-		]
-	},
-	"Risk_height_4.html": {
-		"resources": [
-			"js/mui.zoom.js",
-			"css/imageViewer.css",
-			"js/mui.previewimage.js"
-		]
-	},
-	"Risk_height_3.html": {
-		"refer": [
-			"Risk_height_4.html"
-		]
-	},
-	"Risk_low.html": {
-		"refer": [
-			"Risk_low_1.html"
-		]
-	},
-	"Risk_low_1.html": {
-		"refer": [
-			"Risk_low_2.html"
-		]
-	},
-	"Risk_low_2.html": {
-		"refer": [
-			"Risk_low_3.html"
-		]
-	},
-	"Risk_low_3.html": {
-		"refer": [
-			"Risk_low_4.html"
-		]
-	},
-	"Add_Fire_statistic_tab02.html": {
-		"resources": [
-			"js/echarts.min.js",
-			"js/mui.min.js",
-			"css/Add_Fire_statistic.css",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/style.css"
-		],
-		"refer": [
-			"Add_Fire_statistic_tab02_1.html"
-		]
-	},
-	"Add_Fire_statistic_tab02_1.html": {
-		"refer": [
-			"Add_Fire_statistic_tab02_2.html"
-		]
-	},
-	"Add_Fire_statistic_tab02_2.html": {
-		"resources": [
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/style.css",
-			"images/header_base_01.png",
-			"js/searchCode.js",
-			"css/Risk_height_low.css"
-		],
-		"refer": [
-			"Add_Fire_statistic_tab02_3.html"
-		]
-	},
-	"Scancode.html": {
-		"resources": [
-			"css/totalTarget_equipRefer.css"
-		]
-	},
-	"Add_Fire_statistic_tab01.html": {
-		"resources": [
-			"js/echarts.min.js"
->>>>>>> 988947e6c424bf185f5dfaba417245cd31a63854
+			"images/loading.gif"
 		]
 	}
 }

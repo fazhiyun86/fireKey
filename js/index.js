@@ -545,7 +545,7 @@ mui.plusReady(function() {
 				localStorage.setItem('UserOrganiseUnitID', getDatas[0].OrganiseUnitID);
 				localStorage.setItem('UserName', getDatas[0].UserName);
 				localStorage.setItem('UserOrganiseUnitName', getDatas[0].OrganiseUnitName);
-			} 
+			}
 		})
 	}
 	
@@ -567,6 +567,7 @@ mui.plusReady(function() {
 			timeout: 5000,
 			
 			success: function(data) {
+				
 				setHtml(data)
 				plus.nativeUI.closeWaiting();
 			},
@@ -595,6 +596,16 @@ mui.plusReady(function() {
 	
 
 	WebApp_GetRiskHeight();
+	
+	//初始化执行
+	setTimeout(function() {
+		
+		WebApp_GetRisklow();//低风险
+		WebApp_FireStatistical();//动火统计分析
+		WebApp_EquipmentOperat(); //设备维修
+		WebApp_EquipmentStatus(); //设备状态
+	}, 500)
+	
 
 	//低风险数据获取
 	function WebApp_GetRisklow (){
@@ -613,9 +624,9 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data){
+				console.log(JSON.stringify(data))
 				setHtml(data)
 			},
-
 			error: function(){
 				//异常处理
 				mui.toast('数据请求失败')
@@ -624,13 +635,16 @@ mui.plusReady(function() {
 		});
 		
 		function setHtml (data) {
-			
 			var info = data['DataSource']['Tables'][0]["Datas"][0];  //要取得数据
 			var ObjectCount = info["ObjectCount"];  //检查设备数量
 			var AbnormalCount = info["AbnormalCount"]; //异常数量
 			var AuditCount = info["AuditCount"];  //解决问题数量
 			var Rate = info["Rate"];  //任务进度
 			var Ratio = info["Ratio"];  //本周检查进度
+			var tag = info['IsEnd']; //是否直接进入到任务页面
+			
+			localStorage.setItem("lowTag", tag);
+			
 			
 			document.getElementById("LowRatio").innerHTML = Ratio || 0; 
 			document.getElementById("LowObjectCount").innerHTML = ObjectCount || 0; 
@@ -640,8 +654,6 @@ mui.plusReady(function() {
 		}
 		
 	}
-	
-	WebApp_GetRisklow();
 	
 
 	//动火统计
@@ -682,8 +694,9 @@ mui.plusReady(function() {
 			document.getElementsByClassName("fire3").innerHTML = AuditCount || 0;
 		}
 	}
+
 	
-	WebApp_FireStatistical();
+
 	
 	//设备维修
 	function WebApp_EquipmentOperat (){
@@ -724,7 +737,7 @@ mui.plusReady(function() {
 		
 	}
 	
-	WebApp_EquipmentOperat();
+//	WebApp_EquipmentOperat();
 	
 	//设备状态
 	function WebApp_EquipmentStatus (){
@@ -763,7 +776,7 @@ mui.plusReady(function() {
 		}
 	}
 	
-	WebApp_EquipmentStatus();
+//	WebApp_EquipmentStatus();
 	
 	//单位切换-----------------------------------------------------------------------
 	//时间切换-----------------------------------------------------------------------

@@ -32,6 +32,9 @@
 			.index_list_content>div:first-child {
 				padding-bottom: 1rem;
 			}
+			.hide {
+				display: none!important;
+			}
 
 		</style>
 	</head>
@@ -86,7 +89,7 @@
 								<div  class="index_list_content">
 
 									<!--高风险巡检 start-->
-									<div class="index_list_content_maymore in_index">
+									<div class="index_list_content_maymore in_index hide">
 										<div class="index_list_content_may_first index_list_content_maymore_first ">高风险巡检</div>
 										<div class="list_main_flex">
 											<div class="flex_item flex_left text_center">
@@ -121,24 +124,24 @@
 										<div class="index_list_content_may_first index_list_content_maymore_first">低风险巡检</div>
 										<div class="list_main_flex">
 											<div class="flex_item flex_left text_center">
-												<span id="LowRatio" class="flex_left_num" style="color:#66b61d;">-%</span>
+												<span id="LowRatio" class="fontFace flex_left_num" style="color:#66b61d;">-%</span>
 												<p>本周检查进度</p>
 											</div>
 											<div class="flex_item2">
 												<p>
-													<span id="LowRate" class="right_num">-</span>
+													<span id="LowRate" class="fontFace right_num">-</span>
 													<span class="right_desc">检查任务</span>
 												</p>
 												<p>
-													<span id="LowObjectCount" class="right_num">-</span>
+													<span id="LowObjectCount" class="fontFace right_num">-</span>
 													<span class="right_desc">检查设备</span>
 												</p>
 												<p>
-													<span id="LowAbnormalCount" class="right_num" style="color: #DB4528;">-</span>
+													<span id="LowAbnormalCount" class="fontFace right_num" style="color: #DB4528;">-</span>
 													<span class="right_desc">异常问题</span>
 												</p>
 												<p>
-													<span id="LowAuditCount" class="right_num" style="color: #66B61D;">-</span>
+													<span id="LowAuditCount" class="fontFace right_num" style="color: #66B61D;">-</span>
 													<span class="right_desc">解决问题</span>
 												</p>
 											</div>
@@ -262,7 +265,7 @@
 //				
 //			]
 			
-			
+			//高风险点击事件
 			in_index[0].addEventListener('tap', function() {
 				//高风险
 				var toUrl = 'Risk_height.html';
@@ -294,6 +297,38 @@
 				});
 			})
 			
+			//低风险点击事件
+			in_index[1].addEventListener('tap', function() {
+				//低风险
+				var toUrl = 'Risk_low.html';
+				
+				//控制进入到哪个页面的控制
+				var tag = localStorage.getItem("lowTag");
+				if(tag === 0) {
+					toUrl = 'Risk_low.html'
+				} else if(tag === 1) {
+					toUrl = 'Risk_low_2.html'
+				}
+				mui.openWindow({
+					url: toUrl,
+					id: toUrl,
+					styles: {
+						top: 0, //新页面顶部位置
+						bottom: 0, //新页面底部位置
+					},
+					extras: {
+						//自定义扩展参数，可以用来处理页面间传值
+					},
+					show: {
+						duration: '300'
+					},
+					waiting: {
+						autoShow: true, //自动显示等待框，默认为true
+						title: '加载中...', //等待对话框上显示的提示内容
+					}
+				});
+			})
+			
 			
 			var pageArr = [
 				"Risk_height.html",
@@ -304,7 +339,7 @@
 				'Equipment_state.html',
 			];
 			var num = 0;
-			for(var i = 1; i < in_index.length; i++) {
+			for(var i = 2; i < in_index.length; i++) {
 				in_index[i].index = i;
 				in_index[i].addEventListener('tap', function() {
 				

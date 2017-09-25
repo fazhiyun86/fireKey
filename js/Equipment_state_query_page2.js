@@ -17,6 +17,7 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data) {
+				console.log(JSON.stringify(data))
 				//服务器返回响应，根据响应结果，分析是否登陆成功
 				 var getDatas = data['DataSource']['Tables'][0]['Datas'];
 				 var getDatas1 = data['DataSource']['Tables'][1]['Datas'];

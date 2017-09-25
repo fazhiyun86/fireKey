@@ -24,16 +24,37 @@
 	 * 当前日期在当前年为第几周
 	 * a 当前时间年；  b 当前时间月； c 当前时间日；
 	 */
-	common.getYearWeek = function(a, b, c) {
-		//date1是当前日期
-		//date2是当年第一天
-		//d是当前日期是今年第多少天
-		//			    //用d + 当前年的第一天的周差距的和在除以7就是本年第几周
-		var arr = [];
-		var date1 = new Date(a, parseInt(b) - 1, c),
-			date2 = new Date(a, 0, 1),
-			d = Math.round((date1.valueOf() - date2.valueOf()) / 86400000);
-		return(Math.ceil((d + ((date2.getDay() + 1) - 1)) / 7));
+	function isLeapYear(year) {
+		return (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);
+	}
+	
+	
+	function getMonthDays(year, month) {
+	    return [31, null, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month] || (isLeapYear(year) ? 29 : 28);
+	}
+	common.getYearWeek = function(y, m, d) {
+	    var now = new Date(y, m - 1, d),
+	        year = now.getFullYear(),
+	        month = now.getMonth(),
+	        days = now.getDate();
+        
+	    //那一天是那一年中的第多少天
+	    for (var i = 0; i < month; i++) {
+	        days += getMonthDays(year, i);
+	    }
+ 
+	    //那一年第一天是星期几
+	    var yearFirstDay = new Date(year, 0, 1).getDay() || 7;
+	 
+	    var week = null;
+	    if (yearFirstDay == 1) {
+	        week = Math.ceil(days / yearFirstDay);
+	    } else {
+	        days -= (7 - yearFirstDay + 1);
+	        week = Math.ceil(days / 7) + 1;
+	    }
+		 
+	    return week;
 	};
 
 	/**
@@ -72,15 +93,19 @@
 		var DateJoinStr; //拼接文本（周数，周末时间，周初时间）
 		CurrentDate = new Date(endata); //时间格式转换
 		var date = CurrentDate.toString();
-		//	 			var CurrentDate2;  //
+		//	 var CurrentDate2;  //
 
 		//js日期格式化
 		var Y = CurrentDate.Format("yyyy");
 		var M = CurrentDate.Format("MM");
 		var D = CurrentDate.Format("dd");
-
 		AllWeek = common.getYearWeek(Y, M, D); //当前总周数
+		
 		CurrentWeek = CurrentDate.getDay(); //当前周几
+		if(CurrentWeek === 0) {
+			CurrentWeek = 7;
+		}
+		
 		//本周起始时间（当前时间-当前周几+1）
 		CurrentDate = new Date(addDate(date, 1 - CurrentWeek));
 		DateJoinStr = '第' + AllWeek + '周 ' + addDate(CurrentDate.toString(), 6) + '~' + CurrentDate.Format("yyyy-MM-dd");
@@ -130,6 +155,8 @@
 		wrap.innerHTML = html
 	}
 	common.setStorageTime = function (str) {
+		
+		localStorage.setItem("oneDate", str);
 		
 		var oneArray = str.split(" ");
 		var storageData = oneArray[1].split("~");
@@ -252,6 +279,9 @@
 			var baseOpt = common.pipeChartsBase();
 			var item = res[i];
 			baseOpt.title.text = item.title;
+			// 如果没有数据就不向结果里面添加数据 
+			if(item.legendData.length === 0) continue;
+			
 			baseOpt.legend.data = item.legendData;
 			baseOpt.series[0].data = item.data;
 			optionArr.push(baseOpt);
@@ -267,6 +297,9 @@
 		var option = {
 		    title: {
 				text: '-',
+        		textStyle: {
+        			fontSize: '13'
+        		}
 			},
             tooltip: {},
             color: ["#eaa906"],
@@ -277,7 +310,7 @@
 		        left: '3%',
 		        right: '4%',
 		        bottom: '3%',
-		        top: '5%',
+		        top: '15%',
 		        containLabel: true
 		    },
             yAxis: {},
@@ -368,7 +401,24 @@
 		return result;
 	}
 	
-	console.log(common.barChartsDataChange(ddd))
+	/**
+	 * GUID 生成随机码
+	 */
+	
+	common.guid = function () {
+	    function S4() {
+	       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+	    }
+	    return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+	}
+	
+	common.setHide = function (id){
+		var oNode = document.getElementById(id);
+		var classVal = oNode.getAttribute("class");
+		classVal = classVal.concat(" hide");
+		oNode.setAttribute("class", classVal );
+
+	}
 	
 	window.common = common
 })()

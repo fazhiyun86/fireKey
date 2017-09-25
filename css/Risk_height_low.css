@@ -5,17 +5,26 @@
 .yellow-bottom {
 	border-right: 8px solid #eaa906;
 }
+.yellow-bottom {
+	color: #eaa906!important;
+}
 .green-top {
 	border-left: 8px solid #258d25;
 }
 .green-bottom {
 	border-right: 8px solid #258d25;
 }
+.green-color {
+	color: #258d25!important;
+}
 .red-top {
 	border-left: 8px solid #db4426;
 }
 .red-bottom {
 	border-right: 8px solid #db4426;
+}
+.red-color {
+	color: #db4426!important;
 }
 
 .padb0 {

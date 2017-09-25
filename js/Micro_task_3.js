@@ -1,3 +1,4 @@
+var MicroTaskGUID = '';
 mui.init({
 	swipeBack: false,
 	//	beforeback : back,
@@ -84,7 +85,7 @@ mui.plusReady(function() {
 		//TaskDescript
 		var TaskDescriptV = document.querySelector(".renwuTextarea").value.trim();
 		var TaskDescriptVal = TaskDescriptV.replace(/\r?\n/g,"<br/>");
-		console.log(TaskDescriptVal)
+
 
 		if(!TaskDescriptVal) {
 			mui.toast("任务说明不能为空");
@@ -133,8 +134,10 @@ mui.plusReady(function() {
 
 	//下达任务
 	function CMDS_MiniTask_GetTaskList(MicroTaskIDuuid, MicroTaskCode, MicroTaskName, MicroTaskDescript, MicroCompany, MicroRegionID, MicroTaskStartTime, MicroTaskEndTime, MicroTaskStatus, MicroCreatedBy) {
-		var urlTask = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/SendData/CMDS_MiniTask_AddOne?datakey=00-00-00-00';
-
+		var urlTask = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/SendData/TZDH_WebApp_MiniTask_AddOne?datakey=00-00-00-00';
+		// 
+		upload()
+		
 		mui.ajax(urlTask, {
 			data: JSON.stringify({
 				TaskID: MicroTaskIDuuid,
@@ -146,13 +149,15 @@ mui.plusReady(function() {
 				TaskStartTime: MicroTaskStartTime,
 				TaskEndTime: MicroTaskEndTime,
 				TaskStatus: MicroTaskStatus,
-				CreatedBy: MicroCreatedBy
+				CreatedBy: MicroCreatedBy,
+				ReleaseSerialKey: MicroTaskGUID
 			}),
 			//			dataType: 'json', //返回
 			contentType: 'application/json',
 			type: 'post',
 			timeout: 5000,
 			success: function(data, status) {
+				console.log(JSON.stringify(data))
 				//				console.log(status)
 				//				console.log(data.Summary.DEXResult)
 				//				console.log(data.Summary.StatusCode)
@@ -330,4 +335,120 @@ mui.plusReady(function() {
 		event.detail.gesture.preventDefault();
 		offCanvasWrapper.offCanvas('close');
 	});
+})
+
+// ----- 添加图片功能-------
+document.getElementById('headImage').addEventListener('tap', function() {
+    if (mui.os.plus) {
+        var buttonTit = [{
+            title: "拍照"
+        }, {
+            title: "从手机相册选择"
+        }];
+        
+        plus.nativeUI.actionSheet({
+            title: "上传图片",
+            cancel: "取消",
+            buttons: buttonTit
+        }, function(b) { /*actionSheet 按钮点击事件*/
+            switch (b.index) {
+                case 0:
+                    break;
+                case 1:
+                    getImage(); /*拍照*/
+                    break;
+                case 2:
+                    galleryImg();/*打开相册*/
+                    break;
+                default:
+                    break;
+            }
+        })
+    }        
+}, false);
+
+// 拍照获取图片
+function getImage() {
+    var c = plus.camera.getCamera();
+    c.captureImage(function(e) {
+        plus.io.resolveLocalFileSystemURL(e, function(entry) {
+        	var imgSrc = entry.toLocalURL() + "?version=" + new Date().getTime(); //拿到图片路径
+        	
+            setHtml(imgSrc);
+        }, function(e) {
+            console.log("读取拍照文件错误：" + e.message);
+        });
+    }, function(s) {
+        console.log("error" + s);
+    }, {
+        filename: "_doc/camera/"
+    })
+}
+// 设置显示的Html 
+function setHtml (imgSrc) {
+	var html = '<div class="task-img-item">\
+			<img class="task-img" src="'+ imgSrc +'" width="120" alt="" />\
+			<span class="remove-img"><i class="mui-icon mui-icon-closeempty"></i></span>\
+		</div>'
+		
+	$("#taskImgWrap").append(html);
+}
+
+// 上传的方法
+function upload(){
+   	var files = document.getElementById('testImg')
+   	MicroTaskGUID = common.guid();
+   	var url = 'http://114.115.144.251:8002/WebApi/Upload/Post?SerialKey=' + MicroTaskGUID;
+   	
+   	var imgsArr = mui(".task-img");
+   	
+   	mui.each(imgsArr, function(index, item){
+// 		console.log(index)
+// 		console.log(item.src)
+   		createUp(item)
+   	})
+	
+	
+	function createUp (files) {
+	    var task = plus.uploader.createUpload(url,
+	        {method:"POST"},
+	        function(t,status){ //上传完成
+	            if(status==200){
+	            	console.log("上传成功："+t.responseText);
+	            }else{
+	                console.log("上传失败："+status);
+	            }
+	        }
+	    );
+	    //添加其他参数
+//	    task.addData("name","test");
+	    task.addFile(files.src,{key:files.src});
+	    task.start();
+	}
+}
+// 从相册中选择图片 
+function galleryImg(){
+	// 从相册中选择图片
+    plus.gallery.pick( function(e){
+    	for(var i in e.files){
+	    	var fileSrc = e.files[i]
+	    	setHtml(fileSrc);
+    	}
+    }, function ( e ) {
+    	console.log( "取消选择图片" );
+    },{
+    	filter: "image",
+    	multiple: true,
+    	maximum: 5,
+    	system: false,
+    	onmaxed: function() {
+    		plus.nativeUI.alert('最多只能选择5张图片');
+    	}
+    });
+}
+
+//---------------删除图片---------------
+mui("#taskImgWrap").on('tap', '.remove-img', function () {
+	var _this = this;
+	$(this).parent().parent().remove();
 })

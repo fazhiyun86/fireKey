@@ -38,14 +38,14 @@
 					</p>
 					<header class="mui-bar mui-bar-nav titBackg" style="z-index: 99999999;">
 						<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-						<h1 class="mui-title">高风险巡检</h1>
+						<h1 class="mui-title">低风险巡检</h1>
 						<a id='searchCode' class="mui-icon mui-icon-search equipStatus_search"></a>
 					</header>
 				
 				<div class="mui-content mui-scroll-wrapper">
 					<div id="riskContent" class="mui-scroll">
 						<p class="state_titp">
-							<span id="state_zong">2017年第46周  2017-09-11-2017-09-17</span>
+							<span id="state_zong">-</span>
 							<span id="state_diqu"></span>
 							<span id="offCanvasShow" style="display: none;" class="mui-icon mui-icon-list"></span>
 						</p>
@@ -123,6 +123,9 @@
 					indicators: false, //是否显示滚动条,默认是true
 				});
 				
+				var oneDate = localStorage.getItem("oneDate")
+				document.getElementById("state_zong").innerHTML = oneDate;
+				
 				mui.plusReady(function() {
 					plus.nativeUI.showWaiting();
 					getData()
@@ -145,8 +148,11 @@
 						type:'get',
 						timeout: 5000,            
 						success: function(data){
-							setHtml(data["DataSource"]["Tables"][0]["Datas"])
-						},
+							console.log(JSON.stringify(data))
+							var info = data["DataSource"]["Tables"][0]["Datas"];
+							
+							setHtml(info);
+						}, 
 						error: function(){
 							console.log("高风险子数据请求报错！");
 							mui.toast('数据请求失败')
@@ -157,15 +163,16 @@
 				function setHtml (data) {
 					data = common.riskCompanyDataChange(data)
 					var html = '';
-					for (var i = 0; i < data.length; i++) {
+					var len = data.length;
+					for (var i = 0; i < len; i++) {
 						var item = data[i];
-						html += '<div class="risk_wrap" data-id="'+ item.OrganiseUnitID +'">'+
+						html += '<div class="risk_wrap" data-id="'+ item.OrganiseUnitID +'" data-tag="'+ item.IsEnd +'">'+ 
 							'<div class="risk_item">' +
 								'<p class="risk_item_tit">'+ item.OrganiseUnitName +'</p>' +
 								'<div class="risk_item_content">' +
 									'<div class="item_content_top">' +
 										'<div class="flex_item flex_left">' +
-											'<span class="flex_left_num">'+ item.Ratio +'</span>' +
+											'<span class="flex_left_num '+ setColor(item.Ratio) +'">'+ item.Ratio +'</span>' +
 											'<p>本周检查进度</p>' +
 										'</div>' +
 										'<div class="flex_item2">' +
@@ -193,6 +200,9 @@
 							'</div>'+ setIcon(item.Ratio) +
 						'</div>';
 					}
+					
+					if(len === 0) html += '<p class="no-word">暂无数据</p>';
+					
 					document.getElementById('riskContentWrap').innerHTML = html
 					
 					function setSubItem (val) {
@@ -206,9 +216,10 @@
 					}
 					
 					function setIcon (val) {
+						val = val.replace(/\%/g, '')
 						val = val - 0;
 						var html = '';
-						if(val = 100) {
+						if(val == 100) {
 							html += '<i class="triangle-top green-top"></i>'+
 							'<i class="triangle-bottom green-bottom"></i>';
 						} else if(val >= 80 && val < 100) {
@@ -220,6 +231,20 @@
 						}
 						return html;
 					}
+					
+					function setColor (val) {
+						
+						val = val.replace(/\%/g, '') - 0;
+						var html = '';
+						if(val == 100) {
+							html = 'green-color';
+						} else if(val >= 80 && val < 100) {
+							html = 'yellow-color';
+						} else if(val < 80) {
+							html = 'red-color';
+						}
+						return html;
+					}
 					//隐藏加载
 					plus.nativeUI.closeWaiting();
 				}
@@ -228,7 +253,15 @@
 				mui('#riskContent').on('tap', '.risk_wrap', function() {
 					var title = this.getElementsByTagName("p")[0].innerHTML;
 					var id = this.getAttribute('data-id')
-
+					var tag = this.getAttribute('data-tag')
+					var toUrl = 'Risk_low_1.html';
+					
+					if(tag === '0') {
+						toUrl = 'Risk_low_1.html'
+					} else if(tag === '1') {
+						toUrl = 'Risk_height_2.html'
+					}
+					
 					mui.openWindow({
 						url: 'Risk_low_1.html',
 						id: 'Risk_low_1.html',

@@ -71,7 +71,8 @@
 						</div>
 					</div>
 					<div id="contentWrap" class="mui-content">
-						<div id="state_content_con state_content_skip" class="base">
+					
+						<!--<div id="state_content_con state_content_skip" class="base">
 							<div class="state_content_con">
 								<div id="state_title">
 									<p id="engineering" class="state_title_area">行政办公区A1工程</p>
@@ -97,36 +98,7 @@
 									<span>报废处理</span>
 								</p>
 							</div>
-						</div>
-						
-						<div id="state_content_con state_content_skip" class="base">
-							<div class="state_content_con">
-								<div id="state_title">
-									<p id="engineering" class="state_title_area">行政办公区A1工程</p>
-									<span id="group" class="state_title_offo">北京城建集团</span>
-								</div>
-								<p class="state_content_con_first" style="margin-right: 1rem;">
-									<span id="EquipmentAll" class="state_count">217</span>
-								</p>
-
-								<p class="pc_color">
-									<span>940</span>
-									<span>正常使用</span>
-								</p>
-								<p class="pc_color">
-									<span>31</span>
-									<span>停用停机</span>
-								</p>
-								<p class="pc_color">
-									<span>8</span>
-									<span>故障维修</span>
-								</p>
-								<p class="pc_color">
-									<span>0</span>
-									<span>报废处理</span>
-								</p>
-							</div>
-						</div>
+						</div>-->
 						
 					</div>
 				</div>
@@ -147,7 +119,7 @@
 					function WebApp_EquipmentView (UnitCode){
 		
 						var data ={
-							OrganiseUnitID: localStorage.getItem("UnitCode")
+							OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID")
 						};
 						var urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EMBEquipmentStatus_Statistical?dataKey=00-00-00-00';
 						
@@ -158,6 +130,7 @@
 							type: 'get',
 							timeout: 5000,
 							success: function(data){
+								
 								var headerData = data['DataSource']['Tables'][0]["Datas"][0];
 								setHeaderHtml(headerData);
 								var contentData = data['DataSource']['Tables'][1]["Datas"];
@@ -232,7 +205,7 @@
 						if(len === 0) {
 							html = '<p class="no-word" style="padding-top: 80px;">暂无数据</p>'
 						}
-//						document.getElementById("contentWrap").innerHTML = html;
+						document.getElementById("contentWrap").innerHTML = html;
 					}
 					
 					WebApp_EquipmentView(localStorage.getItem('UnitCode'));
@@ -240,7 +213,7 @@
 				
 				mui('.wrap').on('tap', '.state_content_con', function() {
 					var id = this.getAttribute("data-id");
-					id = '6fe1f0ca-4a61-11e7-9bf0-fa163ea287f1'
+//					id = '6fe1f0ca-4a61-11e7-9bf0-fa163ea287f1'
 					
 					mui.openWindow({
 						url: 'Equipment_state_Account.html',
@@ -250,7 +223,9 @@
 							bottom: 0, //新页面底部位置
 						},
 						extras: {
-							id: id
+							info: {
+								id: id
+							}
 						},
 						show: {
 							duration: '300'

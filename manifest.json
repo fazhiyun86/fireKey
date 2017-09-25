@@ -32,8 +32,9 @@
 		"Console": {
 			"description": "跟踪调试输出日志"
 		},
-
-
+		"Camera": {
+			"description": "摄像头"
+		},
 		"Downloader": {
 			"description": "文件下载管理"
 		},
@@ -99,7 +100,7 @@
 				"keystore": "",/*Android应用打包使用的密钥库文件*/
 				"password": "",/*Android应用打包使用密钥库中证书的密码*/
 				"aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
-				"permissions": ["<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>"]
+				"permissions": ["<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>"]
 			},
 			"orientation": ["portrait-primary","portrait-secondary"],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
 			"icons": {
@@ -159,10 +160,7 @@
 				},
 				"android": {
 					"mdpi": "", /*普通屏启动图片，分辨率：240x282*/
-					"ldpi": "", /*大屏启动图片，分辨率：320x442*/
-					"hdpi": "I:/启动图/480-762.png", /*高分屏启动图片，分辨率：480x762*/
-					"xhdpi": "I:/启动图/720-1242.png", /*720P高分屏启动图片，分辨率：720x1242*/
-					"xxhdpi": "I:/启动图/1080-1882.png"
+					"ldpi": ""
 				}
 			}
 		}
@@ -426,7 +424,8 @@
 					"images/login_01_01.png",
 					"js/area.js",
 					"js/searchCode.js",
-					"js/Equipment_state_two.js"
+					"js/Equipment_state_two.js",
+					"js/jquery.min.js"
 				],
 				"refer": [
 					"Equipment_state_Account.html",
@@ -444,10 +443,12 @@
 					"js/echarts.common.min.js",
 					"fonts/mui.ttf",
 					"js/Equipment_state_Account.js",
-					"css/Equipment_state_Account.css"
+					"css/Equipment_state_Account.css",
+					"js/jquery.min.js"
 				],
 				"refer": [
-					"Equipment_state_query.html"
+					"Equipment_state_query.html",
+					"Equipment_state_query_page2.html"
 				],
 				"priority": 0
 			},
@@ -994,7 +995,11 @@
 					"js/Guid.js",
 					"js/Uuid.js",
 					"js/mui.picker.min.js",
-					"css/mui.picker.min.css"
+					"css/mui.picker.min.css",
+					"images/qq.png",
+					"js/Micro_task_3_img.js",
+					"js/jquery.min.js",
+					"js/common.js"
 				],
 				"refer": [
 					"Micro_task_2.html"
@@ -1841,7 +1846,10 @@
 					"css/Add_Fire_statistic.css",
 					"css/iconfont.css",
 					"css/mui.min.css",
-					"css/style.css"
+					"css/style.css",
+					"js/common.js",
+					"js/jquery.min.js",
+					"images/loading.gif"
 				],
 				"refer": [],
 				"priority": 0
@@ -1884,7 +1892,8 @@
 					"css/iconfont.css",
 					"css/mui.min.css",
 					"css/style.css",
-					"js/common.js"
+					"js/common.js",
+					"images/loading.gif"
 				],
 				"refer": [],
 				"priority": 0
@@ -1967,7 +1976,8 @@
 					"css/style.css",
 					"images/header_base_01.png",
 					"js/searchCode.js",
-					"css/Risk_height_low.css"
+					"css/Risk_height_low.css",
+					"js/jquery.min.js"
 				],
 				"refer": [
 					"Risk_low_2.html"
@@ -1986,7 +1996,9 @@
 					"js/mui.zoom.js",
 					"css/imageViewer.css",
 					"js/mui.previewimage.js"
-				]
+				],
+				"refer": [],
+				"priority": 0
 			},
 			"Change_Rush.html": {
 				"resources": [
@@ -2006,7 +2018,8 @@
 				"resources": [],
 				"refer": [
 					"Risk_low_4.html"
-				]
+				],
+				"priority": 0
 			},
 			"Change_Rush_detail.html": {
 				"resources": [

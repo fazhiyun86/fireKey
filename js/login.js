@@ -270,7 +270,7 @@ mui.plusReady(function() {
 		var userCodeVa = document.getElementById("userCode").value;
 		var passWordVa = document.getElementById("passWord").value;
 		var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/User/UserLogin';
-		console.log(url)
+		console.log(localStorage.getItem('ApplicationID'))
 		mui.ajax(url, {
 			data: JSON.stringify({
 				UserCode: userCodeVa,
@@ -285,6 +285,7 @@ mui.plusReady(function() {
 			timeout: 5000,
 			processData: false,
 			success: function(data) {
+				console.log(JSON.stringify(data))
 				//服务器返回响应，根据响应结果，分析是否登陆成功
 				// var getDatas = data['DataSource']['Tables'][0]['Datas'];
 				// mui.each(getDatas, function (index, item) {			

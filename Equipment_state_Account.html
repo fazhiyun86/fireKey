@@ -81,7 +81,7 @@
 			
 				mui.plusReady(function() {
 					var selfView = plus.webview.currentWebview();
-					OrganiseUnitID = selfView.id;
+					OrganiseUnitID = selfView.info.id;
 					
 					//初始化的时候默认值是 2
 					getData(initState)
@@ -102,7 +102,6 @@
 					getData(targetVal);
           		});
           		
-          		
 	  			function getData (targetVal) {
 	  				
 	  				plus.nativeUI.showWaiting();
@@ -119,6 +118,7 @@
 						type: 'get',
 						timeout: 5000,
 						success: function(data){
+//							console.log(JSON.stringify(data))
 							var info = data['DataSource']['Tables'][0]['Datas']
 							setHtml(info)
 						},
@@ -134,7 +134,7 @@
 						
 						for(var i = 0; i < len; i++) {
 							var item = data[i];
-							html += '<div>\
+							html += '<div class="equiment-list" data-code="'+ item.EquipmentCode +'">\
 								<p style="width: 25%;">'+item.EquipmentName+'</p>\
 								<p style="width: 30%;">'+item.EquipmentCode+'</p>\
 								<p style="width: 35%;">'+item.OrganiseUnitName+'</p>\
@@ -144,7 +144,7 @@
 						if(len === 0) {
 							html = '<p class="no-word">暂无数据</p>'
 						}
-						console.log("")
+						
 						document.getElementById("Equipment_c2").innerHTML = html;
 						plus.nativeUI.closeWaiting();
 					}
@@ -155,8 +155,9 @@
 					
 					//点击进入详情页面
 					mui('#Equipment_c2').on('tap', '.equiment-list', function() {
-//						var code = this.firstChild.value;
-//						localStorage.setItem('userNumCode', code)
+//						var code = this.firstChild.value;d
+						var code = this.getAttribute("data-code")
+						localStorage.setItem('userNumCode', code)
 						
 						mui.openWindow({
 //							url: 'Equipment_state_query.html',

@@ -52,6 +52,19 @@
 				color: #000000;
 				font-size: 0.76rem;
 			}
+			.upload-icon {
+				border: 1px solid #8f8f94;
+				font-size: 14px;
+			}
+			.task-img-item {
+				padding: 10px 5px;
+			}
+			.remove-img {
+				float: right;
+				padding-top: 10px;
+			}
+			.remove-img i {
+				font-weight: 500;			}
 		</style>
 	</head>
 
@@ -110,6 +123,17 @@
 								<p class="Micro_task_3_tit_p1" style="padding: 0.5rem 0;" id="renwuId">
 									<span class="Micro_task_3_area" id="Micro_task_3_area"><font class="fontSize">任务区域：请选择区域</font><i class="iconfont icon-gengduo"></i></span>
 								</p>
+								<p class="Micro_task_3_tit_p1" style="padding: 0.5rem 0;" id="headImage">
+									<span class="Micro_task_3_area" id="Micro_task_3_area"><font class="fontSize">上传图片</font> <i class="mui-icon mui-icon-plusempty upload-icon"></i> </span>
+								</p>
+								<section id="taskImgWrap" class="task-img-wrap">
+									<!--<div class="task-img-item">
+										<img id="testImg" class="task-img" src="images/qq.png" width="100" alt="" />
+										<span class="remove-img"><i class="mui-icon mui-icon-closeempty"></i></span>
+									</div>-->
+								</section>
+								
+								<!--<p><button onclick="upload();" class='button'> 提交</button></p>-->
 								<div class="sendBtn">
 									<button class="sendBtnClick" style="background: #E51C23;">确认</button>
 								</div>
@@ -122,14 +146,22 @@
 				<div id="backdrop" class="mui-off-canvas-backdrop"></div>
 			</div>
 		</div>
+		<script src="js/jquery.min.js"></script>
 		<script src="js/mui.min.js"></script>
 		<script src="js/mui.picker.min.js"></script>
 		<script src="js/Micro_task_3.js"></script>
 		<script src="js/Uuid.js"></script>
+		<script src="js/common.js"></script>
+		<!--<script src="js/Micro_task_3_img.js"></script>-->
 		<script type="text/javascript">
 			mui.init({
 				swipeBack: false,
 			});
+			
+			//--------
+		
+	        
+			//--------
 
 			// 监听点击遮罩关闭事件
 			//			document.getElementById("backdrop").addEventListener('tap', function() {
