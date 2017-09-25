@@ -37,7 +37,8 @@
 			"Equipment_state.html",
 			"maintenance.html",
 			"Add_Fire_statistic.html",
-			"Risk_low.html"
+			"Risk_low.html",
+			"maintenance_list1.html"
 		]
 	},
 	"main.html": {
@@ -195,7 +196,9 @@
 			"js/mui.min.js",
 			"css/iconfont.css",
 			"css/mui.min.css",
-			"css/style.css"
+			"css/style.css",
+			"fonts/mui.ttf",
+			"images/header_base_01.png"
 		]
 	},
 	"Add_Fire_statistic.html": {
