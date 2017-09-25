@@ -5,6 +5,9 @@ mui.plusReady(function() {
 	plus.nativeUI.showWaiting('加载中...') /*ios基础上为安卓端修改*/
 	var ApplicationID = 'e2b16b1a-a0ab-11e6-b7b0-02004c4f4f50';
 	//	var ApplicationID = 'a121e2e6-c0e6-11e6-98bc-000c29624c55';
+	
+	// 更新下载的情况需要
+	var appID = '25074475045226193'
 
 	localStorage.setItem('ApplicationID', ApplicationID);
 	var serverAddress, portNum;
@@ -160,7 +163,8 @@ mui.plusReady(function() {
 			"version": "1.55",
 			"releaseTime": "2017-08-15"
 		};
-		var server = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_CheckAppVersion?dataKey=00-00-00-00&AppVersion=' + content.version + '&ApplicationID=' + localStorage.getItem('ApplicationID');
+		var server = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_CheckAppVersion?dataKey=00-00-00-00&AppVersion=' + content.version + '&ApplicationID=' + localStorage.getItem('ApplicationID') + 'appID=' + appID;
+	
 		document.querySelector(".version").innerHTML = content.version;
 		document.querySelector(".releaseTime").innerHTML = content.releaseTime;
 		mui.getJSON(server, null, function(data) {
