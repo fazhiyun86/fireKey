@@ -116,9 +116,15 @@
 		<script src="js/searchCode.js"></script>
 		<script src="js/common.js"></script>
 		<script type="text/javascript">
-
-			(function($){
-				$(".mui-scroll-wrapper").scroll({
+		
+//			(function($){
+//				alert("Risk_low")
+			setTimeout(function () {
+				go();
+			}, 1000)
+			
+			function go() {
+				mui(".mui-scroll-wrapper").scroll({
 					bounce: false,//滚动条是否有弹力默认是true
 					indicators: false, //是否显示滚动条,默认是true
 				});
@@ -155,6 +161,7 @@
 						}, 
 						error: function(){
 							console.log("高风险子数据请求报错！");
+							plus.nativeUI.closeWaiting();
 							mui.toast('数据请求失败')
 						}
 					});
@@ -286,8 +293,9 @@
 					});
 						
 				})
+			}
 				
-			})(mui);
+//			})(mui);
 		</script>
 	</body>
 </html>

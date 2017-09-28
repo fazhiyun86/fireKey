@@ -163,7 +163,7 @@
 						success: function(data){
 							var info = data['DataSource']['Tables'][0]['Datas']
 							var options = common.pipeChartsDataChange(info)
-							
+						
 							setHtml(options)
 							
 							plus.nativeUI.closeWaiting();
@@ -184,6 +184,10 @@
 							$("#eChartsWrap").append('<section class="box-item">\
 												<div id="weekSum'+ i +'" style="width: 100%;height:150px;"></div>\
 											</section>')
+						}
+						
+						if(options.length === 0) {
+							$("#eChartsWrap").append('<p class="no-word">暂无数据</p>')
 						}
 						setTimeout(function () {
 							setECharts(options)	

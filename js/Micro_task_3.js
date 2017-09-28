@@ -450,5 +450,6 @@ function galleryImg(){
 //---------------删除图片---------------
 mui("#taskImgWrap").on('tap', '.remove-img', function () {
 	var _this = this;
-	$(this).parent().parent().remove();
+	
+	$(this).parent().remove();
 })

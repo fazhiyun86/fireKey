@@ -577,7 +577,7 @@ mui.plusReady(function() {
 			}
 		});
 		
-		function setHtml (data) { 
+		function setHtml (data) {
 			var info = data["DataSource"]['Tables'][0]["Datas"][0]
 			var ObjectCount = info["ObjectCount"];
 			var AbnormalCount = info["AbnormalCount"];
@@ -624,7 +624,8 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data){
-				console.log(JSON.stringify(data))
+//				console.log('JSON.stringify(data)')
+//				console.log(JSON.stringify(data))
 				setHtml(data)
 			},
 			error: function(){

@@ -71,8 +71,12 @@
 		<script src="js/searchCode.js"></script>
 		<script src="js/common.js"></script>
 		<script type="text/javascript">
-			(function($){
-				
+		(function($){
+			setTimeout(function () {
+				go()
+			}, 0)
+			
+			function go() {
 				$(".mui-scroll-wrapper").scroll({
 					bounce: false,//滚动条是否有弹力默认是true
 					indicators: false, //是否显示滚动条,默认是true
@@ -87,8 +91,8 @@
 					//设置标题的名字
 					var selfView = plus.webview.currentWebview();
 					var taskID = selfView.taskID;
-					
 					var title = selfView.title;
+					
 					document.getElementById("headerTitle").innerHTML = title;
 					getData(taskID);
 					
@@ -136,6 +140,11 @@
 								</div>\
 							</div>';
 					}
+					
+					if(data.length === 0) {
+						html += '<p class="no-word">暂无数据</p>'
+					}
+					
 					document.getElementById('riskContentWrap').innerHTML = html
 	
 					//隐藏加载
@@ -172,8 +181,8 @@
 					});
 						
 				})
-				
-			})(mui);
+			}
+		})(mui);
 		</script>
 	</body>
 </html>

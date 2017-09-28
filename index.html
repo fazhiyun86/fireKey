@@ -71,15 +71,17 @@
 
 								<span class="zdd">重点单位监管版</span>
 								<!--<a href="#offCanvasSide">-->
-								<a id="searchCode">
+									
+								<!-- 搜索功能屏蔽 -->
+								<!--<a id="searchCode">
 									<p class="tit_text_p mui-icon mui-icon-search"></p>
-								</a>
+								</a>-->
 
 							</div>
 							<div class="tit_text_list">
 								<div class="tit_text_list_con">
 									<div id="offCanvasShow">
-										<span class="tit_text_list_sp1" id="index_zhongdian">北京城市副中心行政办公区</span>
+										<span class="tit_text_list_sp1" id="index_zhongdian">...</span>
 										<div class="data_font" id="selectDateWrap">
 											<span class="tit_text_list_sp2" id="2017date">...</span>
 											<a><font class="mui-icon mui-icon-arrowdown"></font></a>
@@ -248,6 +250,9 @@
 
 		mui.plusReady(function() {
 			
+			//修改左上角的工程名字
+			document.getElementById("index_zhongdian").innerHTML = localStorage.getItem("IndexOrganiseUnitName")
+			
 			var in_index = document.getElementsByClassName('in_index');
 			
 //			var pageArr = [
@@ -271,12 +276,13 @@
 				var toUrl = 'Risk_height.html';
 				
 				//控制进入到哪个页面的控制
-				var tag = 0
-				if(tag === 0) {
+//				var tag = 0
+				if(tag === '0') {
 					toUrl = 'Risk_height.html'
-				} else if(tag === 1) {
+				} else if(tag === '1') {
 					toUrl = 'Risk_height_2.html'
 				}
+				
 				mui.openWindow({
 					url: toUrl,
 					id: toUrl,
@@ -299,16 +305,20 @@
 			
 			//低风险点击事件
 			in_index[1].addEventListener('tap', function() {
-				//低风险
-				var toUrl = 'Risk_low.html';
 				
+				var oriName = localStorage.getItem("IndexOrganiseUnitName")
+				var id = localStorage.getItem('UserOrganiseUnitID');
+					
+				var toUrl = 'Risk_low.html';			
 				//控制进入到哪个页面的控制
 				var tag = localStorage.getItem("lowTag");
-				if(tag === 0) {
+				
+				if(tag === '0') {
 					toUrl = 'Risk_low.html'
-				} else if(tag === 1) {
+				} else if(tag === '1') {
 					toUrl = 'Risk_low_2.html'
 				}
+				
 				mui.openWindow({
 					url: toUrl,
 					id: toUrl,
@@ -317,6 +327,8 @@
 						bottom: 0, //新页面底部位置
 					},
 					extras: {
+						title: oriName,
+						taskID: id
 						//自定义扩展参数，可以用来处理页面间传值
 					},
 					show: {
@@ -327,6 +339,7 @@
 						title: '加载中...', //等待对话框上显示的提示内容
 					}
 				});
+
 			})
 			
 			

@@ -160,10 +160,11 @@ mui.plusReady(function() {
 	if(mui.os.android) {
 		var content = {
 			"status": '1.0',
-			"version": "1.55",
+			"version": "1.56",
 			"releaseTime": "2017-08-15"
 		};
-		var server = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_CheckAppVersion?dataKey=00-00-00-00&AppVersion=' + content.version + '&ApplicationID=' + localStorage.getItem('ApplicationID') + 'appID=' + appID;
+		
+		var server = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_CheckAppVersion?dataKey=00-00-00-00&AppVersion=' + content.version + '&appID=' + appID;
 	
 		document.querySelector(".version").innerHTML = content.version;
 		document.querySelector(".releaseTime").innerHTML = content.releaseTime;
@@ -274,7 +275,7 @@ mui.plusReady(function() {
 		var userCodeVa = document.getElementById("userCode").value;
 		var passWordVa = document.getElementById("passWord").value;
 		var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/User/UserLogin';
-		console.log(localStorage.getItem('ApplicationID'))
+		
 		mui.ajax(url, {
 			data: JSON.stringify({
 				UserCode: userCodeVa,

@@ -12,7 +12,8 @@
   "totalTarget_email.html": {
     "resources": [
       "css/totalTarget-email.css",
-      "css/base.css"
+      "css/base.css",
+      "images/header_base_01.png"
     ]
   },
   "index.html": {
@@ -31,20 +32,25 @@
       "js/index.js",
       "fonts/mui.ttf",
       "js/mui.min.js",
-      "css/mui.min.css"
+      "css/mui.min.css",
+      "js/area.js"
     ],
     "refer": [
       "Equipment_state.html",
       "maintenance.html",
       "Add_Fire_statistic.html",
       "Risk_low.html",
-      "maintenance_list1.html"
+      "maintenance_list1.html",
+      "Risk_low_2.html"
     ]
   },
   "main.html": {
     "resources": [
       "index.html",
-      "js/area.js"
+      "js/area.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
     ],
     "refer": [
       "totalTarget_email.html",
@@ -88,14 +94,17 @@
   },
   "Password_edit.html": {
     "resources": [
-      "images/user-photo.png"
+      "images/user-photo.png",
+      "css/style.css"
     ]
   },
   "Micro_task.html": {
     "resources": [
       "Micro_task_1.html",
       "css/iconfont.css",
-      "images/header_base_01.png"
+      "images/header_base_01.png",
+      "js/jquery.min.js",
+      "css/style.css"
     ],
     "refer": [
       "Micro_task_1.html",
@@ -255,6 +264,16 @@
   "Risk_low_2.html": {
     "refer": [
       "Risk_low_3.html"
+    ],
+    "resources": [
+      "js/common.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "js/searchCode.js",
+      "css/Risk_height_low.css"
     ]
   },
   "Risk_low_4.html": {

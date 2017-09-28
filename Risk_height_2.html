@@ -71,7 +71,13 @@
 		<script src="js/searchCode.js"></script>
 		<script src="js/common.js"></script>
 		<script type="text/javascript">
-			(function($){
+		(function($){
+			
+			setTimeout(function () {
+				go()
+			}, 0)
+			
+			function go () {
 				
 				$(".mui-scroll-wrapper").scroll({
 					bounce: false,//滚动条是否有弹力默认是true
@@ -166,9 +172,10 @@
 						}
 					});
 						
-				})
+				})	
+			}
 				
-			})(mui);
+		})(mui);
 		</script>
 	</body>
 </html>
