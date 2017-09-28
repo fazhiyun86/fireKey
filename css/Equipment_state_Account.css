@@ -19,11 +19,11 @@ html,body{
 	text-align: center;
 	color: #000000;
 	display: block;
-	width: 25%;
+	width: 50%;
 	font-size: 0.9rem;
 	line-height: 2.8rem;
 	float: left;
-	background: #E7E7E7;
+	background: #DCDCDC;
 }
 
 /*.equipment_tab>ul>li a:hover{

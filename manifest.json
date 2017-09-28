@@ -2038,7 +2038,8 @@
 					"css/style.css",
 					"images/header_base_01.png",
 					"js/searchCode.js",
-					"Change_Rush_detail.html"
+					"Change_Rush_detail.html",
+					"css/Change_Rush.css"
 				],
 				"refer": [],
 				"priority": 0

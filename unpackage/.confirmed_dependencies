@@ -1,317 +1,356 @@
 {
-  "Micro_task_1.html": {
-    "resources": [
-      "css/iconfont.woff",
-      "js/Micro_task_1.js",
-      "js/mui.min.js",
-      "css/iconfont.css",
-      "css/mui.min.css",
-      "css/style.css"
-    ]
-  },
-  "totalTarget_email.html": {
-    "resources": [
-      "css/totalTarget-email.css",
-      "css/base.css",
-      "images/header_base_01.png"
-    ]
-  },
-  "index.html": {
-    "resources": [
-      "images/jing.png",
-      "js/common.js",
-      "js/jquery.min.js",
-      "css/11438.ttf",
-      "images/icon_zhuangtai.png",
-      "css/style.css",
-      "js/radialIndicator.js",
-      "images/icon_donghuo.png",
-      "images/login_01_01.png",
-      "js/searchCode.js",
-      "images/icon_shebeiyunwei.png",
-      "js/index.js",
-      "fonts/mui.ttf",
-      "js/mui.min.js",
-      "css/mui.min.css",
-      "js/area.js"
-    ],
-    "refer": [
-      "Equipment_state.html",
-      "maintenance.html",
-      "Add_Fire_statistic.html",
-      "Risk_low.html",
-      "maintenance_list1.html",
-      "Risk_low_2.html"
-    ]
-  },
-  "main.html": {
-    "resources": [
-      "index.html",
-      "js/area.js",
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "css/mui.min.css"
-    ],
-    "refer": [
-      "totalTarget_email.html",
-      "index.html",
-      "Password_edit.html",
-      "Micro_task.html"
-    ]
-  },
-  "Micro_task_3.html": {
-    "resources": [
-      "js/mui.picker.min.js",
-      "js/Uuid.js",
-      "css/mui.picker.min.css",
-      "js/Micro_task_3.js",
-      "js/mui.min.js",
-      "css/iconfont.css",
-      "css/mui.min.css",
-      "css/style.css",
-      "css/iconfont.woff",
-      "fonts/mui.ttf",
-      "images/qq.png",
-      "js/Micro_task_3_img.js",
-      "js/jquery.min.js",
-      "js/common.js"
-    ]
-  },
-  "login.html": {
-    "resources": [
-      "images/user.png",
-      "images/systemImg1.png",
-      "css/login.css",
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "js/login.js",
-      "css/mui.min.css",
-      "images/password.png"
-    ],
-    "refer": [
-      "main.html"
-    ]
-  },
-  "Password_edit.html": {
-    "resources": [
-      "images/user-photo.png",
-      "css/style.css"
-    ]
-  },
-  "Micro_task.html": {
-    "resources": [
-      "Micro_task_1.html",
-      "css/iconfont.css",
-      "images/header_base_01.png",
-      "js/jquery.min.js",
-      "css/style.css"
-    ],
-    "refer": [
-      "Micro_task_1.html",
-      "Micro_task_3.html",
-      "Micro_task_2.html"
-    ]
-  },
-  "Micro_task_2.html": {
-    "resources": [
-      "js/Micro_task_2.js",
-      "js/mui.min.js",
-      "css/iconfont.css",
-      "css/mui.min.css",
-      "css/style.css"
-    ]
-  },
-  "Equipment_state.html": {
-    "resources": [
-      "css/Equipment_state.css",
-      "fonts/mui.ttf",
-      "js/jquery.min.js",
-      "js/mui.min.js",
-      "css/mui.min.css",
-      "css/style.css",
-      "images/header_base_01.png",
-      "js/searchCode.js"
-    ],
-    "refer": [
-      "Equipment_state_Account.html"
-    ]
-  },
-  "Equipment_state_Account.html": {
-    "resources": [
-      "css/Equipment_state_Account.css",
-      "js/jquery.min.js",
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "css/mui.min.css",
-      "css/style.css",
-      "images/header_base_01.png"
-    ],
-    "refer": [
-      "Equipment_state_query_page2.html"
-    ]
-  },
-  "maintenance_list2.html": {
-    "resources": [
-      "js/echarts.min.js",
-      "js/maintenance.js",
-      "js/mui.min.js",
-      "css/iconfont.css",
-      "css/mui.min.css",
-      "css/style.css"
-    ]
-  },
-  "maintenance.html": {
-    "resources": [
-      "maintenance_Pullup.html",
-      "fonts/mui.ttf"
-    ],
-    "refer": [
-      "maintenance_Pullup.html"
-    ]
-  },
-  "maintenance_Pullup.html": {
-    "resources": [
-      "maintenance_list1.html"
-    ],
-    "refer": [
-      "maintenance_list2.html",
-      "maintenance_list3.html",
-      "maintenance_list1.html"
-    ]
-  },
-  "maintenance_list3.html": {
-    "resources": [
-      "images/star1.png",
-      "js/jquery.min.js",
-      "js/mui.min.js",
-      "css/iconfont.css",
-      "css/mui.min.css",
-      "css/style.css"
-    ]
-  },
-  "Equipment_state_query_page2.html": {
-    "resources": [
-      "js/Equipment_state_query_page2.js",
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "css/iconfont.css",
-      "css/mui.min.css",
-      "css/style.css",
-      "images/header_base_01.png"
-    ]
-  },
-  "maintenance_list1.html": {
-    "resources": [
-      "js/mui.min.js",
-      "css/iconfont.css",
-      "css/mui.min.css",
-      "css/style.css",
-      "fonts/mui.ttf",
-      "images/header_base_01.png"
-    ]
-  },
-  "Add_Fire_statistic.html": {
-    "resources": [
-      "css/Add_Fire_statistic.css",
-      "fonts/mui.ttf",
-      "Add_Fire_statistic_tab.html"
-    ],
-    "refer": [
-      "Add_Fire_statistic_tab.html"
-    ]
-  },
-  "Add_Fire_statistic_tab.html": {
-    "resources": [
-      "Add_Fire_statistic_tab01.html"
-    ],
-    "refer": [
-      "Add_Fire_statistic_tab01.html",
-      "Add_Fire_statistic_tab02.html",
-      "Add_Fire_statistic_tab03.html"
-    ]
-  },
-  "Risk_low.html": {
-    "resources": [
-      "css/Risk_height_low.css",
-      "js/common.js",
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "css/mui.min.css",
-      "css/style.css",
-      "images/header_base_01.png",
-      "js/searchCode.js"
-    ],
-    "refer": [
-      "Risk_low_1.html"
-    ]
-  },
-  "Risk_low_1.html": {
-    "refer": [
-      "Risk_low_2.html"
-    ],
-    "resources": [
-      "js/common.js",
-      "js/jquery.min.js",
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "css/mui.min.css",
-      "css/style.css",
-      "images/header_base_01.png",
-      "js/searchCode.js",
-      "css/Risk_height_low.css"
-    ]
-  },
-  "Risk_low_2.html": {
-    "refer": [
-      "Risk_low_3.html"
-    ],
-    "resources": [
-      "js/common.js",
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "css/mui.min.css",
-      "css/style.css",
-      "images/header_base_01.png",
-      "js/searchCode.js",
-      "css/Risk_height_low.css"
-    ]
-  },
-  "Risk_low_4.html": {
-    "resources": [
-      "js/mui.zoom.js",
-      "css/imageViewer.css",
-      "js/mui.previewimage.js"
-    ]
-  },
-  "Risk_low_3.html": {
-    "refer": [
-      "Risk_low_4.html"
-    ]
-  },
-  "Add_Fire_statistic_tab01.html": {
-    "resources": [
-      "js/echarts.min.js",
-      "js/common.js",
-      "js/jquery.min.js",
-      "js/mui.min.js",
-      "css/Add_Fire_statistic.css",
-      "css/iconfont.css",
-      "css/mui.min.css",
-      "css/style.css",
-      "images/loading.gif"
-    ]
-  },
-  "Add_Fire_statistic_tab03.html": {
-    "resources": [
-      "js/echarts.min.js",
-      "js/common.js",
-      "js/jquery.min.js",
-      "js/mui.min.js",
-      "css/Add_Fire_statistic.css",
-      "css/iconfont.css",
-      "css/mui.min.css",
-      "css/style.css",
-      "images/loading.gif"
-    ]
-  }
+	"Micro_task_1.html": {
+		"resources": [
+			"css/iconfont.woff",
+			"js/Micro_task_1.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css"
+		]
+	},
+	"totalTarget_email.html": {
+		"resources": [
+			"css/totalTarget-email.css",
+			"css/base.css",
+			"images/header_base_01.png"
+		]
+	},
+	"index.html": {
+		"resources": [
+			"images/jing.png",
+			"js/common.js",
+			"js/jquery.min.js",
+			"css/11438.ttf",
+			"images/icon_zhuangtai.png",
+			"css/style.css",
+			"js/radialIndicator.js",
+			"images/icon_donghuo.png",
+			"images/login_01_01.png",
+			"js/searchCode.js",
+			"images/icon_shebeiyunwei.png",
+			"js/index.js",
+			"fonts/mui.ttf",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/area.js"
+		],
+		"refer": [
+			"Equipment_state.html",
+			"maintenance.html",
+			"Add_Fire_statistic.html",
+			"Risk_low.html",
+			"maintenance_list1.html",
+			"Risk_low_2.html",
+			"Change_Rush.html"
+		]
+	},
+	"main.html": {
+		"resources": [
+			"index.html",
+			"js/area.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"totalTarget_email.html",
+			"index.html",
+			"Password_edit.html",
+			"Micro_task.html"
+		]
+	},
+	"Micro_task_3.html": {
+		"resources": [
+			"js/mui.picker.min.js",
+			"js/Uuid.js",
+			"css/mui.picker.min.css",
+			"js/Micro_task_3.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"css/iconfont.woff",
+			"fonts/mui.ttf",
+			"images/qq.png",
+			"js/Micro_task_3_img.js",
+			"js/jquery.min.js",
+			"js/common.js"
+		]
+	},
+	"login.html": {
+		"resources": [
+			"images/user.png",
+			"images/systemImg1.png",
+			"css/login.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"js/login.js",
+			"css/mui.min.css",
+			"images/password.png"
+		],
+		"refer": [
+			"main.html"
+		]
+	},
+	"Password_edit.html": {
+		"resources": [
+			"images/user-photo.png",
+			"css/style.css"
+		]
+	},
+	"Micro_task.html": {
+		"resources": [
+			"Micro_task_1.html",
+			"css/iconfont.css",
+			"images/header_base_01.png",
+			"js/jquery.min.js",
+			"css/style.css"
+		],
+		"refer": [
+			"Micro_task_1.html",
+			"Micro_task_3.html",
+			"Micro_task_2.html"
+		]
+	},
+	"Micro_task_2.html": {
+		"resources": [
+			"js/Micro_task_2.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css"
+		]
+	},
+	"Equipment_state.html": {
+		"resources": [
+			"css/Equipment_state.css",
+			"fonts/mui.ttf",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/searchCode.js"
+		],
+		"refer": [
+			"Equipment_state_Account.html"
+		]
+	},
+	"Equipment_state_Account.html": {
+		"resources": [
+			"css/Equipment_state_Account.css",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png"
+		],
+		"refer": [
+			"Equipment_state_query_page2.html"
+		]
+	},
+	"maintenance_list2.html": {
+		"resources": [
+			"js/echarts.min.js",
+			"js/maintenance.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css"
+		]
+	},
+	"maintenance.html": {
+		"resources": [
+			"maintenance_Pullup.html",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"maintenance_Pullup.html"
+		]
+	},
+	"maintenance_Pullup.html": {
+		"resources": [
+			"maintenance_list1.html"
+		],
+		"refer": [
+			"maintenance_list2.html",
+			"maintenance_list3.html",
+			"maintenance_list1.html"
+		]
+	},
+	"maintenance_list3.html": {
+		"resources": [
+			"images/star1.png",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css"
+		]
+	},
+	"Equipment_state_query_page2.html": {
+		"resources": [
+			"js/Equipment_state_query_page2.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png"
+		]
+	},
+	"maintenance_list1.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"fonts/mui.ttf",
+			"images/header_base_01.png"
+		]
+	},
+	"Add_Fire_statistic.html": {
+		"resources": [
+			"css/Add_Fire_statistic.css",
+			"fonts/mui.ttf",
+			"Add_Fire_statistic_tab.html",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/searchCode.js"
+		],
+		"refer": [
+			"Add_Fire_statistic_tab.html"
+		]
+	},
+	"Add_Fire_statistic_tab.html": {
+		"resources": [
+			"Add_Fire_statistic_tab01.html",
+			"js/jquery.min.js",
+			"css/iconfont.css"
+		],
+		"refer": [
+			"Add_Fire_statistic_tab01.html",
+			"Add_Fire_statistic_tab02.html",
+			"Add_Fire_statistic_tab03.html"
+		]
+	},
+	"Risk_low.html": {
+		"resources": [
+			"css/Risk_height_low.css",
+			"js/common.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/searchCode.js"
+		],
+		"refer": [
+			"Risk_low_1.html"
+		]
+	},
+	"Risk_low_1.html": {
+		"refer": [
+			"Risk_low_2.html"
+		],
+		"resources": [
+			"js/common.js",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/searchCode.js",
+			"css/Risk_height_low.css"
+		]
+	},
+	"Risk_low_2.html": {
+		"refer": [
+			"Risk_low_3.html"
+		],
+		"resources": [
+			"js/common.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/searchCode.js",
+			"css/Risk_height_low.css"
+		]
+	},
+	"Risk_low_4.html": {
+		"resources": [
+			"js/mui.zoom.js",
+			"css/imageViewer.css",
+			"js/mui.previewimage.js"
+		]
+	},
+	"Risk_low_3.html": {
+		"refer": [
+			"Risk_low_4.html"
+		]
+	},
+	"Add_Fire_statistic_tab01.html": {
+		"resources": [
+			"js/echarts.min.js",
+			"js/common.js",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"css/Add_Fire_statistic.css",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/loading.gif"
+		]
+	},
+	"Add_Fire_statistic_tab03.html": {
+		"resources": [
+			"js/echarts.min.js",
+			"js/common.js",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"css/Add_Fire_statistic.css",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/loading.gif"
+		]
+	},
+	"Add_Fire_statistic_tab02.html": {
+		"resources": [
+			"js/echarts.min.js",
+			"js/mui.min.js",
+			"css/Add_Fire_statistic.css",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css"
+		]
+	},
+	"Change_Rush.html": {
+		"resources": [
+			"css/Change_Rush.css",
+			"images/header_base_01.png",
+			"Change_Rush_detail.html"
+		],
+		"refer": [
+			"Change_Rush_detail.html"
+		]
+	},
+	"Change_Rush_detail.html": {
+		"resources": [
+			"Add_Fire_statistic_tab01.html",
+			"css/iconfont.css"
+		],
+		"refer": [
+			"Add_Fire_statistic_tab01.html",
+			"Add_Fire_statistic_tab02.html",
+			"Add_Fire_statistic_tab03.html"
+		]
+	}
 }
