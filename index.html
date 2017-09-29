@@ -303,7 +303,7 @@
 				var toUrl = 'Risk_height.html';
 				
 				//控制进入到哪个页面的控制
-//				var tag = 0
+				var tag = 0
 				if(tag === '0') {
 					toUrl = 'Risk_height.html'
 				} else if(tag === '1') {
@@ -331,7 +331,7 @@
 			})
 			
 			//低风险点击事件
-			in_index[1].addEventListener('tap', function() {
+			in_index[3].addEventListener('tap', function() {
 				
 				var oriName = localStorage.getItem("IndexOrganiseUnitName")
 				var id = localStorage.getItem('UserOrganiseUnitID');
@@ -379,7 +379,10 @@
 				'Change_Rush.html'
 			];
 			var num = 0;
-			for(var i = 2; i < in_index.length; i++) {
+			for(var i = 0; i < in_index.length; i++) {
+				if( i == 0 || i == 3){
+					continue
+				};
 				in_index[i].index = i;
 				in_index[i].addEventListener('tap', function() {
 				

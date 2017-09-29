@@ -353,7 +353,6 @@ mui.plusReady(function() {
 
 	//登录页面header部分数据展示
 	var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetApplicationInfo?dataKey=00-00-00-00&ApplicationID=' + localStorage.getItem('ApplicationID');
-	console.log(url)
 	mui.ajax('http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetApplicationInfo?dataKey=00-00-00-00&ApplicationID=' + localStorage.getItem('ApplicationID'), {
 		data: null,
 		dataType: 'json', //返回

@@ -154,7 +154,6 @@
 						type:'get',
 						timeout: 5000,            
 						success: function(data){
-							console.log(JSON.stringify(data))
 							var info = data["DataSource"]["Tables"][0]["Datas"];
 							
 							setHtml(info);

@@ -9,7 +9,6 @@ mui.plusReady(function() {
 
 	function CMDS_MiniTask_GetTaskList(UserID) {
 		var urlTask = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/CMDS_MiniTask_GetTaskList?dataKey=00-00-00-00&TaskStatus=-1' + '&UserID=' + UserID;
-		console.log(urlTask);
 		mui.ajax(urlTask, {
 			data: null,
 			dataType: 'json', //返回
