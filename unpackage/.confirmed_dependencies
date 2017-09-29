@@ -345,7 +345,11 @@
 	"Change_Rush_detail.html": {
 		"resources": [
 			"Add_Fire_statistic_tab01.html",
-			"css/iconfont.css"
+			"css/iconfont.css",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/style.css"
 		],
 		"refer": [
 			"Add_Fire_statistic_tab01.html",

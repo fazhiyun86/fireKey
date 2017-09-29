@@ -2055,7 +2055,10 @@
 				"resources": [
 					"Add_Fire_statistic_tab01.html",
 					"js/jquery.min.js",
-					"css/iconfont.css"
+					"css/iconfont.css",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"css/style.css"
 				],
 				"refer": [
 					"Add_Fire_statistic_tab02.html",
