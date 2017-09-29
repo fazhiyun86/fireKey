@@ -8,51 +8,73 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/Change_Rush.css" />
 		<style>
-			.mui-scroll-wrapper {
-				margin-top: 50px;
+			/*#bg_tab {
+				width: 98%;
+				margin: 0 auto;
+			}*/
+/*			#change_con {
+				background-color: #fff;
+				margin: 0!important;
 			}
+			.change_rush > ul > li a.tab-active {
+				background-color: #fff;
+			}
+			.no-word {
+				width: 100%!important;
+			}*/
 		</style>
 	</head>
 	<body>
 		
 		<header class="mui-bar mui-bar-nav titBackg">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">整改催办</h1>
-			<a class="mui-icon mui-icon-search"></a>
+			<h1 class="mui-title">隐患整改催办</h1>
 		</header>
-		<div class="mui-content">
-			
+		<div id="bg_tab pullrefresh" class=" mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="change_rush" id="tabWrap">
+					<ul>
+						<li class="change_rush_list"><a class="tab_list tab-active" href="javascript:;" data-target="2">故障隐患</a></li>
+						<li class="change_rush_list"><a class="tab_list" href="javascript:;" data-target="1">正常使用</a></li>
+						<li class="change_rush_list"><a class="tab_list" href="javascript:;" data-target="1">逾期未整改</a></li>
+					</ul>
+				</div>
+				
+				<div class="change_rush_con" id="change_con" style="padding-top: 0px;overflow: hidden;">
+					<div id="ChangeWrap">
+						<div class="change_con_left">
+							<p>B栋北侧逃生通道堵塞问题整改</p>
+							<span>整改单号：EXAMR201703281488920</span> 
+							<span>整改期限：2017年8月19日--2017年8月27日</span>
+							<span>整改对象：行政办公区A1项目部</span>
+						</div>
+						<div class="change_con_right">
+							<a href="Change_Rush_detail.html"><img src="images/icon_cuibanx.png" /></a>
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
 		</div>
-		
 		<script src="js/mui.min.js"></script>
-		<script src="js/searchCode.js"></script>
-		
 		<script type="text/javascript">
-			
-			(function($){
-				mui.init({
-					gestureConfig: {
-						doubletap: true
-					},
-					subpages: [{
-						url: 'Change_Rush_detail.html',
-						id: 'Change_Rush_detail.html',
-						styles: {
-							top: '50px',
-							bottom: '0px',
-						}
-					}]
-				});
-			
-				
-				$(".mui-scroll-wrapper").scroll({
-					bounce: false,//滚动条是否有弹力默认是true
-					indicators: false, //是否显示滚动条,默认是true
-				});
-				
-				
-				
-			})(mui);
+//			var det = document.getElementById()
+//			(function(){
+//			var list = document.getElementsByClassName("tab_list");
+//				var change_con = document.getElementById("change_con");
+//				var tabWrap = document.getElementById("tabWrap");
+//				
+//				//点击tab栏的时候的切换
+//				mui("#tabWrap").on('tap', '.tab_list', function(e) {
+//					e.stopPropagation();
+//					
+//					$(".tab_list").attr('class', 'tab_list');
+//					$(this).attr("class", "tab_list tab-active");
+//					
+//					var targetVal = this.getAttribute("data-target");
+//					getData(targetVal);
+//        	});
 		</script>
 	</body>
 </html>

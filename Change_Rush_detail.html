@@ -8,144 +8,113 @@
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
-		<style>
-			.mui-bar-nav~.mui-content {
-				padding: 50px 0 5px 0;
-			}
-			
-			.Micro_task_tit a {
-				color: #666666;
-				font-size: 0.8rem;
-			}
-			
-			#address11 {
-				width: 100%;
-				text-align: left;
-				/*padding: 0 0 0 1rem;*/
-				margin: 0;
-			}
-			
-			.Equipment_patrol_con1 div p {
-				float: left;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
-			}
-			
-			.Equipment_patrol_ccon2 {
-				width: 100%;
-			}
-			
-			.Equipment_patrol_ccon2 p {
-				padding-left: 0;
-			}
-			
-			.Equipment_patrol_ccon2 p:first-child {
-				margin: 0!important;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="css/Change_Rush_detail.css" />
 	</head>
 
 	<body>
-		<div class="mui-content Equipment_patrol_con ">
-			<div class="mui-content">
-				<nav class="mui-bar-tab">
-					<div class="Micro_task_tit">
-						<a href="Add_Fire_statistic_tab01.html" class="taskColormain"><span>当前整改单</span></a>
-						<a href="Add_Fire_statistic_tab02.html"><span>已催办整改</span></a>
-						<a href="Add_Fire_statistic_tab03.html"><span>逾期未整改</span></a>
-					</div>
-				</nav>
-			</div>
+		<header class="mui-bar mui-bar-nav titBackg">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">首都大酒店A栋</h1>
+		</header>
+		<div class="mui-content change_matter">
+			<!--整改内容-->
+			<div class="change_con">
+				<!--整改位置，编号start-->
+				<div class="change_con_code">
+					<p>16楼北侧逃生通道堵塞问题整改</p>
+					<span>整改单号：EXAMR201703281488920</span>
+				</div>
+				<!--整改位置，编号end-->
 
+				<!--整改内容通知start-->
+				<div class="change_con_inform">
+					<h5>整改内容</h5>
+					<div class="change_con_inform_case">
+						<p class="case_p">16楼北侧逃生通知情况：存在异常</p>
+						<p class="case_p">发现堆积有纸箱等杂物，影响通道畅通，存在安全隐患。</p>
+						<p class="case_atta">
+							<a><img src="images/weixiujilu_1.png" /></a><span>附件</span>
+						</p>
+						<div class="change_con_inform_video">
+							<dl>
+								<dt></dt>
+								<dd>标题</dd>
+							</dl>
+							<dl>
+								<dt></dt>
+								<dd>标题</dd>
+							</dl>
+							<dl>
+								<dt></dt>
+								<dd>标题</dd>
+							</dl>
+							<dl>
+								<dt></dt>
+								<dd>标题</dd>
+							</dl>
+						</div>
+
+					</div>
+					<!--整改start-->
+					<p class="case_record">整改期限：2017年8月19日--2017年8月27日</p>
+					<p class="case_record">通知下发：<span>张华标</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下发时间：<span>2017-8-12 24:23:19</span></p>
+					<p class="case_record">通知签收：<span>张华标</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;签收时间：<span>2017-8-12 24:23:19</span></p>
+					<!--整改end-->
+				</div>
+				<!--整改内容通知end-->
+
+				<!--整改上报start-->
+				<div class="change_con_report">
+					<h5>整改内容</h5>
+					<div class="change_con_report_case">
+						<p class="case_p">已安排人员进行了清理，目前逃生通道畅通。</p>
+						<div class="case_atta">
+							<a><img src="images/weixiujilu_1.png" /></a>
+							<span>附件</span>
+						</div>
+						<div class="change_con_report_video">
+							<dl>
+								<dt></dt>
+								<dd>标题</dd>
+							</dl>
+							<dl>
+								<dt></dt>
+								<dd>标题</dd>
+							</dl>
+							<dl>
+								<dt></dt>
+								<dd>标题</dd>
+							</dl>
+							<dl>
+								<dt></dt>
+								<dd>标题</dd>
+							</dl>
+						</div>
+
+					</div>
+					<!--整改start-->
+					<p class="case_record">整改期限：<span>2017年8月19日--2017年8月27日</span></p>
+					<p class="case_record">整改登记：<span>张华标</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;登记时间：<span>2017-8-12 24:23:19</span></p>
+					<p class="case_record">整改审核：<span>张华标</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;审核时间：<span>2017-8-12 24:23:19</span></p>
+					<legend>审核意见：</legend>
+					<input type="text" id="" value="按要求整改完成，请消防主管验收" />
+					<div class="dv_line"></div>
+					<p class="case_record">整改验收：<span>张华标</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;验收时间：<span>2017-8-12 24:23:19</span></p>
+					<p class="case_record">验收结论：<span>通过</span></p>
+					<legend>验收意见：</legend>
+					<input type="text" id="" value="经验收，隐患整改完成，符合安全条件" />
+				</div>
+					<!--整改内容上报end-->
+					
+					<!--备注-->
+				<div class="change_con_remark">
+					<p>催办时间：<span>2017-8-12 24:23:19</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;东城区消防支队：<span>彭建军</span></p>						
+				</div>					
+				
+			</div>
 		</div>
 		<script src="js/mui.min.js"></script>
-		<script src="js/jquery.min.js"></script>
 		<script type="text/javascript">
-			mui.init();
-			
-			var subpages = ['Add_Fire_statistic_tab01.html', 'Add_Fire_statistic_tab02.html', 'Add_Fire_statistic_tab03.html'];
-			var id = ['Add_Fire_statistic_tab01.html', 'Add_Fire_statistic_tab02.html', 'Add_Fire_statistic_tab03.html'];
-			var subpage_style = {
-				top: '40px',
-				bottom: '0'
-			};
-
-			var aniShow = {};
-			//创建子页面，首个选项卡页面显示，其它均隐藏；
-			mui.plusReady(function() {
-				
-				var self = plus.webview.currentWebview();
-				for(var i = 0; i < 4; i++) {
-					var temp = {};
-					var sub = plus.webview.create(subpages[i], id[i], subpage_style);
-					if(i > 0) {
-						sub.hide();
-					} else {
-						temp[subpages[i]] = "true";
-						mui.extend(aniShow, temp);
-					}
-					self.append(sub);
-				}
-
-				//当前激活选项
-				var activeTab = subpages[0];
-				var title = document.getElementById("title");
-				//选项卡点击事件
-				mui('.Micro_task_tit').on('tap', 'a', function(e) {
-					var targetTab = this.getAttribute('href');
-					//ar targetName = this.children[1].innerHTML;
-					//if(targetTab == 'Micro_task_1.html' || targetTab == 'Micro_task_2.html'|| targetTab == 'Micro_task_3.html') {
-					if(targetTab == 'maintenance_list2.html') {
-						var reload = plus.webview.getWebviewById(targetTab);
-						reload.reload();
-					}
-					if(targetTab == 'maintenance_list3.html') {
-						var reload = plus.webview.getWebviewById(targetTab);
-						reload.reload();
-					}
-					//}
-
-					$('.Micro_task_tit').find('a').removeClass('taskColormain');
-					$(this).addClass('taskColormain');
-					//					console.log(targetTab)
-					if(targetTab == activeTab) {
-						return;
-					}
-
-					//更换标题
-					//title.innerHTML = this.querySelector('.mui-tab-label').innerHTML;
-
-					//显示目标选项卡
-					//若为iOS平台或非首次显示，则直接显示
-					if(mui.os.ios || aniShow[targetTab]) {
-						plus.webview.show(targetTab);
-					} else {
-						//否则，使用fade-in动画，且保存变量
-						var temp = {};
-						temp[targetTab] = "true";
-						mui.extend(aniShow, temp);
-						plus.webview.show(targetTab, "fade-in", 250);
-					}
-					//隐藏当前;
-					plus.webview.hide(activeTab);
-					//更改当前活跃的选项卡
-					activeTab = targetTab;
-				});
-			});
-			//自定义事件，模拟点击“首页选项卡”
-			document.addEventListener('gohome', function() {
-				var defaultTab = document.getElementById("defaultTab");
-				//模拟首页点击
-				mui.trigger(defaultTab, 'tap');
-				//切换选项卡高亮
-				//				var current = document.querySelector(".mui-bar-tab>.mui-tab-item.mui-active");
-
-				if(defaultTab !== current) {
-					current.classList.remove('mui-active');
-					defaultTab.classList.add('mui-active');
-				}
-			});
 		</script>
 	</body>
 
