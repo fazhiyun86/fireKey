@@ -294,6 +294,15 @@
 	"Risk_low_3.html": {
 		"refer": [
 			"Risk_low_4.html"
+		],
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/searchCode.js",
+			"css/Risk_height_low.css"
 		]
 	},
 	"Add_Fire_statistic_tab01.html": {
@@ -336,7 +345,13 @@
 		"resources": [
 			"css/Change_Rush.css",
 			"images/header_base_01.png",
-			"Change_Rush_detail.html"
+			"Change_Rush_detail.html",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/searchCode.js",
+			"images/icon_cuibanx.png"
 		],
 		"refer": [
 			"Change_Rush_detail.html"
@@ -349,12 +364,23 @@
 			"js/jquery.min.js",
 			"js/mui.min.js",
 			"css/mui.min.css",
+<<<<<<< HEAD
 			"css/style.css"
+=======
+			"css/Change_Rush_detail.css",
+			"css/style.css",
+			"fonts/mui.ttf",
+			"images/header_base_01.png",
+			"Change_Rush.html",
+			"images/weixiujilu_1.png",
+			"images/9.png"
+>>>>>>> tyx
 		],
 		"refer": [
 			"Add_Fire_statistic_tab01.html",
 			"Add_Fire_statistic_tab02.html",
-			"Add_Fire_statistic_tab03.html"
+			"Add_Fire_statistic_tab03.html",
+			"Change_Rush.html"
 		]
 	}
 }
