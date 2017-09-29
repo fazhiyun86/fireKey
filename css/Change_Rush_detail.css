@@ -39,7 +39,7 @@ html,body{
 /*整改通知inform*/
 .change_con_inform{
 	width: 100%;
-	height: 20.5rem;
+	height: 21.5rem;
 	border: 1px solid #E7E7E7;
 	margin: 0.2rem 0 0.2rem;
 }
@@ -96,6 +96,7 @@ html,body{
 }
 
 .change_con_inform_video{
+	margin-bottom: 1rem;
 	width: 100%;
 	height: 5rem;
 	padding: 0 0.2rem 0 0;
@@ -198,6 +199,7 @@ html,body{
 }
 
 .change_con_report_video{
+	margin-bottom: 1rem;
 	width: 100%;
 	height: 5rem;
 	padding: 0 0.2rem 0 0;
@@ -263,13 +265,14 @@ html,body{
 	height: 1px; 
 	background: #E7E7E7;
 	margin-top: -1rem;
-	margin-bottom: 0.5srem;
+	margin-bottom: 0.5rem;
 }
 
 /*备注*/
 .change_con_remark{
 	width: 100%;
-	height: 1.5rem;
+	height: 3rem;
+	margin-top: 1rem;
 }
 
 .change_con_remark p{
