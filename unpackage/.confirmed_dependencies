@@ -365,8 +365,11 @@
 			"js/mui.min.js",
 			"css/mui.min.css",
 <<<<<<< HEAD
+<<<<<<< HEAD
 			"css/style.css"
 =======
+=======
+>>>>>>> tyx
 			"css/Change_Rush_detail.css",
 			"css/style.css",
 			"fonts/mui.ttf",
@@ -374,6 +377,9 @@
 			"Change_Rush.html",
 			"images/weixiujilu_1.png",
 			"images/9.png"
+<<<<<<< HEAD
+>>>>>>> tyx
+=======
 >>>>>>> tyx
 		],
 		"refer": [
