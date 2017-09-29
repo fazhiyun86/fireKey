@@ -2067,9 +2067,6 @@
 					"css/iconfont.css",
 					"js/mui.min.js",
 					"css/mui.min.css",
-<<<<<<< HEAD
-					"css/style.css"
-=======
 					"css/Change_Rush_detail.css",
 					"css/style.css",
 					"fonts/mui.ttf",
@@ -2077,7 +2074,6 @@
 					"Change_Rush.html",
 					"images/weixiujilu_1.png",
 					"images/9.png"
->>>>>>> tyx
 				],
 				"refer": [
 					"Add_Fire_statistic_tab02.html",
