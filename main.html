@@ -9,6 +9,7 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="iconfont.css"/>
 		<style>
 			html,
 			body {
@@ -28,6 +29,20 @@
 				background: #DB4527!important;
 				color: #ffffff!important;
 			}
+			
+			/*.mui-icon-extra {
+			    margin-top: 12px;
+			}
+			.mui-icon-extra {
+			    font-family: MuiiconSpread;
+			    font-size: 24px;
+			    font-weight: normal;
+			    font-style: normal;
+			    line-height: 1;
+			    display: inline-block;
+			    text-decoration: none;
+			    -webkit-font-smoothing: antialiased;
+			}		*/
 		</style>
 	</head>
 
@@ -44,6 +59,12 @@
 				<span class="mui-icon mui-icon-contact"></span>
 				<span class="mui-tab-label">微任务</span>
 			</a>
+			
+			<a class="mui-tab-item active" href="feature_page.html">
+				<span id="getDatasNumm" class="mui-icon mui-icon-compose">
+				</span>
+				<span class="mui-tab-label">功能</span>
+			</a>
 			<a class="mui-tab-item" href="totalTarget_email.html">
 				<span id="getDatasNumm" class="mui-icon mui-icon-email">
 					<!--<span class="mui-badge" ></span>-->
@@ -51,7 +72,7 @@
 				<span class="mui-tab-label">消息</span>
 			</a>
 			<a class="mui-tab-item" href="Password_edit.html">
-				<span class="mui-icon mui-icon-gear"></span>
+				<span class="mui-icon mui-icon-contact"></span>
 				<span class="mui-tab-label">我的</span>
 			</a>
 		</nav>
@@ -61,14 +82,14 @@
 		<script type="text/javascript" charset="utf-8">
 			//mui初始化 
 			mui.init();
-			var subpages = ['index.html', 'Micro_task.html', 'totalTarget_email.html', 'Password_edit.html'];
+			var subpages = ['index.html', 'Micro_task.html', 'feature_page.html','totalTarget_email.html', 'Password_edit.html'];
 			
 		
 			
 			var subpage_style = {
 				top: '0px',
 				bottom: '51px'
-			};
+			}; 
 
 			var aniShow = {};
 
@@ -76,7 +97,7 @@
 			mui.plusReady(function() {
 
 				var self = plus.webview.currentWebview();
-				for(var i = 0; i < 4; i++) {
+				for(var i = 0; i < 5; i++) {
 					var temp = {};
 					var sub = plus.webview.create(subpages[i], subpages[i], subpage_style);
 					if(i > 0) {

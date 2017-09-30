@@ -228,7 +228,8 @@
 					"images/m3-1.png",
 					"images/m4-1.png",
 					"js/area.js",
-					"totalTarget_email.html"
+					"totalTarget_email.html",
+					"iconfont.css"
 				],
 				"refer": [
 					"setting.html",
@@ -237,7 +238,8 @@
 					"message.html",
 					"Password_edit.html",
 					"Micro_task.html",
-					null
+					null,
+					"feature_page.html"
 				],
 				"priority": 1
 			},
@@ -2079,6 +2081,45 @@
 					"Add_Fire_statistic_tab02.html",
 					"Add_Fire_statistic_tab03.html"
 				],
+				"priority": 0
+			},
+			"feature_page_audit.html": {
+				"resources": [
+					"css/feature_page_audit.css"
+				],
+				"refer": [
+					"feature_page_audit_1.html"
+				],
+				"priority": 0
+			},
+			"feature_page.html": {
+				"resources": [
+					"css/feature_page.css"
+				],
+				"refer": [
+					"feature_page_audit.html",
+					"feature_page_order.html"
+				],
+				"priority": 0
+			},
+			"feature_page_audit_1.html": {
+				"resources": [
+					"images/weixiujilu_1.png",
+					"css/feature_page_audit_1.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"feature_page_order.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/feature_page_order.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},
