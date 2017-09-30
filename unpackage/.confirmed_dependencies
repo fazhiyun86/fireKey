@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "Micro_task_1.html": {
     "resources": [
       "css/iconfont.woff",
@@ -295,4 +296,302 @@
       "feature_page_audit_1.html"
     ]
   }
+=======
+	"Micro_task_1.html": {
+		"resources": [
+			"css/iconfont.woff",
+			"js/Micro_task_1.js"
+		]
+	},
+	"totalTarget_email.html": {
+		"resources": [
+			"css/totalTarget-email.css",
+			"css/base.css"
+		],
+		"refer": [
+			"totalTarget_email_business.html"
+		]
+	},
+	"index.html": {
+		"resources": [
+			"images/jing.png",
+			"js/common.js",
+			"js/jquery.min.js",
+			"css/11438.ttf",
+			"images/icon_zhuangtai.png",
+			"css/style.css",
+			"js/radialIndicator.js",
+			"images/icon_donghuo.png",
+			"images/login_01_01.png",
+			"js/searchCode.js",
+			"images/icon_shebeiyunwei.png",
+			"js/index.js"
+		],
+		"refer": [
+			"Risk_height.html",
+			"Equipment_state.html",
+			"Add_Fire_statistic.html",
+			"maintenance_list1.html",
+			"Risk_low.html",
+			"Change_Rush.html"
+		]
+	},
+	"main.html": {
+		"resources": [
+			"index.html",
+			"js/area.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"iconfont.css"
+		],
+		"refer": [
+			"totalTarget_email.html",
+			"index.html",
+			"Password_edit.html",
+			"Micro_task.html",
+			"feature_page.html"
+		]
+	},
+	"Micro_task_3.html": {
+		"resources": [
+			"js/mui.picker.min.js",
+			"js/Uuid.js",
+			"css/mui.picker.min.css",
+			"js/Micro_task_3.js"
+		]
+	},
+	"login.html": {
+		"resources": [
+			"images/user.png",
+			"images/systemImg1.png",
+			"css/login.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"js/login.js",
+			"css/mui.min.css",
+			"images/password.png"
+		],
+		"refer": [
+			"main.html"
+		]
+	},
+	"Password_edit.html": {
+		"resources": [
+			"images/user-photo.png"
+		]
+	},
+	"Micro_task.html": {
+		"resources": [
+			"Micro_task_1.html",
+			"css/iconfont.css",
+			"images/header_base_01.png"
+		],
+		"refer": [
+			"Micro_task_1.html",
+			"Micro_task_3.html",
+			"Micro_task_2.html"
+		]
+	},
+	"Micro_task_2.html": {
+		"resources": [
+			"js/Micro_task_2.js"
+		]
+	},
+	"Add_Fire_statistic_tab01.html": {
+		"resources": [
+			"js/echarts.min.js",
+			"js/common.js",
+			"images/loading.gif"
+		]
+	},
+	"Risk_height.html": {
+		"resources": [
+			"css/Risk_height_low.css"
+		]
+	},
+	"Equipment_state.html": {
+		"resources": [
+			"css/Equipment_state.css",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/searchCode.js"
+		]
+	},
+	"Add_Fire_statistic_tab.html": {
+		"resources": [
+			"Add_Fire_statistic_tab01.html",
+			"js/jquery.min.js",
+			"css/iconfont.css"
+		],
+		"refer": [
+			"Add_Fire_statistic_tab01.html"
+		]
+	},
+	"Add_Fire_statistic.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/Add_Fire_statistic.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"Add_Fire_statistic_tab.html",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/searchCode.js"
+		],
+		"refer": [
+			"Add_Fire_statistic_tab.html"
+		]
+	},
+	"maintenance_list1.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png"
+		]
+	},
+	"Risk_low.html": {
+		"resources": [
+			"js/common.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/searchCode.js",
+			"css/Risk_height_low.css"
+		]
+	},
+	"Change_Rush.html": {
+		"resources": [
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"images/icon_cuibanx.png",
+			"fonts/mui.ttf",
+			"css/Change_Rush.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png"
+		],
+		"refer": [
+			"Change_Rush_detail.html"
+		]
+	},
+	"Change_Rush_detail.html": {
+		"resources": [
+			"images/weixiujilu_1.png",
+			"css/iconfont.css",
+			"css/Change_Rush_detail.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		]
+	},
+	"totalTarget_email_business.html": {
+		"resources": [
+			"css/base.css",
+			"js/mui.min.js",
+			"css/totalTarget_email_business.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"images/header_base_01.png"
+		]
+	},
+	"feature_page.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"css/feature_page.css",
+			"images/header_base_01.png"
+		],
+		"refer": [
+			"Change_Rush_audit.html",
+			"feature_page_audit.html",
+			"feature_page_order.html"
+		]
+	},
+	"Change_Rush_audit.html": {
+		"resources": [
+			"js/jquery.min.js",
+			"images/icon_cuibanx.png",
+			"css/Change_Rush.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		]
+	},
+	"Change_Rush_detail_1.html": {
+		"resources": [
+			"js/jquery.min.js",
+			"images/icon_cuibanx.png",
+			"css/Change_Rush.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		]
+	},
+	"feature_page_audit.html": {
+		"resources": [
+			"css/feature_page.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"images/header_base_01.png",
+			"images/icon_cuibanx.png",
+			"css/feature_page_audit.css",
+			"feature_page_audit_1.html",
+			"css/style.css"
+		],
+		"refer": [
+			"feature_page_audit_1.html"
+		]
+	},
+	"feature_page_audit_1.html": {
+		"resources": [
+			"images/weixiujilu_1.png",
+			"css/iconfont.css",
+			"css/Change_Rush_detail.css",
+			"css/style.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"images/header_base_01.png",
+			"css/feature_page_audit_1.css",
+			"js/jquery.min.js",
+			"feature_page_audit.html"
+		],
+		"refer": [
+			"feature_page_audit.html"
+		]
+	},
+	"feature_page_order.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"images/header_base_01.png",
+			"css/feature_page_audit.css",
+			"css/feature_page.css",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/feature_page_order.css",
+			"css/style.css"
+		],
+		"refer": [
+			"feature_page_audit_1.html"
+		]
+	}
+>>>>>>> tyx
 }
