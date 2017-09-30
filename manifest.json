@@ -228,7 +228,8 @@
 					"images/m3-1.png",
 					"images/m4-1.png",
 					"js/area.js",
-					"totalTarget_email.html"
+					"totalTarget_email.html",
+					"iconfont.css"
 				],
 				"refer": [
 					"setting.html",
@@ -237,7 +238,8 @@
 					"message.html",
 					"Password_edit.html",
 					"Micro_task.html",
-					null
+					null,
+					"feature_page.html"
 				],
 				"priority": 1
 			},
@@ -2040,7 +2042,8 @@
 					"js/searchCode.js",
 					"Change_Rush_detail.html",
 					"css/Change_Rush.css",
-					"images/icon_cuibanx.png"
+					"images/icon_cuibanx.png",
+					"js/jquery.min.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -2078,6 +2081,97 @@
 				"refer": [
 					"Add_Fire_statistic_tab02.html",
 					"Add_Fire_statistic_tab03.html"
+				],
+				"priority": 0
+			},
+			"feature_page.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/feature_page.css",
+					"images/header_base_01.png"
+				],
+				"refer": [
+					"Change_Rush_audit.html",
+					"feature_page_audit.html",
+					"feature_page_order.html"
+				],
+				"priority": 0
+			},
+			"Change_Rush_audit.html": {
+				"resources": [
+					"js/jquery.min.js",
+					"images/icon_cuibanx.png",
+					"css/Change_Rush.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Change_Rush_detail_1.html": {
+				"resources": [
+					"js/jquery.min.js",
+					"images/icon_cuibanx.png",
+					"css/Change_Rush.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"feature_page_audit.html": {
+				"resources": [
+					"css/feature_page.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/header_base_01.png",
+					"images/icon_cuibanx.png",
+					"css/feature_page_audit.css",
+					"feature_page_audit_1.html",
+					"css/style.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"feature_page_audit_1.html": {
+				"resources": [
+					"images/weixiujilu_1.png",
+					"css/iconfont.css",
+					"css/Change_Rush_detail.css",
+					"css/style.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/header_base_01.png",
+					"css/feature_page_audit_1.css",
+					"js/jquery.min.js",
+					"feature_page_audit.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"feature_page_order.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"images/header_base_01.png",
+					"css/feature_page_audit.css",
+					"css/feature_page.css",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"css/feature_page_order.css",
+					"css/style.css"
+				],
+				"refer": [
+					"feature_page_audit_1.html"
 				],
 				"priority": 0
 			}

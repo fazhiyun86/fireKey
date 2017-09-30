@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/feature_page.css"/>
+		<style type="text/css">
+			.feature{
+				height: 3.5rem;
+				line-height: 3.5rem;
+				padding-top: 0.5rem;
+				background: url("images/header_base_01.png");
+    			background-size: 100%;
+  				background-repeat: no-repeat;
+			}
+			
+			.feature h1{
+				width: 11rem;
+				float: left;
+				font-size: 1.2rem;
+				color: #FFFFFF;
+				float: left;
+			}
+			
+			.feature span{
+				display: block;
+				float: right;
+				color: #FFFFFF;
+				font-weight: 800;
+			}
+			
+			.feature_grid{
+				margin-top: 5rem;
+			}
+			
+			#feature_grid_list{
+				background-color: #efeff4;
+				text-align: center;
+			}
+			
+			.mui-table-view .mui-grid-view 
+			.mui-table-view-cell .mui-media-body {
+				font-size: 0.9rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav feature">
+		    <h1 class="mui-title">功能</h1>
+		    <span class="mui-icon mui-icon-search"></span>
+		</header>
+		<div class="feature_grid">
+			<ul id="feature_grid_list" class="mui-table-view mui-grid-view mui-grid-9 ">
+				<li id="grid_list" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				    <a class="feature_list_1" href="#">
+				        <span class="mui-icon mui-icon-home"><span class="mui-badge mui-badge-red">5</span></span>
+				        <div class="mui-media-body">整改审批</div>
+				    </a>
+				</li>
+				<li id="grid_list2" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				    <a class="feature_list_2" href="#">
+				        <span class="mui-icon mui-icon-email"></span>
+				        <div class="mui-media-body">整改下单</div>
+				    </a>
+				</li>
+				<li id="grid_list" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				    <a class="feature_list_3" href="#">
+				        <span class="mui-icon mui-icon-chatbubble"><span class="mui-badge mui-badge-red">5</span></span>
+				        <div class="mui-media-body">维修审批</div>
+				    </a>
+				</li>
+			</ul>
+		</div>
+		
+		
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			(function(){
+			
+				mui.plusReady(function() {
+					var selfView = plus.webview.currentWebview();
+//					OrganiseUnitID = selfView.info.id;
+					
+					//初始化的时候默认值是 2
+//					getData(initState)
+				})
+
+				mui.ready(function() {
+					
+					//点击进入详情页面
+//					整改审批
+					mui('#grid_list').on('tap', '.feature_list_1', function() {
+//						var code = this.firstChild.value;d
+						var code = this.getAttribute("data-code")
+						localStorage.setItem('userNumCode', code)
+						
+						mui.openWindow({
+//							url: 'Equipment_state_query.html',
+//							id: 'Equipment_state_query.html',
+							url: 'feature_page_audit.html',
+							id: 'feature_page_audit.html',
+							styles: {
+								top: 0, //新页面顶部位置
+								bottom: 0, //新页面底部位置
+							},
+							extras: {
+	
+							},
+							show: {
+								duration: '300'
+							},
+							waiting: {
+								autoShow: true, //自动显示等待框，默认为true
+								title: '加载中...', //等待对话框上显示的提示内容
+							}
+						});
+					});
+					
+//					整改下单
+					mui('#grid_list2').on('tap', '.feature_list_2', function() {
+//						var code = this.firstChild.value;d
+						var code = this.getAttribute("data-code")
+						localStorage.setItem('userNumCode', code)
+						
+						mui.openWindow({
+//							url: 'Equipment_state_query.html',
+//							id: 'Equipment_state_query.html',
+							url: 'feature_page_order.html',
+							id: 'feature_page_order.html',
+							styles: {
+								top: 0, //新页面顶部位置
+								bottom: 0, //新页面底部位置
+							},
+							extras: {
+	
+							},
+							show: {
+								duration: '300'
+							},
+							waiting: {
+								autoShow: true, //自动显示等待框，默认为true
+								title: '加载中...', //等待对话框上显示的提示内容
+							}
+						});
+					});
+					
+					
+//					维修审批
+//					mui('#grid_list').on('tap', '.feature_list_1', function() {
+////						var code = this.firstChild.value;d
+//						var code = this.getAttribute("data-code")
+//						localStorage.setItem('userNumCode', code)
+//						
+//						mui.openWindow({
+////							url: 'Equipment_state_query.html',
+////							id: 'Equipment_state_query.html',
+//							url: 'feature_page_audit.html',
+//							id: 'feature_page_audit.html',
+//							styles: {
+//								top: 0, //新页面顶部位置
+//								bottom: 0, //新页面底部位置
+//							},
+//							extras: {
+//	
+//							},
+//							show: {
+//								duration: '300'
+//							},
+//							waiting: {
+//								autoShow: true, //自动显示等待框，默认为true
+//								title: '加载中...', //等待对话框上显示的提示内容
+//							}
+//						});
+//					})
+					
+				})
+			})();
+		</script>
+	</body>
+
+</html>

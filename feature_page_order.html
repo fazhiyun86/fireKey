@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/feature_page_order.css"/>
+		<style type="text/css">
+			.feature{
+				background: url("images/header_base_01.png");
+    			background-size: 100%;
+  				background-repeat: no-repeat;
+			}
+			
+			.feature a{
+				color: #FFFFFF;
+			}
+			
+			.feature h1{
+				font-size: 1.2rem;
+				color: #FFFFFF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav feature">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">整改通知</h1>
+		</header>			
+		<div class="mui-content inform">
+		    <div class="inform_con">
+		    	<p class="p_text">整改单号：EXAMR201703281488987</p>		    	
+		    	<p class="p_tit"><legend>通知名称：</legend><input type="text" /></p>		  
+		    	<p class="p_tit"><legend>整改对象：</legend><input type="text" /></p>		    	
+		    	<p class="p_text">整改内容：</p>
+		    	
+		    	<input id="p_inp" type="text" />
+		    	
+		    	<p class="p_text">整改说明：</p>
+		    	
+		    	<input id="p_inp" type="text" style="margin-right: 1rem;"/>
+		    	<p><legend>整改期限：2017年8月27日  19时30分</legend><input type="text" /><span></span></p>
+	
+		    </div>
+		    <button><a href="javascript:;">下达通知</a></button>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			(function(){
+			
+				mui.plusReady(function() {
+					var selfView = plus.webview.currentWebview();
+//					OrganiseUnitID = selfView.info.id;
+					
+					//初始化的时候默认值是 2
+//					getData(initState)
+				})
+				
+				mui(".mui-scroll-wrapper").scroll({
+					bounce: false,//滚动条是否有弹力默认是true
+					indicators: false, //是否显示滚动条,默认是true
+				});
+
+//				var list = document.getElementsByClassName("tab_list");
+//				var Account_con = document.getElementById("change_con");
+//				var tabWrap = document.getElementById("tabWrap");
+//	
+				mui.ready(function() {
+					
+					//点击进入详情页面
+					mui('#ChangeWrap').on('tap', '.change_con_left', function() {
+//						var code = this.firstChild.value;d
+						var code = this.getAttribute("data-code")
+						localStorage.setItem('userNumCode', code)
+						
+						mui.openWindow({
+//							url: 'Equipment_state_query.html',
+//							id: 'Equipment_state_query.html',
+							url: 'feature_page_audit_1.html',
+							id: 'feature_page_audit_1.html',
+							styles: {
+								top: 0, //新页面顶部位置
+								bottom: 0, //新页面底部位置
+							},
+							extras: {
+	
+							},
+							show: {
+								duration: '300'
+							},
+							waiting: {
+								autoShow: true, //自动显示等待框，默认为true
+								title: '加载中...', //等待对话框上显示的提示内容
+							}
+						});
+					})
+				})
+			})();
+		</script>
+	</body>
+
+</html>

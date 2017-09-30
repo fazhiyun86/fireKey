@@ -2,14 +2,6 @@ html,body{
 	padding: 0;
 }
 
-.change_rush{
-	width: 100%;
-	height: 2.8rem;
-	margin-top: 50px;
-	margin-left: 0;
-	margin-bottom: 0.5rem;
-}
-
 .change_rush ul{
 	width: 100%;
 	height: 2.8rem;
@@ -17,33 +9,22 @@ html,body{
 	margin: 0;
 }
 
-.change_rush>ul>li a{
-	text-align: center;
-	color: #000000;
-	display: block;
-	width: 33.3%;
-	font-size: 0.9rem;
-	line-height: 2.8rem;
-	float: left;
-	background:#E0E0E0;
-}
-
 .change_rush_con{
 	padding: 0 0.6rem 0.2rem 0.6rem;
+	margin-top: 50px;
 }
 
 #ChangeWrap {
 	width: 100%;
 	height: 7.5rem;
-	padding: 1rem 0.2rem 0 0.5rem;
+	padding: 1rem 0.2rem 0 1rem;
 	border: 1px solid #E7E7E7;	
 	margin-bottom: 0.3rem;
-	margin-top: 0.5rem;
+	
 }
 
 .change_con_left{
 	width: 15.5rem;
-	float: left;
 }
 
 .change_con_left p{
@@ -59,15 +40,6 @@ html,body{
 	line-height: 1.15rem;
 	color: rgba(128, 24, 24, 1);
 }
-
-.change_con_right{
-	width: 3.5rem;
-	height: 3.5rem;
-	float: left;
-	margin-left: 1rem;
-	margin-top: 0.8em;
-}
-
 /*.change_con_right a{
 	display: block;
 	width: 3.5rem;
@@ -80,5 +52,4 @@ html,body{
 	height: 3.5rem;
 	float: left;
 }
-
 
