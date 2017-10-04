@@ -83,7 +83,7 @@
 	},
 	"plus": {
 		"splashscreen": {
-			"autoclose": false,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
+			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
 			"waiting": true
 		},
 		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
@@ -2042,7 +2042,8 @@
 					"js/searchCode.js",
 					"Change_Rush_detail.html",
 					"css/Change_Rush.css",
-					"images/icon_cuibanx.png"
+					"images/icon_cuibanx.png",
+					"js/jquery.min.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -2085,11 +2086,16 @@
 			},
 			"feature_page_audit.html": {
 				"resources": [
-					"css/feature_page_audit.css"
+					"css/feature_page_audit.css",
+					"feature_page_audit_1.html",
+					"css/feature_page.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png"
 				],
-				"refer": [
-					"feature_page_audit_1.html"
-				],
+				"refer": [],
 				"priority": 0
 			},
 			"feature_page.html": {
@@ -2098,14 +2104,21 @@
 				],
 				"refer": [
 					"feature_page_audit.html",
-					"feature_page_order.html"
+					"feature_page_order.html",
+					"feature_page_approve.html"
 				],
 				"priority": 0
 			},
 			"feature_page_audit_1.html": {
 				"resources": [
 					"images/weixiujilu_1.png",
-					"css/feature_page_audit_1.css"
+					"css/feature_page_audit_1.css",
+					"feature_page_audit.html",
+					"js/jquery.min.js",
+					"css/iconfont.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
 				],
 				"refer": [],
 				"priority": 0
@@ -2117,7 +2130,39 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"css/style.css",
-					"images/header_base_01.png"
+					"images/header_base_01.png",
+					"js/mui.picker.min.js",
+					"libs/easymob-webim-sdk/jquery-1.11.1.js",
+					"css/mui.picker.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"feature_page_approve.html": {
+				"resources": [
+					"css/feature_page_order.css",
+					"css/style.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/header_base_01.png",
+					"css/feature_page_approve.css"
+				],
+				"refer": [
+					"feature_page_approve_01.html"
+				],
+				"priority": 0
+			},
+			"feature_page_approve_01.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/feature_page_approve.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"images/weixiujilu_1.png",
+					"css/feature_page_approve_01.css"
 				],
 				"refer": [],
 				"priority": 0
