@@ -8,6 +8,18 @@
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="css/feature_page_audit_1.css" />
+		<style type="text/css">
+			.titBackg{
+				background: url("images/header_base_01.png");
+    			background-size: 100%;
+  				background-repeat: no-repeat;
+			}
+			
+			.titBackg a, .mui-title{
+				color: #FFFFFF;
+			}
+			
+		</style>
 	</head>
 
 	<body>
@@ -100,9 +112,9 @@
 					<!--审核-->
 				<div class="change_con_audit">		
 					<legend>整改审核结论：</legend>
-					<p><input type="radio" name="" value="">通过</p>
-					<p><input type="radio" name="" value="" >未通过</p>
-					<input type="text" name="" id="text" placeholder="审核意见"/></p>
+					<p><input type="radio" name="choose" value="">通过</p>
+					<p><input type="radio" name="choose" value="" >未通过</p>
+					<textarea name="txt" clos="100" rows="3" warp="virtual" placeholder="审核意见"></textarea>
 					<button id="btn"><span class="btn_sub">审核确认</span></button>
 				</div>					
 				

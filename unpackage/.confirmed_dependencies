@@ -41,7 +41,8 @@
 			"images/login_01_01.png",
 			"js/searchCode.js",
 			"images/icon_shebeiyunwei.png",
-			"js/index.js"
+			"js/index.js",
+			"css/style.css"
 		],
 		"refer": [
 			"Equipment_state.html",
@@ -68,13 +69,15 @@
 			"js/mui.picker.min.js",
 			"js/Uuid.js",
 			"css/mui.picker.min.css",
-			"js/Micro_task_3.js"
+			"js/Micro_task_3.js",
+			"css/iconfont.woff"
 		],
 		"refer": []
 	},
 	"feature_page.html": {
 		"resources": [
-			"css/feature_page.css"
+			"css/feature_page.css",
+			"images/header_base_01.png"
 		],
 		"refer": [
 			"feature_page_audit.html",
@@ -117,7 +120,8 @@
 			"fonts/mui.ttf",
 			"css/mui.min.css",
 			"css/style.css",
-			"images/header_base_01.png"
+			"images/header_base_01.png",
+			"feature_page_audit_1.html"
 		],
 		"refer": [
 			"feature_page_audit_1.html"
@@ -132,7 +136,8 @@
 			"css/iconfont.css",
 			"js/mui.min.js",
 			"fonts/mui.ttf",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"images/header_base_01.png"
 		],
 		"refer": [
 			"feature_page_audit.html"
@@ -148,9 +153,13 @@
 			"images/header_base_01.png",
 			"js/mui.picker.min.js",
 			"libs/easymob-webim-sdk/jquery-1.11.1.js",
-			"css/mui.picker.min.css"
+			"css/mui.picker.min.css",
+			"images/arrow_r.png",
+			"images/feilei_1.png"
 		],
-		"refer": []
+		"refer": [
+			"mui-picker-page.html"
+		]
 	},
 	"feature_page_approve.html": {
 		"resources": [
@@ -176,6 +185,9 @@
 			"images/header_base_01.png",
 			"images/weixiujilu_1.png",
 			"css/feature_page_approve_01.css"
+		],
+		"refer": [
+			"feature_page_audit_1.html"
 		]
 	},
 	"Equipment_state.html": {
@@ -213,6 +225,12 @@
 			"images/weixiujilu_1.png",
 			"css/iconfont.css",
 			"css/Change_Rush_detail.css"
+		]
+	},
+	"mui-picker-page.html": {
+		"resources": [
+			"js/mui.picker.min.js",
+			"css/mui.picker.min.css"
 		]
 	}
 }
