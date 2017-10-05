@@ -2133,7 +2133,8 @@
 					"images/header_base_01.png",
 					"js/mui.picker.min.js",
 					"libs/easymob-webim-sdk/jquery-1.11.1.js",
-					"css/mui.picker.min.css"
+					"css/mui.picker.min.css",
+					"images/arrow_r.png"
 				],
 				"refer": [],
 				"priority": 0
