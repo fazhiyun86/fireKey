@@ -63,9 +63,11 @@ html,body{
 .change_con_right{
 	width: 3.5rem;
 	height: 3.5rem;
+	background: #DB4527;
 	float: left;
 	margin-left: 1rem;
 	margin-top: 0.8em;
+	border-radius: 1.75rem;
 }
 
 /*.change_con_right a{
@@ -79,6 +81,7 @@ html,body{
 	width: 3.5rem;
 	height: 3.5rem;
 	float: left;
+	color: #FFFFFF;
 }
 
 

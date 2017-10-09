@@ -88,7 +88,7 @@
 .flex_item2 > p {
 	float: left;
 	width: 50%;
-	text-align: center;
+	text-align: left;
 	margin-bottom: 0px;
 }
 .right_num {
