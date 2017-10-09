@@ -71,7 +71,7 @@
 					    	</div>		  
 					    	<div class="p_tit tit2">
 					    		<legend>整改对象：</legend>
-					    		<input type="text" name="" id="" />
+					    		<input type="text" name="" id="" disabled="disabled"/>
 					    		<span  id="aresChoose" class="obje" style="display: block; width: 6px; height: 6px;"><img src="images/arrow_r.png" style="width: 100%; height: auto;"/></span>
 					    	</div>			    	
 					    	<div class="p_inp">
@@ -83,13 +83,15 @@
 					    		<textarea name="txt" clos="100" rows="3" warp="virtual" placeholder=""></textarea>
 					    	</div>
 					    	<div class="border_line"></div>
-					    	<div id="time_limit">整改期限：2017年8月27日&nbsp;&nbsp;19时30分<span class="timer" style="display: block; width: 7px; height: 7px;" href="#popover" id="openPopover" class="mui-btn mui-btn-primary mui-btn-block"><img src="images/arrow_r.png" style="width: 100%; height: auto;"/></span>
+					    	<div id="time_limit" style="width: 100%; height: auto;">整改期限：2017年8月27日&nbsp;&nbsp;19时30分<span class="timer" style="display: block; width: 7px; height: 7px;" href="#popover" id="openPopover" class="mui-btn mui-btn-primary mui-btn-block"><img src="images/arrow_r.png" style="width: 100%; height: auto;"/></span>
 					    	</div>
 				
 					    </div>
 					    <button id="btn"><a href="javascript:;">下达通知</a></button>
 					    <div id="complete">整改通知已下达</div>
 					</div>
+					<!-- off-canvas backdrop -->
+					<div class="mui-off-canvas-backdrop"></div>
 			    </div>  
 			</div>
 		</div>
@@ -105,13 +107,14 @@
 			(function(){
 				
 				//时间选择弹出框
-				mui('#time_limit').on('tap', '.timer', function() {
+				mui(document).on('tap','#time_limit', function() {
 					var dtpicker = new mui.DtPicker({
 						"value":"2015-10-10 10:10","beginYear":2010,"endYear":2020
 					}) ;
 //					var iTems = dtPicker.getSelectedItems();
 //					console.log(iTems),
-					dtpicker.show(function() {
+					dtpicker.show(function(rs) {
+						console.log(rs.y.value)
 //						console.log(rs.y.vaue)
 //					    items.value 拼合后的 value 
 //						items.text 拼合后的 text 
