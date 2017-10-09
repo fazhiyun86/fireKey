@@ -229,7 +229,9 @@
 					"images/m4-1.png",
 					"js/area.js",
 					"totalTarget_email.html",
-					"iconfont.css"
+					"iconfont.css",
+					"fonts/mui-icons-extra.ttf",
+					"css/icons-extra.css"
 				],
 				"refer": [
 					"setting.html",
@@ -381,7 +383,9 @@
 					"images/icon_shebeiyunwei.png",
 					"images/icon_donghuo.png",
 					"images/icon_shebeiyunwei.png",
-					"images/icon_zhuangtai.png"
+					"images/icon_zhuangtai.png",
+					"images/zhenggai.png",
+					"images/cuiban.png"
 				],
 				"refer": [
 					"state.html",
@@ -404,7 +408,8 @@
 					"Risk_low.html",
 					"Change_Rush.html",
 					"maintenance_list1.html",
-					"Risk_low_2.html"
+					"Risk_low_2.html",
+					"feature_page_order_01.html"
 				],
 				"priority": 0
 			},
@@ -2043,7 +2048,8 @@
 					"Change_Rush_detail.html",
 					"css/Change_Rush.css",
 					"images/icon_cuibanx.png",
-					"js/jquery.min.js"
+					"js/jquery.min.js",
+					"images/cuiban_w.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -2076,7 +2082,8 @@
 					"images/header_base_01.png",
 					"Change_Rush.html",
 					"images/weixiujilu_1.png",
-					"images/9.png"
+					"images/9.png",
+					"images/fujian.png"
 				],
 				"refer": [
 					"Add_Fire_statistic_tab02.html",
@@ -2100,7 +2107,14 @@
 			},
 			"feature_page.html": {
 				"resources": [
-					"css/feature_page.css"
+					"css/feature_page.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/header_base_01.png",
+					"images/weixiushenpi.png",
+					"images/zhenggaishenpi.png",
+					"images/zhenggaixiadan.png"
 				],
 				"refer": [
 					"feature_page_audit.html",
@@ -2118,7 +2132,9 @@
 					"css/iconfont.css",
 					"js/mui.min.js",
 					"fonts/mui.ttf",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"images/header_base_01.png",
+					"images/fujian.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -2134,7 +2150,11 @@
 					"js/mui.picker.min.js",
 					"libs/easymob-webim-sdk/jquery-1.11.1.js",
 					"css/mui.picker.min.css",
-					"images/arrow_r.png"
+					"images/arrow_r.png",
+					"js/jquery.min.js",
+					"images/arrow_2.png",
+					"images/fenlei.png",
+					"feature_page_order_01.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -2163,9 +2183,29 @@
 					"css/style.css",
 					"images/header_base_01.png",
 					"images/weixiujilu_1.png",
-					"css/feature_page_approve_01.css"
+					"css/feature_page_approve_01.css",
+					"images/fujian.png"
 				],
 				"refer": [],
+				"priority": 0
+			},
+			"feature_page_order_01.html": {
+				"resources": [
+					"css/feature_page.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"css/feature_page_order_01.css",
+					"images/bg_1.png",
+					"images/bg_2.png",
+					"images/bg_3.png",
+					"feature_page_order.html"
+				],
+				"refer": [
+					"Change_Rush_detail.html"
+				],
 				"priority": 0
 			}
 		},

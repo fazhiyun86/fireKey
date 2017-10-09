@@ -10,70 +10,42 @@ html,body{
 
 .progress>div{
 	width: 20%;
+	height: 24px;
 	float: left;
-	margin-left: 2.5rem;
+	margin-left: 2.3rem;
 	font-size: 0.75rem;
+	padding-left: 18px;
 }
 
-.progress>div::before{
-	width: 0;
-    height: 0;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-left: 8px solid #495AF2;
-    display: inline-block;
-    content: " ";
-    position: absolute;
-    right: 0px;
-    top: 79px;
-    z-index: 100;
-    transform: rotate(-45deg);
+.progress .progress_ing{
+	background: url(../images/bg_1.png) no-repeat left 3px ;
+	background-size: 16px 16px;
+}
+
+.progress .progress_will{
+	background: url(../images/bg_2.png) no-repeat left 3px ;
+	background-size: 16px 16px;
+}
+
+.progress .progress_on{
+	background: url(../images/bg_3.png) no-repeat left 3px ;
+	background-size: 16px 16px;
 }
 
 /*边角颜色*/
-.ChangeWrap1::before{
-    width: 0;
-    height: 0;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-left: 8px solid #495AF2;
-    display: inline-block;
-    content: " ";
-    position: absolute;
-    right: 9px;
-    top: 79px;
-    z-index: 100;
-    transform: rotate(-45deg);
+.ChangeWrap1{
+    background: url(../images/bg_1.png) no-repeat right top ;
+	background-size: 16px 16px;
 }
 
-.ChangeWrap2::before{
-    width: 0;
-    height: 0;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-left: 8px solid #FF9800;
-    display: inline-block;
-    content: " ";
-    position: absolute;
-    right: 9px;
-    top: 205px;
-    z-index: 100;
-    transform: rotate(-45deg);
+.ChangeWrap2{
+    background: url(../images/bg_2.png) no-repeat right top ;
+	background-size: 16px 16px;
 }
 
-.ChangeWrap3::before{
-    width: 0;
-    height: 0;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-left: 8px solid #83AD50;
-    display: inline-block;
-    content: " ";
-    position: absolute;
-    right: 9px;
-    top: 330px;
-    z-index: 100;
-    transform: rotate(-45deg);
+.ChangeWrap3{
+    background: url(../images/bg_3.png) no-repeat right top ;
+	background-size: 16px 16px;
 }
 
 .change_rush ul{

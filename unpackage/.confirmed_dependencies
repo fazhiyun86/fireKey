@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
 	"login.html": {
 		"resources": [
@@ -23,7 +22,11 @@
 			"fonts/mui.ttf",
 			"css/mui.min.css",
 			"css/style.css",
-			"images/header_base_01.png"
+			"images/header_base_01.png",
+			"feature_page_audit_1.html"
+		],
+		"refer": [
+			"feature_page_audit_1.html"
 		]
 	},
 	"Micro_task_1.html": {
@@ -51,14 +54,26 @@
 			"images/login_01_01.png",
 			"js/searchCode.js",
 			"images/icon_shebeiyunwei.png",
-			"js/index.js"
+			"js/index.js",
+			"images/zhenggai.png",
+			"images/cuiban.png",
+			"fonts/mui.ttf",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"Change_Rush.html",
+			"feature_page_order_01.html",
+			"Risk_low.html"
 		]
 	},
 	"main.html": {
 		"resources": [
 			"index.html",
 			"js/area.js",
-			"iconfont.css"
+			"iconfont.css",
+			"fonts/mui-icons-extra.ttf",
+			"css/icons-extra.css"
 		],
 		"refer": [
 			"totalTarget_email.html",
@@ -83,7 +98,17 @@
 			"fonts/mui.ttf",
 			"css/mui.min.css",
 			"css/style.css",
-			"images/header_base_01.png"
+			"images/header_base_01.png",
+			"js/mui.picker.min.js",
+			"js/jquery.min.js",
+			"images/arrow_r.png",
+			"images/arrow_2.png",
+			"css/mui.picker.min.css",
+			"images/fenlei.png",
+			"feature_page_order_01.html"
+		],
+		"refer": [
+			"feature_page_order_01.html"
 		]
 	},
 	"Password_edit.html": {
@@ -93,11 +118,19 @@
 	},
 	"feature_page.html": {
 		"resources": [
-			"css/feature_page.css"
+			"css/feature_page.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"images/header_base_01.png",
+			"images/weixiushenpi.png",
+			"images/zhenggaishenpi.png",
+			"images/zhenggaixiadan.png"
 		],
 		"refer": [
 			"feature_page_audit.html",
-			"feature_page_order.html"
+			"feature_page_order.html",
+			"feature_page_approve.html"
 		]
 	},
 	"Micro_task.html": {
@@ -116,8 +149,107 @@
 		"resources": [
 			"js/Micro_task_2.js"
 		]
+	},
+	"Change_Rush.html": {
+		"resources": [
+			"css/Change_Rush.css",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"images/icon_cuibanx.png",
+			"images/cuiban_w.png"
+		],
+		"refer": [
+			"Change_Rush_detail.html"
+		]
+	},
+	"Change_Rush_detail.html": {
+		"resources": [
+			"images/weixiujilu_1.png",
+			"css/Change_Rush_detail.css",
+			"css/iconfont.css",
+			"images/fujian.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png"
+		]
+	},
+	"feature_page_order_01.html": {
+		"resources": [
+			"css/feature_page.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"css/feature_page_order_01.css",
+			"images/bg_1.png",
+			"images/bg_2.png",
+			"images/bg_3.png",
+			"feature_page_order.html"
+		],
+		"refer": [
+			"Change_Rush_detail.html",
+			"feature_page_order.html"
+		]
+	},
+	"Risk_low.html": {
+		"resources": [
+			"js/common.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/searchCode.js",
+			"css/Risk_height_low.css"
+		]
+	},
+	"feature_page_audit_1.html": {
+		"resources": [
+			"feature_page_audit.html",
+			"js/jquery.min.js",
+			"images/weixiujilu_1.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/feature_page_audit_1.css",
+			"images/header_base_01.png",
+			"images/fujian.png"
+		],
+		"refer": [
+			"feature_page_audit.html"
+		]
+	},
+	"feature_page_approve.html": {
+		"resources": [
+			"css/feature_page_approve.css",
+			"css/style.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"images/header_base_01.png"
+		],
+		"refer": [
+			"feature_page_approve_01.html"
+		]
+	},
+	"feature_page_approve_01.html": {
+		"resources": [
+			"css/feature_page_approve_01.css",
+			"images/weixiujilu_1.png",
+			"images/fujian.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png"
+		]
 	}
 }
-=======
-null
->>>>>>> c00b2d5781e45602681d2dc263aae57603f7e6d2
