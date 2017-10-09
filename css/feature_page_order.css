@@ -143,7 +143,7 @@ html,body{
 #area_con header{
 	width: 100%;
 	height: 75px;
-	padding-top: 45px;
+	padding-top: 38px;
 	padding-left: 1rem;
 	background: #E51C23;
 }
@@ -155,7 +155,7 @@ html,body{
 	line-height: 2rem;
 	font-size: 1rem;
 	color: #FFFFFF;
-	background: url(../images/fenlei.png);
+	background: url(../images/fenlei.png) no-repeat left center;
     background-size: 1.5rem;
   	background-repeat: no-repeat;
 }
@@ -186,20 +186,28 @@ html,body{
 
 .area_con_list #lists .list_bt .p1{
 	width: 100%;
-	font-size: 0.75rem;
+	font-size: 0.9rem;
 	float: left;
 	color: #000000;
 }
 
 .area_con_list #lists .list_bt .p2{
 	width: 100%;
-	font-size: 0.6rem;
+	font-size: 0.75rem;
 	float: left;
-	color: #000000;
+	color: #8F8F94;
 }
 
 .area_con_list #lists .show{
+	display: block;
 	float: right;
+	width: 15px;
+	height: 15px;
+}
+
+.area_con_list #lists .show img{
+	width: 100%;
+	height: auto;
 }
 
 .area_con_list #lists .list_del{
