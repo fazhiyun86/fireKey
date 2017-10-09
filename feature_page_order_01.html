@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/feature_page.css"/>
+		<link rel="stylesheet" type="text/css" href="css/feature_page_order_01.css"/>
+		<style type="text/css">
+			.feature{
+				background: url("images/header_base_01.png");
+    			background-size: 100%;
+  				background-repeat: no-repeat;
+			}
+			
+			.feature a{
+				color: #FFFFFF;
+			}
+			
+			.feature h1{
+				font-size: 1.2rem;
+				color: #FFFFFF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav feature">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">隐患整改审批</h1>
+		</header>
+		<div class="mui-scroll-wrapper">
+		    <div class="mui-scroll">	
+		    	
+				<div class="change_rush_con" id="change_con" style="padding-top: 0px;overflow: hidden;">
+					<div class="progress">
+						<div class="progress_ing">正在进行</div>
+						<div class="progress_will">任务逾期</div>
+						<div class="progress_on">按时完成</div>
+					</div>
+					<div id="ChangeWrap" class="ChangeWrap1">
+						<div class="change_con_left">
+							<p class="p1">B栋北侧逃生通道堵塞问题整改</p>
+							<span>整改单号：EXAMR201703281488920</span>
+							<span>整改期限：2017年8月19日--2017年8月27日</span>
+							<span>整改对象：行政办公区A1项目部</span>
+						</div>
+					</div>
+					
+					<div id="ChangeWrap" class=" ChangeWrap2">
+						<div class="change_con_left change_con_left2">
+							<p class="p2">B栋北侧逃生通道堵塞问题整改</p>
+							<span>整改单号：EXAMR201703281488920</span>
+							<span>整改期限：2017年8月19日--2017年8月27日</span>
+							<span>整改对象：行政办公区A1项目部</span>
+						</div>
+					</div>
+					
+					<div id="ChangeWrap" class=" ChangeWrap3">
+						<div class="change_con_left change_con_left3">
+							<p class="p3">B栋北侧逃生通道堵塞问题整改</p>
+							<span>整改单号：EXAMR201703281488920</span>
+							<span>整改期限：2017年8月19日--2017年8月27日</span>
+							<span>整改对象：行政办公区A1项目部</span>
+						</div>
+
+
+					</div>
+				</div>
+		    </div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			(function(){
+			
+				mui.plusReady(function() {
+					var selfView = plus.webview.currentWebview();
+//					OrganiseUnitID = selfView.info.id;
+					
+					//初始化的时候默认值是 2
+//					getData(initState)
+				})
+				
+				mui(".mui-scroll-wrapper").scroll({
+					bounce: false,//滚动条是否有弹力默认是true
+					indicators: false, //是否显示滚动条,默认是true
+				});
+
+//				var list = document.getElementsByClassName("tab_list");
+//				var Account_con = document.getElementById("change_con");
+//				var tabWrap = document.getElementById("tabWrap");
+//	
+				mui.ready(function() {
+					
+					//点击进入详情页面
+					mui('#ChangeWrap').on('tap', '.change_con_left', function() {
+//						var code = this.firstChild.value;d
+						var code = this.getAttribute("data-code")
+						localStorage.setItem('userNumCode', code)
+						
+						mui.openWindow({
+//							url: 'Equipment_state_query.html',
+//							id: 'Equipment_state_query.html',
+							url: 'Change_Rush_detail.html',
+							id: 'Change_Rush_detail.html',
+							styles: {
+								top: 0, //新页面顶部位置
+								bottom: 0, //新页面底部位置
+							},
+							extras: {
+	
+							},
+							show: {
+								duration: '300'
+							},
+							waiting: {
+								autoShow: true, //自动显示等待框，默认为true
+								title: '加载中...', //等待对话框上显示的提示内容
+							}
+						});
+					})
+				})
+			})();
+		</script>
+	</body>
+
+</html>

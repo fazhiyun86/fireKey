@@ -2076,7 +2076,8 @@
 					"images/header_base_01.png",
 					"Change_Rush.html",
 					"images/weixiujilu_1.png",
-					"images/9.png"
+					"images/9.png",
+					"feature_page_order.html"
 				],
 				"refer": [
 					"Add_Fire_statistic_tab02.html",
@@ -2137,7 +2138,12 @@
 					"libs/easymob-webim-sdk/jquery-1.11.1.js",
 					"css/mui.picker.min.css",
 					"images/arrow_r.png",
-					"images/feilei_1.png"
+					"images/feilei_1.png",
+					"images/arrow_2.png",
+					"js/jquery.min.js",
+					"Change_Rush_detail.html",
+					"feature_page_order_01.html",
+					"images/fenlei.png"
 				],
 				"refer": [
 					"mui-picker-page.html"
@@ -2181,6 +2187,22 @@
 					"css/mui.picker.min.css"
 				],
 				"refer": [],
+				"priority": 0
+			},
+			"feature_page_order_01.html": {
+				"resources": [
+					"css/feature_page.css",
+					"css/feature_page_order_01.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"feature_page_order.html"
+				],
+				"refer": [
+					"Change_Rush_detail.html"
+				],
 				"priority": 0
 			}
 		},

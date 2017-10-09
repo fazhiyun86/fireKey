@@ -47,14 +47,18 @@
 		"refer": [
 			"Equipment_state.html",
 			"maintenance_list1.html",
-			"Change_Rush.html"
+			"Change_Rush.html",
+			"Risk_low.html"
 		]
 	},
 	"main.html": {
 		"resources": [
 			"index.html",
 			"js/area.js",
-			"iconfont.css"
+			"iconfont.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
 		],
 		"refer": [
 			"totalTarget_email.html",
@@ -155,10 +159,17 @@
 			"libs/easymob-webim-sdk/jquery-1.11.1.js",
 			"css/mui.picker.min.css",
 			"images/arrow_r.png",
-			"images/feilei_1.png"
+			"images/feilei_1.png",
+			"images/arrow_2.png",
+			"js/jquery.min.js",
+			"Change_Rush_detail.html",
+			"feature_page_order_01.html",
+			"images/fenlei.png"
 		],
 		"refer": [
-			"mui-picker-page.html"
+			"mui-picker-page.html",
+			"Change_Rush_detail.html",
+			"feature_page_order_01.html"
 		]
 	},
 	"feature_page_approve.html": {
@@ -224,13 +235,50 @@
 		"resources": [
 			"images/weixiujilu_1.png",
 			"css/iconfont.css",
-			"css/Change_Rush_detail.css"
+			"css/Change_Rush_detail.css",
+			"feature_page_order.html",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png"
+		],
+		"refer": [
+			"feature_page_order.html"
 		]
 	},
 	"mui-picker-page.html": {
 		"resources": [
 			"js/mui.picker.min.js",
 			"css/mui.picker.min.css"
+		]
+	},
+	"Risk_low.html": {
+		"resources": [
+			"js/common.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"js/searchCode.js",
+			"css/Risk_height_low.css"
+		]
+	},
+	"feature_page_order_01.html": {
+		"resources": [
+			"css/feature_page.css",
+			"css/feature_page_order_01.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"feature_page_order.html"
+		],
+		"refer": [
+			"Change_Rush_detail.html",
+			"feature_page_order.html"
 		]
 	}
 }
