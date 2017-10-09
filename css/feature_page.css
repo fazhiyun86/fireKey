@@ -29,10 +29,10 @@ html,body{
     border-left: 0;
     background-color: none;
 }
-
-.mui-grid-view.mui-grid-9 .mui-table-view-cell{
-	border-right: 0; 
-    border-bottom: 0; 
+.mui-grid-view.mui-grid-9 .mui-table-view-cell {
+    border-right: 0;
+    border-bottom: 0;
+    text-align: -webkit-center;
 }
 
 
