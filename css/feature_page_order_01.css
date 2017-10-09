@@ -1,0 +1,131 @@
+html,body{
+	padding: 0;
+}
+
+.progress{
+	width: 100%;
+	height: 24px;
+	margin-top: 5px;
+}
+
+.progress>div{
+	width: 20%;
+	float: left;
+	margin-left: 2.5rem;
+	font-size: 0.75rem;
+}
+
+.progress>div::before{
+	width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #495AF2;
+    display: inline-block;
+    content: " ";
+    position: absolute;
+    right: 0px;
+    top: 79px;
+    z-index: 100;
+    transform: rotate(-45deg);
+}
+
+/*边角颜色*/
+.ChangeWrap1::before{
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #495AF2;
+    display: inline-block;
+    content: " ";
+    position: absolute;
+    right: 9px;
+    top: 79px;
+    z-index: 100;
+    transform: rotate(-45deg);
+}
+
+.ChangeWrap2::before{
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #FF9800;
+    display: inline-block;
+    content: " ";
+    position: absolute;
+    right: 9px;
+    top: 205px;
+    z-index: 100;
+    transform: rotate(-45deg);
+}
+
+.ChangeWrap3::before{
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #83AD50;
+    display: inline-block;
+    content: " ";
+    position: absolute;
+    right: 9px;
+    top: 330px;
+    z-index: 100;
+    transform: rotate(-45deg);
+}
+
+.change_rush ul{
+	width: 100%;
+	height: 2.8rem;
+	padding: 0;
+	margin: 0;
+}
+
+.change_rush_con{
+	padding: 0 0.6rem 0.2rem 0.6rem;
+	margin-top: 50px;
+}
+
+#ChangeWrap {
+	width: 100%;
+	height: 7.5rem;
+	padding: 1rem 0.2rem 0 1rem;
+	border: 1px solid #E7E7E7;	
+	margin-bottom: 0.3rem;
+	margin-top: 5px;
+}
+
+.change_con_left{
+	width: 15.5rem;
+	margin-bottom: 5px;
+}
+
+.change_con_left p{
+	display: block;
+	font-size: 0.9rem;
+	line-height: 1.3rem;
+	color: #000000;
+}
+
+.change_con_left span{
+	display: block;
+	font-size: 0.75rem;
+	line-height: 1.15rem;
+	color: rgba(128, 24, 24, 1);
+}
+
+
+/*标题颜色*/
+.change_con_left .p1{
+	color: rgba(73, 90, 242, 1);
+}
+
+.change_con_left .p2{
+	color: rgba(255, 152, 0, 1);
+}
+
+.change_con_left .p3{
+	color: rgba(131, 173, 80, 1);
+}

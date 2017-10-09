@@ -1,58 +1,185 @@
 <!doctype html>
 <html>
 
-	<head>
+	<head>   
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/feature_page_order.css"/>
 		<style type="text/css">
 			.feature{
 				background: url("images/header_base_01.png");
     			background-size: 100%;
   				background-repeat: no-repeat;
+  				height: 55px;
+  				line-height: 55px;
 			}
 			
-			.feature a{
-				color: #FFFFFF;
-			}
-			
-			.feature h1{
-				font-size: 1.2rem;
-				color: #FFFFFF;
+			.mui-bar .mui-icon{
+				padding-top: 15px;
 			}
 		</style>
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav feature">
-		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">整改通知</h1>
-		</header>			
-		<div class="mui-content inform">
-		    <div class="inform_con">
-		    	<p class="p_text">整改单号：EXAMR201703281488987</p>		    	
-		    	<p class="p_tit"><legend>通知名称：</legend><input type="text" /></p>		  
-		    	<p class="p_tit"><legend>整改对象：</legend><input type="text" /></p>		    	
-		    	<p class="p_text">整改内容：</p>
-		    	
-		    	<input id="p_inp" type="text" />
-		    	
-		    	<p class="p_text">整改说明：</p>
-		    	
-		    	<input id="p_inp" type="text" style="margin-right: 1rem;"/>
-		    	<p><legend>整改期限：2017年8月27日  19时30分</legend><input type="text" /><span></span></p>
-	
-		    </div>
-		    <button><a href="javascript:;">下达通知</a></button>
+		<!--侧滑菜单容器-->
+			<!-- 侧滑导航根容器 -->
+			<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+			<!-- 菜单容器 -->
+			<aside id="offCanvasSide" class="mui-off-canvas-right">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+				    <div id="area_con" class="mui-scroll" style="color:#000000;">
+				        <header>
+				        	<div>区域选择</div>
+				        </header>
+				        <div class="area_con_list">
+				        	<div id="lists">
+				        		<div class="listTop">
+				        			<div class="list_bt">
+				        			<p class="p1">行政办公区A1工程</p>
+				        			<p class="p2">北京城建集团</p>
+				        			</div>
+				        			<span id="show" class="show"><img src="images/arrow_2.png"/></span>
+				        		</div>
+				        		<ul id="hide" class="list_del">
+				        			<li>东区-1号楼</li>
+				        			<li>东区-2号楼</li>
+				        			<li>东区-3号楼</li>
+				        			<li>东区-4号楼</li>
+				        		</ul>
+				        	</div>
+				        </div>
+				    </div>
+				</div>
+			</aside>
+			<!-- 主页面容器 -->
+			<div class="mui-inner-wrap">
+				<div  id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">	
+					<header class="mui-bar mui-bar-nav feature">
+					    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+					    <h1 class="mui-title">整改通知</h1>
+					</header>			
+					<div class="mui-content inform">
+					    <div class="inform_con">
+					    	<div class="p_text">整改单号：EXAMR201703281488987</div>	
+					    	<div class="p_tit">
+					    		<legend>通知名称：</legend>
+					    		<input type="text" name="" id="" value="" />
+					    	</div>		  
+					    	<div class="p_tit tit2">
+					    		<legend>整改对象：</legend>
+					    		<input type="text" name="" id="" />
+					    		<span  id="aresChoose" class="obje"><img src="images/arrow_r.png"/></span>
+					    	</div>			    	
+					    	<div class="p_inp">
+					    		<p>整改内容：</p>
+					    		<textarea name="txt" clos="100" rows="3" warp="virtual" placeholder=""></textarea>
+					    	</div>		    	
+					    	<div class="p_inp">
+					    		<p>整改说明：</p>
+					    		<textarea name="txt" clos="100" rows="3" warp="virtual" placeholder=""></textarea>
+					    	</div>
+					    	<div class="border_line"></div>
+					    	<div id="time_limit">整改期限：2017年8月27日&nbsp;&nbsp;19时30分<span class="timer" href="#popover"  id="openPopover" class="mui-btn mui-btn-primary mui-btn-block"><img src="images/arrow_r.png"/></span>
+					    	</div>
+				
+					    </div>
+					    <button id="btn"><a href="javascript:;">下达通知</a></button>
+					    <div id="complete">整改通知已下达</div>
+					</div>
+			    </div>  
+			</div>
 		</div>
+		
+		<!--时间弹出框-->
+		<div id="popover" class="mui-popover" style="background: #007AFF;">
+		  时间弹出
+		</div>
+		<script src="js/jquery.min.js"></script>
 		<script src="js/mui.min.js"></script>
+		<script src="js/mui.picker.min.js"></script>
 		<script type="text/javascript">
 			(function(){
-			
+				
+				//时间选择弹出框
+				mui('#time_limit').on('tap', '.timer', function() {
+					var dtpicker = new mui.DtPicker({
+					    type: "datetime",//设置日历初始视图模式 
+					    beginDate: new Date(2015, 04, 25),//设置开始日期 
+					    endDate: new Date(2017, 04, 25),//设置结束日期 
+					    labels: ['年', '月', '日', '时', '分'],//设置默认标签区域提示语 
+					    customData: { 
+					        h: [
+					            { value: 'AM', text: 'AM' },
+					            { value: 'PM', text: 'PM' }
+					        ] 
+					    }//时间/日期别名 
+					}) 
+					dtpicker.show(function(e) {
+					    console.log(e);
+					});
+				});
+				
+				
+				mui.init({
+				swipeBack: false,
+				});
+				
+				 //侧滑容器父节点
+				var offCanvasWrapper = mui('#offCanvasWrapper');
+				 //主界面容器
+				var offCanvasInner = offCanvasWrapper[0].querySelector('.mui-inner-wrap');
+				 //菜单容器
+				var offCanvasSide = document.getElementById("offCanvasSide");
+				 //移动效果是否为整体移动
+				var moveTogether = false;
+				 //侧滑容器的class列表，增加.mui-slide-in即可实现菜单移动、主界面不动的效果；
+				var classList = offCanvasWrapper[0].classList;
+				 //变换侧滑动画移动效果；
+	
+						offCanvasSide.classList.remove('mui-transitioning');
+						offCanvasSide.setAttribute('style', '');
+						classList.remove('mui-slide-in');
+						classList.remove('mui-scalable');
+								classList.add('mui-slide-in');
+						offCanvasWrapper.offCanvas().refresh();
+						
+				document.getElementById('aresChoose').addEventListener('tap', function() {
+					offCanvasWrapper.offCanvas('show');
+				});
+				 //主界面和侧滑菜单界面均支持区域滚动；
+				mui('#offCanvasSideScroll').scroll();
+				mui('#offCanvasContentScroll').scroll();
+				 //实现ios平台的侧滑关闭页面；
+				if (mui.os.plus && mui.os.ios) {
+					offCanvasWrapper[0].addEventListener('shown', function(e) { //菜单显示完成事件
+						plus.webview.currentWebview().setStyle({
+							'popGesture': 'none'
+						});
+					});
+					offCanvasWrapper[0].addEventListener('hidden', function(e) { //菜单关闭完成事件
+						plus.webview.currentWebview().setStyle({
+							'popGesture': 'close'
+						});
+					});
+				}
+				
+				//侧滑二级菜单
+				document.getElementById("show").addEventListener('tap', function(e) {
+  					if($("#hide").is(":hidden")){
+				       $("#hide").show();    //如果元素为隐藏,则将它显现
+				       $(this).find("img").addClass("rotating")
+					}else{
+				      $("#hide").hide();     //如果元素为显现,则将其隐藏
+				      $(this).find("img").removeClass("rotating")
+					}
+				});
+								
 				mui.plusReady(function() {
+
 					var selfView = plus.webview.currentWebview();
 //					OrganiseUnitID = selfView.info.id;
 					
@@ -65,39 +192,47 @@
 					indicators: false, //是否显示滚动条,默认是true
 				});
 
-//				var list = document.getElementsByClassName("tab_list");
-//				var Account_con = document.getElementById("change_con");
-//				var tabWrap = document.getElementById("tabWrap");
-//	
 				mui.ready(function() {
 					
-					//点击进入详情页面
-					mui('#ChangeWrap').on('tap', '.change_con_left', function() {
-//						var code = this.firstChild.value;d
-						var code = this.getAttribute("data-code")
-						localStorage.setItem('userNumCode', code)
-						
-						mui.openWindow({
-//							url: 'Equipment_state_query.html',
-//							id: 'Equipment_state_query.html',
-							url: 'feature_page_audit_1.html',
-							id: 'feature_page_audit_1.html',
-							styles: {
-								top: 0, //新页面顶部位置
-								bottom: 0, //新页面底部位置
-							},
-							extras: {
-	
-							},
-							show: {
-								duration: '300'
-							},
-							waiting: {
-								autoShow: true, //自动显示等待框，默认为true
-								title: '加载中...', //等待对话框上显示的提示内容
-							}
-						});
-					})
+					//下达通知完成
+					document.getElementById("btn").addEventListener('tap', function(e) {
+						if($("#complete").is(":hidden")){
+						    $("#complete").show();    //如果元素为隐藏,则将它显现
+						}
+						setTimeout(function(){						
+						 	window.location.href="feature_page_order_01.html";
+						},2000)
+					});
+					
+//					document.getElementById('openPopover').addEventListener('tap', function() {
+//						mui('.mui-popover').popover('toggle',document.getElementById("openPopover"));
+//					});
+//					
+//					//点击进入详情页面
+//					mui('#ChangeWrap').on('tap', '.change_con_left', function() {
+////						var code = this.firstChild.value;d
+//						var code = this.getAttribute("data-code")
+//						localStorage.setItem('userNumCode', code)
+//						
+//						mui.openWindow({
+//							url: 'feature_page_audit_1.html',
+//							id: 'feature_page_audit_1.html',
+//							styles: {
+//								top: 0, //新页面顶部位置
+//								bottom: 0, //新页面底部位置
+//							},
+//							extras: {
+//	
+//							},
+//							show: {
+//								duration: '300'
+//							},
+//							waiting: {
+//								autoShow: true, //自动显示等待框，默认为true
+//								title: '加载中...', //等待对话框上显示的提示内容
+//							}
+//						});
+//					})
 				})
 			})();
 		</script>

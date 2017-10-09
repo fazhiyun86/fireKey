@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/feature_page_approve_01.css"/>
+		<style type="text/css">
+			html,body{
+				padding: 0;
+			}
+
+			.feature{
+				background: url("images/header_base_01.png");
+    			background-size: 100%;
+  				background-repeat: no-repeat;
+  				height: 50px;
+  				line-height: 50px;
+			}
+			
+			.mui-bar .mui-icon{
+				padding-top: 15px;
+			}
+			
+			.mui-content{
+				width: 100%;
+				padding: 0 0.5rem 0;
+			}
+			
+			.mui-bar-nav~.mui-content {
+    			padding-top: 55px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav feature">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">维修审批</h1>
+		</header>			
+		<div class="mui-content approve">
+			<div class="approve_main">
+			    <div>申报单号： EMF2017040714365505</div>
+			    <div>设备名称：	加油站防爆照明灯1</div>
+			    <div>设备位置：行政办公区A1项目部东区1号楼5层408</div>
+			    <div><span class="span_left">申报人员： 陈景泉</span><span class="span_right">申报时间：2017/4/7 14:37:14</span></div>
+				<div><span class="span_left">故障类型：运行损坏</span><span class="span_right">故障原因：</span></div>
+				<div>故障情况的说明：</div>
+				<div class="inp"><textarea name="txt" clos="100" rows="3" warp="virtual" placeholder="如果你无法简洁的表达你的想法，那只说明你还不够了解它。
+-- 阿尔伯特·爱因斯坦"></textarea>
+				<div class="case_atta">
+					<a><img src="images/weixiujilu_1.png" /></a><span>附件</span>
+				</div>
+				<div class="approve_main_video">
+					<dl>
+						<dt></dt>
+						<dd>标题</dd>
+					</dl>
+					<dl>
+						<dt></dt>
+						<dd>标题</dd>
+					</dl>
+					<dl>
+						<dt></dt>
+						<dd>标题</dd>
+					</dl>
+					<dl>
+						<dt></dt>
+						<dd>标题</dd>
+					</dl>
+				</div>
+				<div class="opinion">审批意见：</div>
+				<div class="textarea"><textarea name="txt" clos="100" rows="5" warp="virtual"></textarea></div>
+				<button id="btn"><span class="btn_sub">审核确认</span></button>
+			</div>		
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			(function(){
+			
+				mui.plusReady(function() {
+					var selfView = plus.webview.currentWebview();
+//					OrganiseUnitID = selfView.info.id;
+					
+					//初始化的时候默认值是 2
+//					getData(initState)
+				})
+				
+				mui(".mui-scroll-wrapper").scroll({
+					bounce: false,//滚动条是否有弹力默认是true
+					indicators: false, //是否显示滚动条,默认是true
+				});
+
+//				var list = document.getElementsByClassName("tab_list");
+//				var Account_con = document.getElementById("change_con");
+//				var tabWrap = document.getElementById("tabWrap");
+//	
+				mui.ready(function() {
+					
+					//点击进入详情页面
+					mui('#btn').on('tap', '.btn_sub', function() {
+//						var code = this.firstChild.value;d
+						var code = this.getAttribute("data-code")
+						localStorage.setItem('userNumCode', code)
+						
+						mui.openWindow({
+							url: 'feature_page_approve.html',
+							id: 'feature_page_approve.html',
+							styles: {
+								top: 0, //新页面顶部位置
+								bottom: 0, //新页面底部位置
+							},
+							extras: {
+	
+							},
+							show: {
+								duration: '300'
+							},
+							waiting: {
+								autoShow: true, //自动显示等待框，默认为true
+								title: '加载中...', //等待对话框上显示的提示内容
+							}
+						});
+					})
+				})
+			})();
+		</script>
+	</body>
+
+</html>

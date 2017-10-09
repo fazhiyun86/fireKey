@@ -83,7 +83,7 @@
 	},
 	"plus": {
 		"splashscreen": {
-			"autoclose": false,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
+			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
 			"waiting": true
 		},
 		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
@@ -2084,95 +2084,88 @@
 				],
 				"priority": 0
 			},
-			"feature_page.html": {
-				"resources": [
-					"js/mui.min.js",
-					"css/mui.min.css",
-					"fonts/mui.ttf",
-					"css/feature_page.css",
-					"images/header_base_01.png"
-				],
-				"refer": [
-					"Change_Rush_audit.html",
-					"feature_page_audit.html",
-					"feature_page_order.html"
-				],
-				"priority": 0
-			},
-			"Change_Rush_audit.html": {
-				"resources": [
-					"js/jquery.min.js",
-					"images/icon_cuibanx.png",
-					"css/Change_Rush.css",
-					"css/style.css",
-					"images/header_base_01.png",
-					"js/mui.min.js",
-					"fonts/mui.ttf",
-					"css/mui.min.css"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"Change_Rush_detail_1.html": {
-				"resources": [
-					"js/jquery.min.js",
-					"images/icon_cuibanx.png",
-					"css/Change_Rush.css",
-					"css/style.css",
-					"images/header_base_01.png",
-					"js/mui.min.js",
-					"fonts/mui.ttf",
-					"css/mui.min.css"
-				],
-				"refer": [],
-				"priority": 0
-			},
 			"feature_page_audit.html": {
 				"resources": [
+					"css/feature_page_audit.css",
+					"feature_page_audit_1.html",
 					"css/feature_page.css",
 					"js/mui.min.js",
 					"fonts/mui.ttf",
 					"css/mui.min.css",
-					"images/header_base_01.png",
-					"images/icon_cuibanx.png",
-					"css/feature_page_audit.css",
-					"feature_page_audit_1.html",
-					"css/style.css"
+					"css/style.css",
+					"images/header_base_01.png"
 				],
 				"refer": [],
+				"priority": 0
+			},
+			"feature_page.html": {
+				"resources": [
+					"css/feature_page.css"
+				],
+				"refer": [
+					"feature_page_audit.html",
+					"feature_page_order.html",
+					"feature_page_approve.html"
+				],
 				"priority": 0
 			},
 			"feature_page_audit_1.html": {
 				"resources": [
 					"images/weixiujilu_1.png",
+					"css/feature_page_audit_1.css",
+					"feature_page_audit.html",
+					"js/jquery.min.js",
 					"css/iconfont.css",
-					"css/Change_Rush_detail.css",
-					"css/style.css",
 					"js/mui.min.js",
 					"fonts/mui.ttf",
-					"css/mui.min.css",
-					"images/header_base_01.png",
-					"css/feature_page_audit_1.css",
-					"js/jquery.min.js",
-					"feature_page_audit.html"
+					"css/mui.min.css"
 				],
 				"refer": [],
 				"priority": 0
 			},
 			"feature_page_order.html": {
 				"resources": [
-					"fonts/mui.ttf",
-					"images/header_base_01.png",
-					"css/feature_page_audit.css",
-					"css/feature_page.css",
 					"js/mui.min.js",
-					"css/mui.min.css",
 					"css/feature_page_order.css",
-					"css/style.css"
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"js/mui.picker.min.js",
+					"libs/easymob-webim-sdk/jquery-1.11.1.js",
+					"css/mui.picker.min.css",
+					"images/arrow_r.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"feature_page_approve.html": {
+				"resources": [
+					"css/feature_page_order.css",
+					"css/style.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/header_base_01.png",
+					"css/feature_page_approve.css"
 				],
 				"refer": [
-					"feature_page_audit_1.html"
+					"feature_page_approve_01.html"
 				],
+				"priority": 0
+			},
+			"feature_page_approve_01.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/feature_page_approve.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"images/weixiujilu_1.png",
+					"css/feature_page_approve_01.css"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},
