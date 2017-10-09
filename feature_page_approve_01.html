@@ -49,7 +49,8 @@
 			    <div><span class="span_left">申报人员： 陈景泉</span><span class="span_right">申报时间：2017/4/7 14:37:14</span></div>
 				<div><span class="span_left">故障类型：运行损坏</span><span class="span_right">故障原因：</span></div>
 				<div>故障情况的说明：</div>
-				<div class="inp"><input type="text"  size="75" placeholder="如果你无法简洁的表达你的想法，那只说明你还不够了解它。-- 阿尔伯特·爱因斯坦" /></div>
+				<div class="inp"><textarea name="txt" clos="100" rows="3" warp="virtual" placeholder="如果你无法简洁的表达你的想法，那只说明你还不够了解它。
+-- 阿尔伯特·爱因斯坦"></textarea>
 				<div class="case_atta">
 					<a><img src="images/weixiujilu_1.png" /></a><span>附件</span>
 				</div>
@@ -71,7 +72,9 @@
 						<dd>标题</dd>
 					</dl>
 				</div>
-				<div>审批意见：</div>
+				<div class="opinion">审批意见：</div>
+				<div class="textarea"><textarea name="txt" clos="100" rows="5" warp="virtual"></textarea></div>
+				<button id="btn"><span class="btn_sub">审核确认</span></button>
 			</div>		
 			</div>
 		</div>
@@ -99,16 +102,14 @@
 				mui.ready(function() {
 					
 					//点击进入详情页面
-					mui('#ChangeWrap').on('tap', '.change_con_left', function() {
+					mui('#btn').on('tap', '.btn_sub', function() {
 //						var code = this.firstChild.value;d
 						var code = this.getAttribute("data-code")
 						localStorage.setItem('userNumCode', code)
 						
 						mui.openWindow({
-//							url: 'Equipment_state_query.html',
-//							id: 'Equipment_state_query.html',
-							url: 'feature_page_audit_1.html',
-							id: 'feature_page_audit_1.html',
+							url: 'feature_page_approve.html',
+							id: 'feature_page_approve.html',
 							styles: {
 								top: 0, //新页面顶部位置
 								bottom: 0, //新页面底部位置

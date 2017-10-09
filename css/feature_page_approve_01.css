@@ -1,8 +1,7 @@
 .approve_main{
 	width: 100%;
-	height: 43rem;
-	border: 1px solid #E7E7E7;
-	padding: 0.6rem 0.3rem 0 0.3rem;
+	height: 38rem;
+	padding: 0.6rem 0.3rem 0 0.6rem;
 }
 
 .approve_main>div{
@@ -35,13 +34,16 @@
 	margin-bottom: 2px;
 }
 
-.approve_main .inp input{
+.approve_main .inp textarea{
 	width: 100%;
 	height: 4.3rem;
 	line-height: 1.15rem;
 	border: 0;
 	word-break: break-all;
+	font-size: 0.75rem;
+	background: none;
 }
+
 
 /*附件*/
 .approve_main .case_atta{
@@ -76,7 +78,7 @@
 .approve_main_video{
 	margin-bottom: 1rem;
 	width: 100%;
-	height: 5rem;
+	height: 6rem;
 	padding: 0 0.2rem 0 0;
 	border-bottom: 1px solid #E7E7E7;
 }
@@ -106,4 +108,33 @@
 	font-size: 0.9rem;
 	line-height: 1.15rem;
 	margin-top: 0.2rem;
+}
+
+.opinion{
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+	margin-top: 1rem;
+}
+
+.approve_main .textarea{
+	border: 1px solid #E7E7E7;
+	margin-top: 8px;
+	margin-right: 0.5rem;
+	margin-left: 0.5rem;
+}
+
+#btn{
+	display: block;
+	width: 160px;
+	height: 35px;
+	background: #DB4527;
+	border: 1px solid #DB4527;
+	color: #FFFFFF;
+	margin-left: 5rem;
+	margin-top: 1.5rem;
+}
+
+.btn_sub{
+	display: block;
+	width: 100%;
 }

@@ -10,44 +10,218 @@ html,body{
 .inform_con{
 	margin-top:0.5rem;
 	width: 100%;
-	height: 31rem;
+	height: 29rem;
 	border: 1px solid #E7E7E7;
 	padding-top: 0.7rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
-.inform_con p{
-	margin-left: 1rem;
-	margin-right: 0.8rem;
+.inform_con>div{
+	width: 100%;
+	height: 2rem;
 	font-size: 0.75rem;
 	line-height: 1.15rem;
 	color: #801818;
+	margin-top: 0.5rem;
+}
+
+.inform_con .p_tit{
+	width: 100%;
+	height: 2rem;
+	font-size: 0.75rem;
+	line-height: 1.15rem;
+	color: #801818;
+	margin-top: 0.5rem;
 }
 
 .inform_con .p_tit legend{
 	display: block;
-	width: 4rem;
-	height: 1.5rem;
 	line-height: 2rem;
 	float: left;
 }
 
 .inform_con .p_tit input{
 	display: block;
+	height: 2rem;
 	width: 15rem;
-	height: 2rem;
 	float: left;
 }
 
-.inform_con #p_inp{
+
+.inform_con .p_inp{
+	width: 100%;
+	height: 8rem;
+	font-size: 0.75rem;
+	line-height: 1.15rem;
+	color: #801818;
+}
+
+.inform_con .p_inp p{
+	width: 100%;
+	font-size: 0.75rem;
+	line-height: 1.15rem;
+	color: #801818;
+}
+
+.inform_con #time_limit{
+	width: 100%;
+	height: 2rem;
+	font-size: 0.75rem;
+	line-height: 2rem;
+	color: #801818;
+}
+
+.inform_con span{
 	display: block;
-	margin-left: 1rem;
-	margin-right: 1rem;
+	width: 8px;
+	height: 15px;
+}
+
+.inform_con span img{
+	width: 8px;
+	height: 15px;
+}
+
+.tit2{
+	position: relative;
+}
+
+.obje{
+	position: absolute;
+	right: 1.5rem;
+	top: 1rem;
+}
+
+#time_limit{
+	position: relative;
+}
+
+.timer{
+	position: absolute;
+	right: 1.5rem;
+	top: 0;
+}
+
+.inform_con .border_line{
+	margin-left: -1rem;
+	margin-right: 0;
+	width: 110%;
+	height: 1px;
+	background: #E7E7E7;
+}
+
+#btn{
+	width: 160px;
+	height: 35px;
+	background: #DB4527;
+	border: 1px solid #DB4527;
+	margin-left: 5.5rem;
+	margin-top: 1.5rem;
+}
+
+#btn a{
+	display: block;
+	width: 100%;
+	color: #FFFFFF;
+}
+
+#complete{
+	width: 100%;
+	height: 5rem;
+	text-align: center;
+	line-height: 5rem;
+	font-size: 0.9rem;
+	color: #CFCFCF;
+	display: none;
+}
+
+
+/*侧边栏*/
+/*#area_con*/
+
+#area_con header{
+	width: 100%;
+	height: 75px;
+	padding-top: 45px;
+	padding-left: 1rem;
+	background: #E51C23;
+}
+
+#area_con header>div{
+	padding-left: 2rem;
+	width: 100%;
+	height: 2rem;
+	line-height: 2rem;
+	font-size: 1rem;
+	color: #FFFFFF;
+	background: url(../images/fenlei.png);
+    background-size: 1.5rem;
+  	background-repeat: no-repeat;
+}
+
+.area_con_list{
+	width: 100%;
+	height: auto;
+	padding-top: 1rem;
+}
+
+.area_con_list #lists{
+	width: 100%;
+	border-bottom: 1px solid #E7E7E7;
+	padding: 0 2rem 0 1.5rem;
+}
+
+.area_con_list #lists .listTop{
+	width: 100%;
+	height: 3rem;
+}
+
+.area_con_list #lists .list_bt{
+	width: 80%;
 	height: 2rem;
 	float: left;
+	line-height: 0.5rem;
 }
 
-input[type=text]{
+.area_con_list #lists .list_bt .p1{
+	width: 100%;
+	font-size: 0.75rem;
+	float: left;
+	color: #000000;
+}
+
+.area_con_list #lists .list_bt .p2{
+	width: 100%;
+	font-size: 0.6rem;
+	float: left;
+	color: #000000;
+}
+
+.area_con_list #lists .show{
+	float: right;
+}
+
+.area_con_list #lists .list_del{
+	width: 100%;
+	height: auto;
 	padding: 0;
+	padding-left: 1rem;
+	margin-top: 0;
+	display: none;
 }
 
+.area_con_list #lists .list_del li{
+	width: 100%;
+	height: 2rem;
+	border: 1px solid #E7E7E7;
+	margin-bottom: 0.5rem;
+	line-height: 2rem;
+	font-size: 0.75rem;
+	padding-left: 0.5rem;
+	color: #8F8F94;
+}
 
+.rotating{
+	transform:rotate(180deg);
+}

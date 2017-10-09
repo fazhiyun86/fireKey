@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/mui.picker.min.css"/>
+    
+    
+</head>
+<body>
+	<div id="触发修改时间的对象的类"  class="自定义class"  data-options='{"type":"date","beginYear":1949,"endYear":2016}'>	</div>
+	<script src="js/mui.min.js"></script>
+	<script src="js/mui.picker.min.js"></script>
+	<script type="text/javascript">
+      	mui.init();
+      	(function($) {
+
+		　　　　$.init();
+		
+		　　　　var result=$(触发修改时间的对象)[0];
+		
+		　　　　result.addEventListener('tap', function() {
+		
+		　　　　　　var optionsJson = this.getAttribute('data-options') || '{}';
+		
+		　　　　　　var options = JSON.parse(optionsJson);
+		
+		　　　　　　var picker = new $.DtPicker(options);
+		
+		　　　　　　picker.show(function(rs) {
+		
+		　　　　　　　　result.innerText =rs.text;
+		
+		　　　　　　　　picker.dispose();
+		
+		　　　　　　});
+		
+		　　　　}, false);
+		
+		　　})(mui);
+
+</script>
+
+ 
+
+<!--也可以在其中穿插弹窗：
+
+(function($) {
+　　$.init();
+
+　　var result=$(触发修改时间的对象)[0];
+　　result.addEventListener('tap', function() {
+　　　　var btnArray = ['是', '否'];
+　　　　mui.confirm('是否要修改生日', '警告', btnArray, function(e) {
+　　　　　　if (e.index == 1) {
+　　　　　　　　mui.toast('已取消修改');
+　　　　　　} else {
+　　　　　　　　var optionsJson = $('.mycenter_birthday')[0].getAttribute('data-options') || '{}';
+　　　　　　　　var options = JSON.parse(optionsJson);
+　　　　　　　　var picker = new $.DtPicker(options);
+　　　　　　　　picker.show(function(rs) {
+　　　　　　　　　　result.innerText =rs.text;
+　　　　　　　　　　picker.dispose();
+　　　　　　　　　　mui.alert('已成功修改');
+　　　　　　　　});
+　　　　　　}
+　　　　})
+　　}, false);
+})(mui);-->
+</body>
+</html>
