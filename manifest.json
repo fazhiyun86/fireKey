@@ -1026,7 +1026,9 @@
 					"images/qq.png",
 					"js/Micro_task_3_img.js",
 					"js/jquery.min.js",
-					"js/common.js"
+					"js/common.js",
+					"images/arrow_2.png",
+					"images/fenlei.png"
 				],
 				"refer": [
 					"Micro_task_2.html"
