@@ -37,7 +37,7 @@
 				        </header>
 				        <div class="area_con_list">
 				        	<div id="lists">
-				        		<div class="listTop">
+				        		<div id="topid" class="listTop">
 				        			<div class="list_bt">
 				        			<p class="p1">行政办公区A1工程</p>
 				        			<p class="p2">北京城建集团</p>
@@ -101,7 +101,7 @@
 					    	</div>		  
 					    	<div class="p_tit tit2">
 					    		<legend>整改对象：</legend>
-					    		<input type="text" name="" id="" disabled="disabled"/>
+					    		<input type="text" name="" id="zhenggaidx"/>
 					    		<span  id="aresChoose" class="obje" style="display: block; width: 6px; height: 6px;"><img src="images/arrow_r.png" style="width: 100%; height: auto;"/></span>
 					    	</div>			    	
 					    	<div class="p_inp">
@@ -178,12 +178,13 @@
 						offCanvasSide.setAttribute('style', '');
 						classList.remove('mui-slide-in');
 						classList.remove('mui-scalable');
-								classList.add('mui-slide-in');
+						classList.add('mui-slide-in');
 						offCanvasWrapper.offCanvas().refresh();
-						
-				document.getElementById('aresChoose').addEventListener('tap', function() {
-					offCanvasWrapper.offCanvas('show');
-				});
+				
+				
+				document.getElementById('zhenggaidx').addEventListener('tap', function() {
+				offCanvasWrapper.offCanvas('show');
+			});
 				 //主界面和侧滑菜单界面均支持区域滚动；
 				mui('#offCanvasSideScroll').scroll();
 				mui('#offCanvasContentScroll').scroll();
@@ -202,16 +203,21 @@
 				}
 				
 				//侧滑二级菜单
-				document.getElementById("show").addEventListener('tap', function(e) {
-  					if($("#hide").is(":hidden")){
-				       $("#hide").show();    //如果元素为隐藏,则将它显现
-				       $(this).find("img").addClass("rotating")
+
+				document.getElementById("topid").addEventListener('tap', function(e) {
+	  				if($("#hide").is(":hidden")){
+					    $("#hide").show();    //如果元素为隐藏,则将它显现
+					    $(this).find("img").addClass("rotating")
 					}else{
-				      $("#hide").hide();     //如果元素为显现,则将其隐藏
-				      $(this).find("img").removeClass("rotating")
+					    $("#hide").hide();     //如果元素为显现,则将其隐藏
+					    $(this).find("img").removeClass("rotating")
 					}
 				});
-								
+
+				$("#hide li").on('tap', function(e) {
+					alert($(this).text());
+				});
+						
 				mui.plusReady(function() {
 
 					var selfView = plus.webview.currentWebview();
