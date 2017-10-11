@@ -1848,3 +1848,8 @@ canvas {
 .no-word {
 	text-align: center!important;
 }
+
+.flex_item2 {
+    flex-grow: 2;
+    float: left;
+}

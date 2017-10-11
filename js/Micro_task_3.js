@@ -194,7 +194,7 @@ mui.plusReady(function() {
 						item.RegionName +
 						'</li>';
 				})
-				document.querySelector(".renwufzq_ul").innerHTML = html;
+//				document.querySelector(".list_del").innerHTML = html;
 			},
 			error: function() {
 				//异常处理
