@@ -21,8 +21,8 @@
 			<div class="change_con">
 				<!--整改位置，编号start-->
 				<div class="change_con_code">
-					<p>16楼北侧逃生通道堵塞问题整改</p>
-					<span>整改单号：EXAMR201703281488920</span>
+					<p id="xq_id">16楼北侧逃生通道堵塞问题整改</p>
+					<span id="xq_code">整改单号：EXAMR201703281488920</span>
 				</div>
 				<!--整改位置，编号end-->
 
@@ -116,6 +116,63 @@
 		</div>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
+			(function(){
+				var OrganiseUnitID = '';
+				
+				mui.plusReady(function() {
+					var selfView = plus.webview.currentWebview();
+					OrganiseUnitID = selfView.info.id;
+//					console.log(OrganiseUnitID)
+					WebApp_ChangerushDetail(OrganiseUnitID)
+					
+				});
+
+				function WebApp_ChangerushDetail(OrganiseUnitID){		
+
+					var data = {
+						OrderID:OrganiseUnitID
+					}
+
+					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/TZDH_WebApp_EXAMRectifyDetail?dataKey=00-00-00-00';	
+
+//					console.log(urlg);
+					
+					mui.ajax(urlg, {
+						data: data,
+						dataType: 'json',
+						type: 'get',
+						timeout: 5000,
+						success: function(data){
+//						console.log(JSON.stringify(data));
+							setHtml(data);
+						},
+						
+						error: function(){
+							mui.toast('数据请求失败')
+						}
+					});
+					
+					
+//					function setHtml (data) {
+//						var info = data['DataSource']['Tables'][0]["Datas"][0];
+//						var NormalCount = info["NormalCount"]; //正常使用
+//						var AuditCount = info["StopCount"]; //停用停机
+//						var RepairCount = info["RepairCount"];  //故障维修
+//						var ScrapCount = info["ScrapCount"];  //报废数量
+//						
+//						document.getElementsByClassName("Status1")[0].innerHTML = NormalCount || 0;
+//						document.getElementsByClassName("Status2")[0].innerHTML = AuditCount || 0;
+//						}
+//						
+						
+
+						
+//						document.getElementById("change_con_wrapper").innerHTML = html;
+
+				}
+				
+
+			})();
 		</script>
 	</body>
 

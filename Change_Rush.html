@@ -29,7 +29,7 @@
 		
 		<header class="mui-bar mui-bar-nav titBackg">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">隐患整改催办</h1>
+			<h1 class="mui-title">整改催办</h1>
 		</header>
 		<div class="mui-scroll-wrapper">
 		    <div class="mui-scroll">
@@ -45,7 +45,7 @@
 							<a class="tab_list" href="javascript:;" data-target="1">逾期未整改</a>
 						</li>
 					</ul>
-				</div>
+				</div> 
 				
 				<div class="change_rush_con" id="change_con" style="padding-top: 0px;overflow: hidden;">
 					<div id="ChangeWrap">
@@ -69,9 +69,10 @@
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
 			(function(){
+
 				// 局部函数
-				var OrganiseUnitID = '';
-				var initState = 2;
+//				var OrganiseUnitID = '';
+//				var initState = 2;
 			
 				
 				mui(".mui-scroll-wrapper").scroll({
@@ -120,8 +121,6 @@
 						localStorage.setItem('userNumCode', code)
 						
 						mui.openWindow({
-//							url: 'Equipment_state_query.html',
-//							id: 'Equipment_state_query.html',
 							url: 'Change_Rush_detail.html',
 							id: 'Change_Rush_detail.html',
 							styles: {
@@ -140,7 +139,12 @@
 							}
 						});
 					})
-				})
+				});
+				
+				
+				
+				
+				
 			})();
 		</script>
 	</body>

@@ -770,10 +770,8 @@ mui.plusReady(function() {
 			var RepairCount = info["RepairCount"];  //故障维修
 			var ScrapCount = info["ScrapCount"];  //报废数量
 			
-//			document.getElementsByClassName("Status1")[0].innerHTML = NormalCount || 0;
-//			document.getElementsByClassName("Status2")[0].innerHTML = AuditCount || 0;
-//			document.getElementsByClassName("Status3")[0].innerHTML = RepairCount || 0;
-//			document.getElementsByClassName("Status4")[0].innerHTML = ScrapCount || 0;
+			document.getElementsByClassName("Status1")[0].innerHTML = NormalCount || 0;
+			document.getElementsByClassName("Status2")[0].innerHTML = AuditCount || 0;
 		}
 	}
 	
