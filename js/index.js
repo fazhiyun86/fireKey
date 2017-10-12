@@ -401,7 +401,7 @@ mui.plusReady(function() {
 				//服务器返回响应，根据响应结果，分析是否登陆成功
 				var getDatas = data['DataSource']['Tables'][0]['Datas'];
 				mui.each(getDatas, function(index, item) {
-					if(!item.totalTask) {
+			 		if(!item.totalTask) {
 						document.getElementById("guifan1").innerHTML = 0;
 					} else if(!item.totalExam) {
 						document.getElementById("guifan1").innerHTML = 0 + '/' + item.totalTask;
