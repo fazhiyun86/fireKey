@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "login.html": {
     "resources": [
       "images/user.png",
@@ -264,8 +263,7 @@
       "css/style.css",
       "images/header_base_01.png"
     ]
-  }
-=======
+  },
 	"login.html": {
 		"resources": [
 			"images/user.png",
@@ -656,5 +654,4 @@
 			"images/header_base_01.png"
 		]
 	}
->>>>>>> tyx
 }
