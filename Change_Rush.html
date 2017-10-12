@@ -36,13 +36,13 @@
 		    	<div class="change_rush" id="tabWrap">
 					<ul>
 						<li class="change_rush_list">
-							<a class="tab_list tab-active" href="javascript:;" data-target="2">故障隐患</a>
+							<a class="tab_list tab-active" href="javascript:;" data-target="1">故障隐患</a>
 						</li>
 						<li class="change_rush_list">
-							<a class="tab_list" href="javascript:;" data-target="1">已催办整改</a>
+							<a class="tab_list" href="javascript:;" data-target="2">已催办整改</a>
 						</li>
 						<li class="change_rush_list">
-							<a class="tab_list" href="javascript:;" data-target="1">逾期未整改</a>
+							<a class="tab_list" href="javascript:;" data-target="3">逾期未整改</a>
 						</li>
 					</ul>
 				</div> 
@@ -160,8 +160,9 @@
 						type: 'get', 
 						timeout: 5000,
 						success: function(data){	
-							console.log(JSON.stringify(data));
+//							console.log(JSON.stringify(data));
 							$("#ChangeWrap").remove();
+							setHtml(data);
 						},					
 						error: function(){
 							mui.toast('数据请求失败');
@@ -179,13 +180,82 @@
 					$(".tab_list").attr('class', 'tab_list');
 					$(this).attr("class", "tab_list tab-active");
 					var targetVal = this.getAttribute("data-target");
+					console.log(targetVal);
+					if ( this.getAttribute("data-target") === '1' ){
+						CuibanSubmit_tab1();
+					}
+					if ( this.getAttribute("data-target") === '2' ){
+						CuibanSubmit_tab2();
+					}
+					if ( this.getAttribute("data-target") === '3' ){
+						CuibanSubmit_tab3();
+					};
           		}); 
+          		
+				function CuibanSubmit_tab1(){
+					var data = {
+						OrganiseUnitID: localStorage.getItem("OrganiseUnitID"),
+					};
+					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAMRectify_NoUrgeList?dataKey=00-00-00-00';
+					mui.ajax(urlg, {
+						data: data,
+						dataType: 'json',
+						type: 'get', 
+						timeout: 5000,
+						success: function(data){	
+							console.log(JSON.stringify(data));
+							$("#ChangeWrap").remove();
+						},					
+						error: function(){
+							mui.toast('数据请求失败');
+						}
+					});
+				};
 				
+				function CuibanSubmit_tab2(){
+					var data = {
+						OrganiseUnitID: localStorage.getItem("OrganiseUnitID"),
+					};
+					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAMRectify_UrgeList?dataKey=00-00-00-00';
+					mui.ajax(urlg, {
+						data: data,
+						dataType: 'json',
+						type: 'get', 
+						timeout: 5000,
+						success: function(data){	
+						console.log(JSON.stringify(data));
+					},					
+						error: function(){
+							mui.toast('数据请求失败');
+						}
+					});
+				};
+				
+				function CuibanSubmit_tab3(){
+					var data = {
+						OrganiseUnitID: localStorage.getItem("OrganiseUnitID"),
+					};
+					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAM_NoRectifyList?dataKey=00-00-00-00';
+					mui.ajax(urlg, {
+						data: data,
+						dataType: 'json',
+						type: 'get', 
+						timeout: 5000,
+						success: function(data){	
+							console.log(JSON.stringify(data));
+							$("#ChangeWrap").remove();
+						},					
+						error: function(){
+							mui.toast('数据请求失败');
+						}
+					});
+				};
+
 				//点击图标是否删除？
 				
 				mui("#change_con").on('tap', '.change_con_right', function (e) {
 					var _this = this;
-					var statusValue = this.getAttribute("data-status")
+					var statusValue = this.getAttribute("data-status");
 					if (statusValue === "1") return false;
 					var btnArray = ['确认', '取消'];
 						mui.confirm('确认催办后，将向单位消防责任人和管理人同时发出整改催办信息。', '提示', btnArray, function(e) {

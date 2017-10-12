@@ -45,12 +45,12 @@
 		    <div class="mui-scroll">
 				<div class="mui-content">
 					<div id="approveWraper">
-						<div class="approve_con">
+						<!--<div class="approve_con">
 					    	<h1 id="approve_title">消防泵</h1>
 					    	<div><span class="span_left">设备编号：JSD00-94234</span><span class="span_right">报修时间：2017-09-22 14:34:23</span></div>
 					    	<div><span class="span_left">故障类型：运行损坏</span><span class="span_right">故障原因：</span></div>
 					    	<div>设备位置：行政办公区B2东区3号楼405</div>
-					    </div>
+					    </div>-->
 					</div>
 				    
 				</div>
@@ -66,6 +66,7 @@
 					
 					//初始化的时候默认值是 2
 //					getData(initState)
+					WebApp_FeatureApprove();
 				})
 				
 				mui(".mui-scroll-wrapper").scroll({
@@ -73,7 +74,48 @@
 					indicators: false, //是否显示滚动条,默认是true
 				});
 
-//	
+				function WebApp_FeatureApprove(){
+					
+					var data = {
+						OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
+					}
+					
+					
+					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAMRectifyList?dataKey=00-00-00-00';			
+//					mui.ajax(urlg, {
+//						data: data,
+//						dataType: 'json',
+//						type: 'get',
+//						timeout: 5000,
+//
+//						success: function(data){
+//							data = data["DataSource"]["Tables"][0]["Datas"]
+							setHtml(data);
+//						},
+//						
+//						error: function(){
+//							mui.toast('数据请求失败')
+//						}
+//					});
+					
+					
+					function setHtml (data) {
+						var html = '';
+//						var len = data.length;
+						for( var i = 0; i<3; i++ ){
+							var item = data[i];
+							html += '<div class="approve_con" >'+
+									    	'<h1 id="approve_title">消防泵</h1>'+
+									    	'<div><span class="span_left">设备编号：JSD00-94234</span><span class="span_right">报修时间：2017-09-22 14:34:23</span></div>'+
+									    	'<div><span class="span_left">故障类型：运行损坏</span><span class="span_right">故障原因：</span></div>'+
+									    	'<div>设备位置：行政办公区B2东区3号楼405</div>'+
+									'</div>';
+						}	
+						document.getElementById("approveWraper").innerHTML = html;
+					};
+				}
+
+
 				mui.ready(function() {
 					
 					//点击进入详情页面
@@ -81,6 +123,7 @@
 //						var code = this.firstChild.value;
 //						var code = this.getAttribute("data-code")
 //						localStorage.setItem('userNumCode', code)
+						var id = this.getAttribute("data-id");
 						
 						mui.openWindow({
 							url: 'feature_page_approve_01.html',
@@ -90,7 +133,9 @@
 								bottom: 0, //新页面底部位置
 							},
 							extras: {
-	
+								info:{
+									id:id
+								}
 							},
 							show: {
 								duration: '300'
