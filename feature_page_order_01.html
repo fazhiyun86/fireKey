@@ -144,8 +144,27 @@
 						timeout: 5000,
 
 						success: function(data){
-							data = data["DataSource"]["Tables"][0]["Datas"]
-							setHtml(data);
+//							data = data["DataSource"]["Tables"][0]["Datas"]
+
+							data = [
+								{
+									OrderID: '1',
+									OrderCode: "EXAMR201703281488920",
+									OrderName: "B栋北侧逃生通道堵塞问题整改",
+									RectifyTime: "2017年8月19日--2017年8月27日",
+									OrganiseUnitName: "行政办公区A1项目部东区1号楼材料库",
+									RectifyResult: 1,
+								},
+								{
+									OrderID: '2',
+									OrderCode: "EXAMR201703281488920",
+									OrderName: "A栋管道井封闭门关不上",
+									RectifyTime: "2017年8月19日--2017年8月27日",
+									OrganiseUnitName: "行政办公区A1项目部东区1号楼材料库",
+									RectifyResult: 2,
+								},
+							]
+														setHtml(data);
 						},
 						
 						error: function(){

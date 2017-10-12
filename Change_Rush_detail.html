@@ -110,7 +110,7 @@
 				<div class="change_con_remark">
 					<p>催办时间：<span>2017-8-12 24:23:19</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;东城区消防支队：<span>彭建军</span>
 					</p>						
-				</div>					
+				</div>	
 				
 			</div>
 		</div>
@@ -122,7 +122,7 @@
 				mui.plusReady(function() {
 					var selfView = plus.webview.currentWebview();
 					OrganiseUnitID = selfView.info.id;
-//					console.log(OrganiseUnitID)
+					console.log(OrganiseUnitID)
 					WebApp_ChangerushDetail(OrganiseUnitID)
 					
 				});
@@ -136,39 +136,30 @@
 					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/TZDH_WebApp_EXAMRectifyDetail?dataKey=00-00-00-00';	
 
 //					console.log(urlg);
-					
-					mui.ajax(urlg, {
-						data: data,
-						dataType: 'json',
-						type: 'get',
-						timeout: 5000,
-						success: function(data){
-//						console.log(JSON.stringify(data));
-							setHtml(data);
-						},
-						
-						error: function(){
-							mui.toast('数据请求失败')
-						}
-					});
-					
-					
-//					function setHtml (data) {
-//						var info = data['DataSource']['Tables'][0]["Datas"][0];
-//						var NormalCount = info["NormalCount"]; //正常使用
-//						var AuditCount = info["StopCount"]; //停用停机
-//						var RepairCount = info["RepairCount"];  //故障维修
-//						var ScrapCount = info["ScrapCount"];  //报废数量
+//					
+//					mui.ajax(urlg, {
+//						data: data,
+//						dataType: 'json',
+//						type: 'get',
+//						timeout: 5000,
+//						success: function(data){
+							setHtml({});
+//						},
 //						
-//						document.getElementsByClassName("Status1")[0].innerHTML = NormalCount || 0;
-//						document.getElementsByClassName("Status2")[0].innerHTML = AuditCount || 0;
+//						error: function(){
+//							mui.toast('数据请求失败')
 //						}
-//						
-						
-
+//					});
+					
+					
+					function setHtml (item) {
+						var html = '<div class="change_con_code">\
+							<p id="xq_id">16楼北侧逃生通道堵塞问题整改</p>\
+							<span id="xq_code">整改单号：EXAMR201703281488920</span>
+						</div>';
 						
 //						document.getElementById("change_con_wrapper").innerHTML = html;
-
+					}
 				}
 				
 
