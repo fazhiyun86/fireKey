@@ -48,19 +48,22 @@
 				</div> 
 				
 				<div class="change_rush_con" id="change_con" style="padding-top: 0px;overflow: hidden;">
-					<div id="ChangeWrap" class="change-wrap">
-						
+					
+					<!--<div id="ChangeWrap" class="change-wrap">
 						<div class="change_con_left">
 							<p>B栋北侧逃生通道堵塞问题整改</p>
 							<span>整改单号：EXAMR201703281488920</span>
 							<span>整改期限：2017年8月19日--2017年8月27日</span>
 							<span>整改对象：行政办公区A1项目部</span>
 						</div>
-						<div class="change_con_right">
-							<a class="pop"></a>
-						</div>
-						
-					</div>
+						<div id="right">
+								<div id="change_con_right"  class="'+ setColor(item.IsUrge) +'">
+									<a id="pop"></a>
+								</div>
+								<span>2017-8-12 15:32:27</span>
+							</div>
+					</div>-->
+					
 				</div>
 		    </div>
 		</div>
@@ -83,7 +86,88 @@
 					
 					//初始化的时候默认值是 2
 //					getData(initState)
-				})
+					var data = [
+						{
+							OrderID: '整改单ID1',
+							OrderCode: '整改单号1',
+							OrderName: '整改单名称1',
+							RectifyTime: '2017年8月19日--2017年8月27日',
+							IsUrge: '0',
+							UrgeDate: '催办时间1',
+						}, 
+						{
+							OrderID: '整改单ID2',
+							OrderCode: '整改单号2',
+							OrderName: '整改单名称2',
+							RectifyTime: '整改期限2',
+							IsUrge: '1',
+							UrgeDate: '催办时间2',
+						} 
+					]
+					setHtml(data);
+//					CuibanSubmit(data);
+					
+				});
+				
+				function setHtml (data) {
+					var html = '';
+					var len = data.length;
+					for( var i = 0; i<len; i++ ){
+						var item = data[i];
+						html += '<div id="ChangeWrap" class="change-wrap">\
+							<div class="change_con_left" data-id="'+ item.OrderID +'">\
+								<p>B栋北侧逃生通道堵塞问题整改</p>\
+								<span>整改单号：'+ item.OrderCode +'</span>\
+								<span>整改期限：'+ item.RectifyTime +'</span>\
+								<span>整改对象：'+ item.OrderName +'</span>\
+							</div>\
+							<div id="right">\
+								<div class="change_con_right '+ setColor(item.IsUrge) +'" data-status="'+ item.IsUrge +'">\
+									<a id="pop"></a>\
+								</div>\
+								<span>2017-8-12 15:32:27</span>\
+							</div>\
+						</div>';
+					}	
+					document.getElementById("change_con").innerHTML = html;
+				};
+				
+				function setColor(status){
+//					console.log(status === '0');
+					var html = '';
+					switch(status){
+						case '0':
+							html += 'right_no';
+						break;
+						case '1':
+							html += 'right_all';
+						break;
+					}
+					return html;					
+				};
+				
+//				催办提交			
+				function CuibanSubmit(){
+					var data = {
+						OrderID: localStorage.getItem("OrderID"),
+						UrgeUser: localStorage.getItem("UrgeUser"),
+						UrgeCompany: localStorage.getItem("UrgeCompany"),
+					};
+						urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAMRectifyUrge_ImportOne?dataKey=00-00-00-00';
+					mui.ajax(urlg, {
+						data: data,
+						dataType: 'json',
+						type: 'get', 
+						timeout: 5000,
+						success: function(data){	
+							console.log(JSON.stringify(data));
+							$("#ChangeWrap").remove();
+						},					
+						error: function(){
+							mui.toast('数据请求失败');
+						}
+					});
+				}
 
 				var list = document.getElementsByClassName("tab_list");
 				var Account_con = document.getElementById("change_con");
@@ -95,20 +179,24 @@
 					$(".tab_list").attr('class', 'tab_list');
 					$(this).attr("class", "tab_list tab-active");
 					var targetVal = this.getAttribute("data-target");
-          		});
+          		}); 
 				
 				//点击图标是否删除？
-	  			mui(".change_con_right").on('tap', '.pop', function(e) {
+				
+				mui("#change_con").on('tap', '.change_con_right', function (e) {
+					var _this = this;
+					var statusValue = this.getAttribute("data-status")
+					if (statusValue === "1") return false;
 					var btnArray = ['确认', '取消'];
-					mui.confirm('确认催办后，将向单位消防责任人和管理人同时发出整改催办信息。', '提示', btnArray, function(e) {
+						mui.confirm('确认催办后，将向单位消防责任人和管理人同时发出整改催办信息。', '提示', btnArray, function(e) {
 						if (e.index == 0) {
-							$("#ChangeWrap").remove();
+							CuibanSubmit();							
 						} else {
 							// 取消
 						}
 					})
-          		});
-	  			
+			    });	
+					  				  			
 				mui.ready(function() {
 					
 					//点击进入详情页面
@@ -137,11 +225,7 @@
 						});
 					})
 				});
-				
-				
-				
-				
-				
+		
 			})();
 		</script>
 	</body>

@@ -35,14 +35,14 @@ html,body{
 .change-wrap {
 	width: 100%;
 	height: 7.5rem;
-	padding: 1rem 0.2rem 0 0.5rem;
+	padding: 1rem 0 0 0.5rem;
 	border: 1px solid #E7E7E7;	
 	margin-bottom: 0.3rem;
 	margin-top: 0.5rem;
 }
 
 .change_con_left{
-	width: 15.5rem;
+	width: 15rem;
 	float: left;
 }
 
@@ -60,22 +60,28 @@ html,body{
 	color: rgba(128, 24, 24, 1);
 }
 
+#right{
+	width: 5.5rem;
+	height: auto;
+	float: left;
+	padding: 0;
+}
+
 .change_con_right{
 	width: 3.5rem;
 	height: 3.5rem;
-	background: #DB4527;
-	float: left;
 	margin-left: 1rem;
-	margin-top: 0.8em;
 	border-radius: 1.75rem;
-	box-shadow:0px 5px 8px #ACACB4;}
+	box-shadow:0px 5px 8px #ACACB4;
+}
 
-/*.change_con_right a{
-	display: block;
-	width: 3.5rem;
-	height: 3.5rem;
-	background: #FF0000;
-}*/
+.right_no{
+	background: #DB4527;
+}
+
+.right_all{
+	background: #C0C0C0;
+}
 
 .change_con_right a{
 	display: block;
@@ -85,7 +91,14 @@ html,body{
 	color: #FFFFFF;
 	background: url(../images/cuiban_w.png) no-repeat center;
 	background-size: 30px 30px;
+}
 
+#right span{
+	display: block;
+	width: 100%;
+	margin-top: 0.8em;
+	color: #999999;
+	font-size: 0.59rem;
 }
 
 
