@@ -39,8 +39,6 @@
 				        	<!--<div class="lis">-->
 				        	<div id="lists">
 				        		
-				        			
-				        		
 				        		<!--<div id="topid" class="listTop">
 				        			<div class="list_bt">
 				        			<p class="p1">行政办公区A1工程</p>
@@ -125,17 +123,14 @@
 					        			'<span id="show" class="show"><img src="images/arrow_2.png"/></span>'+
 					        		'</div>';
 
-					for( var i=0; i<2; i++ ){
-						
-						html += '<ul id="hide" class="list_del">'+
-									'<li>东区-1号楼</li>'+
-					        		'<li>东区-2号楼</li>'+
-					        		'<li>东区-3号楼</li>'+
-					        		'<li>东区-4号楼</li>'+
-					        	'</ul>';
-					        	
-					  }
-					
+						for( var j=0; j<2; j++ ){
+							html += '<ul id="hide" class="list_del">'+
+										'<li>东区-1号楼</li>'+
+						        		'<li>东区-2号楼</li>'+
+						        		'<li>东区-3号楼</li>'+
+						        		'<li>东区-4号楼</li>'+
+						        	'</ul>';
+					  	}
 					}
 				    document.getElementById('lists').innerHTML = html;
 				}
@@ -210,7 +205,6 @@
 				}
 				
 				//侧滑二级菜单
-
 				document.getElementById("topid").addEventListener('tap', function(e) {
 	  				if($("#hide").is(":hidden")){
 					    $("#hide").show();    //如果元素为隐藏,则将它显现
@@ -232,19 +226,6 @@
 					
 					//初始化的时候默认值是 2
 //					getData(initState)
-
-					var danHao = $('.p_text').text();
-					console.log(danHao);
-					var informName = $('.informName').val();
-					console.log(informName);
-					var changeCon = $('.changeCon').val();
-					console.log(changeCon);
-					var changeInf = $('.changeInf').val();
-					console.log(changeInf);
-					var changeTime = $('#time_limit').text();
-					console.log(changeTime);
-					
-					
 				})
 				
 				mui(".mui-scroll-wrapper").scroll({
@@ -256,13 +237,30 @@
 					
 					//下达通知完成
 					document.getElementById("btn").addEventListener('tap', function(e) {
-						if($("#complete").is(":hidden")){
-						    $("#complete").show();    //如果元素为隐藏,则将它显现
-						}
-						setTimeout(function(){						
-						 	window.location.href="feature_page_order_01.html";
-						},2000)
+						
+						getParams();
+						
+//						if($("#complete").is(":hidden")){
+//						    $("#complete").show();    //如果元素为隐藏,则将它显现
+//						}
+//						setTimeout(function(){						
+//						 	window.location.href="feature_page_order_01.html";
+//						},2000)
+						
 					});
+					
+					function getParams () {
+						var danHao = $('.p_text').text();
+						console.log(danHao);
+						var informName = $('.informName').val();
+						console.log(informName);
+						var changeCon = $('.changeCon').val();
+						console.log(changeCon);
+						var changeInf = $('.changeInf').val();
+						console.log(changeInf);
+						var changeTime = $('#time_limit').text();
+						console.log(changeTime);
+					}
 					
 //					document.getElementById('openPopover').addEventListener('tap', function() {
 //						mui('.mui-popover').popover('toggle',document.getElementById("openPopover"));
