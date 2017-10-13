@@ -64,7 +64,7 @@
 					var data = {
 						UserID: localStorage.getItem('userCodeVa'),
 						RectifyStatus:4, 
-					}					
+					}
 					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAM_RectifyAuditTaskList?dataKey=00-00-00-00';			
 					mui.ajax(urlg, {
 						data: data,
@@ -122,7 +122,7 @@
 				mui.ready(function() {
 					//点击进入详情页面	
 					mui('#change_con').on('tap', '.change_con_left', function() {		
-						var id = this.getAttribute("data-id");	
+						var id = this.getAttribute("data-id");
 						mui.openWindow({
 							url: 'feature_page_audit_1.html',
 							id: 'feature_page_audit_1.html',

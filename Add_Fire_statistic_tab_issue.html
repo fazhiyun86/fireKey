@@ -52,27 +52,20 @@
 				<div class="mui-scroll">
 					<div class="list-wrapper">
 						<div class="mui-content Equipment_patrol_con ">
-							<!--<div id="Equipment_patrol_con1">
-								
-							</div>-->
+							<div id="Equipment_patrol_con1">
+								<div id="main1" style="height: 500px"></div>
+							</div>
+							
 							<div id="eChartsWrap" class="content-wrap">
-								<!--<p id="noWord" class="no-word">
+								<p id="noWord" class="no-word">
 									<img src="images/loading.gif" alt="" />
-								</p>-->
-								<!--<section class="box-item">
-									<h2>本周总数量</h2>
-									<div id="weekSum1" style="width: 100%;height:150px;"></div>
-								</section>-->
-								
-								<!--<section class="box-item">
-									<h2>本周总数量</h2>
-									<div id="weekSum2" style="width: 100%;height:150px;"></div>
-								</section>
+								</p>
 								<section class="box-item">
 									<h2>本周总数量</h2>
-									<div id="weekSum3" style="width: 100%;height:150px;"></div>
+									<!--<div id="weekSum1" style="width: 100%;height:150px;"></div>-->
+									<div id="main1" style="height: 500px"></div>
 								</section>
-								-->
+							
 							</div>
 						</div>
 					</div>
@@ -81,317 +74,11 @@
 		</div>
 		<script src="js/mui.min.js"></script>
 		<script src="js/jquery.min.js"></script>
-		<script src="js/echarts-all.js"></script>
+		<script src="js/echarts.min.js"></script>
 		<!--<script src="js/common.js"></script>-->
 		
 		<script type="text/javascript">
-        // 基于准备好的dom，初始化echarts实例
-		
-			var myChart1 = echarts.init(document.getElementById('main1'));
-	        var myChart2 = echarts.init(document.getElementById('main2'));
-	        var myChart3 = echarts.init(document.getElementById('main3'));
-	        myChart1.setTheme("macarons");
-	        myChart2.setTheme("macarons"); 
-	        myChart3.setTheme("macarons");
-	        
-	        
-	        // 指定图表的配置项和数据
-	        var option1 = {
-			    title: {
-			        text: '2017年9月动火证发放',
-	
-			    },
-			    tooltip: {
-					trigger: 'axis',
-			    },
-			    legend: {
-			    	data:['动火证发放']
-			    },
-			    grid: {
-			    	containLabel: false,
-			    },
-			    toolbox: {},
-				dataZoom : {
-			        show : false,
-			    },
-			    xAxis:	[
-				    {
-				    	axisTick :{
-				    		inside: 'true',
-				    		length: 10,
-				    	},
-				    	data: ['1','2','3','4','5','6','7','8','9','10','11','12'],
-				    	axisTick :{
-				    		inside: 'true',
-				    		length: 0,
-				    	},
-						axisLine: {
-							show:true,
-							lineStyle: {
-								color:'#ccc',
-								width:'1'
-							}
-						},
-				    	splitLine:{
-				    		show:true,
-				    		lineStyle: {
-				    			color:['#ccc'],
-				    			type: 'dotted',
-				    		}
-				    	},
-				    	axisLabel:{
-				    		interval: 'auto',
-				    	},
-				    },   
-			    ],
-			    yAxis:	[
-				    {
-				    	type: 'value',	    	
-				    	axisLine: {
-							lineStyle: {
-								color:'#ccc',
-								width:'0.5'
-							}
-						},
-				    	splitLine:{
-				    		show: false,
-				    	},
-				    	nameLocation: 'start',
-				    	data : ['0','20','40','60','80'],
-				    },
-			    ],
-			       color:'dark',  
-			    series: [
-			    	{
-				    	name:'动火证发放',
-				    	type:'line',
-	                    smooth:true,
-	                    itemStyle: {
-	                    	normal: {
-								symbol:'heart',
-								symbolSize: 20,						                    		                  
-	                    		color: '#92d050',
-	                    		lineStyle: {
-	                    			color:'#c09205',
-	                    			width:'2'
-	                    		}
-	                    	},
-	                    	emphasis: {
-	                    		color:'blue',
-	                    	}
-	                    },
-	//                  markPoint: {
-	//                  	symbol:'rect',
-	////						symbolSize: 5,
-	//                  },
-				    	data:[43, 25, 37, 45, 24, 61,25,17,21,7]
-				    }
-			    ],
-			};
-	
-	
-	
-	
-			 var option2 = {
-			    title: {
-			        text: '2017年9月动火证发放',
-	
-			    },
-			    tooltip: {
-					trigger: 'axis',
-			    },
-			    legend: {
-			    	data:['动火证发放']
-			    },
-			    grid: {
-			    	containLabel: false,
-			    },
-			    toolbox: {},
-				dataZoom : {
-			        show : false,
-			    },
-			    xAxis:	[
-				    {
-				    	axisTick :{
-				    		inside: 'true',
-				    		length: 10,
-				    	},
-				    	data: ['1','2','3','4','5','6','7','8','9','10','11','12'],
-				    	axisTick :{
-				    		inside: 'true',
-				    		length: 0,
-				    	},
-						axisLine: {
-							show:true,
-							lineStyle: {
-								color:'#ccc',
-								width:'1'
-							}
-						},
-				    	splitLine:{
-				    		show:true,
-				    		lineStyle: {
-				    			color:['#ccc'],
-				    			type: 'dotted',
-				    		}
-				    	},
-				    	axisLabel:{
-				    		interval: 'auto',
-				    	},
-				    },   
-			    ],
-			    yAxis:	[
-				    {
-				    	type: 'value',	    	
-				    	axisLine: {
-							lineStyle: {
-								color:'#ccc',
-								width:'0.5'
-							}
-						},
-				    	splitLine:{
-				    		show: false,
-				    	},
-				    	nameLocation: 'start',
-				    	data : ['0','20','40','60','80'],
-				    },
-			    ],
-			       color:'dark',  
-			    series: [
-			    	{
-				    	name:'动火证发放',
-				    	type:'line',
-	                    smooth:true,
-	                    itemStyle: {
-	                    	normal: {
-								symbol:'heart',
-								symbolSize: 20,						                    		                  
-	                    		color: '#92d050',
-	                    		lineStyle: {
-	                    			color:'#c09205',
-	                    			width:'2'
-	                    		}
-	                    	},
-	                    	emphasis: {
-	                    		color:'blue',
-	                    	}
-	                    },
-	//                  markPoint: {
-	//                  	symbol:'rect',
-	////						symbolSize: 5,
-	//                  },
-				    	data:[43, 25, 37, 45, 24, 61,25,17,21,7]
-				    }
-			    ],
-			};
-			
-			
-			 var option3 = {
-			    title: {
-			        text: '2017年9月动火证发放',
-	
-			    },
-			    tooltip: {
-					trigger: 'axis',
-			    },
-			    legend: {
-			    	data:['动火证发放']
-			    },
-			    grid: {
-			    	containLabel: false,
-			    },
-			    toolbox: {},
-				dataZoom : {
-			        show : false,
-			    },
-			    xAxis:	[
-				    {
-				    	axisTick :{
-				    		inside: 'true',
-				    		length: 10,
-				    	},
-				    	data: ['1','2','3','4','5','6','7','8','9','10','11','12'],
-				    	axisTick :{
-				    		inside: 'true',
-				    		length: 0,
-				    	},
-						axisLine: {
-							show:true,
-							lineStyle: {
-								color:'#ccc',
-								width:'1'
-							}
-						},
-				    	splitLine:{
-				    		show:true,
-				    		lineStyle: {
-				    			color:['#ccc'],
-				    			type: 'dotted',
-				    		}
-				    	},
-				    	axisLabel:{
-				    		interval: 'auto',
-				    	},
-				    },   
-			    ],
-			    yAxis:	[
-				    {
-				    	type: 'value',	    	
-				    	axisLine: {
-							lineStyle: {
-								color:'#ccc',
-								width:'0.5'
-							}
-						},
-				    	splitLine:{
-				    		show: false,
-				    	},
-				    	nameLocation: 'start',
-				    	data : ['0','20','40','60','80'],
-				    },
-			    ],
-			       color:'dark',  
-			    series: [
-			    	{
-				    	name:'动火证发放',
-				    	type:'line',
-	                    smooth:true,
-	                    itemStyle: {
-	                    	normal: {
-								symbol:'heart',
-								symbolSize: 20,						                    		                  
-	                    		color: '#92d050',
-	                    		lineStyle: {
-	                    			color:'#c09205',
-	                    			width:'2'
-	                    		}
-	                    	},
-	                    	emphasis: {
-	                    		color:'blue',
-	                    	}
-	                    },
-	//                  markPoint: {
-	//                  	symbol:'rect',
-	////						symbolSize: 5,
-	//                  },
-				    	data:[43, 25, 37, 45, 24, 61,25,17,21,7]
-				    }
-			    ],
-			};
-			
-			
-	        // 使用刚指定的配置项和数据显示图表。
-	        myChart1.setOption(option1);
-	        myChart2.setOption(option2);
-	        myChart3.setOption(option3);
-	        
-	        
-	        //联动配置
-	        myChart1.connect([myChart2,myChart3]);
-	        myChart2.connect([myChart1,myChart3]);
-	        myChart3.connect([myChart1,myChart2]);
-	        
-        (function(){
+        	(function(){
 				
 				mui.plusReady(function (){
 
@@ -402,6 +89,36 @@
 					bounce: false,//滚动条是否有弹力默认是true
 					indicators: false, //是否显示滚动条,默认是true
 				});
+				
+				
+				setECharts()
+				
+				function setECharts () {
+					var myChart = echarts.init(document.getElementById('main1'));
+
+			        // 指定图表的配置项和数据
+			        var option = {
+			            title: {
+			                text: 'ECharts 入门示例'
+			            },
+			            tooltip: {},
+			            legend: {
+			                data:['销量']
+			            },
+			            xAxis: {
+			                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+			            },
+			            yAxis: {},
+			            series: [{
+			                name: '销量',
+			                type: 'bar',
+			                data: [5, 20, 36, 10, 10, 20]
+			            }]
+			        };
+			
+			        // 使用刚指定的配置项和数据显示图表。
+			        myChart.setOption(option);
+				}
 	        })()
     </script>
 	</body>
