@@ -270,28 +270,16 @@
 				mui.ready(function() {
 					
 					//点击进入详情页面
-					mui('#ChangeWrap').on('tap', '.change_con_left', function() {
-//						var code = this.firstChild.value;d
-						var code = this.getAttribute("data-code")
-						localStorage.setItem('userNumCode', code)
-						
+					mui('#change_con').on('tap', '.change_con_left', function() {
+						var id = this.getAttribute("data-id");	
 						mui.openWindow({
 							url: 'Change_Rush_detail.html',
 							id: 'Change_Rush_detail.html',
-							styles: {
-								top: 0, //新页面顶部位置
-								bottom: 0, //新页面底部位置
-							},
 							extras: {
-	
+								Info:{
+									id:id
+								}
 							},
-							show: {
-								duration: '300'
-							},
-							waiting: {
-								autoShow: true, //自动显示等待框，默认为true
-								title: '加载中...', //等待对话框上显示的提示内容
-							}
 						});
 					})
 				});
