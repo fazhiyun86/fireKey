@@ -287,14 +287,13 @@
 				};
 	  			mui("#change_matter").on('tap', '.btn_sub', function(e) {
 	  				suBmit();
-	  				getRadioRes('radio');
 					var btnArray = ['确认', '取消'];
 					mui.confirm('您确认此次整改已通过审核？', '提示', btnArray, function(e) {
 						if (e.index == 0) {
 							location.href = 'feature_page_audit.html';
 						}
 					})
-          	});
+          		});
 			})();
 		</script>
 	</body>
