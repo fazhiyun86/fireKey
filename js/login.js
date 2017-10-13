@@ -290,7 +290,7 @@ mui.plusReady(function() {
 			timeout: 5000,
 			processData: false,
 			success: function(data) {
-				console.log(JSON.stringify(data))
+//				console.log(JSON.stringify(data))
 				//服务器返回响应，根据响应结果，分析是否登陆成功
 				// var getDatas = data['DataSource']['Tables'][0]['Datas'];
 				// mui.each(getDatas, function (index, item) {			
