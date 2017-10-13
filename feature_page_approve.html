@@ -62,10 +62,6 @@
 			
 				mui.plusReady(function() {
 					var selfView = plus.webview.currentWebview();
-//					OrganiseUnitID = selfView.info.id;
-					
-					//初始化的时候默认值是 2
-//					getData(initState)
 					WebApp_FeatureApprove();
 				})
 				
@@ -77,34 +73,51 @@
 				function WebApp_FeatureApprove(){
 					
 					var data = {
-						OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
+						UserCode: localStorage.getItem('userCodeVa'),
+						Status: 4,
 					}
-					
-					
-					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAMRectifyList?dataKey=00-00-00-00';			
-//					mui.ajax(urlg, {
-//						data: data,
-//						dataType: 'json',
-//						type: 'get',
-//						timeout: 5000,
-//
-//						success: function(data){
-//							data = data["DataSource"]["Tables"][0]["Datas"]
+
+					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/EMF_FaultRepair_Query_Task?dataKey=00-00-00-00';			
+					mui.ajax(urlg, {
+						data: data,
+						dataType: 'json',
+						type: 'get',
+						timeout: 5000,
+						success: function(data){
+							console.log(JSON.stringify(data))
+							data = data["DataSource"]["Tables"][0]["Datas"]
+							data = [
+								{
+									OrderID: '1',
+									OrderCode: "EXAMR201703281488920",
+									OrderName: "B栋北侧逃生通道堵塞问题整改",
+									RectifyTime: "2017年8月19日--2017年8月27日",
+									OrganiseUnitName: "行政办公区A1项目部东区1号楼材料库",
+									RectifyResult: 1,
+								},
+								{
+									OrderID: '2',
+									OrderCode: "EXAMR201703281488920",
+									OrderName: "A栋管道井封闭门关不上",
+									RectifyTime: "2017年8月19日--2017年8月27日",
+									OrganiseUnitName: "行政办公区A1项目部东区1号楼材料库",
+									RectifyResult: 2,
+								},
+							]
 							setHtml(data);
-//						},
-//						
-//						error: function(){
-//							mui.toast('数据请求失败')
-//						}
-//					});
-					
-					
+						},
+						error: function(){
+							mui.toast('数据请求失败')
+						}
+					});
+
 					function setHtml (data) {
 						var html = '';
-//						var len = data.length;
-						for( var i = 0; i<5; i++ ){
+						var len = data.length;
+						for( var i = 0; i<len; i++ ){
 							var item = data[i];
-							html += '<div class="approve_con" >'+
+							console.log(item)
+							html += '<div class="approve_con"  data-id="'+ item.OrderID +'">'+
 									    	'<h1 id="approve_title">消防泵</h1>'+
 									    	'<div><span class="span_left">设备编号：JSD00-94234</span><span class="span_right">报修时间：2017-09-22 14:34:23</span></div>'+
 									    	'<div><span class="span_left">故障类型：运行损坏</span><span class="span_right">故障原因：</span></div>'+
@@ -115,35 +128,18 @@
 					};
 				}
 
-
-				mui.ready(function() {
-					
+				mui.ready(function() {				
 					//点击进入详情页面
 					mui('#approveWraper').on('tap', '.approve_con', function() {
-//						var code = this.firstChild.value;
-//						var code = this.getAttribute("data-code")
-//						localStorage.setItem('userNumCode', code)
 						var id = this.getAttribute("data-id");
-						
 						mui.openWindow({
 							url: 'feature_page_approve_01.html',
 							id: 'feature_page_approve_01.html',
-							styles: {
-								top: 0, //新页面顶部位置
-								bottom: 0, //新页面底部位置
-							},
 							extras: {
 								info:{
 									id:id
 								}
 							},
-							show: {
-								duration: '300'
-							},
-							waiting: {
-								autoShow: true, //自动显示等待框，默认为true
-								title: '加载中...', //等待对话框上显示的提示内容
-							}
 						});
 					})
 				})
