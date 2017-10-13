@@ -96,24 +96,15 @@
 			
 				mui.plusReady(function() {
 					var selfView = plus.webview.currentWebview();
-//					OrganiseUnitID = selfView.info.id;
-					
-					//初始化的时候默认值是 2
-//					getData(initState)
+
 				})
 
 				mui.ready(function() {
 					
 					//点击进入详情页面
-//					整改审批
-					mui('#grid_list').on('tap', '.feature_list_1', function() {
-//						var code = this.firstChild.value;d
-						var code = this.getAttribute("data-code")
-						localStorage.setItem('userNumCode', code)
-						
+					//整改审批
+					mui('#grid_list').on('tap', '.feature_list_1', function() {						
 						mui.openWindow({
-//							url: 'Equipment_state_query.html',
-//							id: 'Equipment_state_query.html',
 							url: 'feature_page_audit.html',
 							id: 'feature_page_audit.html',
 							styles: {
@@ -133,15 +124,10 @@
 						});
 					});
 					
-//					整改下单
+					//整改下单
 					mui('#grid_list2').on('tap', '.feature_list_2', function() {
-//						var code = this.firstChild.value;d
-						var code = this.getAttribute("data-code")
-						localStorage.setItem('userNumCode', code)
 						
 						mui.openWindow({
-//							url: 'Equipment_state_query.html',
-//							id: 'Equipment_state_query.html',
 							url: 'feature_page_order.html',
 							id: 'feature_page_order.html',
 							styles: {
@@ -164,10 +150,6 @@
 					
 				//	维修审批
 					mui('#grid_list3').on('tap', '.feature_list_3', function() {
-//						var code = this.firstChild.value;d
-						var code = this.getAttribute("data-code")
-						localStorage.setItem('userNumCode', code)
-						
 						mui.openWindow({
 							url: 'feature_page_approve.html',
 							id: 'feature_page_approve.html',
@@ -186,8 +168,7 @@
 								title: '加载中...', //等待对话框上显示的提示内容
 							}
 						});
-					})
-					
+					})					
 				})
 			})();
 		</script>
