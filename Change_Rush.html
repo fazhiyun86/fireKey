@@ -84,7 +84,6 @@
 					var selfView = plus.webview.currentWebview();
 //					OrganiseUnitID = selfView.info.id;
 					
-					//初始化的时候默认值是 2
 //					getData(initState)
 					var data = [
 						{
@@ -104,9 +103,10 @@
 							UrgeDate: '催办时间2',
 						} 
 					]
-					setHtml(data);
-//					CuibanSubmit(data);
 					
+					setHtml(data);
+
+					CuibanSubmit_tab1();
 				});
 				
 				function setHtml (data) {
@@ -202,7 +202,8 @@
 						dataType: 'json',
 						type: 'get', 
 						timeout: 5000,
-						success: function(data){	
+						success: function(data){
+							console.log("故障隐患请求")
 							console.log(JSON.stringify(data));
 							$("#ChangeWrap").remove();
 						},					
@@ -222,9 +223,10 @@
 						dataType: 'json',
 						type: 'get', 
 						timeout: 5000,
-						success: function(data){	
-						console.log(JSON.stringify(data));
-					},					
+						success: function(data){
+							console.log("已催办整改")
+							console.log(JSON.stringify(data));
+						},					
 						error: function(){
 							mui.toast('数据请求失败');
 						}
@@ -241,7 +243,8 @@
 						dataType: 'json',
 						type: 'get', 
 						timeout: 5000,
-						success: function(data){	
+						success: function(data){
+							console.log("逾期未整改")
 							console.log(JSON.stringify(data));
 							$("#ChangeWrap").remove();
 						},					
