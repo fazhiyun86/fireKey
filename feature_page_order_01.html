@@ -100,6 +100,7 @@
 						StartDate: localStorage.getItem("startTime"),
 						EndDate: localStorage.getItem("endTime")
 					}
+					console.log(JSON.stringify(data))
 					
 					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAMRectifyList?dataKey=00-00-00-00';			
 					mui.ajax(urlg, {
@@ -109,26 +110,26 @@
 						timeout: 5000,
 						success: function(data){
 							console.log(JSON.stringify(data))
-//							data = data["DataSource"]["Tables"][0]["Datas"]
-
-							data = [
-								{
-									OrderID: '1',
-									OrderCode: "EXAMR201703281488920",
-									OrderName: "B栋北侧逃生通道堵塞问题整改",
-									RectifyTime: "2017年8月19日--2017年8月27日",
-									OrganiseUnitName: "行政办公区A1项目部东区1号楼材料库",
-									RectifyResult: 1,
-								},
-								{
-									OrderID: '2',
-									OrderCode: "EXAMR201703281488920",
-									OrderName: "A栋管道井封闭门关不上",
-									RectifyTime: "2017年8月19日--2017年8月27日",
-									OrganiseUnitName: "行政办公区A1项目部东区1号楼材料库",
-									RectifyResult: 2,
-								},
-							]
+							data = data["DataSource"]["Tables"][0]["Datas"]
+							
+//							data = [
+//								{
+//									OrderID: '1',
+//									OrderCode: "EXAMR201703281488920",
+//									OrderName: "B栋北侧逃生通道堵塞问题整改",
+//									RectifyTime: "2017年8月19日--2017年8月27日",
+//									OrganiseUnitName: "行政办公区A1项目部东区1号楼材料库",
+//									RectifyResult: 1,
+//								},
+//								{
+//									OrderID: '2',
+//									OrderCode: "EXAMR201703281488920",
+//									OrderName: "A栋管道井封闭门关不上",
+//									RectifyTime: "2017年8月19日--2017年8月27日",
+//									OrganiseUnitName: "行政办公区A1项目部东区1号楼材料库",
+//									RectifyResult: 2,
+//								},
+//							]
 							setHtml(data);
 						},
 						error: function(){
@@ -143,6 +144,7 @@
 						var html ='';
 						for (var i=0; i < len; i++){
 							var item = data[i];
+							console.log(item.RectifyResult)
 							html += '<div id="ChangeWrap" class="'+ setIcon(item.RectifyResult) +'">\
 											<div class="change_con_left change_con_left1" data-id="'+item.OrderID+'">\
 												<p class="'+ setFont(item.RectifyResult) +'">'+(item.OrderName || 0)+'</p>\
@@ -154,18 +156,18 @@
 						}
 						
 						function setIcon(status){
-//							console.log(status);
+							console.log();
 							var html ='';
 							switch(status){
-								case 1: 
+								case '1': 
 									html += 'ChangeWrap1';
 								break;
 								
-								case 2:
+								case '2':
 									html += 'ChangeWrap2';
 								break;
 								
-								case 3:
+								case '3':
 									html += 'ChangeWrap3';
 								break;
 								
@@ -176,15 +178,15 @@
 						function setFont(status){
 							var html ='';
 							switch(status){
-								case 1: 
+								case '1': 
 									html += 'p1';
 								break;
 								
-								case 2:
+								case '2':
 									html += 'p2';
 								break;
 								
-								case 3:
+								case '3':
 									html += 'p3';
 								break;
 								
@@ -202,18 +204,18 @@
 					//点击进入详情页面
 					mui('#change_con_wrapper').on('tap', '.change_con_left', function() {
 						
-						var id = this.getAttribute("data-id");
+						var taskId = this.getAttribute("data-id");
 
 						mui.openWindow({
 							url: 'Change_Rush_detail.html',
 							id: 'Change_Rush_detail.html',
 							styles: {
 								top: 0, //新页面顶部位置
-								bottom: 0, //新页面底部位置
+								bottom: 0, //新页面底部位置 
 							},
 							extras: {
 								info:{
-									id:id
+									id:taskId
 								}
 							},
 							show: {

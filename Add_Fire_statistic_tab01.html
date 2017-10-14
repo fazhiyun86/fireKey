@@ -70,13 +70,13 @@
 					<div class="list-wrapper">
 						<div class="mui-content Equipment_patrol_con ">
 							<div id="certificSend" class="content-wrap">
-								<p id="noWord" class="no-word">
+								<!--<p id="noWord" class="no-word">
 									<img src="images/loading.gif" alt="" />
-								</p>
+								</p>-->
 								
-								<!--<section class="box-item">
+								<section class="box-item">
 									<div id="weekSum1" style="width: 100%;height:170px;"></div>
-								</section>-->
+								</section>
 								
 							</div>
 						</div>
@@ -88,7 +88,7 @@
 		<script src="js/mui.min.js"></script>
 		<script src="js/echarts.min.js"></script>
 		<script src="js/common.js"></script>
-		<!--<script>
+		<script>
 			(function($){
 				var myChart1 = echarts.init(document.getElementById('weekSum1'));
 				
@@ -102,7 +102,18 @@
 		            tooltip: {},
 		            color: ["#eaa906"],
 		            xAxis: {
-		                data: ["周一","周二","周三","周四","周五","周六","周日"]
+		            	splitLine:{
+				    		show:true,
+				    		lineStyle: {
+				    			color:['#ccc'],
+				    			type: 'dotted',
+				    		}
+				    	},
+					    axisTick :{
+				    		inside: 'true',
+				    		length: 0,
+				    	},
+		                data: ['1','2','3','4','5','6','7','8','9','10','11','12'],
 		            },
 				    grid: {
 				        left: '3%',
@@ -111,11 +122,31 @@
 				        top: '15%',
 				        containLabel: true
 				    },
-		            yAxis: {},
+		            yAxis: {
+//			    		type: 'value',	    	
+		            	splitLine:{
+				    		show: false,
+				    	},
+				    	axisTick :{
+				    		inside: 'true',
+				    		length: 0,
+				    	},
+			    		nameLocation: 'start',
+//			    		data : ['0','20','40','60','80'],
+		            },
 		            series: [{
 		                name: '销量',
-		                type: 'bar',
-		                data: [5, 20, 36, 10, 10, 20, 10]
+		                type: 'line',
+				    	data:[43, 25, 37, 45, 24, 61,25,17,21,7],
+						itemStyle: {
+	                    	normal: {				                    		                  
+	                    		color: '#92d050',
+	                    		lineStyle: {
+	                    			color:'#c09205',
+	                    			width:'2',
+	                    		}
+	                    	},
+	                    },
 		            }]
 		        };
 		        
@@ -123,7 +154,7 @@
 		        
 
 	        })(mui)
-		</script>-->
+		</script>
 		
 		<script>
 			(function(){
@@ -148,6 +179,7 @@
 						type:'get',
 						timeout: 5000,            
 						success: function(data){
+							console.log(JSON.stringify(data))
 							var optionsArr = common.barChartsDataChange(data['DataSource']['Tables']);
 							var len = optionsArr.length;
 							
@@ -194,9 +226,8 @@
 					}
 				}
 				
-//				var myChart1 = echarts.init(document.getElementById('weekSum1'));
-
-//		        myChart1.setOption(option);
+				var myChart1 = echarts.init(document.getElementById('weekSum1'));
+		        myChart1.setOption(option);
 		        
 	        	mui(".mui-scroll-wrapper").scroll({
 					bounce: false,//滚动条是否有弹力默认是true

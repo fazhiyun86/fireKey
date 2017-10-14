@@ -441,7 +441,15 @@ mui.plusReady(function() {
 
 	//隐患整改
 	function WebApp_GetRectify(UnitCode) {
-		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetRectify?dataKey=00-00-00-00&UnitCode=' + UnitCode;
+		
+		var data = {
+			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
+			StartDate: localStorage.getItem("startTime"),
+			EndDate: localStorage.getItem("endTime")
+		}
+		
+		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_EXAMRectify_Statistical?dataKey=00-00-00-00&UnitCode=' + UnitCode;
+		
 		console.log(urlg)
 		mui.ajax(urlg, {
 			data: null,
@@ -450,23 +458,24 @@ mui.plusReady(function() {
 			timeout: 5000,
 			success: function(data) {
 				//服务器返回响应，根据响应结果，分析是否登陆成功
+				console.log(JSON.stringify(data))
 				var getDatas = data['DataSource']['Tables'][0]['Datas'];
-
+				 
 				if(getDatas[0].total != 0) {
-					document.getElementById("yh1").innerHTML = getDatas[0].totalFinished + '/' + getDatas[0].total;
+					document.getElementById("yinhuan1").innerHTML = getDatas[0].totalFinished + '/' + getDatas[0].total;
 				} else {
-					document.getElementById("yh1").innerHTML = '0/0';
+					document.getElementById("yinhuan1").innerHTML = '0/0';
 				}
 
 				if(getDatas[0].totalExpried == 0) {
-					document.getElementById("yh2").innerHTML = 0;
+					document.getElementById("yinhuan2").innerHTML = 0;
 				} else {
-					document.getElementById("yh2").innerHTML = getDatas[0].totalExpried;
+					document.getElementById("yinhuan2").innerHTML = getDatas[0].totalExpried;
 				}
 				if(getDatas[0].totalAccep == 0) {
-					document.getElementById("yh3").innerHTML = 0;
+					document.getElementById("yinhuan3").innerHTML = 0;
 				} else {
-					document.getElementById("yh3").innerHTML = getDatas[0].totalAccep;
+					document.getElementById("yinhuan3").innerHTML = getDatas[0].totalAccep;
 				}
 
 			},
@@ -696,8 +705,85 @@ mui.plusReady(function() {
 		}
 	}
 
+	//隐患整改
+	function WebApp_GetRectify (){
+		
+		var data ={
+			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
+			StartDate: localStorage.getItem("startTime"),
+			EndDate: localStorage.getItem("endTime")
+		};
+		
+		var urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_EXAMRectify_Statistical?dataKey=00-00-00-00';
+		
+		mui.ajax(urlg, {
+			data: data,
+			dataType: 'json',
+			type: 'get',
+			timeout: 5000,
+			success: function(data){
+				setHtml(data)
+			},
+			
+			error: function(){
+				mui.toast('数据请求失败')
+				console.log("设备维修请求报错")
+			}
+		});
+		
+		function setHtml(data){
+			var info = data['DataSource']['Tables'][0]["Datas"][0];
+			var RectifyTotal = info["RectifyTotal"]; //故障设备
+			var ToDayRectify = info["ToDayRectify"]; //维修数量
+			var RectifyCheck = info["RectifyCheck"];  //维修审批
+		
+			document.getElementById("yinhuan1").innerHTML = RectifyTotal || 0;
+			document.getElementById("yinhuan2").innerHTML = ToDayRectify || 0;
+			document.getElementById("yinhuan3").innerHTML = RectifyCheck || 0;
+		}
+	}
+	WebApp_GetRectify ();
 	
-
+	
+	//整改催办
+	function WebApp_GetChange(){
+		
+		var data ={
+			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
+			StartDate: localStorage.getItem("startTime"),
+			EndDate: localStorage.getItem("endTime")
+		};
+		
+		var urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_EXAMRectifyUrge_Statistical?dataKey=00-00-00-00';
+		
+		mui.ajax(urlg, {
+			data: data,
+			dataType: 'json',
+			type: 'get',
+			timeout: 5000,
+			success: function(data){
+				console.log(JSON.stringify(data))
+				setHtml(data)
+			},
+			
+			error: function(){
+				mui.toast('数据请求失败')
+				console.log("设备维修请求报错")
+			}
+		});
+		
+		function setHtml(data){
+			var info = data['DataSource']['Tables'][0]["Datas"][0];
+			var CurrentRectify = info["CurrentRectify"]; //故障设备
+			var UrgeRectify = info["UrgeRectify"]; //维修数量
+			var Beyond = info["Beyond"];  //维修审批
+		
+			document.getElementById("zhenggai1").innerHTML = CurrentRectify || 0;
+			document.getElementById("zhenggai2").innerHTML = UrgeRectify || 0;
+			document.getElementById("zhenggai3").innerHTML = Beyond || 0;
+		}
+	}
+	WebApp_GetChange ();
 	
 	//设备维修
 	function WebApp_EquipmentOperat (){
@@ -731,12 +817,17 @@ mui.plusReady(function() {
 			var TodayRepairCount = info["TodayRepairCount"]; //维修数量
 			var WeekRepairCount = info["WeekRepairCount"];  //维修审批
 			
-			document.getElementsByClassName("Operat1")[0].innerHTML = RepairCoun || 0;
-			document.getElementsByClassName("Operat2")[0].innerHTML = TodayRepairCount || 0;
-			document.getElementsByClassName("Operat3")[0].innerHTML = WeekRepairCount || 0;
+//			document.getElementsByClassName("Operat1")[0].innerHTML = RepairCoun || 0;
+//			document.getElementsByClassName("Operat2")[0].innerHTML = TodayRepairCount || 0;
+//			document.getElementsByClassName("Operat3")[0].innerHTML = WeekRepairCount || 0;
 		}
 		
 	}
+	
+	
+	
+	
+	
 	
 //	WebApp_EquipmentOperat();
 	

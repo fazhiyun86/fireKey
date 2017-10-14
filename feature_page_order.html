@@ -105,20 +105,20 @@
 						    	<div class="p_text">整改单号：EXAMR201703281488987</div>	
 						    	<div class="p_tit">
 						    		<legend>通知名称：</legend>
-						    		<input class="informName" type="text" name="" id="" value="cdesf" />
+						    		<input class="informName" type="text" name="" id="" value="" />
 						    	</div>		  
 						    	<div class="p_tit tit2">
 						    		<legend>整改对象：</legend>
-						    		<input type="text" name="" id="zhenggaidx"/>
+						    		<input class="areadx" type="text" name="" id="zhenggaidx" value=""/>
 						    		<span  id="aresChoose" class="obje" style="display: block; width: 6px; height: 6px;"><img src="images/arrow_r.png" style="width: 100%; height: auto;"/></span>
-						    	</div>			    	
+						    	</div>			     	
 						    	<div class="p_inp">
 						    		<p>整改内容：</p>
-						    		<textarea class="changeCon" name="txt" clos="100" rows="3" warp="virtual" placeholder="">vfd</textarea>
+						    		<textarea class="changeCon" name="txt" clos="100" rows="3" warp="virtual" placeholder=""></textarea>
 						    	</div>		    	
 						    	<div class="p_inp">
 						    		<p>整改说明：</p>
-						    		<textarea class="changeInf" name="txt" clos="100" rows="3" warp="virtual" placeholder="">fds</textarea>
+						    		<textarea class="changeInf" name="txt" clos="100" rows="3" warp="virtual" placeholder=""></textarea>
 						    	</div>
 						    	<div class="border_line"></div>
 						    	<div id="time_limit" style="width: 100%; height: auto;" data-time="">整改期限：2017年8月27日&nbsp;&nbsp;19时30分<span class="timer" style="display: block; width: 7px; height: 7px;" href="#popover" id="openPopover" class="mui-btn mui-btn-primary mui-btn-block"><img src="images/arrow_r.png" style="width: 100%; height: auto;"/></span>
@@ -141,6 +141,7 @@
 		<script src="js/jquery.min.js"></script>
 		<script src="js/mui.min.js"></script>
 		<script src="js/mui.picker.min.js"></script>
+		<script src="js/common.js"></script>
 		<script type="text/javascript">
 			(function(){
 				mui.init({
@@ -155,7 +156,6 @@
 				mui.plusReady(function() {
 					var selfView = plus.webview.currentWebview();
 //					OrganiseUnitID = selfView.info.id;
-					
 					setSubCompany()
 				});
 				
@@ -165,12 +165,12 @@
 				function setSubCompany () {
 			
 					var data = {
-						UserID: localStorage.getItem("userCodeVa"),
+						OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
+
 					}
-					console.log("问题: UserID 不确定,")
-					console.log(JSON.stringify(data))
+						console.log( localStorage.getItem("UserOrganiseUnitID"))
 					
-					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetOrganiseUnit?dataKey=00-00-00-00';
+					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_GetChildrenOrganiseUnitAndRegion?dataKey=00-00-00-00';
 					
 					mui.ajax(urlg, {
 						data: data, 
@@ -178,17 +178,20 @@
 						type: 'get',
 						timeout: 5000,
 						success: function(data){
-							console.log('JSON.stringify(data)')
-							console.log(JSON.stringify(data))
-							data = data['DataSource']['Tables'][0]['Datas'];
-							setSubCompanyHtml(data)
+//							data1 = data1['DataSource']['Tables'][0]['Datas'];
+//							data2 = data1['DataSource']['Tables'][1]['Datas'];
+							data = data['DataSource']['Tables']
+							 
+							var t = common.formateArea(data);
+							setSubCompanyHtml(t)
 						},
 						error: function(){
 							mui.toast('数据请求失败')
 							console.log("低风险请求数据失败!")
 						}
 					});
-				
+					
+					//侧滑拼接
 					function setSubCompanyHtml(data){
 						var html = '';
 						var len = data.length;
@@ -197,12 +200,12 @@
 							html += '<div class="lists" data-id=" item.OrganiseUnitID ">'+
 						        		'<div id="topid" class="listTop">'+
 						        			'<div class="list_bt">'+
-						        			'<p class="p1">'+ (item.OrganiseUnitCode) +'</p>'+
-						        			'<p class="p2">'+ (item.OrganiseUnitName) +'</p>'+
+						        			'<p class="p1">'+ (item.OrganiseUnitName) +'</p>'+
+						        			'<p class="p2">'+ (item.ParentOrganiseUnitName) +'</p>'+
 						        			'</div>'+
 						        			'<span id="show" class="show"><img src="images/arrow_2.png"/></span>'+
 						        		'</div>'+
-						        		'<ul id="hide" class="list_del">'+ setLi([]) +
+						        		'<ul id="hide" class="list_del" id="'+item.OrganiseUnitID+'">'+ setLi(item.children) +
 						        		'</ul>'+
 						        	'</div>';
 						}
@@ -211,14 +214,18 @@
 							var html = '';
 							var len = areaData.length;
 							
-							for( var j=0; j<2; j++ ){
-						        html += '<li class="areali">东区-1号楼</li>';
+							for( var j=0; j < len; j++ ){
+								var item = areaData[j];
+								
+						        html += '<li class="areali" data-area="'+ item.RegionID +'">'+ item.FullName +'</li>';
 						    }
 							return html;
 						}
+						
 					    document.getElementById('area_con_list').innerHTML = html;
 					}
 				}
+				
 				//侧滑二级菜单的点击样式
 				mui('.area_con_list').on('tap','.lists', function(e){
 					if($(this).find("#hide").is(":hidden")){
@@ -229,11 +236,8 @@
 					    $(this).find("img").removeClass("rotating")
 					}
 				});
-				
-				
-			
+
 				mui.ready(function() {
-	
 					//时间选择弹出框
 					mui(document).on('tap','#time_limit', function() {
 						var dtpicker = new mui.DtPicker({
@@ -241,7 +245,7 @@
 						}) ;
 						
 						dtpicker.show(function(rs) {
-							var timeValue = '整改期限' + ':  ' + rs.y.value + '年' + rs.m.value + '月' + rs.d.value  + '日' + rs.h.value + '时' + rs.i.value + '分';
+							var timeValue = '整改期限' + ':' + ' ' + rs.y.value + '年' + rs.m.value + '月' + rs.d.value  + '日' + ' ' + ' ' + rs.h.value + '时' + rs.i.value + '分';
 							console.log (timeValue);
 							$('#time_limit').text(timeValue)
 							var timeVal = rs.y.value + '-' + rs.m.value + '-' + rs.d.value  + ' ' + rs.h.value + ':' + rs.i.value;
@@ -253,7 +257,6 @@
 					document.getElementById("btn").addEventListener('tap', function(e) {
 						//请求
 						sendRequest();
-						
 						if($("#complete").is(":hidden")){
 						    $("#complete").show();    //如果元素为隐藏,则将它显现
 						}
@@ -265,16 +268,16 @@
 					
 					function sendRequest () {
 						
-						urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/EXAM_ExamineRectify_ImportOne?dataKey=00-00-00-00';
-						
 						var data = getParams();
 						
+						urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/EXAM_ExamineRectify_ImportOne?dataKey=00-00-00-00';
 						mui.ajax(urlg, {
 							data: data, 
 							dataType: 'json',
 							type: 'get',
 							timeout: 5000,
 							success: function(data){
+								console.log(JSON.stringify(data)) 
 								mui.toast('整改通知已下达')
 							},
 							error: function(){
@@ -282,9 +285,9 @@
 								console.log("低风险请求数据失败!")
 							}
 						});
-					}
+					};
 					
-					// 获取参数
+					// 下单通知获取参数
 					function getParams () {
 						var data = {}
 						
@@ -312,48 +315,23 @@
 						data.changeInf = $('.changeInf').val();
 						data.changeTime = $('#time_limit').attr('data-time');
 						
-						console.log(JSON.stringify(data));
+
 						
 						return data;
 					};
 					
+					//时间弹出窗
 					document.getElementById('openPopover').addEventListener('tap', function() {
 						mui('.mui-popover').popover('toggle',document.getElementById("openPopover"));
 					});
 				});
 				
-				function setHtml(data){
-					var html = '';
-					for( var i=0; i<2; i++ ){
-						html += '<div class="lists">'+
-					        		'<div id="topid" class="listTop">'+
-					        			'<div class="list_bt">'+
-					        			'<p class="p1">行政办公区A1工程</p>'+
-					        			'<p class="p2">北京城建集团</p>'+
-					        			'</div>'+
-					        			'<span id="show" class="show"><img src="images/arrow_2.png"/></span>'+
-					        		'</div>'+
-					        		'<ul id="hide" class="list_del">'+
-					        			setLi()+
-					        		'</ul>'+
-					        	'</div>';
-					}
-					function setLi(){
-						var html = '';
-						for( var j=0; j<2; j++ ){
-					        html += '<li class="areali">东区-1号楼</li>';
-					    }
-						return html;
-					}
-				    document.getElementById('area_con_list').innerHTML = html;
-				}
-				setHtml();
-				
 				mui(document).on('tap','.areali', function() {
-					alert(1)
-//					var dtpicker = new mui.DtPicker({
-//						"value":"2015-10-10 10:10","beginYear":2010,"endYear":2020
-//					}) ;
+
+					var areali = $(this).text();
+					var dc = $("#zhenggaidx").val(areali);
+//					dc.value
+//					$('areadx").val(areali);
 //						
 //					dtpicker.show(function(rs) {
 //						var timeValue = '整改期限' + ':  ' + rs.y.value + '年' + rs.m.value + '月' + rs.d.value  + '日' + rs.h.value + '时' + rs.i.value + '分';

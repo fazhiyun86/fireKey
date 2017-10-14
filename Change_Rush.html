@@ -83,28 +83,6 @@
 				mui.plusReady(function() {
 					var selfView = plus.webview.currentWebview();
 //					OrganiseUnitID = selfView.info.id;
-					
-//					getData(initState)
-					var data = [
-						{
-							OrderID: '整改单ID1',
-							OrderCode: '整改单号1',
-							OrderName: '整改单名称1',
-							RectifyTime: '2017年8月19日--2017年8月27日',
-							IsUrge: '0',
-							UrgeDate: '催办时间1',
-						}, 
-						{
-							OrderID: '整改单ID2',
-							OrderCode: '整改单号2',
-							OrderName: '整改单名称2',
-							RectifyTime: '整改期限2',
-							IsUrge: '1',
-							UrgeDate: '催办时间2',
-						} 
-					]
-					
-					setHtml(data);
 
 					CuibanSubmit_tab1();
 				});
@@ -160,6 +138,8 @@
 						type: 'get', 
 						timeout: 5000,
 						success: function(data){	
+							data = data["DataSource"]["Tables"][0]["Datas"];
+							
 //							console.log(JSON.stringify(data));
 							$("#ChangeWrap").remove();
 							setHtml(data);
@@ -203,9 +183,13 @@
 						type: 'get', 
 						timeout: 5000,
 						success: function(data){
+							data = data["DataSource"]["Tables"][0]["Datas"];
+							
 							console.log("故障隐患请求")
 							console.log(JSON.stringify(data));
+							
 							$("#ChangeWrap").remove();
+							setHtml(data);
 						},					
 						error: function(){
 							mui.toast('数据请求失败');
@@ -224,8 +208,12 @@
 						type: 'get', 
 						timeout: 5000,
 						success: function(data){
+							data = data["DataSource"]["Tables"][0]["Datas"];
+							
 							console.log("已催办整改")
 							console.log(JSON.stringify(data));
+							setHtml(data);
+							
 						},					
 						error: function(){
 							mui.toast('数据请求失败');
@@ -244,9 +232,13 @@
 						type: 'get', 
 						timeout: 5000,
 						success: function(data){
+							data = data["DataSource"]["Tables"][0]["Datas"];
+							
 							console.log("逾期未整改")
 							console.log(JSON.stringify(data));
 							$("#ChangeWrap").remove();
+							setHtml(data);
+							
 						},					
 						error: function(){
 							mui.toast('数据请求失败');

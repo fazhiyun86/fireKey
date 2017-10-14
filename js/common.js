@@ -417,7 +417,37 @@
 		var classVal = oNode.getAttribute("class");
 		classVal = classVal.concat(" hide");
 		oNode.setAttribute("class", classVal );
+	}
+	/**
+	 * 
+	 * @param {Object} data
+	 */
+	common.formateArea = function (data) {
+		var originDataArr = data[0]["Datas"];
+		var subDataArr = data[1]["Datas"];
+		
+		var oriLen = originDataArr.length;
+		var valLen = subDataArr.length;
+		
+		var result = [];
+		
+		for(var i = 0; i < oriLen; i++) {
+			var item = originDataArr[i];
+			var index = item.OrganiseUnitID;
+			item.children = [];
 
+			var title = item.CompanyName;
+			for(var j = 0; j < valLen; j++) {
+				var jtem = subDataArr[j]
+				
+				if(index == jtem.OrganiseUnitID) {
+					item.children.push(jtem);
+				}
+			}
+			
+			result.push(item);
+		}
+		return result;
 	}
 	
 	window.common = common
