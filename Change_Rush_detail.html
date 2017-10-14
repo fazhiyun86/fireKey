@@ -116,34 +116,29 @@
 				
 				mui.plusReady(function() {
 					var selfView = plus.webview.currentWebview();
-//					OrganiseUnitID = selfView.info.id;
-//					console.log(OrganiseUnitID)
+					OrganiseUnitID = selfView.info.id;
+					console.log(OrganiseUnitID)
 //					console.log("隐患整改审批的ID 还没测试");
-					
-					var testId = 1
-					WebApp_ChangerushDetail(testId)
-					
+					WebApp_ChangerushDetail(OrganiseUnitID)
 				});
 
 				function WebApp_ChangerushDetail(OrganiseUnitID){
 	
 					var data = {
-						OrderID: OrganiseUnitID
+						OrderID: OrganiseUnitID,
 					}
-
-					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/TZDH_WebApp_EXAMRectifyDetail?dataKey=00-00-00-00';
-					
+					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAMRectifyDetail?dataKey=00-00-00-00';	
 					mui.ajax(urlg, {
 						data: data,
 						dataType: 'json',
 						type: 'get',
 						timeout: 5000,
 						success: function(data){
-							console.log("整改催办，详情数据。");
+
+							console.log(JSON.stringify(data));
 							setHtml();
 						},
 						error: function(){
-							console.log("整改催办，详情数据。请求失败");
 							mui.toast('数据请求失败')
 						}
 					});
@@ -233,7 +228,7 @@
 						
 						document.getElementById("changeWrap").innerHTML = html;
 					}
-			}
+				}
 
 			})();
 		</script>

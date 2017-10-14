@@ -89,6 +89,7 @@
 				mui.plusReady(function() {
 					var selfView = plus.webview.currentWebview();
 					ID = selfView.info.id;
+					console.log(ID)
 					WebApp_ApproveDdtail(ID);
 					
 				})
@@ -112,7 +113,7 @@
 						type: 'get',
 						timeout: 5000,
 						success: function(data){
-//							console.log(JSON.stringify(data))
+							console.log(JSON.stringify(data))
 							global_id = "data.OrderID"
 							var global_time = "data.OrderID";
 						},						

@@ -136,7 +136,7 @@
 		
 		<!--时间弹出框-->
 		<!--<div id="popover" class="mui-popover" style="background: #007AFF;">-->
-		  时间弹出
+		  <!--时间弹出-->
 		</div>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/mui.min.js"></script>
@@ -192,14 +192,13 @@
 					function setSubCompanyHtml(data){
 						var html = '';
 						var len = data.length;
-						
 						for( var i=0; i< len; i++ ){
-							var item = data[0];
-							html += '<div class="lists">'+
+							var item = data[i];
+							html += '<div class="lists" data-id=" item.OrganiseUnitID ">'+
 						        		'<div id="topid" class="listTop">'+
 						        			'<div class="list_bt">'+
-						        			'<p class="p1">行政办公区A1工程</p>'+
-						        			'<p class="p2">北京城建集团</p>'+
+						        			'<p class="p1">'+ (item.OrganiseUnitCode) +'</p>'+
+						        			'<p class="p2">'+ (item.OrganiseUnitName) +'</p>'+
 						        			'</div>'+
 						        			'<span id="show" class="show"><img src="images/arrow_2.png"/></span>'+
 						        		'</div>'+
@@ -213,11 +212,10 @@
 							var len = areaData.length;
 							
 							for( var j=0; j<2; j++ ){
-						        html += '<li>东区-1号楼</li>';
+						        html += '<li class="areali">东区-1号楼</li>';
 						    }
 							return html;
 						}
-						
 					    document.getElementById('area_con_list').innerHTML = html;
 					}
 				}
@@ -243,7 +241,7 @@
 						}) ;
 						
 						dtpicker.show(function(rs) {
-							var timeValue = rs.y.value + '年' + rs.m.value + '月' + rs.d.value  + '日' + rs.h.value + '时' + rs.i.value + '分'
+							var timeValue = '整改期限' + ':  ' + rs.y.value + '年' + rs.m.value + '月' + rs.d.value  + '日' + rs.h.value + '时' + rs.i.value + '分';
 							console.log (timeValue);
 							$('#time_limit').text(timeValue)
 							var timeVal = rs.y.value + '-' + rs.m.value + '-' + rs.d.value  + ' ' + rs.h.value + ':' + rs.i.value;
@@ -343,25 +341,35 @@
 					function setLi(){
 						var html = '';
 						for( var j=0; j<2; j++ ){
-					        html += '<li>东区-1号楼</li>';
+					        html += '<li class="areali">东区-1号楼</li>';
 					    }
 						return html;
 					}
 				    document.getElementById('area_con_list').innerHTML = html;
 				}
 				setHtml();
-
-				$("#hide li").on('tap', function(e) {
-					return($(this).text());
+				
+				mui(document).on('tap','.areali', function() {
+					alert(1)
+//					var dtpicker = new mui.DtPicker({
+//						"value":"2015-10-10 10:10","beginYear":2010,"endYear":2020
+//					}) ;
+//						
+//					dtpicker.show(function(rs) {
+//						var timeValue = '整改期限' + ':  ' + rs.y.value + '年' + rs.m.value + '月' + rs.d.value  + '日' + rs.h.value + '时' + rs.i.value + '分';
+//						console.log (timeValue);
+//						$('#time_limit').text(timeValue)
+//						var timeVal = rs.y.value + '-' + rs.m.value + '-' + rs.d.value  + ' ' + rs.h.value + ':' + rs.i.value;
+//						$('#time_limit').attr("data-time", timeVal)
+//					});
 				});
 //						
-								//侧滑容器父节点
+				//侧滑容器父节点
 				var offCanvasWrapper = mui('#offCanvasWrapper');
 
 				document.getElementById('zhenggaidx').addEventListener('tap', function() {
 					offCanvasWrapper.offCanvas('show');
-				});
-				
+				});				
 
 				 //主界面和侧滑菜单界面均支持区域滚动；
 				mui('#offCanvasSideScroll').scroll();
