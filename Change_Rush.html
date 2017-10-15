@@ -83,7 +83,6 @@
 				mui.plusReady(function() {
 					var selfView = plus.webview.currentWebview();
 //					OrganiseUnitID = selfView.info.id;
-
 					CuibanSubmit_tab1();
 				});
 				
@@ -94,16 +93,16 @@
 						var item = data[i];
 						html += '<div id="ChangeWrap" class="change-wrap">\
 							<div class="change_con_left" data-id="'+ item.OrderID +'">\
-								<p>B栋北侧逃生通道堵塞问题整改</p>\
+								<p>'+ item.OrderName +'</p>\
 								<span>整改单号：'+ item.OrderCode +'</span>\
 								<span>整改期限：'+ item.RectifyTime +'</span>\
 								<span>整改对象：'+ item.OrderName +'</span>\
 							</div>\
 							<div id="right">\
-								<div class="change_con_right '+ setColor(item.IsUrge) +'" data-status="'+ item.IsUrge +'">\
+								<div class="change_con_right '+ setColor(item.IsUrge) +'" data-status="'+ item.IsUrge +'" data-id="'+ item.OrderID +'">\
 									<a id="pop"></a>\
 								</div>\
-								<span>2017-8-12 15:32:27</span>\
+								<span>'+ item.UrgeDate +'</span>\
 							</div>\
 						</div>';
 					}	
@@ -125,22 +124,23 @@
 				};
 				
 //				催办提交			
-				function CuibanSubmit(){
+				function CuibanSubmit(ValueID){
 					var data = {
-						OrderID: localStorage.getItem("OrderID"),
-						UrgeUser: localStorage.getItem("UrgeUser"),
-						UrgeCompany: localStorage.getItem("UrgeCompany"),
+						OrderID: ValueID,
+						UrgeUser: localStorage.getItem("UserID"),
+						UrgeCompany: localStorage.getItem("UserOrganiseUnitID"),
 					};
-						urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAMRectifyUrge_ImportOne?dataKey=00-00-00-00';
+						urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/SendData/TZDH_WebApp_EXAMRectifyUrge_ImportOne?dataKey=00-00-00-00';
 					mui.ajax(urlg, {
 						data: data,
 						dataType: 'json',
-						type: 'get', 
+						type: 'post', 
 						timeout: 5000,
-						success: function(data){	
+						headers:{'Content-Type':'application/json'},						
+						success: function(data){
+							console.log("成功")
+//							console.log(JSON.stringify(data))
 							data = data["DataSource"]["Tables"][0]["Datas"];
-							
-//							console.log(JSON.stringify(data));
 							$("#ChangeWrap").remove();
 							setHtml(data);
 						},					
@@ -174,7 +174,7 @@
           		
 				function CuibanSubmit_tab1(){
 					var data = {
-						OrganiseUnitID: localStorage.getItem("OrganiseUnitID"),
+						OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
 					};
 					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAMRectify_NoUrgeList?dataKey=00-00-00-00';
 					mui.ajax(urlg, {
@@ -183,13 +183,11 @@
 						type: 'get', 
 						timeout: 5000,
 						success: function(data){
-							data = data["DataSource"]["Tables"][0]["Datas"];
-							
-							console.log("故障隐患请求")
-							console.log(JSON.stringify(data));
-							
+							console.log(JSON.stringify(data))
+							data = data["DataSource"]["Tables"][0]["Datas"];							
 							$("#ChangeWrap").remove();
 							setHtml(data);
+							
 						},					
 						error: function(){
 							mui.toast('数据请求失败');
@@ -199,7 +197,7 @@
 				
 				function CuibanSubmit_tab2(){
 					var data = {
-						OrganiseUnitID: localStorage.getItem("OrganiseUnitID"),
+						OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
 					};
 					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAMRectify_UrgeList?dataKey=00-00-00-00';
 					mui.ajax(urlg, {
@@ -208,22 +206,19 @@
 						type: 'get', 
 						timeout: 5000,
 						success: function(data){
+							console.log(JSON.stringify(data))
 							data = data["DataSource"]["Tables"][0]["Datas"];
-							
-							console.log("已催办整改")
-							console.log(JSON.stringify(data));
 							setHtml(data);
-							
 						},					
 						error: function(){
 							mui.toast('数据请求失败');
 						}
 					});
 				};
-				
+//				
 				function CuibanSubmit_tab3(){
 					var data = {
-						OrganiseUnitID: localStorage.getItem("OrganiseUnitID"),
+						OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
 					};
 					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAM_NoRectifyList?dataKey=00-00-00-00';
 					mui.ajax(urlg, {
@@ -232,13 +227,10 @@
 						type: 'get', 
 						timeout: 5000,
 						success: function(data){
-							data = data["DataSource"]["Tables"][0]["Datas"];
-							
-							console.log("逾期未整改")
 							console.log(JSON.stringify(data));
+							data = data["DataSource"]["Tables"][0]["Datas"];
 							$("#ChangeWrap").remove();
 							setHtml(data);
-							
 						},					
 						error: function(){
 							mui.toast('数据请求失败');
@@ -251,28 +243,31 @@
 				mui("#change_con").on('tap', '.change_con_right', function (e) {
 					var _this = this;
 					var statusValue = this.getAttribute("data-status");
+					var ValueID = this.getAttribute("data-id");
 					if (statusValue === "1") return false;
 					var btnArray = ['确认', '取消'];
 						mui.confirm('确认催办后，将向单位消防责任人和管理人同时发出整改催办信息。', '提示', btnArray, function(e) {
 						if (e.index == 0) {
-							CuibanSubmit();							
+							CuibanSubmit(ValueID);
 						} else {
 							// 取消
 						}
 					})
-			    });	
+			   });	
+			    
 					  				  			
 				mui.ready(function() {
 					
 					//点击进入详情页面
 					mui('#change_con').on('tap', '.change_con_left', function() {
-						var id = this.getAttribute("data-id");	
+						var ValueID = this.getAttribute("data-id");	
+						console.log(ValueID)
 						mui.openWindow({
-							url: 'Change_Rush_detail.html',
-							id: 'Change_Rush_detail.html',
+							url: 'Change_Rush_detail_cuiban.html',
+							id: 'Change_Rush_detail_cuiban.html',
 							extras: {
 								Info:{
-									id:id
+									orderID:ValueID
 								}
 							},
 						});

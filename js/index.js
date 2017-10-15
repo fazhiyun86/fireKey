@@ -1,7 +1,7 @@
 mui.init({
 	swipeBack: false,
 	gestureConfig: {
-		hold: true,
+		hold: true, 
 	},
 	keyEventBind: {
 		//		backbutton: true //关闭back按键监听
@@ -552,6 +552,7 @@ mui.plusReady(function() {
 				
 				var getDatas = data['DataSource']['Tables'][0]['Datas'];
 				localStorage.setItem('UserOrganiseUnitID', getDatas[0].OrganiseUnitID);
+				localStorage.setItem('UserID', getDatas[0].UserID);
 				localStorage.setItem('UserName', getDatas[0].UserName);
 				localStorage.setItem('UserOrganiseUnitName', getDatas[0].OrganiseUnitName);
 			}
@@ -575,8 +576,7 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			
-			success: function(data) {
-				
+			success: function(data) {	
 				setHtml(data)
 				plus.nativeUI.closeWaiting();
 			},
@@ -599,7 +599,6 @@ mui.plusReady(function() {
 			document.getElementById("AbnormalCount").innerHTML = AbnormalCount || 0; 
 			document.getElementById("AuditCount").innerHTML = AuditCount || 0; 
 			document.getElementById("Rate").innerHTML = Rate || 0;
-			
 		}
 	}
 	
@@ -882,7 +881,7 @@ mui.plusReady(function() {
 		WebApp_GetRiskHeight(); //重新获取高风的数据
 		WebApp_GetRisklow(); //低风险获取数据
 		WebApp_FireStatistical(); //动火统计
-		WebApp_EquipmentOperat(); // 设备维修
+//		WebApp_EquipmentOperat(); // 设备维修
 		WebApp_EquipmentStatus(); // 设备状态
 		
 		

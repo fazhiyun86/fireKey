@@ -52,40 +52,6 @@
 					        			<li>东区-3号楼</li>
 					        			<li>东区-4号楼</li>
 					        		</ul>
-					        	</div>
-					        	
-					        	<div class="lists">
-					        		
-					        		<div id="topid" class="listTop">
-					        			<div class="list_bt">
-					        			<p class="p1">行政办公区A1工程</p>
-					        			<p class="p2">北京城建集团</p>
-					        			</div>
-					        			<span id="show" class="show"><img src="images/arrow_2.png"/></span>
-					        		</div>
-					        		<ul id="hide" class="list_del">
-					        			<li>东区-1号楼</li>
-					        			<li>东区-2号楼</li>
-					        			<li>东区-3号楼</li>
-					        			<li>东区-4号楼</li>
-					        		</ul>
-					        	</div>
-					        	
-					        	<div class="lists">
-					        		
-					        		<div id="topid" class="listTop">
-					        			<div class="list_bt">
-					        			<p class="p1">行政办公区A1工程</p>
-					        			<p class="p2">北京城建集团</p>
-					        			</div>
-					        			<span id="show" class="show"><img src="images/arrow_2.png"/></span>
-					        		</div>
-					        		<ul id="hide" class="list_del">
-					        			<li>东区-1号楼</li>
-					        			<li>东区-2号楼</li>
-					        			<li>东区-3号楼</li>
-					        			<li>东区-4号楼</li>
-					        		</ul>
 					        	</div>-->
 					        	
 					        </div>
@@ -100,25 +66,25 @@
 						    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 						    <h1 class="mui-title">整改通知</h1>
 						</header>			
-						<div class="mui-content inform">
-						    <div class="inform_con">
-						    	<div class="p_text">整改单号：EXAMR201703281488987</div>	
+						<div class="mui-content inform" style="margin-top: 10px;">
+						    <div class="inform_con" style="height: auto;">
+<!--						    	<div class="p_text">整改单号：EXAMR201703281488987</div>	-->
 						    	<div class="p_tit">
 						    		<legend>通知名称：</legend>
-						    		<input class="informName" type="text" name="" id="" value="" />
+						    		<input class="informName" type="text" name="" id="" value="" style="font-size: 0.8rem; color: #000000;"/>
 						    	</div>		  
 						    	<div class="p_tit tit2">
 						    		<legend>整改对象：</legend>
-						    		<input class="areadx" type="text" name="" id="zhenggaidx" value=""/>
+						    		<input class="areadx" type="text" name="" id="zhenggaidx" value=""; style="font-size: 0.8rem; color: #000000;"/>
 						    		<span  id="aresChoose" class="obje" style="display: block; width: 6px; height: 6px;"><img src="images/arrow_r.png" style="width: 100%; height: auto;"/></span>
 						    	</div>			     	
 						    	<div class="p_inp">
 						    		<p>整改内容：</p>
-						    		<textarea class="changeCon" name="txt" clos="100" rows="3" warp="virtual" placeholder=""></textarea>
+						    		<textarea class="changeCon" name="txt" clos="100" rows="3" warp="virtual" placeholder=""  style="font-size: 0.9rem; color: #000000;"></textarea>
 						    	</div>		    	
 						    	<div class="p_inp">
 						    		<p>整改说明：</p>
-						    		<textarea class="changeInf" name="txt" clos="100" rows="3" warp="virtual" placeholder=""></textarea>
+						    		<textarea class="changeInf" name="txt" clos="100" rows="3" warp="virtual" placeholder="" style="font-size: 0.9rem; color: #000000;"></textarea>
 						    	</div>
 						    	<div class="border_line"></div>
 						    	<div id="time_limit" style="width: 100%; height: auto;" data-time="">整改期限：2017年8月27日&nbsp;&nbsp;19时30分<span class="timer" style="display: block; width: 7px; height: 7px;" href="#popover" id="openPopover" class="mui-btn mui-btn-primary mui-btn-block"><img src="images/arrow_r.png" style="width: 100%; height: auto;"/></span>
@@ -158,7 +124,7 @@
 //					OrganiseUnitID = selfView.info.id;
 					setSubCompany()
 				});
-				
+
 				/**
 				 * 获取自己以及下属单位
 				 */
@@ -166,9 +132,7 @@
 			
 					var data = {
 						OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
-
 					}
-						console.log( localStorage.getItem("UserOrganiseUnitID"))
 					
 					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_GetChildrenOrganiseUnitAndRegion?dataKey=00-00-00-00';
 					
@@ -187,7 +151,7 @@
 						},
 						error: function(){
 							mui.toast('数据请求失败')
-							console.log("低风险请求数据失败!")
+							console.log("请求数据失败!")
 						}
 					});
 					
@@ -240,9 +204,10 @@
 				mui.ready(function() {
 					//时间选择弹出框
 					mui(document).on('tap','#time_limit', function() {
+						var myDate = new Date();
 						var dtpicker = new mui.DtPicker({
-							"value":"2015-10-10 10:10","beginYear":2010,"endYear":2020
-						}) ;
+							"value":"2015-10-10 10:10","beginYear":2010,"endYear":myDate.getFullYear()
+						}) ; 
 						
 						dtpicker.show(function(rs) {
 							var timeValue = '整改期限' + ':' + ' ' + rs.y.value + '年' + rs.m.value + '月' + rs.d.value  + '日' + ' ' + ' ' + rs.h.value + '时' + rs.i.value + '分';
@@ -260,29 +225,29 @@
 						if($("#complete").is(":hidden")){
 						    $("#complete").show();    //如果元素为隐藏,则将它显现
 						}
-						
-//						setTimeout(function(){						
-//						 	window.location.href="feature_page_order_01.html";
-//						},2000)
 					});
 					
+					//提交请求
 					function sendRequest () {
 						
 						var data = getParams();
 						
-						urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/EXAM_ExamineRectify_ImportOne?dataKey=00-00-00-00';
+						urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/SendData/EXAM_ExamineRectify_ImportOne?dataKey=00-00-00-00';
+						console.log(urlg);
+						console.log(data);
 						mui.ajax(urlg, {
 							data: data, 
 							dataType: 'json',
-							type: 'get',
+							type: 'post',
 							timeout: 5000,
+							headers:{'Content-Type':'application/json'},
 							success: function(data){
-								console.log(JSON.stringify(data)) 
-								mui.toast('整改通知已下达')
+							console.log() 
+								mui.toast('整改通知已下达');
+						 		mui.back()
 							},
 							error: function(){
 								mui.toast('数据请求失败')
-								console.log("低风险请求数据失败!")
 							}
 						});
 					};
@@ -291,64 +256,44 @@
 					function getParams () {
 						var data = {}
 						
-						data.OrderName = ''; // 整改单ID
+						data.OrderName = $('.informName').val(); // 整改单ID
 						data.OrderType = '1'; // 整改单类型 1 手动
-						data.DataSrcType = ''; // 数据源类型 (1,选择;2,录入）
-						
-						data.ExamObjectType = ''; //整改对象类型 （1，组织机构；2，检查点）
-						
-						data.RectifyOrg = ''; // 整改对象ID
-						data.RectifyContent = ''; // 整改内容
-						data.RectifyDescript = ''; //整改说明
-						data.StartTime = ''; //
-						data.EndTime = ''; //
-						data.OrderUser = ''; //制单人
-						data.OrderCompany = ''; //制单单位  
+						data.DataSrcType = '2'; // 数据源类型 (1,选择;2,录入）
+						data.ExamObjectType = '2'; //整改对象类型 （1，组织机构；2，检查点）
+						data.RectifyOrg = $('#zhenggaidx').attr("data-area"); // 整改对象ID
+						data.RectifyContent = $('.changeCon').val(); // 整改内容
+						data.RectifyDescript = $('.changeInf').val(); //整改说明
+						data.StartTime = new Date().Format("yyyy-MM-dd hh:mm:ss"); //
+						data.EndTime = $('#time_limit').attr('data-time'); //
+						data.OrderUser = localStorage.getItem("UserID"); //制单人
+						data.OrderCompany = localStorage.getItem("UserOrganiseUnitID");; //制单单位  
 						data.OrderDepartment = ''; //制单部门
 						data.TaskID = ''; //检查任务ID   
 						data.TaskItemIDs = ''; //检查任务项目ID字符拼接串
-						data.ModifiedBy = ''; //登录人ID
-						
-						data.danHao = $('.p_text').text();
-						data.informName = $('.informName').val();
-						data.changeCon = $('.changeCon').val();
-						data.changeInf = $('.changeInf').val();
-						data.changeTime = $('#time_limit').attr('data-time');
-						
-
-						
-						return data;
+						data.ModifiedBy = localStorage.getItem("UserID"); //登录人ID
+//						console.log()
+						return JSON.stringify(data);
 					};
-					
 					//时间弹出窗
 					document.getElementById('openPopover').addEventListener('tap', function() {
 						mui('.mui-popover').popover('toggle',document.getElementById("openPopover"));
 					});
 				});
 				
+				//下属单位获取
 				mui(document).on('tap','.areali', function() {
-
-					var areali = $(this).text();
-					var dc = $("#zhenggaidx").val(areali);
-//					dc.value
-//					$('areadx").val(areali);
-//						
-//					dtpicker.show(function(rs) {
-//						var timeValue = '整改期限' + ':  ' + rs.y.value + '年' + rs.m.value + '月' + rs.d.value  + '日' + rs.h.value + '时' + rs.i.value + '分';
-//						console.log (timeValue);
-//						$('#time_limit').text(timeValue)
-//						var timeVal = rs.y.value + '-' + rs.m.value + '-' + rs.d.value  + ' ' + rs.h.value + ':' + rs.i.value;
-//						$('#time_limit').attr("data-time", timeVal)
-//					});
+					var areaLi = $(this).text();
+					var areaID = $(this).attr("data-area");
+					$("#zhenggaidx").val(areaLi);
+					$('#zhenggaidx').attr("data-area",areaID);
 				});
-//						
+				
 				//侧滑容器父节点
 				var offCanvasWrapper = mui('#offCanvasWrapper');
-
 				document.getElementById('zhenggaidx').addEventListener('tap', function() {
 					offCanvasWrapper.offCanvas('show');
 				});				
-
+				
 				 //主界面和侧滑菜单界面均支持区域滚动；
 				mui('#offCanvasSideScroll').scroll();
 				mui('#offCanvasContentScroll').scroll();

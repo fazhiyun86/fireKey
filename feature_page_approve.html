@@ -86,24 +86,6 @@
 						success: function(data){
 							console.log(JSON.stringify(data))
 							data = data["DataSource"]["Tables"][0]["Datas"]
-							data = [
-								{
-									OrderID: '1',
-									OrderCode: "EXAMR201703281488920",
-									OrderName: "B栋北侧逃生通道堵塞问题整改",
-									RectifyTime: "2017年8月19日--2017年8月27日",
-									OrganiseUnitName: "行政办公区A1项目部东区1号楼材料库",
-									RectifyResult: 1,
-								},
-								{
-									OrderID: '2',
-									OrderCode: "EXAMR201703281488920",
-									OrderName: "A栋管道井封闭门关不上",
-									RectifyTime: "2017年8月19日--2017年8月27日",
-									OrganiseUnitName: "行政办公区A1项目部东区1号楼材料库",
-									RectifyResult: 2,
-								},
-							]
 							setHtml(data);
 						},
 						error: function(){
@@ -116,11 +98,11 @@
 						var len = data.length;
 						for( var i = 0; i<len; i++ ){
 							var item = data[i];
-							html += '<div class="approve_con"  data-id="'+ item.OrderID +'">'+
-									    	'<h1 id="approve_title">消防泵</h1>'+
-									    	'<div><span class="span_left">设备编号：JSD00-94234</span><span class="span_right">报修时间：2017-09-22 14:34:23</span></div>'+
-									    	'<div><span class="span_left">故障类型：运行损坏</span><span class="span_right">故障原因：</span></div>'+
-									    	'<div>设备位置：行政办公区B2东区3号楼405</div>'+
+							html += '<div class="approve_con"  data-id="'+ item.FaultCode +'">'+
+									    	'<h1 id="approve_title">'+ item.EquipmentName +'</h1>'+
+									    	'<div><span class="span_left">设备编号：'+ item.EquipmentCode +'</span><span class="span_right">报修时间：'+ item.ReportDate +'</span></div>'+
+									    	'<div><span class="span_left">故障类型：'+ item.FaultType +'</span><span class="span_right">故障原因：</span></div>'+
+									    	'<div>设备位置：'+ item.Positions +'</div>'+
 									'</div>';
 						}	
 						document.getElementById("approveWraper").innerHTML = html;
@@ -130,13 +112,14 @@
 				mui.ready(function() {				
 					//点击进入详情页面
 					mui('#approveWraper').on('tap', '.approve_con', function() {
-						var id = this.getAttribute("data-id");
+						var ValID = this.getAttribute("data-id");
+						console.log(ValID)
 						mui.openWindow({
 							url: 'feature_page_approve_01.html',
 							id: 'feature_page_approve_01.html',
 							extras: {
 								info:{
-									id:id
+									id:ValID
 								}
 							},
 						});

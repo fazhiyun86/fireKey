@@ -176,34 +176,92 @@ mui.plusReady(function() {
 		});
 	}
 	//区域列表
-	function CMDS_Region_GetSonList(Id) {
-		var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/CMDS_Region_GetSonList?dataKey=00-00-00-00&OrganiseUnitID=' + Id;
-//		console.log(url)
-		mui.ajax(url, {
-			data: null,
-			dataType: 'json', //返回
-			type: 'get',
-			timeout: 5000,
-			success: function(data) {
-				var getDatas = data['DataSource']['Tables'][0]['Datas'];
-				var html = '';
-				mui.each(getDatas, function(index, item) {
-					html += '<li>' +
-						'<input type="hidden" value="' + item.RegionID + '" />' +
-						'<input type="hidden" value="' + item.RegionName + '" />' +
-						item.RegionName +
-						'</li>';
-				})
-//				document.querySelector(".list_del").innerHTML = html;
-			},
-			error: function() {
-				//异常处理
-				mui.toast('数据请求失败')
-			}
-		})
-
-	}
-	CMDS_Region_GetSonList(localStorage.getItem('OrganiseUnitID'));
+//					/**
+//				 * 获取自己以及下属单位
+//				 */
+//				function setSubCompany () {
+//			
+//					var data = {
+//						OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
+//					}
+//					
+//					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_GetChildrenOrganiseUnitAndRegion?dataKey=00-00-00-00';
+//					
+//					mui.ajax(urlg, {
+//						data: data, 
+//						dataType: 'json',
+//						type: 'get',
+//						timeout: 5000,
+//						success: function(data){
+////							data1 = data1['DataSource']['Tables'][0]['Datas'];
+////							data2 = data1['DataSource']['Tables'][1]['Datas'];
+//							data = data['DataSource']['Tables']
+//							 
+//							var t = common.formateArea(data);
+//							setSubCompanyHtml(t)
+//						},
+//						error: function(){
+//							mui.toast('数据请求失败')
+//							console.log("低风险请求数据失败!")
+//						}
+//					});
+//					
+//					//侧滑拼接
+//					function setSubCompanyHtml(data){
+//						var html = '';
+//						var len = data.length;
+//						for( var i=0; i< len; i++ ){
+//							var item = data[i];
+//							html += '<div class="lists" data-id=" item.OrganiseUnitID ">'+
+//						        		'<div id="topid" class="listTop">'+
+//						        			'<div class="list_bt">'+
+//						        			'<p class="p1">'+ (item.OrganiseUnitName) +'</p>'+
+//						        			'<p class="p2">'+ (item.ParentOrganiseUnitName) +'</p>'+
+//						        			'</div>'+
+//						        			'<span id="show" class="show"><img src="images/arrow_2.png"/></span>'+
+//						        		'</div>'+
+//						        		'<ul id="hide" class="list_del" id="'+item.OrganiseUnitID+'">'+ setLi(item.children) +
+//						        		'</ul>'+
+//						        	'</div>';
+//						}
+//						
+//						function setLi(areaData){
+//							var html = '';
+//							var len = areaData.length;
+//							
+//							for( var j=0; j < len; j++ ){
+//								var item = areaData[j];
+//								
+//						        html += '<li class="areali" data-area="'+ item.RegionID +'">'+ item.FullName +'</li>';
+//						    }
+//							return html;
+//						}
+//						
+//					    document.getElementById('area_con_list').innerHTML = html;
+//					}
+//				}
+//				
+//				//下属单位获取
+//				mui(document).on('tap','.areali', function() {
+//					var areaLi = $(this).text();
+//					var areaID = $(this).attr("data-area");
+//					$("#renwuId").val(areaLi);
+//					$('#renwuId').attr("data-area",areaID);
+//				});
+//				
+//
+//				//侧滑二级菜单的点击样式
+//				mui('.area_con_list').on('tap','.lists', function(e){
+//					if($(this).find("#hide").is(":hidden")){
+//					    $(this).find("#hide").show();    //如果元素为隐藏,则将它显现
+//					    $(this).find("img").addClass("rotating")
+//					}else{
+//					    $(this).find("#hide").hide();     //如果元素为显现,则将其隐藏
+//					    $(this).find("img").removeClass("rotating")
+//					}
+//				});
+//
+//				setSubCompany(localStorage.getItem('OrganiseUnitID'));
 
 	//日期选择
 	(function($) {
@@ -329,12 +387,12 @@ mui.plusReady(function() {
 			}, false);
 		});
 	})(mui);
-	// 监听点击遮罩关闭事件
-	document.getElementById("backdrop").addEventListener('tap', function() {
-		//阻止默认事件
-		event.detail.gesture.preventDefault();
-		offCanvasWrapper.offCanvas('close');
-	});
+//	 监听点击遮罩关闭事件
+//	document.getElementById("backdrop").addEventListener('tap', function() {
+//		//阻止默认事件
+//		event.detail.gesture.preventDefault();
+//		offCanvasWrapper.offCanvas('close');
+//	});
 })
 
 // ----- 添加图片功能-------

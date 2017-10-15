@@ -62,8 +62,8 @@
 				
 				function WebApp_FeatureAudit(){					
 					var data = {
-						UserID: localStorage.getItem('userCodeVa'),
-						RectifyStatus:4, 
+						UserID: localStorage.getItem("UserID"),
+						RectifyStatus:3, 
 					}
 					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAM_RectifyAuditTaskList?dataKey=00-00-00-00';			
 					mui.ajax(urlg, {
@@ -73,25 +73,7 @@
 						timeout: 5000,
 						success: function(data){
 							console.log(JSON.stringify(data))
-//							data = data["DataSource"]["Tables"][0]["Datas"]
-							data = [
-								{
-									OrderID: '1',
-									OrderCode: "EXAMR201703281488920",
-									OrderName: "B栋北侧逃生通道堵塞问题整改",
-									RectifyTime: "2017年8月19日--2017年8月27日",
-									OrganiseUnitName: "行政办公区A1项目部东区1号楼材料库",
-									RectifyResult: 1,
-								},
-								{
-									OrderID: '2',
-									OrderCode: "EXAMR201703281488920",
-									OrderName: "A栋管道井封闭门关不上",
-									RectifyTime: "2017年8月19日--2017年8月27日",
-									OrganiseUnitName: "行政办公区A1项目部东区1号楼材料库",
-									RectifyResult: 2,
-								},
-							]
+							data = data["DataSource"]["Tables"][0]["Datas"]
 							setHtml(data);
 						},						
 						error: function(){
@@ -121,13 +103,13 @@
 				mui.ready(function() {
 					//点击进入详情页面	
 					mui('#change_con').on('tap', '.change_con_left', function() {		
-						var id = this.getAttribute("data-id");
+						var taskID = this.getAttribute("data-id");
 						mui.openWindow({
 							url: 'feature_page_audit_1.html',
 							id: 'feature_page_audit_1.html',
 							extras: {
 								info:{
-									id:id
+									id:taskID
 								}
 							},
 						});

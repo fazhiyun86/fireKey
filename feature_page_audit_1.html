@@ -25,9 +25,9 @@
 	<body>
 		<header class="mui-bar mui-bar-nav titBackg">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">首都大酒店A栋</h1>
+			<h1 id="zgaidx" class="mui-title">首都大酒店A栋</h1>
 		</header>
-		<div id="change_matter" class="mui-content change_matter" style="background-color:#FFFFFF ;">
+		<div id="change_matter" class="mui-content change_matter" style="background-color:#FFFFFF; height: auto;">
 			<!--整改内容-->
 			<!--<div class="change_con">
 				<!--整改位置，编号start-->
@@ -135,7 +135,8 @@
 				mui.plusReady(function() {
 					var selfView = plus.webview.currentWebview();
 					OrderID = selfView.info.id;
-					console.log(OrderID);
+//					console.log(OrderID)
+//					console.log(OrderID);
 					WebApp_FeatureAuditdetail(OrderID)	  				
 				})
 				
@@ -152,107 +153,65 @@
 						timeout: 5000,
 						success: function(data){
 							console.log(JSON.stringify(data))
-//							data = data["DataSource"]["Tables"][0]["Datas"]
+							data = data["DataSource"]["Tables"][0]["Datas"]
+							setHtml(data);
 							global_OrderID = "data.OrderID"
 						},						
 						error: function(){
 							mui.toast('数据请求失败')
 						}
 					});
-					setHtml();
 				};
 
 				function setHtml(data) {
+					var len = data.length;
 					var html = '';
-					html += '<div class="change_con">' +
-						'<div class="change_con_code">' +
-						'<p>16楼北侧逃生通道堵塞问题整改 </p>' +
-						'<span>整改单号：EXAMR201703281488920</span>' +
-						'</div>' +
-						'<div class="change_con_inform">' +
-						'<h5>整改内容</h5>' +
-						'<div class="change_con_inform_case">' +
-						'<p class="case_p">16楼北侧逃生通知情况：存在异常</p>' +
-						'<p class="case_p">发现堆积有纸箱等杂物，影响通道畅通，存在安全隐患。</p>' +
-						'<p class="case_atta">' +
-						'<a><img src="images/fujian.png" /></a><span>附件</span>' +
-						'</p>' +
-						'<div class="change_con_inform_video">' +
-						'<dl>' +
-						'<dt></dt>' +
-						'<dd>标题</dd>' +
-						'</dl>' +
-						'<dl>' +
-						'<dt></dt>' +
-						'<dd>标题</dd>' +
-						'</dl>' +
-						'<dl>' +
-						'<dt></dt>' +
-						'<dd>标题</dd>' +
-						'</dl>' +
-						'<dl>' +
-						'<dt></dt>' +
-						'<dd>标题</dd>' +
-						'</dl>' +
-						'</div>' +
-				
-						'</div>' +
-						'<p class="case_record">整改期限：2017年8月19日--2017年8月27日</p>' +
-						'<p class="case_record">通知下发：<span>张华标</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下发时间：<span>2017-8-12 24:23:19</span></p>' +
-						'<div class="dv_line1"></div>' +
-						'<p class="case_record">通知签收：<span>张华标</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;签收时间：<span>2017-8-12 24:23:19</span></p>' +
-						'</div>' +
-						'<div class="change_con_report">' +
-						'<h5>整改内容</h5>' +
-						'<div class="change_con_report_case">' +
-						'<p class="case_p">已安排人员进行了清理，目前逃生通道畅通。</p>' +
-						'<div class="case_atta">' +
-						'<a><img src="images/fujian.png" /></a>' +
-						'<span>附件</span>' +
-						'</div>' +
-						'<div class="change_con_report_video">' +
-						'<dl>' +
-						'<dt></dt>' +
-						'<dd>标题</dd>' +
-						'</dl>' +
-						'<dl>' +
-						'<dt></dt>' +
-						'<dd>标题</dd>' +
-						'</dl>' +
-						'<dl>' +
-						'<dt></dt>' +
-						'<dd>标题</dd>' +
-						'</dl>' +
-						'<dl>' +
-						'<dt></dt>' +
-						'<dd>标题</dd>' +
-						'</dl>' +
-						'</div>' +
-						'</div>' +
-						'<p class="case_record"><span class="case_record_sp">通知下发：张华标</span><span class="case_record_sp">下发时间：2017-8-12 24:23:19</span></p>' +
-						'</div>' +
-						'<div class="change_con_audit">	' +
-						'<legend>整改审核结论：</legend>' +
-						'<p><input class="radio" type="radio" name="choose" value="通过">通过</p>' +
-						'<p><input class="radio" type="radio" name="choose" value="未通过" >未通过</p>' +
-						'<textarea id="textval" name="txt" clos="100" rows="3" warp="virtual" placeholder="审核意见" value="vdf">vfcfd</textarea>' +
-						'<button id="btn"><span class="btn_sub">审核确认</span></button>' +
-						'</div>' +
-				
-						'</div>';
+					for (var i=0; i < len; i++){
+					var item = data[i];
+					var item = data[i];
+					var RectifyOrg = data[i]['RectifyOrg'];
+					document.getElementById("zgaidx").innerHTML = RectifyOrg;
+						html += '<div class="change_con">' +
+							'<div class="change_con_code">' +
+							'<p>'+ item.OrderName +'</p>' +
+							'<span>'+ item.OrderCode +'</span>' +
+							'</div>' +
+							'<div class="change_con_inform" style="height:auto">' +
+							'<h5>整改内容</h5>' +
+							'<div class="change_con_inform_case">' +
+							'<p class="case_p">'+ item.RectifyContent +'</p>' +
+							'</div>' +
+							'<p class="case_record">整改期限：'+ item.TimeExpired +'</p>' +
+							'<p class="case_record">通知下发：<span>'+ item.OrderUser +'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下发时间：<span> '+ item.OrderDate +' </span></p>' +
+							'</div>' +
+							'<div class="change_con_report" style="height:6rem">' +
+							'<h5>审核内容</h5>' +
+							'<p class="case_record"><span class="case_record_sp">整改登记：'+ item.ProcRecordUser +'</span><span class="case_record_sp">登记时间：'+ item.ProcRecordDate +'</span></p>' +
+							'</div>' +
+							'<div class="change_con_audit">	' +
+							'<legend>整改审核结论：</legend>' +
+							'<p><input class="radio" type="radio" name="choose" value="通过">通过</p>' +
+							'<p><input class="radio" type="radio" name="choose" value="未通过" >未通过</p>' +
+							'<textarea id="textval" name="txt" clos="100" rows="3" warp="virtual" placeholder="审核意见" value="vdf"> + ProcAuditDescript +</textarea>' +
+							'<button id="btn"><span class="btn_sub">审核确认</span></button>' +
+							'</div>' +
+					
+							'</div>';
+					}
 					document.getElementById("change_matter").innerHTML = html;
 				}
 				
 				function suBmit(){
 					var data = getValue();
-					console.log(JSON.stringify(data))
+					console.log(data)
 					
 					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/EXAM_ExamineRectifyProc4?dataKey=00-00-00-00';			
 					mui.ajax(urlg, {
 						data:data,
 						dataType:'json',
-						type:'get',
+						type:'post',
 						timeout:5000,
+						headers:{'Content-Type':'application/json'},
 						success:function(data) {
 							console.log(JSON.stringify(data))
 						},
@@ -264,12 +223,13 @@
 	
 				function getValue () {
 					var data = {}
-					
 					data.OrderID = global_OrderID;
 					data.ProcVerifyDescript = $('#textval').val();
 					data.RectifyStatus = getRadioRes('radio');
 					data.ModifiedBy = localStorage.getItem('userCodeVa');
-					return data;
+					data.RectifyResult = '';
+					
+					return JSON.stringify(data);
 				};
 
 				//点击图标是否删除？
