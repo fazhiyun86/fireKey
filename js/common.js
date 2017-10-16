@@ -267,7 +267,7 @@
 				tempName[name] = temp;
 			}
 		}
-		
+
 		var res= [];
 		for(var key in tempName) {
 			res.push(tempName[key])
@@ -398,6 +398,147 @@
 			
 			result.push(baseOption);
 		}
+		return result;
+	}
+	
+	/**
+	 * 线性图表的配置项
+	 */
+	common.lineBaseOption = function () {
+		var option = {
+        	title:{
+        		text: "",
+        		textStyle: {
+        			fontSize: '13'
+        		}
+        	},
+            tooltip: {},
+            color: ["#eaa906"],
+            xAxis: {
+            	splitLine:{
+		    		show:true,
+		    		lineStyle: {
+		    			color:['#ccc'],
+		    			type: 'dotted',
+		    		}
+		    	},
+			    axisTick :{
+		    		inside: 'true',
+		    		length: 0,
+		    	},
+                data: [],
+            },
+		    grid: {
+		        left: '3%',
+		        right: '4%',
+		        bottom: '3%',
+		        top: '15%',
+		        containLabel: true
+		    },
+            yAxis: {
+//			    		type: 'value',	    	
+            	splitLine:{
+		    		show: false,
+		    	},
+		    	axisTick :{
+		    		inside: 'true',
+		    		length: 0,
+		    	},
+	    		nameLocation: 'start',
+            },
+            series: [{
+                name: '',
+                type: 'line',
+		    	data:[],
+				itemStyle: {
+                	normal: {				                    		                  
+                		color: '#92d050',
+                		lineStyle: {
+                			color:'#c09205',
+                			width:'2',
+                		}
+                	},
+                },
+            }]
+        };
+        
+        return option;
+	}
+	/**
+	 * 动火统计部分配置项
+	 * @param {Object} data
+	 */
+	common.lineCharts = function (data) {
+		var totalData = data[0]["Datas"];
+		var subCompanyData = data[1]['Datas'];
+		var result = [];
+		
+		// 从小到大排序
+		totalData = totalData.sort(function (a, b) {
+			return a.DateValue - b.DateValue	
+		})
+		
+		var totalLen = totalData.length;
+		var totalX = [];
+		var totalY = [];
+		
+		for (var i = 0; i < totalLen; i++) {
+			var item = totalData[i];
+			totalX.push(item.DateValue)
+			totalY.push(item.FireCount)
+		}
+		var sumOption = common.lineBaseOption();
+		sumOption.xAxis.data = totalX;
+		sumOption.series[0].data = totalY;
+		sumOption.IsEnd = '1';
+		sumOption.OrgID = '';
+		
+		result.push(sumOption)
+		//
+		var subLen = subCompanyData.length;
+		
+		var tempName = {};
+		for (var j = 0; j < subLen; j++) {
+			var jtem = subCompanyData[j];
+			var index = jtem.OrgID;
+			
+			if (tempName[index]) {
+				tempName[index].push(jtem)
+			} else {
+				tempName[index] = []
+				tempName[index].push(jtem)
+			}
+		}
+		for (var key in tempName) {
+			var target = tempName[key]
+			
+			target = target.sort(function (a, b) {
+				return a.DateValue - b.DateValue	
+			})
+			
+			var tempX = [];
+			var tempY = [];
+			var tempTitle = '';
+			var IsEnd, OrgID;
+			for (var i = 0; i < target.length; i++) {
+				var item = target[i];
+				tempTitle = item.OrgName;
+				tempX.push(item.DateValue);
+				tempY.push(item.FireCount);
+				IsEnd = item.IsEnd;
+				OrgID = item.OrgID;
+			}
+			
+			var tempOption = common.lineBaseOption();
+			tempOption.title.text = tempTitle;
+			tempOption.xAxis.data = totalX;
+			tempOption.series[0].data = totalY;
+			tempOption.IsEnd = IsEnd;
+			tempOption.OrgID = OrgID;
+			
+			result.push(tempOption)
+		}
+		
 		return result;
 	}
 	
