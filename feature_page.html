@@ -45,6 +45,10 @@
 				font-size: 0.9rem;
 			}
 			
+			#feature_grid_list li{
+				float: left;
+			}
+			
 			#feature_grid_list li>a>span{
 				display: block;
 				width: 40px;
@@ -59,6 +63,10 @@
 			#feature_grid_list li>a>div{
 				font-size: 0.75rem;
 			}
+			
+			.hide {
+				display: none!important;
+			}
 		</style>
 	</head>
 
@@ -70,7 +78,7 @@
 			<ul id="feature_grid_list" class="mui-table-view mui-grid-view mui-grid-9 " style="background-color: none;">
 				<li id="grid_list" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 				    <a class="feature_list_1" href="#">
-				        <span class="mui-icon"><img src="images/zhenggaishenpi.png" /><span class="mui-badge mui-badge-red">5</span></span>
+				        <span class="mui-icon"><img src="images/zhenggaishenpi.png" /><span id="changeCount" class="mui-badge mui-badge-red"></span></span>
 				        <div class="mui-media-body">整改审批</div>
 				    </a>
 				</li>
@@ -80,9 +88,9 @@
 				        <div class="mui-media-body">整改下单</div>
 				    </a>
 				</li>
-				<li id="grid_list3" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				<li id="grid_list3" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 hide">
 				    <a class="feature_list_3" href="#">
-				        <span class="mui-icon"><img src="images/weixiushenpi.png" /><span class="mui-badge mui-badge-red">5</span></span>
+				        <span class="mui-icon"><img src="images/weixiushenpi.png" /><span id="rushCount" class="mui-badge mui-badge-red">5</span></span>
 				        <div class="mui-media-body">维修审批</div>
 				    </a>
 				</li>
@@ -93,14 +101,12 @@
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
 			(function(){
-			
 				mui.plusReady(function() {
 					var selfView = plus.webview.currentWebview();
-
+					changeCount();
 				})
-
+				
 				mui.ready(function() {
-					
 					//点击进入详情页面
 					//整改审批
 					mui('#grid_list').on('tap', '.feature_list_1', function() {						
@@ -147,7 +153,6 @@
 						});
 					});
 					
-					
 				//	维修审批
 					mui('#grid_list3').on('tap', '.feature_list_3', function() {
 						mui.openWindow({
@@ -170,6 +175,65 @@
 						});
 					})					
 				})
+				
+				//整改审批总数		
+				function changeCount(){
+					var data = {
+						UserID:localStorage.getItem("UserID")
+					};
+					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAM_RectifyAuditTaskNumber?dataKey=00-00-00-00';
+					
+					mui.ajax(urlg,{
+						data: data,
+						dataType: 'json',
+						type: 'get',
+						timeout: 5000,
+						success: function (data){
+							data = data["DataSource"]["Tables"][0]["Datas"]
+							console.log("==RRRRR===="+JSON.stringify(data))
+							setHtml(data)
+						},
+						error: function(){
+							console.log('请求错误')
+						}						
+					});
+					
+					function setHtml(data){
+						var len = data.length;
+						for(var i=0; i<len; i++){
+						var ProcVerifyNumber =  data[i]["ProcVerifyNumber"];
+						document.getElementById('changeCount').innerHTML = ProcVerifyNumber || 0;
+						}
+					}
+				};
+				
+				//维修审批总数
+//				function rushCount(){
+//					var data = {
+//						UserID:localStorage.getItem("UserID")
+//					};
+//					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAM_RectifyAuditTaskNumber?dataKey=00-00-00-00';
+//					
+//					mui.ajax(urlg,{
+//						data: data,
+//						dataType: 'json',
+//						type: 'get',
+//						timeout: 5000,
+//						success: function (data){
+//							console.log(JSON.stringify(data))
+//							setHtml(data)
+//						},
+//						error: function(){
+//							console.log('请求错误')
+//						}						
+//					});
+//					
+//					function setHtml(data){
+//						var ID = data['ID'] ;
+//						var ProcVerifyNumber =  data['ProcVerifyNumber'];
+////						document.getElementById('changeCount').innerHTML = 
+//					}
+//				};
 			})();
 		</script>
 	</body>

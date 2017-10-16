@@ -60,7 +60,9 @@
 					indicators: false, //是否显示滚动条,默认是true
 				});
 				
-				function WebApp_FeatureAudit(){					
+				function WebApp_FeatureAudit(){	
+					console.log(localStorage.getItem("UserID"));
+					console.log(localStorage.getItem("serverAddress"))
 					var data = {
 						UserID: localStorage.getItem("UserID"),
 						RectifyStatus:3, 
@@ -73,7 +75,7 @@
 						timeout: 5000,
 						success: function(data){
 							console.log(JSON.stringify(data))
-							data = data["DataSource"]["Tables"][0]["Datas"]
+							data = data["DataSource"]["Tables"][0]["Datas"];
 							setHtml(data);
 						},						
 						error: function(){
@@ -86,7 +88,7 @@
 						var len = data.length;
 						for( var i = 0; i<len; i++ ){
 							var item = data[i];
-//							console.log(item)
+							console.log(data[i]['OrderCode'])
 							html += '<div id="ChangeWrap" class="change-wrap">\
 								<div class="change_con_left" data-id="'+ item.OrderID +'">\
 									<p>'+ (item.OrderName) +'</p>\

@@ -217,14 +217,59 @@
 							$('#time_limit').attr("data-time", timeVal)
 						});
 					});
-	
-					//下达通知完成
-					document.getElementById("btn").addEventListener('tap', function(e) {
-						//请求
-						sendRequest();
+					
+					//校验
+					function judgment(){
+						
+						//通知名称
+						var NameVal = $('.informName').val();
+						if( NameVal == '' ){
+							mui.toast('通知名称不能为空');
+							return
+						}else{
+							OrderName = NameVal;
+							//整改对象
+							var AreaVal = $('#zhenggaidx').attr("data-area");
+							if( AreaVal == null ){
+								mui.toast('整改对象不能为空');
+								return
+							}else{
+								RectifyOrg = AreaVal;
+								//整改内容
+								var ConVal = $('.changeCon').val();
+								if( ConVal == '' ){
+									mui.toast('整改内容不能为空');
+									return
+								}else{
+									RectifyContent = ConVal;
+									//整改说明
+									var DescriptVal = $('.changeInf').val();
+									if( DescriptVal == '' ){
+										mui.toast('整改说明不能为空');
+										return
+									}else{
+										RectifyDescript = DescriptVal;
+										//整改期限
+										var TimeVal = $('#time_limit').attr('data-time');
+										if( TimeVal == '' ){
+											mui.toast('整改期限不能为空');
+											return
+										}else{
+											EndTime = TimeVal
+										};
+									};
+								};
+							};
+						};
 						if($("#complete").is(":hidden")){
 						    $("#complete").show();    //如果元素为隐藏,则将它显现
 						}
+						sendRequest();
+					}
+					
+					//下达通知完成
+					document.getElementById("btn").addEventListener('tap', function(e) {
+						judgment();
 					});
 					
 					//提交请求
@@ -242,7 +287,6 @@
 							timeout: 5000,
 							headers:{'Content-Type':'application/json'},
 							success: function(data){
-							console.log() 
 								mui.toast('整改通知已下达');
 						 		mui.back()
 							},

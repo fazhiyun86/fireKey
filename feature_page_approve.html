@@ -76,6 +76,7 @@
 						UserCode: localStorage.getItem('userCodeVa'),
 						Status: 4,
 					}
+					console.log('====审批==='+JSON.stringify(data));
 
 					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/EMF_FaultRepair_Query_Task?dataKey=00-00-00-00';			
 					mui.ajax(urlg, {
@@ -98,7 +99,7 @@
 						var len = data.length;
 						for( var i = 0; i<len; i++ ){
 							var item = data[i];
-							html += '<div class="approve_con"  data-id="'+ item.FaultCode +'">'+
+							html += '<div class="approve_con"  data-id="'+ item.ID +'">'+
 									    	'<h1 id="approve_title">'+ item.EquipmentName +'</h1>'+
 									    	'<div><span class="span_left">设备编号：'+ item.EquipmentCode +'</span><span class="span_right">报修时间：'+ item.ReportDate +'</span></div>'+
 									    	'<div><span class="span_left">故障类型：'+ item.FaultType +'</span><span class="span_right">故障原因：</span></div>'+

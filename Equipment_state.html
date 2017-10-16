@@ -29,7 +29,14 @@
 			/*#contentWrap {
 				padding-top: 80px;
 			}*/
+			
+			#headerWrap p{
+				width: 30%;
+			}
 
+			#contentWrap>div>div>p{
+				width: 30%;
+			}
 		</style>
 	</head>
 
@@ -139,7 +146,7 @@
 					}
 					
 					function setHeaderHtml (item) {
-						var html = '<p class="state_content_con_first">\
+						var html = '<p class="state_content_con_first" style="margin-right:1rem">\
 									<span>\
 										<span id="Hydrant">'+(item.ClassName||"-")+'</span>\
 										<span id="HydrantCount">'+item.AllCount+'</span>\
