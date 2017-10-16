@@ -213,10 +213,12 @@
 			
 			 //下属单位获取
 			mui(document).on('tap', '.areali', function() {
+				var offCanvasWrapper = mui('#offCanvasWrapper');
 			 	var areaLi = $(this).text();
 			 	var areaID = $(this).attr("data-area");
 			 	$("#quyu").text('任务区域：' + areaLi);
 			 	$('#quyu').attr("data-area", areaID);
+				offCanvasWrapper.offCanvas('show');
 			});
 			}
 			

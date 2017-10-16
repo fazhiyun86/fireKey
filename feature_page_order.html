@@ -87,7 +87,7 @@
 						    		<textarea class="changeInf" name="txt" clos="100" rows="3" warp="virtual" placeholder="" style="font-size: 0.9rem; color: #000000;"></textarea>
 						    	</div>
 						    	<div class="border_line"></div>
-						    	<div id="time_limit" style="width: 100%; height: auto;" data-time="">整改期限：2017年8月27日&nbsp;&nbsp;19时30分<span class="timer" style="display: block; width: 7px; height: 7px;" href="#popover" id="openPopover" class="mui-btn mui-btn-primary mui-btn-block"><img src="images/arrow_r.png" style="width: 100%; height: auto;"/></span>
+						    	<div id="time_limit" style="width: 100%; height: auto;" data-time="">整改期限：<span class="timer" style="display: block; width: 7px; height: 7px;" href="#popover" id="openPopover" class="mui-btn mui-btn-primary mui-btn-block"><img src="images/arrow_r.png" style="width: 100%; height: auto;"/></span>
 						    	</div>
 					
 						    </div>
@@ -110,6 +110,8 @@
 		<script src="js/common.js"></script>
 		<script type="text/javascript">
 			(function(){
+				var myDate = new Date();
+				document.getElementById("time_limit").innerHTML = '整改期限：' + myDate.getFullYear() + '年' + myDate.getMonth() + '月' + myDate.getDate() + '日' + ' ' + myDate.getHours() + '时' + myDate.getMinutes() + '分';
 				mui.init({
 					swipeBack: false,
 				});
@@ -206,7 +208,7 @@
 					mui(document).on('tap','#time_limit', function() {
 						var myDate = new Date();
 						var dtpicker = new mui.DtPicker({
-							"value":"2015-10-10 10:10","beginYear":2010,"endYear":myDate.getFullYear()
+							"value":"2015-10-10 10:10","beginYear":myDate.getFullYear(),"endYear":myDate.getFullYear()+ 10
 						}) ; 
 						
 						dtpicker.show(function(rs) {
@@ -318,10 +320,10 @@
 //						console.log()
 						return JSON.stringify(data);
 					};
-					//时间弹出窗
-					document.getElementById('openPopover').addEventListener('tap', function() {
-						mui('.mui-popover').popover('toggle',document.getElementById("openPopover"));
-					});
+//					//时间弹出窗
+//					document.getElementById('openPopover').addEventListener('tap', function() {
+//						mui('.mui-popover').popover('toggle',document.getElementById("openPopover"));
+//					});
 				});
 				
 				//下属单位获取
@@ -330,6 +332,7 @@
 					var areaID = $(this).attr("data-area");
 					$("#zhenggaidx").val(areaLi);
 					$('#zhenggaidx').attr("data-area",areaID);
+					offCanvasWrapper.offCanvas('show');
 				});
 				
 				//侧滑容器父节点
