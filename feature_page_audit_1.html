@@ -155,7 +155,7 @@
 							console.log(JSON.stringify(data))
 							data = data["DataSource"]["Tables"][0]["Datas"]
 							setHtml(data);
-							global_OrderID = "data.OrderID"
+							
 						},						
 						error: function(){
 							mui.toast('数据请求失败')
@@ -167,7 +167,7 @@
 					var len = data.length;
 					var html = '';
 					for (var i=0; i < len; i++){
-					var item = data[i];
+					global_OrderID = data[i].OrderID
 					var item = data[i];
 					var RectifyOrg = data[i]['RectifyOrg'];
 					document.getElementById("zgaidx").innerHTML = RectifyOrg;
@@ -192,7 +192,7 @@
 							'<legend>整改审核结论：</legend>' +
 							'<p><input class="radio" type="radio" name="choose" value="通过">通过</p>' +
 							'<p><input class="radio" type="radio" name="choose" value="未通过" >未通过</p>' +
-							'<textarea id="textval" name="txt" clos="100" rows="3" warp="virtual" placeholder="审核意见" value="vdf"> + ProcAuditDescript +</textarea>' +
+							'<textarea id="textval" name="txt" clos="100" rows="3" warp="virtual" placeholder="审核意见" value=""></textarea>' +
 							'<button id="btn"><span class="btn_sub">审核确认</span></button>' +
 							'</div>' +
 					
@@ -205,7 +205,7 @@
 					var data = getValue();
 					console.log(data)
 					
-					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/EXAM_ExamineRectifyProc4?dataKey=00-00-00-00';			
+					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/SendData/EXAM_ExamineRectifyProc4?dataKey=00-00-00-00';			
 					mui.ajax(urlg, {
 						data:data,
 						dataType:'json',
@@ -214,6 +214,7 @@
 						headers:{'Content-Type':'application/json'},
 						success:function(data) {
 							console.log(JSON.stringify(data))
+							console.log('成功')
 						},
 						error: function(){
 							mui.toast('请求失败')
@@ -223,12 +224,12 @@
 	
 				function getValue () {
 					var data = {}
+					
 					data.OrderID = global_OrderID;
 					data.ProcVerifyDescript = $('#textval').val();
 					data.RectifyStatus = getRadioRes('radio');
 					data.ModifiedBy = localStorage.getItem('userCodeVa');
 					data.RectifyResult = '';
-					
 					return JSON.stringify(data);
 				};
 
