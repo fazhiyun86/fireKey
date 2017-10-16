@@ -92,6 +92,13 @@
 		<script src="js/common.js"></script>
 		<script>
 			(function(){
+				mui.init({
+					keyEventBind: {
+						backbutton: false  //关闭back按键监听
+					}
+				});
+				
+				
 				var global_id = '';
 				mui.plusReady(function (){
 					plus.nativeUI.showWaiting();
