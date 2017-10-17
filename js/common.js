@@ -131,7 +131,7 @@
 		
 		return array;
 	}
-	
+
 	common.setAsideDate =  function (data) {
 		var wrap = document.getElementById("table_view");
 		
@@ -155,13 +155,15 @@
 		wrap.innerHTML = html
 	}
 	common.setStorageTime = function (str) {
-		
+//		console.log(str)
 		localStorage.setItem("oneDate", str);
 		
 		var oneArray = str.split(" ");
 		var storageData = oneArray[1].split("~");
 		
 		document.getElementById("2017date").innerHTML = oneArray[0];
+		
+		localStorage.setItem("curWeek",oneArray[0]);
 		
 		localStorage.setItem("startTime", storageData[0]);
 		localStorage.setItem("endTime", storageData[1]);	

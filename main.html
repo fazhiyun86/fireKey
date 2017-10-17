@@ -16,7 +16,6 @@
 			html,
 			body {
 				background-color: #efeff4;
-
 			}
 			
 			.mui-bar-tab {
@@ -87,8 +86,6 @@
 			mui.init();
 			var subpages = ['index.html', 'Micro_task.html', 'feature_page.html','totalTarget_email.html', 'Password_edit.html'];
 			
-		
-			
 			var subpage_style = {
 				top: '0px',
 				bottom: '51px'
@@ -98,7 +95,7 @@
 
 			//创建子页面，首个选项卡页面显示，其它均隐藏；
 			mui.plusReady(function() {
-
+//				console.log("当前页面URL："+plus.webview.currentWebview().getURL()); 
 				var self = plus.webview.currentWebview();
 				for(var i = 0; i < 5; i++) {
 					var temp = {};

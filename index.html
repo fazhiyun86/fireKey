@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>重点单位监管版</title>
+		<title>通州城市副中心建设</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -20,13 +20,16 @@
 				font-size: 15px;
 			}
 			
-			@font-face {
+			/*@font-face {
 				font-family: myFont;
 				src: url('css/11438.ttf');
-			}
+			}*/
 			
 			.fontFace {
-				font-family: 'myFont';
+				font-family: "Microsoft YaHei"!important;
+				font-weight: 100;
+				color: #484848;
+				font-size: 18px;
 			}
 			
 			.index_list_content>div:first-child {
@@ -69,7 +72,7 @@
 						<div class="offCanvasConClass">
 							<div class="tit_text">
 
-								<span class="zdd">重点单位监管版</span>
+								<span class="zdd">通州城市副中心建设</span>
 								<!--<a href="#offCanvasSide">-->
 									
 								<!-- 搜索功能屏蔽 -->
@@ -83,7 +86,7 @@
 									<div id="offCanvasShow">
 										<span class="tit_text_list_sp1" id="index_zhongdian">...</span>
 										<div class="data_font" id="selectDateWrap">
-											<span class="tit_text_list_sp2" id="2017date">...</span>
+											<span class="tit_text_list_sp2" id="2017date" data-id="">...</span>
 											<a><font class="mui-icon mui-icon-arrowdown"></font></a>
 										</div>
 									</div>
@@ -91,11 +94,11 @@
 								<div  class="index_list_content">
 
 									<!--高风险巡检 start-->
-									<div class="index_list_content_maymore in_index">
+									<div class="index_list_content_maymore in_index '+setColor(item.Ratio)+'">
 										<div class="index_list_content_may_first index_list_content_maymore_first ">消火栓巡检</div>
 										<div class="list_main_flex">
 											<div class="flex_item flex_left text_center">
-												<span id="Ratio" class="flex_left_num" style="color: #66b61d;">-</span>
+												<span id="Ratio" class="flex_left_num">-</span>
 												<p>本周检查进度</p>
 											</div>
 											<div class="flex_item2">
@@ -267,7 +270,6 @@
 	<script src="js/common.js"></script>
 	<script src="js/index.js"></script>
 	<!--<script src="js/area.js"></script>-->
-	<script src="js/searchCode.js"></script>
 	<script src="js/radialIndicator.js"></script>
 	<script>
 		
@@ -296,7 +298,8 @@
 //				'Inspect_Maintain.html',
 //				
 //			]
-			
+//			var DataTime = da.getAttribute('data-id');
+//			console.log(DataTime)
 			//高风险点击事件
 			in_index[0].addEventListener('tap', function() {
 				//高风险
@@ -310,6 +313,7 @@
 					toUrl = 'Risk_height_2.html'
 				}
 				
+//				console.log(DataTime)
 				mui.openWindow({
 					url: toUrl,
 					id: toUrl,

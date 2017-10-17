@@ -549,6 +549,7 @@ mui.plusReady(function() {
 				//侧边的时间样式展示和存取起始时间
 				var dataArrays = common.getTimeNow(getServerEndTime, getServerStartTime)
 				common.setAsideDate(dataArrays)
+				console.log()
 				
 				var getDatas = data['DataSource']['Tables'][0]['Datas'];
 				localStorage.setItem('UserOrganiseUnitID', getDatas[0].OrganiseUnitID);
@@ -568,7 +569,7 @@ mui.plusReady(function() {
 			StartDate: localStorage.getItem("startTime"),
 			EndDate: localStorage.getItem("endTime")
 		}
-		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_HighRisk?dataKey=00-00-00-00';
+		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_LowRisk?dataKey=00-00-00-00';
 	
 		mui.ajax(urlg, {
 			data: data,
@@ -577,6 +578,7 @@ mui.plusReady(function() {
 			timeout: 5000,
 			
 			success: function(data) {	
+				console.log(JSON.stringify(data))
 				setHtml(data)
 				plus.nativeUI.closeWaiting();
 			},
@@ -588,18 +590,41 @@ mui.plusReady(function() {
 		
 		function setHtml (data) {
 			var info = data["DataSource"]['Tables'][0]["Datas"][0]
+				console.log(JSON.stringify(info))
+			
 			var ObjectCount = info["ObjectCount"];
 			var AbnormalCount = info["AbnormalCount"];
 			var AuditCount = info["AuditCount"];
 			var Rate = info["Rate"];
 			var Ratio = info["Ratio"];
+//			setColor(item.Ratio)
 			
-			document.getElementById("Ratio").innerHTML = Ratio || 0; 
+			function setFontColor(Ratio){
+				Ratio = parseFloat(Ratio)
+				
+				if(Ratio < 80) {
+					console.log("80")
+					document.getElementById("Ratio").style.color = '#db4527'
+				} else if (Ratio >= 80 && Ratio < 100) {
+					console.log("80-100")
+					document.getElementById("Ratio").style.color = '#e8a600'
+				} else if(Ratio == 100){
+					console.log("100")
+					document.getElementById("Ratio").style.color = '#228b22'
+				}
+				
+			}
+			
+			setFontColor(Ratio);
+			
+			document.getElementById("Ratio").innerHTML = Ratio || '-'; 
 			document.getElementById("ObjectCount").innerHTML = ObjectCount || 0; 
 			document.getElementById("AbnormalCount").innerHTML = AbnormalCount || 0; 
 			document.getElementById("AuditCount").innerHTML = AuditCount || 0; 
 			document.getElementById("Rate").innerHTML = Rate || 0;
 		}
+		
+		
 	}
 	
 
@@ -879,7 +904,7 @@ mui.plusReady(function() {
 		common.setStorageTime(targetStr)
 		
 		WebApp_GetRiskHeight(); //重新获取高风的数据
-		WebApp_GetRisklow(); //低风险获取数据
+//		WebApp_GetRisklow(); //低风险获取数据
 		WebApp_FireStatistical(); //动火统计
 //		WebApp_EquipmentOperat(); // 设备维修
 		WebApp_EquipmentStatus(); // 设备状态

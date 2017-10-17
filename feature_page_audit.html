@@ -89,7 +89,27 @@
 						timeout: 5000,
 						success: function(data){
 							console.log(JSON.stringify(data))
-							data = data["DataSource"]["Tables"][0]["Datas"];
+//							data = data["DataSource"]["Tables"][0]["Datas"];
+							data =[
+								{
+								OrderID: '整改单ID1',
+								OrderName:'dfcsdfs',
+								OrderCode: '整改单号1',
+								OrganiseUnitName: '整改单名称2',
+								RectifyTime: '整改期限2',
+								
+								},
+								{
+								OrderID: '整改单ID2',
+								OrderName:'dfcsdfs',
+								OrderCode: '整改单号2',
+								OrganiseUnitName: '整改单名称2',
+								RectifyTime: '整改期限2',
+
+//								IsUrge: '1',
+//								UrgeDate: '催办时间2',
+								} 
+								]
 							var len = data.length;
 							setHtml(data);
 						},						
@@ -124,6 +144,7 @@
 					//点击进入详情页面	
 					mui('#change_con').on('tap', '.change_con_left', function() {		
 						var taskID = this.getAttribute("data-id");
+						
 						mui.openWindow({
 							url: 'feature_page_audit_1.html',
 							id: 'feature_page_audit_1.html',

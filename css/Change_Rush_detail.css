@@ -18,7 +18,7 @@ html,body{
 	width: 100%;
 	height: 4.2rem;
 	border: 1px solid #E7E7E7;
-	padding-left: 1.3rem;
+	padding-left: 0.5rem;
 	padding-top: 0.6rem;
 	margin-top: 1rem;
 }
@@ -49,7 +49,7 @@ html,body{
 	width: 100%;
 	height: 2.7rem;
 	line-height: 2.7rem;
-	padding-left: 1.3rem;
+	padding-left: 0.5rem;
 	font-size: 0.9rem;
 	color: #DB4527;
 	border-bottom: 1px solid #E7E7E7;
@@ -61,16 +61,16 @@ html,body{
 	font-size: 0.75rem;
 	line-height: 1.15rem;
 	color: #666666;
-	margin-left: 1.3rem;
+	margin-left: 0.5rem;
 }
 
 /*附件*/
-.change_con_inform .case_atta{
-	/*width: 100%;*/
+/*.change_con_inform .case_atta{
+	/*width: 100%;
 	height: 2rem;
 	margin-left: 1.3rem;
 	margin-top: 1rem;
-}
+}*/
 
 .change_con_inform .case_atta a{
 	display: block;
@@ -132,7 +132,7 @@ html,body{
 
 /*整改时间,人物*/
 .change_con_inform .case_record{
-	margin-left: 1.3rem;
+	margin-left: 0.5rem;
 	font-size: 0.75rem;
 	line-height: 1.15rem;
 	color: #801818;
@@ -152,7 +152,7 @@ html,body{
 	width: 100%;
 	height: 2.7rem;
 	line-height: 2.7rem;
-	padding-left: 1.3rem;
+	padding-left: 0.5rem;
 	font-size: 0.9rem;
 	color: #DB4527;
 	border-bottom: 1px solid #E7E7E7;
@@ -164,14 +164,14 @@ html,body{
 	font-size: 0.75rem;
 	line-height: 1.15rem;
 	color: #666666;
-	margin-left: 1.3rem;
+	margin-left: 0.5rem;
 }
 
 /*附件*/
 .change_con_report .case_atta{
 	/*width: 100%;*/
 	height: 2rem;
-	margin-left: 1.3rem;
+	margin-left: 0.5rem;
 	margin-top: 1rem;
 	padding-right: 0;
 }
@@ -236,7 +236,7 @@ html,body{
 /*整改时间,人物*/
 .change_con_report .case_record{
 	width: 100%;
-	margin-left: 1.3rem;
+	margin-left: 0.5rem;
 	font-size: 0.75rem;
 	line-height: 1.15rem;
 	color: #801818;

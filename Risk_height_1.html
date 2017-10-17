@@ -120,6 +120,12 @@
 		<script type="text/javascript">
 			
 			(function($){
+				
+				var oneDate = localStorage.getItem("oneDate");
+				var curYear = localStorage.getItem("startTime");
+				var Y = curYear.split('-');
+				document.getElementById("state_zong").innerHTML = Y[0] +'年'+ oneDate;
+				
 				$(".mui-scroll-wrapper").scroll({
 					bounce: false,//滚动条是否有弹力默认是true
 					indicators: false, //是否显示滚动条,默认是true
@@ -154,7 +160,7 @@
 						type:'get',
 						timeout: 5000,            
 						success: function(data){
-							
+							console.log(JSON.stringify(data))     
 							setHtml(data["DataSource"]["Tables"][0]["Datas"])
 						},
 						error: function(){

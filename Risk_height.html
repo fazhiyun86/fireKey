@@ -116,6 +116,12 @@
 		<script type="text/javascript">
 
 			(function($){
+				
+				var oneDate = localStorage.getItem("oneDate");
+				var curYear = localStorage.getItem("startTime");
+				var Y = curYear.split('-')
+				document.getElementById("state_zong").innerHTML = Y[0] +'年'+ oneDate;
+
 				$(".mui-scroll-wrapper").scroll({
 					bounce: false,//滚动条是否有弹力默认是true
 					indicators: false, //是否显示滚动条,默认是true
@@ -123,7 +129,10 @@
 				
 				mui.plusReady(function() {
 					plus.nativeUI.showWaiting();
-					getData()
+					getData();
+//					var selfView = plus.webview.currentWebview();
+//					DataTime = selfView.info.taskTime;
+//					console.log(DataTime)
 				})
 				//获取数据的请求
 				function getData () {
@@ -143,6 +152,7 @@
 						type:'get',
 						timeout: 5000,            
 						success: function(data){
+							console.log(JSON.stringify(data))
 							setHtml(data["DataSource"]["Tables"][0]["Datas"])
 						},
 						error: function(){
@@ -154,9 +164,13 @@
 				// 数据的显示
 				function setHtml (data) {
 					data = common.riskCompanyDataChange(data)
+					console.log(JSON.stringify(data))
 					var html = '';
 					for (var i = 0; i < data.length; i++) {
 						var item = data[i];
+						var val = data[i].Ratio;
+						var newVal=val.replace(/%/, "");
+						console.log(newVal)
 						html += '<div class="risk_wrap" data-id="'+ item.OrganiseUnitID +'">'+
 							'<div class="risk_item">' +
 								'<p class="risk_item_tit">'+ item.OrganiseUnitName +'</p>' +
@@ -193,29 +207,33 @@
 					}
 					document.getElementById('riskContentWrap').innerHTML = html
 					
-					function setSubItem (val) {
+					function setSubItem (newVal) {
+						
 						var html = '';
-						var len = val.length;
+						var len = newVal.length;
 						for(var i = 0; i < len; i++) {
-							var item = val[i];
+							var item = newVal[i];
 							html += '<p><span class="bottom_box">'+ item.k +'</span> <span class="bottom_num">'+ item.v +'</span></p>'
 						}
 						return html;
 					}
 					
-					function setIcon (val) {
-						val = val - 0;
+					function setIcon (newVal) {
+						newVal = newVal - 0;
+//						console.log(val)
 						var html = '';
-						if(val = 100) {
+						if(newVal == 100) {
 							html += '<i class="triangle-top green-top"></i>'+
 							'<i class="triangle-bottom green-bottom"></i>';
-						} else if(val >= 80 && val < 100) {
+						} else if(newVal >= 80 && newVal
+							< 100) {
 							html += '<i class="triangle-top yellow-top"></i>'+
 							'<i class="triangle-bottom yellow-bottom"></i>';
-						} else if(val < 80) {
+						} else if(newVal < 80) {
 							html += '<i class="triangle-top red-top"></i>'+
 							'<i class="triangle-bottom red-bottom"></i>';
 						}
+						console.log(html)
 						return html;
 					}
 					//隐藏加载

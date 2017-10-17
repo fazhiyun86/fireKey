@@ -18,7 +18,7 @@ html,body{
 	width: 100%;
 	height: 4.2rem;
 	border: 1px solid #E7E7E7;
-	padding-left: 1.3rem;
+	padding-left: 0.5rem;
 	padding-top: 0.6rem;
 	margin-top: 1rem;
 }
@@ -49,7 +49,7 @@ html,body{
 	width: 100%;
 	height: 2.7rem;
 	line-height: 2.7rem;
-	padding-left: 1.3rem;
+	padding-left: 0.5rem;
 	font-size: 0.9rem;
 	color: #DB4527;
 	border-bottom: 1px solid #E7E7E7;
@@ -61,7 +61,7 @@ html,body{
 	font-size: 0.75rem;
 	line-height: 1.15rem;
 	color: #666666;
-	margin-left: 1.3rem;
+	margin-left: 0.5rem;
 }
 
 /*附件*/
@@ -132,7 +132,7 @@ html,body{
 
 /*整改时间,人物*/
 .change_con_inform .case_record{
-	margin-left: 1.3rem;
+	margin-left: 0.5rem;
 	font-size: 0.75rem;
 	line-height: 1.15rem;
 	color: #801818;
@@ -158,7 +158,7 @@ html,body{
 	width: 100%;
 	height: 2.7rem;
 	line-height: 2.7rem;
-	padding-left: 1.3rem;
+	padding-left: 0.5rem;
 	font-size: 0.9rem;
 	color: #DB4527;
 	border-bottom: 1px solid #E7E7E7;
@@ -170,7 +170,7 @@ html,body{
 	font-size: 0.75rem;
 	line-height: 1.15rem;
 	color: #666666;
-	margin-left: 1.3rem;
+	margin-left: 0.5rem;
 }
 
 /*附件*/
@@ -241,14 +241,14 @@ html,body{
 /*整改时间,人物*/
 .change_con_report .case_record{
 	width: 100%;
-	padding-left: 1rem;
+	padding-left: 0.5rem;
 	padding-right: 1rem;
 	font-size: 0.75rem;
 	line-height: 1.5rem;
 	color: #801818;
 }
 
-.change_con_report .case_record_sp{
+/*.change_con_report .case_record_sp{
 	display: block;
 	float: left;
 	font-size: 0.75rem;
@@ -259,10 +259,10 @@ html,body{
 .change_con_report .case_record_sp:nth-child(2){
 	display: block;
 	float: right;
-}
+}*/
 
 .change_con_report legend{
-	margin-left: 1.3rem;
+	margin-left: 0.5rem;
 	font-size: 0.75rem;
 	line-height: 1.15rem;
 	color: #801818;
@@ -271,7 +271,7 @@ html,body{
 .change_con_report input{
 	padding: 0;
 	height: 2rem;
-	margin-left: 1.3rem;
+	margin-left: 0.5rem;
 	margin-right: 1.3rem;
 	border: 0;
 	color: #83AD50;
@@ -332,4 +332,22 @@ textarea{
 .btn_sub{
 	display: block;
 	width: 100%;
+}
+
+.case_record{
+	width: 100%;
+}
+
+
+.case_record span:first-child{
+	display: block; 
+	width: 38%; 
+	height: auto; 
+	float: left;
+}
+
+.case_record span:last-child{
+	display: block; 
+	height: auto; 
+	margin-left: 0.5rem;
 }

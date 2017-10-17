@@ -50,11 +50,18 @@ base
 			height: 16.175px;
 			width: 16.175px;
 			position: relative;
-			right: 50%;
+			right: 70%;
 			top: 0.3rem;
 			color: red;
 			margin-left: 0.1rem;
 		}
+		
+		img:first-child{
+			width: 72px;
+			height: 72px;
+			right: 50%;
+		}
+		
 		
 		.login {
 			color: #666666;
@@ -263,18 +270,18 @@ base
 		.mui-scroll>input[type=text] {
 			margin-top: 43.8px;
 			height: 30.32px;
-			width: 50%;
-			margin-left: 25%;
-			padding-left: 6%;
+			width: 70%;
+			margin-left: 15%;
+			padding-left: 10%;
 		}
 		
 		.userCodeImg {}
 		
 		input[type=password] {
 			height: 30.32px;
-			width: 50%;
-			margin-left: 25%;
-			padding-left: 6%;
+			width: 70%;
+			margin-left: 15%;
+			padding-left: 10%;
 		}
 		
 		.passWordImg {}

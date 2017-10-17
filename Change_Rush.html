@@ -33,13 +33,18 @@
 				/*box-shadow: 3px 0px 10px #888888;*/ 
 				/*display: none;*/
 			}
+			
+			.hide {
+				display: none!important;
+			}
+
 		</style>
 	</head>
 	<body>
 		
 		<header class="mui-bar mui-bar-nav titBackg">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">整改催办</h1>
+			<h1 class="mui-title">隐患整改催办</h1>
 		</header>
 		<div class="mui-scroll-wrapper">
 		    <div class="mui-scroll">
@@ -106,10 +111,10 @@
 							<div class="change_con_left '+ setJump(item.IsUrge) +'" data-id="'+ item.OrderID +'">\
 								<p>'+ item.OrderName +'</p>\
 								<span>整改单号：'+ item.OrderCode +'</span>\
-								<span>整改期限：'+ item.RectifyTime +'</span>\
+								<span style="width:16rem">整改期限：'+ item.RectifyTime +'</span>\
 								<span>整改对象：'+ item.OrderName +'</span>\
 							</div>\
-							<div id="right">\
+							<div id="right" class="'+ setHides(item.IsUrge) +'">\
 								<div class="change_con_right '+ setColor(item.IsUrge) +'" data-status="'+ item.IsUrge +'" data-id="'+ item.OrderID +'">\
 									<a id="pop"></a>\
 								</div>\
@@ -145,6 +150,19 @@
 						break;
 						case '1':
 							html += 'change_con_left_jump';
+						break;
+					}
+					return html;					
+				};
+				
+				function setHides(status){
+//					console.log(status === '0');
+					var html ='';
+					switch(status){
+						case '0':
+							html += 'hide';
+						break;
+						case '1':
 						break;
 					}
 					return html;					
@@ -193,6 +211,7 @@
 					}
 					if ( this.getAttribute("data-target") === '2' ){
 						CuibanSubmit_tab2();
+						setHides(status);
 					}
 					if ( this.getAttribute("data-target") === '3' ){
 						CuibanSubmit_tab3();

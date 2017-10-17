@@ -32,9 +32,9 @@ mui.plusReady(function() {
 		mui('.mui-off-canvas-wrap').offCanvas('toggle');
 
 	});
-	document.querySelector('.checkUpdate').addEventListener('tap', function() {
-		mui.toast('当前版本1.0.1');
-	});
+//	document.querySelector('.checkUpdate').addEventListener('tap', function() {
+////		mui.toast('当前版本1.0.1');
+//	});
 
 	//	document.querySelector('.quitUse').addEventListener('tap', function() {
 	//		mui('.mui-off-canvas-wrap').offCanvas('toggle');
@@ -157,39 +157,42 @@ mui.plusReady(function() {
 		},
 	});*/
 	//软件更新模块
-	if(mui.os.android) {
-		var content = {
-			"status": '1.0',
-			"version": "1.56",
-			"releaseTime": "2017-08-15"
-		};
+	var content = {
+		"status": '1.0',
+		"version": "1.0.1", 
+		"releaseTime": "2017-08-15"
+	};
+			
+	var server = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_CheckAppVersion?dataKey=00-00-00-00&AppVersion=' + content.version + '&appID=' + appID;
 		
-		var server = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_CheckAppVersion?dataKey=00-00-00-00&AppVersion=' + content.version + '&appID=' + appID;
+	document.querySelector(".version").innerHTML = 'FPC_tz_jg_v'+content.version;
+	document.querySelector(".releaseTime").innerHTML = content.releaseTime;
+	document.querySelector('.checkUpdate').addEventListener('tap', function() {
+		if(mui.os.android) {
+			mui.toast('当前版本'+content.version);
+			mui.getJSON(server, null, function(data) {
+				var getDatas = data['DataSource']['Tables'][0]['Datas'];
+				if(getDatas[0].appinfo != '1') {
+					plus.nativeUI.confirm(' ', confirmCB, '版本更新', ['取消', '确认']);
 	
-		document.querySelector(".version").innerHTML = content.version;
-		document.querySelector(".releaseTime").innerHTML = content.releaseTime;
-		mui.getJSON(server, null, function(data) {
-			var getDatas = data['DataSource']['Tables'][0]['Datas'];
-			if(getDatas[0].appinfo != '1') {
-				plus.nativeUI.confirm(' ', confirmCB, '版本更新', ['取消', '确认']);
-
-				function confirmCB(event) {
-					if(event.index == 1) {
-						var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + getDatas[0].appName; // 下载文件地址
-						var dtask = plus.downloader.createDownload('http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + getDatas[0].appinfo, {}, function(d, status) {
-							if(status == 200) { // 下载成功
-								var path = d.filename;
-								plus.runtime.install(path);
-							} else { //下载失败
-								alert("Download failed: " + status);
-							}
-						});
-						dtask.start();
+					function confirmCB(event) {
+						if(event.index == 1) {
+							var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + getDatas[0].appName; // 下载文件地址
+							var dtask = plus.downloader.createDownload('http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + getDatas[0].appinfo, {}, function(d, status) {
+								if(status == 200) { // 下载成功
+									var path = d.filename;
+									plus.runtime.install(path);
+								} else { //下载失败
+									alert("Download failed: " + status);
+								}
+							});
+							dtask.start();
+						}
 					}
 				}
-			}
-		});
-	}
+			});
+		}
+	});
 
 	//登录模块
 	//有缓存自动登录
@@ -388,7 +391,7 @@ mui.plusReady(function() {
 			//			document.querySelector(".logo_name_1").style.visibility = "hidden";
 			//			document.querySelector(".logo_name_2").style.visibility = "hidden";
 			//
-			document.querySelector('.footer').style.opacity = '0';
+//			document.querySelector('.footer').style.opacity = '0';
 
 		} else {
 			document.querySelector(".logo_name_1").style.marginTop = '19.8px';
@@ -397,7 +400,7 @@ mui.plusReady(function() {
 			//			document.querySelector(".logo_name_1").style.visibility = "initial";
 			//			document.querySelector(".logo_name_2").style.visibility = "initial";
 
-			document.querySelector('.footer').style.opacity = '1';
+//			document.querySelector('.footer').style.opacity = '1';
 		}
 
 	}

@@ -17,7 +17,7 @@
 .green-color {
 	color: #258d25!important;
 }
-.red-top {
+.red-top::before{
 	border-left: 8px solid #db4426;
 }
 .red-bottom {

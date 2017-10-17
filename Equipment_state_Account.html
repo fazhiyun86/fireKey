@@ -34,7 +34,7 @@
 		
 		<header class="mui-bar mui-bar-nav titBackg">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">设备资产台账</h1>
+			<h1 id="shebei" class="mui-title">设备资产台账</h1>
 		</header>
 		<div id="bg_tab pullrefresh" class=" mui-scroll-wrapper">
 			<div class="mui-scroll">
@@ -86,7 +86,6 @@
 					//初始化的时候默认值是 2
 					getData(initState)
 				})
-
 				var list = document.getElementsByClassName("tab_list");
 				var Account_con = document.getElementById("Account_con");
 				var tabWrap = document.getElementById("tabWrap");
@@ -134,6 +133,8 @@
 						
 						for(var i = 0; i < len; i++) {
 							var item = data[i];
+							var EquipmentName = data[i]['EquipmentName'];
+							document.getElementById("shebei").innerHTML = EquipmentName;
 							html += '<div class="equiment-list" data-code="'+ item.EquipmentCode +'">\
 								<p style="width: 25%;">'+item.EquipmentName+'</p>\
 								<p style="width: 30%;">'+item.EquipmentCode+'</p>\

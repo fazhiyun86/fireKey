@@ -14,7 +14,7 @@
 	<body>
 		<header class="mui-bar mui-bar-nav titBackg">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">首都大酒店A栋</h1>
+			<h1 id="zgaidx" class="mui-title">首都大酒店A栋</h1>
 		</header>
 		<div id="change_matter" class="mui-content change_matter" style="overflow: hidden;">
 			<!--整改内容-->
@@ -100,17 +100,19 @@
 						var html = '';
 						for (var i=0; i < len; i++){
 							var item = data[i];
+							var RectifyOrg = data[i]['RectifyOrg'];
+							document.getElementById("zgaidx").innerHTML = RectifyOrg;
 							html += '<div class="change_con_code" id=" item.OrderID " >\
 									<p id="xq_id">'+ item.OrderName +'</p>\
-									<span id="xq_code">'+ item.OrderCode +'</span>\
+									<span id="xq_code">整改单号 : '+ item.OrderCode +'</span>\
 								</div>';
 							
 							html += '<div class="change_con_inform" style="height: auto;">'+
 								'<h5>整改内容</h5>'+
-								'<div class="change_con_inform_case">'+
+								'<div class="change_con_inform_case" style="height:auto; border-bottom:1px solid #E7E7E7;">'+
 									'<p class="case_p">'+ item.RectifyContent +'</p>'+
 								'</div>'+
-								'<p class="case_record">整改期限：'+ item.TimeExpired +'</p>'+
+								'<p class="case_record" style="margin-top:0.5rem;">整改期限：'+ item.TimeExpired +'</p>'+
 								'<p class="case_record">通知下发：<span>'+ item.OrderUser +'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下发时间：<span>'+ item.OrderDate +'</span></p>'+
 							'</div>';
 							
