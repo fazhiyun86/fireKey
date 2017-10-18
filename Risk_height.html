@@ -25,6 +25,16 @@
 			.state_content_con {
 				padding: 0.3rem 0.2rem 0.3rem 1rem;
 			}
+			
+			.font-color-db4527 {
+				color: #db4527!important;
+			}
+			.font-color-e8a600 {
+				color: #e8a600!important;
+			}
+			.font-color-228b22 {
+				color: #228b22!important;
+			}
 		</style>
 	</head>
 	<body>
@@ -130,10 +140,8 @@
 				mui.plusReady(function() {
 					plus.nativeUI.showWaiting();
 					getData();
-//					var selfView = plus.webview.currentWebview();
-//					DataTime = selfView.info.taskTime;
-//					console.log(DataTime)
 				})
+				
 				//获取数据的请求
 				function getData () {
 					
@@ -152,8 +160,9 @@
 						type:'get',
 						timeout: 5000,            
 						success: function(data){
-							console.log(JSON.stringify(data))
-							setHtml(data["DataSource"]["Tables"][0]["Datas"])
+//							console.log(JSON.stringify(data))
+							data = data["DataSource"]["Tables"][0]["Datas"]
+							setHtml(data);
 						},
 						error: function(){
 							console.log("高风险子数据请求报错！");
@@ -164,20 +173,17 @@
 				// 数据的显示
 				function setHtml (data) {
 					data = common.riskCompanyDataChange(data)
-					console.log(JSON.stringify(data))
 					var html = '';
 					for (var i = 0; i < data.length; i++) {
 						var item = data[i];
 						var val = data[i].Ratio;
-						var newVal=val.replace(/%/, "");
-						console.log(newVal)
-						html += '<div class="risk_wrap" data-id="'+ item.OrganiseUnitID +'">'+
+						html += '<div id="mark" class="risk_wrap" data-id="'+ item.OrganiseUnitID +'">'+
 							'<div class="risk_item">' +
 								'<p class="risk_item_tit">'+ item.OrganiseUnitName +'</p>' +
 								'<div class="risk_item_content">' +
 									'<div class="item_content_top">' +
 										'<div class="flex_item flex_left">' +
-											'<span class="flex_left_num">'+ item.Ratio +'</span>' +
+											'<span class="ratioColor flex_left_num '+ setColor(item.Ratio) +'">'+ item.Ratio +'</span>' +
 											'<p>本周检查进度</p>' +
 										'</div>' +
 										'<div class="flex_item2">' +
@@ -205,37 +211,53 @@
 							'</div>'+ setIcon(item.Ratio) +
 						'</div>';
 					}
+					
 					document.getElementById('riskContentWrap').innerHTML = html
 					
-					function setSubItem (newVal) {
+					function setColor (Ratio) {
+						Ratio = parseFloat(Ratio)
+
+						var html = '';
+						if(Ratio == 100) {
+							html = 'font-color-228b22';
+						} else if(Ratio >= 80 && Ratio
+							< 100) {
+							html = 'font-color-e8a600';
+						} else if(Ratio < 80) {
+							html = 'font-color-db4527';
+						}
+						return html;
+					}
+					
+					function setSubItem (Val) {
 						
 						var html = '';
-						var len = newVal.length;
+						var len = Val.length;
 						for(var i = 0; i < len; i++) {
-							var item = newVal[i];
+							var item = Val[i];
 							html += '<p><span class="bottom_box">'+ item.k +'</span> <span class="bottom_num">'+ item.v +'</span></p>'
 						}
 						return html;
 					}
 					
-					function setIcon (newVal) {
-						newVal = newVal - 0;
-//						console.log(val)
+					function setIcon (Ratio) {
+						Ratio = parseFloat(Ratio)
+						Ratio = Ratio - 0;
 						var html = '';
-						if(newVal == 100) {
+						if(Ratio == 100) {
 							html += '<i class="triangle-top green-top"></i>'+
 							'<i class="triangle-bottom green-bottom"></i>';
-						} else if(newVal >= 80 && newVal
+						} else if(Ratio >= 80 && Ratio
 							< 100) {
 							html += '<i class="triangle-top yellow-top"></i>'+
 							'<i class="triangle-bottom yellow-bottom"></i>';
-						} else if(newVal < 80) {
+						} else if(Ratio < 80) {
 							html += '<i class="triangle-top red-top"></i>'+
 							'<i class="triangle-bottom red-bottom"></i>';
 						}
-						console.log(html)
 						return html;
-					}
+					}					
+
 					//隐藏加载
 					plus.nativeUI.closeWaiting();
 				}

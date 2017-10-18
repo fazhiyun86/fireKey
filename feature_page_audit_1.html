@@ -145,7 +145,9 @@
 					var data = {
 						OrderID: OrderID
 					}
-					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAM_RectifyTaskDetail?dataKey=00-00-00-00';			
+					console.log(data.OrderID)
+					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAM_RectifyTaskDetail?dataKey=00-00-00-00';	
+					
 					mui.ajax(urlg, {
 						data: data,
 						dataType: 'json',
@@ -155,6 +157,7 @@
 							console.log(JSON.stringify(data))
 							data = data["DataSource"]["Tables"][0]["Datas"]
 							setHtml(data);
+							mui.toast('数据请求成功')
 							
 						},						
 						error: function(){
@@ -174,7 +177,7 @@
 						html += '<div class="change_con">' +
 							'<div class="change_con_code">' +
 							'<p>'+ item.OrderName +'</p>' +
-							'<span>'+ item.OrderCode +'</span>' +
+							'<span>整改单号：'+ item.OrderCode +'</span>' +
 							'</div>' +
 							'<div class="change_con_inform" style="height:auto">' +
 							'<h5>整改内容</h5>' +
@@ -186,7 +189,7 @@
 							'</div>' +
 							'<div class="change_con_report" style="height:6rem">' +
 							'<h5>审核内容</h5>' +
-							'<p class="case_record"><span class="case_record_sp">制单人：'+ item.OrderUser +'</span><span class="case_record_sp">制单时间：'+ item.OrderDate +'</span></p>' +
+							'<p class="case_record"><span class="case_record_sp"> 制  单  人 ：'+ item.OrderUser +'</span><span class="case_record_sp">制单时间：'+ item.OrderDate +'</span></p>' +
 							'</div>' +
 							'<div class="change_con_audit">	' +
 							'<legend>整改审核结论：</legend>' +
@@ -273,11 +276,11 @@
 				function judgment(){
 					//审批意见
 					var DescriptValue =  $('#textval').val();
-					if( NameVal == '' ){
+					if( DescriptValue == '' ){
 						mui.toast('通知名称不能为空');
 						return
 					}else{
-						ProcAuditDescript = NameVal;
+						ProcAuditDescript = DescriptValue;
 					};
 					var btnArray = ['确认', '取消'];
 					mui.confirm('您确认此次整改已通过审核？', '提示', btnArray, function(e) {

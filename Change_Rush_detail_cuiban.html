@@ -8,7 +8,7 @@
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
-		<link rel="stylesheet" type="text/css" href="css/Change_Rush_detail.css" />
+		<link rel="stylesheet" type="text/css" href="css/Change_Rush_detail_cuiban.css" />
 	</head>
 
 	<body>
@@ -151,7 +151,7 @@
 							document.getElementById("zgaidx").innerHTML = RectifyOrg;
 							html += '<div class="change_con_code" id=" item.OrderID " >\
 									<p id="xq_id">'+ item.OrderName +'</p>\
-									<span id="xq_code">'+ item.OrderCode +'</span>\
+									<span id="xq_code">整改单号：'+ item.OrderCode +'</span>\
 								</div>';
 							
 							html += '<div class="change_con_inform" style="height: auto;">'+
@@ -160,17 +160,17 @@
 									'<p class="case_p">'+ item.RectifyContent +'</p>'+
 								'</div>'+
 								'<p class="case_record">整改期限：'+ item.TimeExpired +'</p>'+
-								'<p class="case_record">通知下发：<span>'+ item.OrderUser +'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下发时间：<span>'+ item.OrderDate +'</span></p>'+
+								'<p class="case_record" ><span>通知下发：'+ item.OrderUser +'</span><span>下发时间：2017年11月22日 33:55:99</span></p>'+
 							'</div>';
 							
 							html += '<div class="change_con_report" style="height: auto;">'+
 								'<h5>审核内容</h5>'+
-								'<p class="case_record">整改审核：<span>'+ item.OrderAuditUser +'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;审核时间：<span>'+ item.OrderAuditDate +'</span></p>'+
-								'<p class="case_record">审核意见：<span>'+ item.ProcAuditDescript +'</span></p>'+
+								'<p class="case_record"><span>整改审核：'+ item.OrderAuditUser +'</span><span>审核时间：'+ item.OrderAuditDate +'</span></p>'+
+								'<p class="case_record" style="width:100%; height:auto; line-height:1rem;">审核意见：'+ item.ProcAuditDescript +'</p>'+
 							'</div>';
 							
 							html += '<div class="change_con_remark">'+
-								'<p style="font-size:0.7rem">催办时间：<span>'+ item.UrgeDate +'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ item.UrgeCompany +'：<span>'+ item.UrgeUser +'</span>'+
+								'<p style="font-size:0.7rem"><span>催办时间：'+ item.UrgeDate +'</span><span>'+item.UrgeCompany+'：'+ item.UrgeUser +'</span>'+
 								'</p>'+
 								'</div>';
 							

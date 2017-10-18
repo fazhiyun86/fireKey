@@ -132,7 +132,7 @@ html,body{
 
 /*整改时间,人物*/
 .change_con_inform .case_record{
-	margin-left: 0.5rem;
+	padding-left: 0.5rem;
 	font-size: 0.75rem;
 	line-height: 1.15rem;
 	color: #801818;
@@ -242,7 +242,6 @@ html,body{
 .change_con_report .case_record{
 	width: 100%;
 	padding-left: 0.5rem;
-	padding-right: 1rem;
 	font-size: 0.75rem;
 	line-height: 1.5rem;
 	color: #801818;

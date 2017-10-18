@@ -113,14 +113,13 @@
 									'<p class="case_p">'+ item.RectifyContent +'</p>'+
 								'</div>'+
 								'<p class="case_record" style="margin-top:0.5rem;">整改期限：'+ item.TimeExpired +'</p>'+
-								'<p class="case_record">通知下发：<span>'+ item.OrderUser +'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下发时间：<span>'+ item.OrderDate +'</span></p>'+
+								'<p class="case_record"><span>通知下发：'+ item.OrderUser +'</span><span>下发时间：'+ item.OrderDate +'</span></p>'+
 							'</div>';
 							
 							html += '<div class="change_con_report" style="height: auto;">'+
 								'<h5>审核内容</h5>'+
-								'<p class="case_record">整改审核：<span>'+ item.OrderAuditUser +'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;审核时间：<span>'+ item.OrderAuditDate +'</span></p>'+
-//								'<legend>审核意见：</legend>'+
-								'<p class="case_record">审核意见：<span>'+ item.ProcAuditDescript +'</span></p>'+
+								'<p class="case_record"><span>整改审核：'+ item.OrderAuditUser +'</span><span>审核时间：'+ item.OrderAuditDate +'</span></p>'+
+								'<p class="case_record" style="width:100%; height:auto; line-height:1rem;">审核意见：'+ item.ProcAuditDescript +'</p>'+
 							'</div>';
 							
 

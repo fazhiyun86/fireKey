@@ -117,10 +117,6 @@
 						success: function(data){
 //							console.log(JSON.stringify(data))
 							data = data["DataSource"]["Tables"][0]["Datas"]
-							console.log(JSON.stringify(data))
-//							console.log(data["TotalObjectCount"])
-//							console.log(data[i].ExamObjectCount)
-//							setIcon
 							setHtml(data)
 						},
 						error: function(){
@@ -139,7 +135,7 @@
 						html += '<div class="risk_wrap" data-id="'+ item.TaskID +'" data-task="'+item.TaskName+'" data-pro="'+ item.OrganiseUnitName +'">\
 								<div class="risk_item height-2-item">\
 									<div>'+ item.OrganiseUnitName +'</div>\
-									<div class="setFontColor">'+ item.TaskName +'</div>\
+									<div class="color-green">'+ item.TaskName +'</div>\
 									<div>任务期限:'+ item.TaskStartTime +'~~'+ item.TaskEndTime +'</div>\
 									<div>检查进度:'+item.Ratio+'%       应检:'+item.TotalObjectCount+'      已检:'+item.ExamObjectCount+'      异常:'+item.AbNormalObjectCount+'      处理:'+item.AuditCount+'</div>\
 								</div>\
@@ -152,22 +148,22 @@
 					//隐藏加载
 					plus.nativeUI.closeWaiting();
 					
-					function setIcon(){
-//						for (var i = 0; i < data.length; i++) {
-//							var item = data[i];
-							
-							TotalObjectCount = data["TotalObjectCount"];
-//							console.log(TotalObjectCount)
-							ExamObjectCount = data["ExamObjectCount"];
-//							console.log(ExamObjectCount)
-							if(TotalObjectCount == ExamObjectCount) { 
-//								setFontColor.style.color = '#228b22'
-							} else{
-//								setFontColor.style.color = '#000000'
-							}
-//						}
-					}
-					setIcon()
+//					function setIcon(){
+////						for (var i = 0; i < data.length; i++) {
+////							var item = data[i];
+//							
+//							TotalObjectCount = data["TotalObjectCount"];
+////							console.log(TotalObjectCount)
+//							ExamObjectCount = data["ExamObjectCount"];
+////							console.log(ExamObjectCount)
+//							if(TotalObjectCount == ExamObjectCount) { 
+////								setFontColor.style.color = '#228b22'
+//							} else{
+////								setFontColor.style.color = '#000000'
+//							}
+////						}
+//					}
+//					setIcon()
 					
 				}
 				

@@ -142,6 +142,20 @@
 					getData(info.idVal)
 					
 				})
+				
+				//字的颜色色
+				function setFontColor(Ratio,right){
+					Ratio = parseFloat(Ratio)
+						
+					if(Ratio < 80) {
+						right.style.color = '#db4527'
+					} else if (Ratio >= 80 && Ratio < 100) {
+						right.style.color = '#e8a600'
+					} else if(Ratio == 100){
+						right.style.color = '#228b22'
+					}
+				}
+				
 				//获取数据的请求
 				function getData (id) {
 					
@@ -160,8 +174,15 @@
 						type:'get',
 						timeout: 5000,            
 						success: function(data){
-							console.log(JSON.stringify(data))     
-							setHtml(data["DataSource"]["Tables"][0]["Datas"])
+							console.log(JSON.stringify(data))
+							data = data["DataSource"]["Tables"][0]["Datas"]							   
+							setHtml(data);
+							var len = data.length;
+							for(var i=0; i<len; i++){
+								var right = document.getElementsByClassName("flex_left_num")[i]
+								var item = data[i];
+								setFontColor(item.Ratio,right);
+							}
 						},
 						error: function(){
 							console.log("高风险二级数据请求报错！");
@@ -224,6 +245,7 @@
 					}
 					
 					function setIcon (val) {
+						val = parseFloat(val)
 						val = val - 0;
 						var html = '';
 						if(val === 100) {

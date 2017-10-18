@@ -578,7 +578,7 @@ mui.plusReady(function() {
 			timeout: 5000,
 			
 			success: function(data) {	
-				console.log(JSON.stringify(data))
+//				console.log(JSON.stringify(data))
 				setHtml(data)
 				plus.nativeUI.closeWaiting();
 			},
@@ -589,34 +589,31 @@ mui.plusReady(function() {
 		});
 		
 		function setHtml (data) {
+			var y = data["DataSource"]['Tables'][0]["Datas"]
 			var info = data["DataSource"]['Tables'][0]["Datas"][0]
-				console.log(JSON.stringify(info))
+//				console.log(JSON.stringify(info))
 			
 			var ObjectCount = info["ObjectCount"];
 			var AbnormalCount = info["AbnormalCount"];
 			var AuditCount = info["AuditCount"];
 			var Rate = info["Rate"];
 			var Ratio = info["Ratio"];
-//			setColor(item.Ratio)
-			
+			setFontColor(Ratio);
 			function setFontColor(Ratio){
 				Ratio = parseFloat(Ratio)
-				
+				var mark = document.getElementById("mark");
 				if(Ratio < 80) {
-					console.log("80")
-					document.getElementById("Ratio").style.color = '#db4527'
-				} else if (Ratio >= 80 && Ratio < 100) {
-					console.log("80-100")
-					document.getElementById("Ratio").style.color = '#e8a600'
+					document.getElementById("Ratio").style.color = '#db4527';
+					mark.className = "index_list_content_maymore"  + " red-top" + " red-bottom";
+				}if (Ratio >= 80 && Ratio < 100) {
+					document.getElementById("Ratio").style.color = '#e8a600';
+					mark.className = "index_list_content_maymore" + " yellow-top" + " yellow-bottom";
 				} else if(Ratio == 100){
-					console.log("100")
-					document.getElementById("Ratio").style.color = '#228b22'
+					document.getElementById("Ratio").style.color = '#228b22';
+					mark.className = "index_list_content_maymore" + " green-top" + " green-bottom";
 				}
-				
 			}
-			
-			setFontColor(Ratio);
-			
+
 			document.getElementById("Ratio").innerHTML = Ratio || '-'; 
 			document.getElementById("ObjectCount").innerHTML = ObjectCount || 0; 
 			document.getElementById("AbnormalCount").innerHTML = AbnormalCount || 0; 
@@ -786,7 +783,7 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data){
-				console.log(JSON.stringify(data))
+//				console.log(JSON.stringify(data))
 				setHtml(data)
 			},
 			

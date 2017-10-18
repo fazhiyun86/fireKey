@@ -129,7 +129,7 @@
 						var item = data[i];
 						html += '<div class="risk_wrap" data-id="'+ item.TaskObjectID +'">\
 							<div class="risk_item height-2-item">\
-								<p class="risk_item_tit '+ abnormalHandle(item.InspectIsNormal) +'" style="color:#db4527">'+ item.ObjectName +'</p>\
+								<p class="risk_item_tit '+ abnormalHandle(item.InspectIsNormal) +'">'+ item.ObjectName +'</p>\
 								<div class="item_content_top height-3-item">\
 										<div class="flex_item">\
 											<p>设备编号：'+ item.EquipmentCode +'</p>\
@@ -152,6 +152,8 @@
 						var html = '';
 						if(val === '0') {
 							html = 'red-color';
+						}else if(val === '0'){
+							html = '';
 						}
 						return html;
 					}

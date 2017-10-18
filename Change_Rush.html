@@ -114,7 +114,7 @@
 								<span style="width:16rem">整改期限：'+ item.RectifyTime +'</span>\
 								<span>整改对象：'+ item.OrderName +'</span>\
 							</div>\
-							<div id="right" class="'+ setHides(item.IsUrge) +'">\
+							<div class="right">\
 								<div class="change_con_right '+ setColor(item.IsUrge) +'" data-status="'+ item.IsUrge +'" data-id="'+ item.OrderID +'">\
 									<a id="pop"></a>\
 								</div>\
@@ -143,7 +143,6 @@
 				};
 				
 				function setJump(status){
-//					console.log(status === '0');
 					var html = '';
 					switch(status){
 						case '0':
@@ -155,19 +154,22 @@
 					return html;					
 				};
 				
-				function setHides(status){
-//					console.log(status === '0');
-					var html ='';
-					switch(status){
-						case '0':
-							html += 'hide';
-						break;
-						case '1':
-						break;
+				function setJump2(status,left){
+					if(status == '0'){
+						left.className = left.className + " change_con_left_jump"; 
+					}else if(status == '1'){
+
 					}
-					return html;					
 				};
 				
+				function setHides(status,right){
+						if(status == '0'){
+							right.style.display = "none";
+						}else if(status == '1'){
+							right.style.display = "block";
+						}			
+				};
+							
 //				催办提交			
 				function CuibanSubmit(ValueID){
 					var data = {
@@ -183,11 +185,10 @@
 						timeout: 5000,
 						headers:{'Content-Type':'application/json'},						
 						success: function(data){
-							console.log("成功")
-//							console.log(JSON.stringify(data))
 							data = data["DataSource"]["Tables"][0]["Datas"];
 							$("#ChangeWrap").remove();
 							setHtml(data);
+							mui.toast('数据请求失败');
 						},					
 						error: function(){
 							mui.toast('数据请求失败');
@@ -205,13 +206,11 @@
 					$(".tab_list").attr('class', 'tab_list');
 					$(this).attr("class", "tab_list tab-active");
 					var targetVal = this.getAttribute("data-target");
-					console.log(targetVal);
 					if ( this.getAttribute("data-target") === '1' ){
 						CuibanSubmit_tab1();
 					}
 					if ( this.getAttribute("data-target") === '2' ){
 						CuibanSubmit_tab2();
-						setHides(status);
 					}
 					if ( this.getAttribute("data-target") === '3' ){
 						CuibanSubmit_tab3();
@@ -229,12 +228,11 @@
 						type: 'get', 
 						timeout: 5000,
 						success: function(data){
-							console.log(JSON.stringify(data))
+//							console.log(JSON.stringify(data))
 							data = data["DataSource"]["Tables"][0]["Datas"];	
 							var len = data.length;
-							$("#ChangeWrap").remove();
+							$("#ChangeWrap").remove();							
 							setHtml(data);
-							
 						},					
 						error: function(){
 							mui.toast('数据请求失败');
@@ -253,10 +251,11 @@
 						type: 'get', 
 						timeout: 5000,
 						success: function(data){
-							console.log(JSON.stringify(data))
+//							console.log(JSON.stringify(data))
 							data = data["DataSource"]["Tables"][0]["Datas"];
 							var len = data.length;
 							setHtml(data);
+
 						},					
 						error: function(){
 							mui.toast('数据请求失败');
@@ -278,8 +277,15 @@
 							console.log(JSON.stringify(data));
 							data = data["DataSource"]["Tables"][0]["Datas"];
 							var len = data.length;
-							$("#ChangeWrap").remove();
 							setHtml(data);
+							var len = data.length;
+							for(var i=0; i<len; i++){
+								var right = document.getElementsByClassName("right")[i]
+								var item = data[i];
+								setHides(item.IsUrge,right);
+								var left = document.getElementsByClassName("change_con_left")[i];
+								setJump2(item.IsUrge,left)
+							}
 						},					
 						error: function(){
 							mui.toast('数据请求失败');

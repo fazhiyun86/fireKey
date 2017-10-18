@@ -384,6 +384,18 @@ input {
 	transform: rotate(-45deg);
 }
 /*66b61d  f28d02 17a79a 867eed*/
+.red-top::before {
+    border-left: 8px solid #db4527;
+}
+
+.yellow-top::before {
+    border-left: 8px solid #e8a600;
+}
+
+.green-top::before {
+    border-left: 8px solid #228b22;
+}
+
 .index_list_content_maymore:nth-child(2)::before {
     border-left: 8px solid #f28d02;
 }
@@ -419,8 +431,16 @@ input {
 	transform: rotate(-45deg); 
 }
 
-.index_list_content_maymore:nth-child(1)::after {
-    border-right: 8px solid #66b61d;
+.red-bottom::after {
+    border-right: 8px solid #db4527;
+}
+
+.yellow-bottom::after {
+    border-right: 8px solid #e8a600;
+}
+
+.green-bottom::after {
+    border-right: 8px solid #228b22;
 }
 
 .index_list_content_maymore:nth-child(2)::after {
