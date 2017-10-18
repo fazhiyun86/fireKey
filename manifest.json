@@ -5,7 +5,7 @@
 		"iPad"
 	],
 	"id": "H5A8895E7",/*应用的标识，创建应用时自动生成，勿手动修改*/
-	"name": "重点企业监管版",/*应用名称，程序桌面图标名称*/
+	"name": "消防监管",/*应用名称，程序桌面图标名称*/
 	"version": {
 		"name": "1.55",/*应用版本名称*/
 		"code": "83"
@@ -301,11 +301,12 @@
 					"images/user.png",
 					"css/login.css",
 					"js/login.js",
-					"images/119logo.png",
+					"images/controlboard.png",
 					"images/password.png",
 					"images/systemImg.png",
 					"images/systemImg1.png",
-					"js/jquery.min.js"
+					"js/jquery.min.js",
+					"images/personal.png"
 				],
 				"refer": [
 					"unlock.html",
@@ -385,7 +386,9 @@
 					"images/icon_shebeiyunwei.png",
 					"images/icon_zhuangtai.png",
 					"images/zhenggai.png",
-					"images/cuiban.png"
+					"images/cuiban.png",
+					"images/icon_xiaohuoshuanzhuangtai.png",
+					"images/icon_yinhuanzhenggai.png"
 				],
 				"refer": [
 					"state.html",
@@ -724,7 +727,7 @@
 					"css/style.css",
 					"images/header_base_01.png",
 					"css/iconfont.woff",
-					"images/119logo.png",
+					"images/controlboard.png",
 					"js/Equipment_patrol_list1_1_1_1.js",
 					"css/iconfont.ttf",
 					"js/mui.zoom.js",
@@ -928,7 +931,7 @@
 					"images/header_base_01.png",
 					"js/Equipment_guifan_list1_1_1_1.js",
 					"css/iconfont.woff",
-					"images/119logo.png",
+					"images/controlboard.png",
 					null,
 					"css/imageViewer.css",
 					"js/mui.zoom.js",
@@ -1045,7 +1048,7 @@
 					"css/iconfont.woff",
 					"fonts/mui.ttf",
 					"images/header_base_01.png",
-					"images/119logo.png",
+					"images/controlboard.png",
 					"images/1.png",
 					"js/Micro_task_1_list.js",
 					"js/mui.zoom.js",
@@ -1069,7 +1072,7 @@
 					"css/iconfont.css",
 					"css/mui.min.css",
 					"css/style.css",
-					"images/119logo.png",
+					"images/controlboard.png",
 					"images/header_base_01.png",
 					"css/iconfont.woff",
 					null,
@@ -1158,7 +1161,7 @@
 					"js/mui.zoom.js",
 					"css/imageViewer.css",
 					"js/mui.previewimage.js",
-					"images/119logo.png"
+					"images/controlboard.png"
 				],
 				"refer": [
 					"Micro_task_3.html",
@@ -1178,7 +1181,7 @@
 					"js/mui.zoom.js",
 					"css/imageViewer.css",
 					"js/mui.previewimage.js",
-					"images/119logo.png",
+					"images/controlboard.png",
 					"images/shipin.png"
 				],
 				"refer": [
@@ -1200,7 +1203,7 @@
 					"js/mui.zoom.js",
 					"css/imageViewer.css",
 					"js/mui.previewimage.js",
-					"images/119logo.png",
+					"images/controlboard.png",
 					"images/shipin.png"
 				],
 				"refer": [
@@ -1222,7 +1225,7 @@
 					"js/mui.zoom.js",
 					"css/imageViewer.css",
 					"js/mui.previewimage.js",
-					"images/119logo.png",
+					"images/logo.png",
 					"images/shipin.png"
 				],
 				"refer": [
@@ -1317,7 +1320,7 @@
 					"css/mui.min.css",
 					"css/style.css",
 					"js/maintenance.js",
-					"images/119logo.png",
+					"images/controlboard.png",
 					"maintenance.html",
 					"images/guoqi.png",
 					"images/exit.png",
@@ -1360,7 +1363,7 @@
 					"css/style.css",
 					"fonts/mui.ttf",
 					"images/header_base_01.png",
-					"images/119logo.png",
+					"images/controlboard.png",
 					"css/imageViewer.css",
 					"js/mui.zoom.js",
 					"js/jquery.min.js",
@@ -1444,7 +1447,7 @@
 					"css/imageViewer.css",
 					"fonts/mui.ttf",
 					"js/mui.previewimage.js",
-					"images/119logo.png",
+					"images/controlboard.png",
 					"js/mui.min.js",
 					"css/iconfont.css",
 					"css/mui.min.css",
@@ -1806,7 +1809,7 @@
 			},
 			"Risk_height_4.html": {
 				"resources": [
-					"images/119logo.png",
+					"images/controlboard.png",
 					"js/mui.min.js",
 					"fonts/mui.ttf",
 					"css/mui.min.css",
