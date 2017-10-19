@@ -25,6 +25,16 @@
 			.state_content_con {
 				padding: 0.3rem 0.2rem 0.3rem 1rem;
 			}
+			
+			.font-color-db4527 {
+				color: #db4527!important;
+			}
+			.font-color-e8a600 {
+				color: #e8a600!important;
+			}
+			.font-color-228b22 {
+				color: #228b22!important;
+			}
 		</style>
 	</head>
 	<body>
@@ -144,16 +154,19 @@
 				})
 				
 				//字的颜色色
-				function setFontColor(Ratio,right){
-					Ratio = parseFloat(Ratio)
-						
-					if(Ratio < 80) {
-						right.style.color = '#db4527'
-					} else if (Ratio >= 80 && Ratio < 100) {
-						right.style.color = '#e8a600'
-					} else if(Ratio == 100){
-						right.style.color = '#228b22'
-					}
+				function setColor (Ratio) {
+						Ratio = parseFloat(Ratio)
+
+						var html = '';
+						if(Ratio == 100) {
+							html = 'font-color-228b22';
+						} else if(Ratio >= 80 && Ratio
+							< 100) {
+							html = 'font-color-e8a600';
+						} else if(Ratio < 80) {
+							html = 'font-color-db4527';
+						}
+						return html;
 				}
 				
 				//获取数据的请求
@@ -177,12 +190,12 @@
 							console.log(JSON.stringify(data))
 							data = data["DataSource"]["Tables"][0]["Datas"]							   
 							setHtml(data);
-							var len = data.length;
-							for(var i=0; i<len; i++){
-								var right = document.getElementsByClassName("flex_left_num")[i]
-								var item = data[i];
-								setFontColor(item.Ratio,right);
-							}
+//							var len = data.length;
+//							for(var i=0; i<len; i++){
+//								var right = document.getElementsByClassName("flex_left_num")[i]
+//								var item = data[i];
+//								setFontColor(item.Ratio,right);
+//							}
 						},
 						error: function(){
 							console.log("高风险二级数据请求报错！");
@@ -198,13 +211,14 @@
 					var html = '';
 					for (var i = 0; i < data.length; i++) {
 						var item = data[i];
+						var val = data[i].Ratio;
 						html += '<div class="risk_wrap" data-id="'+ item.OrganiseUnitID +'">'+
 							'<div class="risk_item">' +
 								'<p class="risk_item_tit">'+ item.OrganiseUnitName +'</p>' +
 								'<div class="risk_item_content">' +
 									'<div class="item_content_top">' +
 										'<div class="flex_item flex_left">' +
-											'<span class="flex_left_num">'+ item.Ratio +'</span>' +
+											'<span class="flex_left_num '+ setColor(item.Ratio) +'">'+ item.Ratio +'</span>' +
 											'<p>本周检查进度</p>' +
 										'</div>' +
 										'<div class="flex_item2">' +

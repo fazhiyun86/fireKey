@@ -2105,7 +2105,8 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"css/style.css",
-					"images/header_base_01.png"
+					"images/header_base_01.png",
+					"js/jquery.min.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -2159,7 +2160,8 @@
 					"js/jquery.min.js",
 					"images/arrow_2.png",
 					"images/fenlei.png",
-					"feature_page_order_01.html"
+					"feature_page_order_01.html",
+					"js/common.js"
 				],
 				"refer": [],
 				"priority": 0

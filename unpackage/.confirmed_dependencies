@@ -3,13 +3,15 @@
     "resources": [
       "css/iconfont.woff",
       "js/Micro_task_1.js"
-    ]
+    ],
+    "refer": []
   },
   "totalTarget_email.html": {
     "resources": [
       "css/totalTarget-email.css",
       "css/base.css"
-    ]
+    ],
+    "refer": []
   },
   "index.html": {
     "resources": [
@@ -24,6 +26,12 @@
       "images/icon_donghuo.png",
       "images/login_01_01.png",
       "js/index.js"
+    ],
+    "refer": [
+      "feature_page_order_01.html",
+      "Change_Rush.html",
+      "Risk_height.html",
+      "Add_Fire_statistic.html"
     ]
   },
   "main.html": {
@@ -50,7 +58,8 @@
       "css/mui.picker.min.css",
       "images/fenlei.png",
       "js/Micro_task_3.js"
-    ]
+    ],
+    "refer": []
   },
   "login.html": {
     "resources": [
@@ -70,7 +79,8 @@
   "Password_edit.html": {
     "resources": [
       "images/user-photo.png"
-    ]
+    ],
+    "refer": []
   },
   "feature_page.html": {
     "resources": [
@@ -79,6 +89,10 @@
       "images/zhenggaishenpi.png",
       "images/header_base_01.png",
       "images/zhenggaixiadan.png"
+    ],
+    "refer": [
+      "feature_page_audit.html",
+      "feature_page_order.html"
     ]
   },
   "Micro_task.html": {
@@ -95,6 +109,126 @@
   "Micro_task_2.html": {
     "resources": [
       "js/Micro_task_2.js"
+    ],
+    "refer": []
+  },
+  "feature_page_order_01.html": {
+    "resources": [
+      "images/bg_2.png",
+      "images/bg_1.png",
+      "css/feature_page_order_01.css",
+      "images/bg_3.png"
+    ],
+    "refer": [
+      "Change_Rush_detail.html"
+    ]
+  },
+  "Change_Rush_detail.html": {
+    "resources": [
+      "css/Change_Rush_detail.css"
+    ],
+    "refer": []
+  },
+  "feature_page_audit.html": {
+    "resources": [
+      "css/feature_page_audit.css",
+      "css/feature_page.css",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png"
+    ],
+    "refer": []
+  },
+  "Change_Rush.html": {
+    "resources": [
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/Change_Rush.css",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png"
+    ],
+    "refer": []
+  },
+  "Risk_height.html": {
+    "resources": [
+      "js/common.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "css/Risk_height_low.css"
+    ],
+    "refer": [
+      "Risk_height_1.html"
+    ]
+  },
+  "feature_page_order.html": {
+    "resources": [
+      "js/jquery.min.js",
+      "js/mui.picker.min.js",
+      "css/feature_page_order.css",
+      "images/arrow_r.png",
+      "fonts/mui.ttf",
+      "css/style.css",
+      "images/fenlei.png",
+      "js/common.js",
+      "images/arrow_2.png",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/mui.picker.min.css",
+      "images/header_base_01.png"
+    ],
+    "refer": []
+  },
+  "Risk_height_1.html": {
+    "resources": [
+      "js/common.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/header_base_01.png",
+      "css/Risk_height_low.css"
+    ],
+    "refer": [
+      "Risk_height_2.html"
+    ]
+  },
+  "Add_Fire_statistic_tab01.html": {
+    "resources": [
+      "js/echarts.min.js",
+      "js/common.js",
+      "images/loading.gif"
+    ]
+  },
+  "Add_Fire_statistic_tab.html": {
+    "resources": [
+      "Add_Fire_statistic_tab01.html",
+      "js/jquery.min.js",
+      "css/iconfont.css"
+    ],
+    "refer": [
+      "Add_Fire_statistic_tab01.html"
+    ]
+  },
+  "Add_Fire_statistic.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/Add_Fire_statistic.css",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "Add_Fire_statistic_tab.html",
+      "css/style.css",
+      "images/header_base_01.png"
+    ],
+    "refer": [
+      "Add_Fire_statistic_tab.html"
     ]
   }
 }
