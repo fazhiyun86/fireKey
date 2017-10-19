@@ -407,6 +407,10 @@
 	 * 线性图表的配置项
 	 */
 	common.lineBaseOption = function () {
+//		function a(min){
+//			text = min + 20
+//			return text
+//		};
 		var option = {
         	title:{
         		text: "",
@@ -428,6 +432,10 @@
 		    		inside: 'true',
 		    		length: 0,
 		    	},
+//		    	axisLabel :{
+//		    		interval: '0',
+//		    		margin: 10,
+//		    	},
                 data: [],
             },
 		    grid: {
@@ -438,7 +446,8 @@
 		        containLabel: true
 		    },
             yAxis: {
-//			    		type: 'value',	    	
+            	type:'value',
+            	boundaryGap: [0, 40],
             	splitLine:{
 		    		show: false,
 		    	},
@@ -447,6 +456,21 @@
 		    		length: 0,
 		    	},
 	    		nameLocation: 'start',
+//	    		axisLabel :{
+//		    		
+//		    	},
+//				min:'datamin',
+//				value:[30,200],
+//				min: function(value) {
+//					return value.min - 20;
+//				},
+//				max: function(min) {
+//					return min + 20;
+//				},
+//		    	interval: 'auto',
+				
+				
+//              splitNumber: a('0') + 20,   
             },
             series: [{
                 name: '',
@@ -464,8 +488,11 @@
             }]
         };
         
+        
         return option;
+        
 	}
+	
 	/**
 	 * 动火统计部分配置项
 	 * @param {Object} data

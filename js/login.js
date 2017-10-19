@@ -28,10 +28,26 @@ mui.plusReady(function() {
 	plus.screen.lockOrientation("portrait-primary"); //禁止横屏
 
 	//系统设置侧滑打开
-	document.querySelector('#system_setting').addEventListener('tap', function() {
-		mui('.mui-off-canvas-wrap').offCanvas('toggle');
-
+	var NumTime = 0;
+	function five() {
+		NumTime += 1;
+		if(NumTime >= 5) {
+			NumTime = 0;
+			mui('.mui-off-canvas-wrap').offCanvas('toggle');
+		}
+	}
+	setInterval(function() {
+		NumTime = 0;
+	}, 5000);
+	
+	document.querySelector('#logo').addEventListener('tap', function() {
+		five();
 	});
+		
+	
+//  console.log('延时')
+	
+//	mui('.mui-off-canvas-wrap').offCanvas('toggle');
 //	document.querySelector('.checkUpdate').addEventListener('tap', function() {
 ////		mui.toast('当前版本1.0.1');
 //	});

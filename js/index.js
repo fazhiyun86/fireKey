@@ -4,24 +4,8 @@ mui.init({
 		hold: true, 
 	},
 	keyEventBind: {
-		//		backbutton: true //关闭back按键监听
 	},
-	//	pullRefresh: {
-	//		container: '#offCanvasWrapper',
-	//		down: {
-	//			callback: pulldownRefresh
-	//		},
-	//		//		up: {
-	//		//			contentrefresh: '正在加载...',
-	//		//			callback: pullupRefresh
-	//		//		}
-	//	}
-	//	pullRefresh: {
-	//		container: '#bodyId',
-	//		down: {
-	//			callback: pulldownRefresh
-	//		}
-	//	}
+
 });
 
 mui.plusReady(function() {
@@ -168,14 +152,6 @@ mui.plusReady(function() {
 					document.getElementById('xj4').innerHTML = getDatas[0].errObject;
 				}
 
-				//				
-				//							document.getElementById('tt').innerHTML = getDatas[0].totalTask;
-				//							document.getElementById('tf').innerHTML = getDatas[0].totalExam;
-				//							document.getElementById('fe').innerHTML = getDatas[0].ExamObject;
-				//							document.getElementById('tu').innerHTML = getDatas[0].errObject;
-				//							document.getElementById('mf').innerHTML = getDatas[0].NoExamByMonth;
-				//							document.getElementById('te').innerHTML = getDatas[0].totalObject;
-
 			},
 			error: function() {
 				//异常处理
@@ -186,351 +162,6 @@ mui.plusReady(function() {
 			plus.nativeUI.closeWaiting();
 		}, 500);
 	}
-//	WebApp_GetISMStatistical(time, localStorage.getItem('UnitCode'));
-
-	//证照状态通过UnitCode来获取
-	function WebApp_GetCertificateInfo(UnitCode) {
-		mui.ajax('http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetCertificateInfo?dataKey=00-00-00-00&UnitCode=' + UnitCode, {
-			data: null,
-			dataType: 'json', //返回
-			type: 'get',
-			timeout: 5000,
-			success: function(data) {
-				//服务器返回响应，根据响应结果，分析是否登陆成功
-				var getDatas = data['DataSource']['Tables'][0]['Datas'];
-				if(getDatas[0].total) {
-					document.getElementById('zzzz1').innerHTML = getDatas[0].total;
-				} else {
-					document.getElementById('zzzz1').innerHTML = 0;
-				}
-				if(getDatas[0].totalRemind) {
-					document.getElementById('zzzz2').innerHTML = getDatas[0].totalRemind;
-				} else {
-					document.getElementById('zzzz2').innerHTML = 0;
-				}
-				if(getDatas[0].totalExpired) {
-					document.getElementById('zzzz3').innerHTML = getDatas[0].totalExpired;
-				} else {
-					document.getElementById('zzzz3').innerHTML = 0;
-				}
-
-			},
-			error: function() {
-				//异常处理
-				mui.toast('数据请求失败')
-			}
-		});
-	}
-//	WebApp_GetCertificateInfo(localStorage.getItem('UnitCode'))
-
-	//动火检查
-	function WebApp_GetFrieWorkExamine_Statistical(UnitCode) {
-		url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetFrieWorkExamine_Statistical?dataKey=00-00-00-00&OrganiseUnitCode=' + UnitCode;
-		console.log(url)
-		mui.ajax(url, {
-			data: null,
-			dataType: 'json', //返回
-			type: 'get',
-			timeout: 5000,
-			success: function(data) {
-				//服务器返回响应，根据响应结果，分析是否登陆成功
-				var getDatas = data['DataSource']['Tables'][0]['Datas'];
-				//				mui.each(getDatas, function(index, item) {
-				//					//					console.log(item.TotalItemCount)
-				//				})
-				//				alert(getDatas[0].TotalItemCount)
-				if(getDatas[0].TotalItemCount == '') {
-
-					document.getElementById('fire1').innerHTML = 0;
-				} else {
-					document.getElementById('fire1').innerHTML = getDatas[0].TotalItemCount;
-				}
-
-				if(getDatas[0].NormalItemCount == '') {
-					document.getElementById('fire2').innerHTML = 0;
-				} else {
-					document.getElementById('fire2').innerHTML = getDatas[0].NormalItemCount;
-				}
-
-				if(getDatas[0].AbNormalItemCount == '') {
-					document.getElementById('fire3').innerHTML = 0;
-				} else {
-					document.getElementById('fire3').innerHTML = getDatas[0].AbNormalItemCount;
-				}
-
-				if(getDatas[0].AbNormalItemCount == '') {
-					document.getElementById('fire4').innerHTML = 0;
-				} else {
-					document.getElementById('fire4').innerHTML = getDatas[0].FireWorkCount;
-				}
-
-				if(getDatas[0].Confirm == '') {
-					document.getElementById('fire5').innerHTML = 0;
-				} else {
-					document.getElementById('fire5').innerHTML = getDatas[0].Confirm;
-				}
-
-				if(getDatas[0].Remaining == '') {
-					document.getElementById('fire6').innerHTML = 0;
-				} else {
-					document.getElementById('fire6').innerHTML = getDatas[0].Remaining;
-				}
-
-			},
-			error: function() {
-				//异常处理
-				mui.toast('数据请求失败')
-			}
-		});
-	}
-//	WebApp_GetFrieWorkExamine_Statistical(localStorage.getItem('UnitCode'));
-
-	//正式动火作业
-	function WebApp_GetFireworkStatistical(UnitCode) {
-		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetFireworkStatistical?dataKey=00-00-00-00&UnitCode=' + UnitCode;
-		//		console.log(urlg)
-		mui.ajax(urlg, {
-			data: null,
-			dataType: 'json', //返回
-			type: 'get',
-			timeout: 5000,
-			success: function(data) {
-				//服务器返回响应，根据响应结果，分析是否登陆成功
-				var getDatas = data['DataSource']['Tables'][0]['Datas'];
-				mui.each(getDatas, function(index, item) {
-
-					if(item.TaskCount == 0) {
-						document.getElementById("fire1_1").innerHTML = 0;
-					} else {
-						document.getElementById("fire1_1").innerHTML = item.TaskCount;
-					}
-
-					if(item.TotalItemCount == 0) {
-						document.getElementById("fire4_1").innerHTML = 0;
-					} else {
-						document.getElementById("fire4_1").innerHTML = item.TotalItemCount;
-					}
-
-					if(item.Confirm == 0) {
-						document.getElementById("fire2_1").innerHTML = 0;
-					} else {
-						document.getElementById("fire2_1").innerHTML = item.Confirm;
-					}
-
-					if(item.AbnormalItemCount == 0) {
-						document.getElementById("fire3_1").innerHTML = 0;
-					} else {
-						document.getElementById("fire3_1").innerHTML = item.AbnormalItemCount;
-					}
-
-					if(item.RectifyResult == 0) {
-						document.getElementById("fire5_1").innerHTML = 0;
-					} else {
-						document.getElementById("fire5_1").innerHTML = item.RectifyResult;
-					}
-
-					if(item.Remaining == 0) {
-						document.getElementById("fire6_1").innerHTML = 0;
-					} else {
-						document.getElementById("fire6_1").innerHTML = item.Remaining;
-					}
-
-				})
-
-			},
-			error: function() {
-				//异常处理
-				mui.toast('数据请求失败')
-			}
-		});
-	}
-	//	WebApp_GetFireworkStatistical(localStorage.getItem('UnitCode'));
-
-	//设备运维
-	function WebApp_Emf_Faultrepair(UnitCode) {
-		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_Emf_Faultrepair?dataKey=00-00-00-00&organiseunitcode=' + UnitCode;
-
-		mui.ajax(urlg, {
-			data: null, 
-			dataType: 'json', //返回
-			type: 'get',
-			timeout: 5000,
-			success: function(data) {
-				//服务器返回响应，根据响应结果，分析是否登陆成功
-				var getDatas = data['DataSource']['Tables'][0]['Datas'];
-				mui.each(getDatas, function(index, item) {
-					if(item.EquipmentCount == 0) {
-						document.getElementById("yunwei1").innerHTML = 0;
-					} else {
-						document.getElementById("yunwei1").innerHTML = item.EquipmentCount;
-					}
-
-					if(item.TodayRepair == 0) {
-						document.getElementById("yunwei2").innerHTML = 0;
-					} else {
-						document.getElementById("yunwei2").innerHTML = item.TodayRepair;
-					}
-
-					if(item.AuditCount == 0) {
-						document.getElementById("yunwei3").innerHTML = 0;
-					} else {
-						document.getElementById("yunwei3").innerHTML = item.AuditCount;
-					}
-
-				})
-
-			},
-			error: function() {
-				//异常处理
-				mui.toast('数据请求失败')
-			}
-		});
-	}
-	WebApp_Emf_Faultrepair(localStorage.getItem('UnitCode'));
-
-	//规范检查
-	function WebApp_GetEXAMStatistical(UnitCode) {
-		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetEXAMStatistical?dataKey=00-00-00-00&UnitCode=' + UnitCode;
-				console.log(urlg)
-		mui.ajax(urlg, {
-			data: null,
-			dataType: 'json', //返回
-			type: 'get',
-			timeout: 5000,
-			success: function(data) {
-				//服务器返回响应，根据响应结果，分析是否登陆成功
-				var getDatas = data['DataSource']['Tables'][0]['Datas'];
-				mui.each(getDatas, function(index, item) {
-			 		if(!item.totalTask) {
-						document.getElementById("guifan1").innerHTML = 0;
-					} else if(!item.totalExam) {
-						document.getElementById("guifan1").innerHTML = 0 + '/' + item.totalTask;
-					} else {
-						document.getElementById("guifan1").innerHTML = item.totalExam + '/' + item.totalTask;
-					}
-
-					if(!item.totalObject) {
-						document.getElementById("guifan2").innerHTML = 0;
-					} else if(!item.ExamObject) {
-						document.getElementById("guifan2").innerHTML = 0 + '/' + item.totalObject;
-					} else {
-						document.getElementById("guifan2").innerHTML = item.ExamObject + '/' + item.totalObject;
-					}
-
-					if(!item.NoExamByMonth) {
-						document.getElementById("guifan3").innerHTML = 0;
-					} else {
-						document.getElementById("guifan3").innerHTML = item.NoExamByMonth;
-					}
-
-					//					if(!item.errObject) {
-					//						document.getElementById("guifan4").innerHTML = 0;
-					//					} else {
-					//						document.getElementById("guifan4").innerHTML = item.errObject;
-					//					}
-				})
-
-			},
-			error: function() {
-				//异常处理
-				mui.toast('数据请求失败')
-			}
-		});
-	}
-//	WebApp_GetEXAMStatistical(localStorage.getItem('UnitCode'));
-
-	//隐患整改
-	function WebApp_GetRectify(UnitCode) {
-		
-		var data = {
-			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
-			StartDate: localStorage.getItem("startTime"),
-			EndDate: localStorage.getItem("endTime")
-		}
-		
-		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_EXAMRectify_Statistical?dataKey=00-00-00-00&UnitCode=' + UnitCode;
-		
-		console.log(urlg)
-		mui.ajax(urlg, {
-			data: null,
-			dataType: 'json', //返回
-			type: 'get',
-			timeout: 5000,
-			success: function(data) {
-				//服务器返回响应，根据响应结果，分析是否登陆成功
-				console.log(JSON.stringify(data))
-				var getDatas = data['DataSource']['Tables'][0]['Datas'];
-				 
-				if(getDatas[0].total != 0) {
-					document.getElementById("yinhuan1").innerHTML = getDatas[0].totalFinished + '/' + getDatas[0].total;
-				} else {
-					document.getElementById("yinhuan1").innerHTML = '0/0';
-				}
-
-				if(getDatas[0].totalExpried == 0) {
-					document.getElementById("yinhuan2").innerHTML = 0;
-				} else {
-					document.getElementById("yinhuan2").innerHTML = getDatas[0].totalExpried;
-				}
-				if(getDatas[0].totalAccep == 0) {
-					document.getElementById("yinhuan3").innerHTML = 0;
-				} else {
-					document.getElementById("yinhuan3").innerHTML = getDatas[0].totalAccep;
-				}
-
-			},
-			error: function() {
-				//异常处理
-				mui.toast('数据请求失败')
-			}
-		});
-	}
-//	WebApp_GetRectify(localStorage.getItem('UnitCode'));
-
-	//检修保养
-	function WebApp_GetEMMStatistical(UnitCode) {
-		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetEMMStatistical?dataKey=00-00-00-00&UnitCode=' + UnitCode;
-		//		console.log(urlg)
-		mui.ajax(urlg, {
-			data: null,
-			dataType: 'json', //返回
-			type: 'get',
-			timeout: 5000,
-			success: function(data) {
-				var getDatas = data['DataSource']['Tables'][0]['Datas'];
-
-				if(getDatas[0].totalTask != 0) {
-					document.getElementById("jx1").innerHTML = getDatas[0].totalExam + '/' + getDatas[0].totalTask;
-				} else {
-
-					document.getElementById("jx1").innerHTML = '0/0';
-				}
-				if(getDatas[0].NoExamByMonth == 0) {
-					document.getElementById("jx2").innerHTML = 0;
-				} else {
-					document.getElementById("jx2").innerHTML = getDatas[0].NoExamByMonth;
-				}
-
-				if(getDatas[0].totalObject != 0) {
-					document.getElementById("jx3").innerHTML = getDatas[0].ExamObject + '/' + getDatas[0].totalObject;
-				} else {
-					document.getElementById("jx3").innerHTML = '0/0';
-				}
-
-				if(getDatas[0].errObject == 0) {
-					document.getElementById("jx4").innerHTML = 0;
-				} else {
-					document.getElementById("jx4").innerHTML = getDatas[0].errObject;
-				}
-
-			},
-			error: function() {
-				//异常处理
-				mui.toast('数据请求失败')
-			}
-		});
-	}
-//	WebApp_GetEMMStatistical(localStorage.getItem('UnitCode'));
 
 //以上东西没用(但是不能删除)-----------------------------------------------------------------------------------------------------------------------------------
 
@@ -549,7 +180,6 @@ mui.plusReady(function() {
 				//侧边的时间样式展示和存取起始时间
 				var dataArrays = common.getTimeNow(getServerEndTime, getServerStartTime)
 				common.setAsideDate(dataArrays)
-				console.log()
 				
 				var getDatas = data['DataSource']['Tables'][0]['Datas'];
 				localStorage.setItem('UserOrganiseUnitID', getDatas[0].OrganiseUnitID);
@@ -561,6 +191,16 @@ mui.plusReady(function() {
 	}
 	
 	WebApp_GetUserInfo(localStorage.getItem('userCodeVa'))
+	
+	
+	//初始化执行
+	setTimeout(function() {
+		WebApp_GetRiskHeight();    //消火栓巡检  ----  高风险巡检  （低风险数据接口）
+		WebApp_FireStatistical();  //动火统计
+		WebApp_EquipmentStatus();  //设备状态--- 消火栓状态
+		WebApp_GetRectify ();    //隐患整改
+		WebApp_GetChange();    //整改催办
+	}, 500)
 	
 	//高风险数据获取
 	function WebApp_GetRiskHeight () {
@@ -589,16 +229,15 @@ mui.plusReady(function() {
 		});
 		
 		function setHtml (data) {
-			var y = data["DataSource"]['Tables'][0]["Datas"]
 			var info = data["DataSource"]['Tables'][0]["Datas"][0]
-//				console.log(JSON.stringify(info))
-			
+
 			var ObjectCount = info["ObjectCount"];
 			var AbnormalCount = info["AbnormalCount"];
 			var AuditCount = info["AuditCount"];
 			var Rate = info["Rate"];
 			var Ratio = info["Ratio"];
-			setFontColor(Ratio);
+			
+			
 			function setFontColor(Ratio){
 				Ratio = parseFloat(Ratio)
 				var mark = document.getElementById("mark");
@@ -613,80 +252,16 @@ mui.plusReady(function() {
 					mark.className = "index_list_content_maymore" + " green-top" + " green-bottom";
 				}
 			}
-
+			setFontColor(Ratio);
+			
 			document.getElementById("Ratio").innerHTML = Ratio || '-'; 
 			document.getElementById("ObjectCount").innerHTML = ObjectCount || 0; 
 			document.getElementById("AbnormalCount").innerHTML = AbnormalCount || 0; 
 			document.getElementById("AuditCount").innerHTML = AuditCount || 0; 
 			document.getElementById("Rate").innerHTML = Rate || 0;
 		}
-		
-		
 	}
 	
-
-	WebApp_GetRiskHeight();
-	
-	//初始化执行
-	setTimeout(function() {
-		
-		WebApp_GetRisklow();//低风险
-		WebApp_FireStatistical();//动火统计分析
-		WebApp_EquipmentOperat(); //设备维修
-		WebApp_EquipmentStatus(); //设备状态
-	}, 500)
-	
-
-	//低风险数据获取
-	function WebApp_GetRisklow (){
-		
-		var data = {
-			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"), 
-			StartDate: localStorage.getItem("startTime"),  
-			EndDate: localStorage.getItem("endTime")
-		}
-		
-		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_LowRisk?dataKey=00-00-00-00';
-		
-		mui.ajax(urlg, {
-			data: data, 
-			dataType: 'json',
-			type: 'get',
-			timeout: 5000,
-			success: function(data){
-//				console.log('JSON.stringify(data)')
-//				console.log(JSON.stringify(data))
-				setHtml(data)
-			},
-			error: function(){
-				//异常处理
-				mui.toast('数据请求失败')
-				console.log("低风险请求数据失败!")
-			}
-		});
-		
-		function setHtml (data) {
-			var info = data['DataSource']['Tables'][0]["Datas"][0];  //要取得数据
-			var ObjectCount = info["ObjectCount"];  //检查设备数量
-			var AbnormalCount = info["AbnormalCount"]; //异常数量
-			var AuditCount = info["AuditCount"];  //解决问题数量
-			var Rate = info["Rate"];  //任务进度
-			var Ratio = info["Ratio"];  //本周检查进度
-			var tag = info['IsEnd']; //是否直接进入到任务页面
-			
-			localStorage.setItem("lowTag", tag);
-			
-			
-			document.getElementById("LowRatio").innerHTML = Ratio || 0; 
-			document.getElementById("LowObjectCount").innerHTML = ObjectCount || 0; 
-			document.getElementById("LowAbnormalCount").innerHTML = AbnormalCount || 0; 
-			document.getElementById("LowAuditCount").innerHTML = AuditCount || 0; 
-			document.getElementById("LowRate").innerHTML = Rate || 0;
-		}
-		
-	}
-	
-
 	//动火统计
 	function WebApp_FireStatistical () {
 		var data = {
@@ -696,6 +271,46 @@ mui.plusReady(function() {
 		};
 		
 		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_FWTask_Statistical?dataKey=00-00-00-00';
+
+		mui.ajax(urlg, {
+			data: data,
+			dataType: 'json',
+			type: 'get',
+			timeout: 5000,
+			success: function(data){
+				console.log(JSON.stringify(data))
+				setHtml(data)
+				mui.toast('数据请求成功')
+			},
+			
+			error: function(){
+				mui.toast('数据请求失败')
+				console.log("动火统计请求报错")
+			}
+		});
+
+		function setHtml(data) {    
+			
+			var info = data['DataSource']['Tables'][0]["Datas"][0];
+			var FireCount = info["FireCount"]; //动火数量
+			var AbnormalCount = info["AbnormalCount"]; //发现问题
+			var AuditCount = info["AuditCount"];  //解决问题
+			
+			console.log(document.getElementById("donghuo2").innerHTML)
+			document.getElementById("donghuo1").innerHTML = FireCount || 0;
+			document.getElementById("donghuo2").innerHTML = AbnormalCount || 0;
+			document.getElementById("donghuo3").innerHTML = AuditCount || 0;
+		}
+	}
+	
+	//设备状态-- 消火栓状态
+	function WebApp_EquipmentStatus (){
+		
+		var data ={
+			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID")
+		};
+		
+		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_EMBEquipment_Statistical?dataKey=00-00-00-00';
 		
 		mui.ajax(urlg, {
 			data: data,
@@ -708,21 +323,19 @@ mui.plusReady(function() {
 			
 			error: function(){
 				mui.toast('数据请求失败')
-				console.log("动火统计请求报错")
 			}
 		});
-
-
-		function setHtml(data) {
-			
+		
+		function setHtml(data){
 			var info = data['DataSource']['Tables'][0]["Datas"][0];
-			var FireCount = info["FireCount"]; //动火数量
-			var AuditCount = info["AbnormalCount"]; //发现问题
-			var AuditCount = info["AuditCount"];  //解决问题
 			
-			document.getElementsByClassName("fire1").innerHTML = FireCount || 0;
-			document.getElementsByClassName("fire2").innerHTML = AbnormalCount || 0;
-			document.getElementsByClassName("fire3").innerHTML = AuditCount || 0;
+			var NormalCount = info["NormalCount"]; //正常使用
+			var AuditCount = info["StopCount"]; //停用停机
+			var RepairCount = info["RepairCount"];  //故障维修
+			var ScrapCount = info["ScrapCount"];  //报废数量
+			
+			document.getElementsByClassName("Status1")[0].innerHTML = NormalCount || 0;
+			document.getElementsByClassName("Status2")[0].innerHTML = AuditCount || 0;
 		}
 	}
 
@@ -754,6 +367,7 @@ mui.plusReady(function() {
 		
 		function setHtml(data){
 			var info = data['DataSource']['Tables'][0]["Datas"][0];
+			
 			var RectifyTotal = info["RectifyTotal"]; //故障设备
 			var ToDayRectify = info["ToDayRectify"]; //维修数量
 			var RectifyCheck = info["RectifyCheck"];  //维修审批
@@ -763,11 +377,9 @@ mui.plusReady(function() {
 			document.getElementById("yinhuan3").innerHTML = RectifyCheck || 0;
 		}
 	}
-	WebApp_GetRectify ();
-	
 	
 	//整改催办
-	function WebApp_GetChange(){
+	function WebApp_GetChange(){  
 		
 		var data ={
 			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
@@ -795,100 +407,17 @@ mui.plusReady(function() {
 		
 		function setHtml(data){
 			var info = data['DataSource']['Tables'][0]["Datas"][0];
-			var CurrentRectify = info["CurrentRectify"]; //故障设备
-			var UrgeRectify = info["UrgeRectify"]; //维修数量
-			var Beyond = info["Beyond"];  //维修审批
-		
+			
+			var CurrentRectify = info["CurrentRectify"]; //当前整改
+			var UrgeRectify = info["UrgeRectify"]; //已催办整改
+			var Beyond = info["Beyond"];  //逾期未整改
+
 			document.getElementById("zhenggai1").innerHTML = CurrentRectify || 0;
 			document.getElementById("zhenggai2").innerHTML = UrgeRectify || 0;
 			document.getElementById("zhenggai3").innerHTML = Beyond || 0;
 		}
 	}
-	WebApp_GetChange ();
-	
-	//设备维修
-	function WebApp_EquipmentOperat (){
-		
-		var data ={
-			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
-			StartDate: localStorage.getItem("startTime"),
-			EndDate: localStorage.getItem("endTime")
-		};
-		
-		var urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_EMFRepair_Statistical?dataKey=00-00-00-00';
-		
-		mui.ajax(urlg, {
-			data: data,
-			dataType: 'json',
-			type: 'get',
-			timeout: 5000,
-			success: function(data){
-				setHtml(data)
-			},
-			
-			error: function(){
-				mui.toast('数据请求失败')
-				console.log("设备维修请求报错")
-			}
-		});
-		
-		function setHtml(data){
-			var info = data['DataSource']['Tables'][0]["Datas"][0];
-			var RepairCoun = info["RepairCoun"]; //故障设备
-			var TodayRepairCount = info["TodayRepairCount"]; //维修数量
-			var WeekRepairCount = info["WeekRepairCount"];  //维修审批
-			
-//			document.getElementsByClassName("Operat1")[0].innerHTML = RepairCoun || 0;
-//			document.getElementsByClassName("Operat2")[0].innerHTML = TodayRepairCount || 0;
-//			document.getElementsByClassName("Operat3")[0].innerHTML = WeekRepairCount || 0;
-		}
-		
-	}
-	
-	
-	
-	
-	
-	
-//	WebApp_EquipmentOperat();
-	
-	//设备状态
-	function WebApp_EquipmentStatus (){
-		
-		var data ={
-			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID")
-		};
-		
-		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_EMBEquipment_Statistical?dataKey=00-00-00-00';
-		
-		mui.ajax(urlg, {
-			data: data,
-			dataType: 'json',
-			type: 'get',
-			timeout: 5000,
-			success: function(data){
-				setHtml(data)
-			},
-			
-			error: function(){
-				mui.toast('数据请求失败')
-			}
-		});
-		
-		function setHtml(data){
-			var info = data['DataSource']['Tables'][0]["Datas"][0];
-			var NormalCount = info["NormalCount"]; //正常使用
-			var AuditCount = info["StopCount"]; //停用停机
-			var RepairCount = info["RepairCount"];  //故障维修
-			var ScrapCount = info["ScrapCount"];  //报废数量
-			
-			document.getElementsByClassName("Status1")[0].innerHTML = NormalCount || 0;
-			document.getElementsByClassName("Status2")[0].innerHTML = AuditCount || 0;
-		}
-	}
-	
-//	WebApp_EquipmentStatus();
-	
+
 	//单位切换-----------------------------------------------------------------------
 	//时间切换-----------------------------------------------------------------------
 	
@@ -901,47 +430,70 @@ mui.plusReady(function() {
 		common.setStorageTime(targetStr)
 		
 		WebApp_GetRiskHeight(); //重新获取高风的数据
-//		WebApp_GetRisklow(); //低风险获取数据
 		WebApp_FireStatistical(); //动火统计
-//		WebApp_EquipmentOperat(); // 设备维修
 		WebApp_EquipmentStatus(); // 设备状态
+		WebApp_GetRectify ();   //隐患整改
+		WebApp_GetChange();    //整改催办
 		
-		
-	/*
-		//console.log(this.firstChild.value)
-		document.getElementById('2017date').innerHTML = this.children[1].value;
-		localStorage.setItem('UnitCode', this.firstChild.value);
-		localStorage.setItem('index_name', this.children[1].value);
-		localStorage.setItem('OrganiseUnitID', this.children[2].value);
-		//		console.log(this.firstChild.value)
-		offCanvasWrapper.offCanvas('close');
-		equipState(localStorage.getItem('UnitCode'));
-		WebApp_GetISMStatistical(time, localStorage.getItem('UnitCode'));
-		WebApp_GetCertificateInfo(localStorage.getItem('UnitCode'));
-		//		WebApp_GetFrieWorkExamine_Statistical(localStorage.getItem('UnitCode'));
-		//		console.log(localStorage.getItem('UnitCode'))
-		WebApp_GetEXAMStatistical(localStorage.getItem('UnitCode'));
-		WebApp_GetFireworkStatistical(localStorage.getItem('UnitCode'));
-		WebApp_Emf_Faultrepair(localStorage.getItem('UnitCode'));
-		WebApp_GetRectify(localStorage.getItem('UnitCode'));
-		WebApp_GetEMMStatistical(localStorage.getItem('UnitCode'));
-	*/
 	})
 	
 
 	document.getElementById("bodyId").addEventListener("swipedown", function() {
-		/*
-		equipState(localStorage.getItem('UnitCode'));
-		WebApp_GetISMStatistical(time, localStorage.getItem('UnitCode'));
-		WebApp_GetCertificateInfo(localStorage.getItem('UnitCode'));
-		//		WebApp_GetFrieWorkExamine_Statistical(localStorage.getItem('UnitCode'));
-		//		console.log(localStorage.getItem('UnitCode'))
-		WebApp_GetEXAMStatistical(localStorage.getItem('UnitCode'));
-		WebApp_GetFireworkStatistical(localStorage.getItem('UnitCode'));
-		WebApp_Emf_Faultrepair(localStorage.getItem('UnitCode'));
-		WebApp_GetRectify(localStorage.getItem('UnitCode'));
-		WebApp_GetEMMStatistical(localStorage.getItem('UnitCode'));
-		*/
+
 	})
 
 })
+
+
+
+
+
+
+	//低风险数据获取
+//	function WebApp_GetRisklow (){
+//		
+//		var data = {
+//			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"), 
+//			StartDate: localStorage.getItem("startTime"),  
+//			EndDate: localStorage.getItem("endTime")
+//		}
+//		
+//		urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_First_ISMTask_LowRisk?dataKey=00-00-00-00';
+//		
+//		mui.ajax(urlg, {
+//			data: data, 
+//			dataType: 'json',
+//			type: 'get',
+//			timeout: 5000,
+//			success: function(data){
+////				console.log('JSON.stringify(data)')
+////				console.log(JSON.stringify(data))
+//				setHtml(data)
+//			},
+//			error: function(){
+//				//异常处理
+//				mui.toast('数据请求失败')
+//				console.log("低风险请求数据失败!")
+//			}
+//		});
+//		
+//		function setHtml (data) {
+//			var info = data['DataSource']['Tables'][0]["Datas"][0];  //要取得数据
+//			var ObjectCount = info["ObjectCount"];  //检查设备数量
+//			var AbnormalCount = info["AbnormalCount"]; //异常数量
+//			var AuditCount = info["AuditCount"];  //解决问题数量
+//			var Rate = info["Rate"];  //任务进度
+//			var Ratio = info["Ratio"];  //本周检查进度
+//			var tag = info['IsEnd']; //是否直接进入到任务页面
+//			
+//			localStorage.setItem("lowTag", tag);
+//			
+//			
+//			document.getElementById("LowRatio").innerHTML = Ratio || 0; 
+//			document.getElementById("LowObjectCount").innerHTML = ObjectCount || 0; 
+//			document.getElementById("LowAbnormalCount").innerHTML = AbnormalCount || 0; 
+//			document.getElementById("LowAuditCount").innerHTML = AuditCount || 0; 
+//			document.getElementById("LowRate").innerHTML = Rate || 0;
+//		}
+//		
+//	}

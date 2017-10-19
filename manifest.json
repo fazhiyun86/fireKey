@@ -1883,7 +1883,9 @@
 					"js/jquery.min.js",
 					"images/loading.gif"
 				],
-				"refer": [],
+				"refer": [
+					"Add_Fire_statistic_tab01_1.html"
+				],
 				"priority": 0
 			},
 			"Add_Fire_statistic_tab.html": {
@@ -2056,7 +2058,9 @@
 					"js/jquery.min.js",
 					"images/cuiban_w.png"
 				],
-				"refer": [],
+				"refer": [
+					"Change_Rush_detail_cuiban.html"
+				],
 				"priority": 0
 			},
 			"Risk_low_3.html": {
@@ -2208,11 +2212,43 @@
 					"images/bg_1.png",
 					"images/bg_2.png",
 					"images/bg_3.png",
-					"feature_page_order.html"
+					"feature_page_order.html",
+					"js/jquery.min.js"
 				],
 				"refer": [
 					"Change_Rush_detail.html"
 				],
+				"priority": 0
+			},
+			"Add_Fire_statistic_tab01_1.html": {
+				"resources": [
+					"js/echarts.min.js",
+					"js/common.js",
+					"js/jquery.min.js",
+					"js/mui.min.js",
+					"images/loading.gif",
+					"css/Add_Fire_statistic.css",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png"
+				],
+				"refer": [
+					"Add_Fire_statistic_tab01_2.html"
+				],
+				"priority": 0
+			},
+			"Change_Rush_detail_cuiban.html": {
+				"resources": [
+					"css/iconfont.css",
+					"css/Change_Rush_detail_cuiban.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},

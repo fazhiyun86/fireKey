@@ -112,7 +112,7 @@ mui.plusReady(function() {
 				}
 
 				//mui.each(getDatas, function(index, item) {
-				html1 += '<p style="font-size:0.7rem;color:#757575;" class="Micro_task_pspan">' +
+				html1 += '<p style="font-size:0.7rem; color:#757575;" class="Micro_task_pspan">' +
 					'<span  class="fontSize">工作评价：<font>' + Level + '</font></span>' +
 					'<span  class="fontSize">评论时间：<font>' + getDatas1[0].EstimateTime + '</font></span>' +
 					'</p>' +

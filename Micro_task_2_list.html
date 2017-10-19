@@ -14,7 +14,7 @@
 			.Equipment_patrol_ccon2 {
 				width: 100%;
 				padding: 0.3rem 0;
-				border-bottom: 1px solid #BBBBBB;
+				border-bottom: 1px solid #F2F2F2;
 			}
 			
 			.Equipment_patrol_ccon2:last-child {
@@ -61,6 +61,22 @@
 			
 			.Equipment_patrol_con1 div:first-child {
 				width: 100%!important;
+			}
+			.Micro_task_pspan span:first-child {
+				display: block;
+				width: 45%;
+				float: left;
+			}
+			
+			.Micro_task_pspan span:nth-child(2) {
+				display: block;
+				width: 55%;
+				float: left;
+			}
+			
+			.fontSize {
+			    font-family: "Microsoft YaHei";
+			    color: #666666;
 			}
 		</style>
 	</head>
@@ -200,8 +216,9 @@
 
 						<div class="mui-content Equipment_patrol_con">
 							<div id="Equipment_patrol_con1">
-								<div class="Equipment_patrol_con1">
-									<div class="Equipment_patrol_ccon2">
+								<div class="Equipment_patrol_con1" style="box-shadow: none; background: #F5F5F5;">
+								
+									<div class="Equipment_patrol_ccon2" style="background: #FFFFFF;">
 										<p style="font-size:0.83rem;color:#757575;" id="Microtask1list1">---</p>
 										<p style="font-size:0.73rem;color:#757575;">
 											<font class="fontSize">任务编码：</font>
@@ -228,11 +245,14 @@
 										</p>
 
 									</div>
+									
 									<!--<button id="bbb">点击返回刷新</button>-->
-									<div class="Equipment_patrol_ccon2">
+									<div class="Equipment_patrol_ccon2" style="background: #FFFFFF; margin-top: 0.2rem;">
 
 										<p style="font-size:0.73rem;color:#757575;" class="Micro_task_pspan">
 											<span><font class="fontSize">执行结果：</font><font  id="Microtask1list8"></font></span>
+										</p>
+										<p style="font-size:0.73rem;color:#757575;" class="Micro_task_pspan">
 											<span><font class="fontSize">执行岗位：</font><font  id="Microtask1list9"></font></span>
 										</p>
 										<p style="font-size:0.73rem;color:#757575;" class="Micro_task_pspan">
@@ -268,7 +288,7 @@
 
 									</div>
 									<input class="pingjiaHidden" type="hidden" value="" />
-									<div class="Equipment_patrol_ccon2 Micro_task_1_list_pingjia">
+									<div class="Equipment_patrol_ccon2 Micro_task_1_list_pingjia" style=" background: #FFFFFF; margin-top: 0.2rem;">
 										<p class="pingjia" id="offCanvasShow" class="pingjia_info" style="color: #000000;">工作评价：
 											<font style="color: #999999;">请选择评价</font><i class="iconfont icon-gengduo"></i></p>
 										<p class="fontSize" style="font-size: 0.75rem;">备注：</p>

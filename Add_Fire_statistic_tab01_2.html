@@ -97,7 +97,7 @@
 						backbutton: false  //关闭back按键监听
 					}
 				});
-				
+				var global_id = '';
 				mui.plusReady(function (){
 					plus.nativeUI.showWaiting();
 					
@@ -113,9 +113,9 @@
 				function getData () {
 					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_FWOrgCertificate?dataKey=00-00-00-00';
 					var data = {
-						OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
+						OrganiseUnitID: global_id,
 					}
-					
+					console.log(global_id)
 					mui.ajax(url, {
 						data: data,
 						dataType:'json',

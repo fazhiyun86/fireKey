@@ -123,6 +123,7 @@
 						type:'get',
 						timeout: 5000,            
 						success: function(data){
+							console.log(JSON.stringify(data))
 							plus.nativeUI.closeWaiting();
 							setHtml(data['DataSource']['Tables'][0]['Datas'])
 						},
