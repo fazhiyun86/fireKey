@@ -9,9 +9,9 @@
 		<link rel="stylesheet" type="text/css" href="css/feature_page.css"/>
 		<style type="text/css">
 			.feature{
-				height: 3.5rem;
-				line-height: 3.5rem;
-				padding-top: 0.5rem;
+				height: 3.1rem;
+				line-height: 3.1rem;
+				padding-top: 0.3rem;
 				background: url("images/header_base_01.png");
     			background-size: 100%;
   				background-repeat: no-repeat;
@@ -20,7 +20,7 @@
 			.feature h1{
 				width: 11rem;
 				float: left;
-				font-size: 1.2rem;
+				font-size: 1.1rem;
 				color: #FFFFFF;
 				float: left;
 			}
@@ -190,20 +190,18 @@
 						timeout: 5000,
 						success: function (data){
 							data = data["DataSource"]["Tables"][0]["Datas"]
-//							console.log("==RRRRR===="+JSON.stringify(data))
 							setHtml(data)
 						},
 						error: function(){
 							console.log('请求错误')
 						}						
 					});
-					
 					function setHtml(data){
 						var len = data.length;
-						for(var i=0; i<len; i++){
+						for(var i=0; i<len; i++){  
 						var ProcVerifyNumber =  data[i]["ProcVerifyNumber"];
 						document.getElementById('changeCount').innerHTML = ProcVerifyNumber || 0;
-						}
+						} 
 					}
 				};
 				

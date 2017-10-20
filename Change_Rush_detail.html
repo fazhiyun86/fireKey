@@ -102,22 +102,22 @@
 							var item = data[i];
 							var RectifyOrg = data[i]['RectifyOrg'];
 							document.getElementById("zgaidx").innerHTML = RectifyOrg;
-							html += '<div class="change_con_code" id=" item.OrderID " >\
+							html += '<div class="change_con_code" id=" item.OrderID " style="background: #fff; border:0;" >\
 									<p id="xq_id">'+ item.OrderName +'</p>\
 									<span id="xq_code">整改单号 : '+ item.OrderCode +'</span>\
 								</div>';
 							
-							html += '<div class="change_con_inform" style="height: auto;">'+
-								'<h5>整改内容</h5>'+
-								'<div class="change_con_inform_case" style="height:auto; border-bottom:1px solid #E7E7E7;">'+
+							html += '<div class="change_con_inform" style="height: auto; background: #fff; border:0; padding-bottom:0.2rem">'+
+								'<h5>整改内容：</h5>'+
+								'<div class="change_con_inform_case" style="height:auto;">'+
 									'<p class="case_p">'+ item.RectifyContent +'</p>'+
 								'</div>'+
 								'<p class="case_record" style="margin-top:0.5rem;">整改期限：'+ item.TimeExpired +'</p>'+
 								'<p class="case_record"><span>通知下发：'+ item.OrderUser +'</span><span>下发时间：'+ item.OrderDate +'</span></p>'+
 							'</div>';
 							
-							html += '<div class="change_con_report" style="height: auto;">'+
-								'<h5>审核内容</h5>'+
+							html += '<div class="change_con_report" style="height: auto; background: #fff; border:0; padding-bottom:0.2rem">'+
+								'<h5>审核内容：</h5>'+
 								'<p class="case_record"><span>整改审核：'+ item.OrderAuditUser +'</span><span>审核时间：'+ item.OrderAuditDate +'</span></p>'+
 								'<p class="case_record" style="width:100%; height:auto; line-height:1rem;">审核意见：'+ item.ProcAuditDescript +'</p>'+
 							'</div>';

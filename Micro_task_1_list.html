@@ -10,10 +10,14 @@
 		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="css/imageViewer.css" />
 		<style>
+			html,body{
+				color: #000000!important;
+			}
+			
 			.Equipment_patrol_ccon2 {
 				width: 100%;
-				padding: 0.3rem 0;
-				border-bottom: 1px solid #BBBBBB;
+				/*padding: 0.3rem 0;*/
+				/*border-bottom: 1px solid #BBBBBB;*/
 			}
 			
 			.Equipment_patrol_ccon2:last-child {
@@ -53,15 +57,35 @@
 				padding: 0.5rem 0.3rem 0 0.5rem;
 			}
 			
-			.Micro_task_pspan span:first-child {
-				width: 40%;
+			.Micro_task_pspan span:first-child(1) {
+				display: block;
+				float: left;
 			}
 			
 			.Micro_task_pspan span:nth-child(2) {
-				width: 55%;
+				display: block;
+				
 			}
 			.Equipment_patrol_con1 div:first-child{
 				width: 100%!important;
+			}
+			
+			.fontSize {
+			    font-family: "Arial";
+			    color: #494949;
+			    /*color: #ACACB4;*/
+			}
+			p{
+				height: auto;
+				line-height: 2rem;
+				border-bottom: 1px solid #f7f7f7;
+				font-size: 0.75rem !important;
+				padding-left: 0.5rem!important;
+				padding-right: 0.5rem!important;
+			}
+			
+			.Equipment_patrol_con1{
+				margin-top: 2px;
 			}
 		</style>
 	</head>
@@ -72,53 +96,56 @@
 			<h1 class="mui-title">微任务</h1>
 		</header>
 		<div class="mui-content Equipment_patrol_con">
-			<div id="Equipment_patrol_con1">
-				<div class="Equipment_patrol_con1">
-					<div class="Equipment_patrol_ccon2">
-						<p style="font-size:0.83rem;" id="Microtask1list1"></p>
-						<p style="font-size:0.73rem;color:#757575;">
+			<div id="Equipment_patrol_con1"> 
+				<div class="Equipment_patrol_con1" style="box-shadow: none; background: #F5F5F5;">
+					
+					<div class="Equipment_patrol_ccon2" style="background: #FFFFFF; padding-top: 0.5rem;">
+						<p style="font-size:1rem!important; color: #000000; border-bottom: 0;" id="Microtask1list1"></p>
+						<p style="">
 							<font class="fontSize">任务编码：</font>
 							<font id="Microtask1list2"></font>
 						</p>
-						<p style="font-size:0.73rem;color:#757575;" class="Micro_task_pspan">
+						<p style="" class="Micro_task_pspan">
 							<span style="width:100%;"><font class="fontSize">检查区域：</font><font  id="Microtask1list3"></font></span>
 						</p>
-						<p style="font-size:0.73rem;color:#757575;" class="Micro_task_pspan">
+						<p style="border-bottom: 0;" class="Micro_task_pspan">
 							<span style="width:100%;"><font class="fontSize">任务说明：</font></span>
 						</p>
-						<p style="font-size:0.73rem;color:#757575;" class="Micro_task_pspan">
+						<p style="color:#ACACB4;" class="Micro_task_pspan">
 							<font id="Microtask1list4"></font>
 						</p>
-						<p style="font-size:0.73rem;color:#757575;" class="Micro_task_pspan">
+						<p style="font-size:0.73rem;" class="Micro_task_pspan">
 							<span style="width: 100%!important;"><font class="fontSize">完成期限：</font>
 								<font  id="Microtask1list5"></font>
 								
 							</span>
 						</p>
-						<p style="font-size:0.73rem;color:#757575;" class="Micro_task_pspan">
+						<p style="font-size:0.65rem!important;" class="Micro_task_pspan">
 							<span><font class="fontSize">下 达 人：</font><font  id="Microtask1list6"></font></span>
 							<span><font class="fontSize">下达时间：</font><font  id="Microtask1list7"></font></span>
 						</p>
 
 					</div>
-					<div class="Equipment_patrol_ccon2">
+					<div class="Equipment_patrol_ccon2" style="background: #FFFFFF; margin-top: 0.2rem;">
 
-						<p style="font-size:0.73rem;color:#757575;" class="Micro_task_pspan">
-							<span><font class="fontSize">执行结果：</font><font  id="Microtask1list8"></font></span>
+						<p style="width: 100%;" class="Micro_task_pspan">
+							<span style="width: 100%;><font class="fontSize" ">执行结果：</font><font id="Microtask1list8" style="color:#ACACB4;"></font></span>
+						</p>
+						<p style="" class="Micro_task_pspan">
 							<span><font class="fontSize">执行岗位：</font><font  id="Microtask1list9"></font></span>
 						</p>
-						<p style="font-size:0.73rem;color:#757575;" class="Micro_task_pspan">
+						<p style="color:#494949;border-bottom: 0;" class="Micro_task_pspan">
 							<span><font class="fontSize">执行任务说明：</font></span>
 						</p>
-						<p style="font-size:0.73rem;color:#757575;" class="Micro_task_pspan">
-							<span><font id="Microtask1list10"></font></span>
+						<p style="" class="Micro_task_pspan">
+							<span><font id="Microtask1list10" style="color: #ACACB4;"></font></span>
 						</p>
 
-						<p style="font-size:0.73rem;color:#757575;" class="Micro_task_pspan">
+						<p style="font-size:0.65rem!important;" class="Micro_task_pspan">
 							<span><font class="fontSize">执 行 人：</font><font  id="Microtask1list11"></font></span>
 							<span><font class="fontSize">执行时间：</font><font  id="Microtask1list12"></font></span>
 						</p>
-						<p class="Micro_task_1_list_img_con" id="Microtask1list13A" style="font-size:0.73rem;color:#757575;" class="Micro_task_pspan">
+						<p class="Micro_task_1_list_img_con" id="Microtask1list13A" style="font-size:0.73rem;" class="Micro_task_pspan">
 							<!--<span class="Micro_task_pspan_img">
 								<span   style="width:20%;" >
 									<img src="images/119logo.png"/>
@@ -128,7 +155,7 @@
 							</span>-->
 						</p>
 						
-						<p class="Micro_task_1_list_img_con" id="Microtask1list13B" style="font-size:0.73rem;color:#757575;" class="Micro_task_pspan">
+						<p class="Micro_task_1_list_img_con" id="Microtask1list13B" style="font-size:0.73rem;" class="Micro_task_pspan">
 							<!--<span class="Micro_task_pspan_img">
 								<span   style="width:20%;" >
 									<img src="images/119logo.png"/>
@@ -138,7 +165,7 @@
 							</span>-->
 						</p>
 						
-						<p class="Micro_task_1_list_img_con" id="Microtask1list13C" style="font-size:0.73rem;color:#757575;" class="Micro_task_pspan">
+						<p class="Micro_task_1_list_img_con" id="Microtask1list13C" style="font-size:0.73rem;" class="Micro_task_pspan">
 							<!--<span class="Micro_task_pspan_img">
 								<span   style="width:20%;" >
 									<img src="images/119logo.png"/>
@@ -148,7 +175,7 @@
 							</span>-->
 						</p>
 					</div>
-					<div class="Equipment_patrol_ccon2 Micro_task_1_list_pingjia">
+					<div class="Equipment_patrol_ccon2 Micro_task_1_list_pingjia" style="background: #FFFFFF; margin-top: 0.2rem;">
 						<!--<p style="font-size:0.73rem;color:#757575;" class="Micro_task_pspan">
 							<span>工作评价：<font  ></font></span>
 							<span>评论时间：<font  ></font></span>

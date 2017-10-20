@@ -28,10 +28,26 @@ mui.plusReady(function() {
 	plus.screen.lockOrientation("portrait-primary"); //禁止横屏
 
 	//系统设置侧滑打开
-	document.querySelector('#system_setting').addEventListener('tap', function() {
-		mui('.mui-off-canvas-wrap').offCanvas('toggle');
-
+	var NumTime = 0;
+	function five() {
+		NumTime += 1;
+		if(NumTime >= 5) {
+			NumTime = 0;
+			mui('.mui-off-canvas-wrap').offCanvas('toggle');
+		}
+	}
+	setInterval(function() {
+		NumTime = 0;
+	}, 5000);
+	
+	document.querySelector('#logo').addEventListener('tap', function() {
+		
+		five();
 	});
+	
+	
+	
+//	mui('.mui-off-canvas-wrap').offCanvas('toggle');
 //	document.querySelector('.checkUpdate').addEventListener('tap', function() {
 ////		mui.toast('当前版本1.0.1');
 //	});
@@ -66,6 +82,7 @@ mui.plusReady(function() {
 
 	//关闭侧滑菜单触发主页面ajax请求
 	document.getElementById("backdrop").addEventListener('tap', function() {
+		
 		//阻止默认事件
 		event.detail.gesture.preventDefault();
 		serverAddress = document.getElementById("serverAddress").value;
@@ -271,9 +288,22 @@ mui.plusReady(function() {
 			}
 		});
 	};
-
+	
 	//点击按钮登录
 	mui(".mui-btn-primary")[0].addEventListener('tap', function() {
+
+		//检查姓名是否填写
+		var NameVal = $('#userCode').val();
+
+		if(NameVal.length==0){
+			mui.toast("请填写用户名！");
+			return false;
+		}
+		var PassVal = $('#passWord').val();
+		if(PassVal.length==0){
+			mui.toast("请填写密码！");
+			return false;
+		}
 
 		var userCodeVa = document.getElementById("userCode").value;
 		var passWordVa = document.getElementById("passWord").value;

@@ -36,21 +36,25 @@ mui.plusReady(function() {
 				var imgVideo = '';
 				var imgMp3 = '';
 				
-				var TaskDescript = getDatas1[0].TaskDescript.replace(/&lt;br\/&gt;/g, "<br/>");
-				//var ExecuteDescript = getDatas1[0].ExecuteDescript.replace(/&lt;br\/&gt;/g,"<br/>");
-				console.log(TaskDescript)
-				document.getElementById("Microtask1list1").innerHTML = getDatas1[0].TaskName;
-				document.getElementById("Microtask1list2").innerHTML = getDatas1[0].Taskcode;
-				document.getElementById("Microtask1list3").innerHTML = getDatas1[0].RegionName;
-				document.getElementById("Microtask1list4").innerHTML = TaskDescript;
-				document.getElementById("Microtask1list5").innerHTML = getDatas1[0].TaskStartTime + '至' + getDatas1[0].TaskEndTime;
-				document.getElementById("Microtask1list6").innerHTML = getDatas1[0].ExecutorUser;
-				document.getElementById("Microtask1list7").innerHTML = getDatas1[0].TaskStartTime;
-				document.getElementById("Microtask1list8").innerHTML = getDatas1[0].TaskResult;
-				document.getElementById("Microtask1list9").innerHTML = getDatas1[0].PostName;
-				document.getElementById("Microtask1list10").innerHTML = getDatas1[0].TaskStatus;
-				document.getElementById("Microtask1list11").innerHTML = getDatas1[0].ReleaseUser;
-				document.getElementById("Microtask1list12").innerHTML = getDatas1[0].ExecuteTime;
+				if (getDatas1.length != 0) {
+					var TaskDescript = getDatas1[0].TaskDescript.replace(/&lt;br\/&gt;/g, "<br/>");
+					
+					console.log(TaskDescript)
+					document.getElementById("Microtask1list1").innerHTML = getDatas1[0].TaskName;
+					document.getElementById("Microtask1list2").innerHTML = getDatas1[0].Taskcode;
+					document.getElementById("Microtask1list3").innerHTML = getDatas1[0].RegionName;
+					document.getElementById("Microtask1list4").innerHTML = TaskDescript;
+					document.getElementById("Microtask1list5").innerHTML = getDatas1[0].TaskStartTime + '至' + getDatas1[0].TaskEndTime;
+					document.getElementById("Microtask1list6").innerHTML = getDatas1[0].ExecutorUser;
+					document.getElementById("Microtask1list7").innerHTML = getDatas1[0].TaskStartTime;
+					document.getElementById("Microtask1list8").innerHTML = getDatas1[0].TaskResult;
+					document.getElementById("Microtask1list9").innerHTML = getDatas1[0].PostName;
+					document.getElementById("Microtask1list10").innerHTML = getDatas1[0].TaskStatus;
+					document.getElementById("Microtask1list11").innerHTML = getDatas1[0].ReleaseUser;
+					document.getElementById("Microtask1list12").innerHTML = getDatas1[0].ExecuteTime;
+					
+				}
+				
 				mui.each(getDatas2, function(index, item) {
 					
 //					var iimg = '/uploadfiles/2017/20170725/1126/20170725112621233868.jpg';

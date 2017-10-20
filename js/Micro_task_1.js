@@ -32,7 +32,7 @@ mui.plusReady(function() {
 //				var stuts = ['<i style="color:#3F51B5;font-size:1rem;margin-left:-0.1rem;" class="iconfont icon-shijian"></i>', '<i style="color:#8EC21F;font-size:1rem;" class="iconfont icon-iconshandianfahuo"></i>', '<i style="color:#FF4081;font-size:1rem;" class="iconfont icon-duigou-copy"></li>'];
 				mui.each(getDatas, function(index, item) {
 					html +=
-						'<div class="Equipment_patrol_con1">' +
+						'<div class="Equipment_patrol_con1" style="box-shadow: none;">' +
 						'<input class="sendId1" type="hidden"value="' + item.TaskID + '" />' +
 						'<div style="width:4%;padding-top:2rem;">' +
 						stuts[item.Status] +

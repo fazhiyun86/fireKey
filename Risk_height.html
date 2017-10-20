@@ -160,8 +160,9 @@
 						type:'get',
 						timeout: 5000,            
 						success: function(data){
-//							console.log(JSON.stringify(data))
+							console.log(JSON.stringify(data))
 							data = data["DataSource"]["Tables"][0]["Datas"]
+							
 							setHtml(data);
 						},
 						error: function(){
@@ -176,14 +177,21 @@
 					var html = '';
 					for (var i = 0; i < data.length; i++) {
 						var item = data[i];
+						Ratio = item.Ratio;
+							Bratio = parseFloat(Ratio);
+							Lratio = Bratio.toFixed(1);
+							if( Bratio * 100 == 0){
+								Lratio = Bratio.toFixed(0)
+							}
+						Ratio = Lratio + '%';
 						var val = data[i].Ratio;
-						html += '<div id="mark" class="risk_wrap" data-id="'+ item.OrganiseUnitID +'">'+
+						html += '<div id="mark" class="risk_wrap" data-id="'+ item.OrganiseUnitID +'" data-isEnd="' + item.IsEnd +'">'+
 							'<div class="risk_item">' +
 								'<p class="risk_item_tit">'+ item.OrganiseUnitName +'</p>' +
 								'<div class="risk_item_content">' +
 									'<div class="item_content_top">' +
 										'<div class="flex_item flex_left">' +
-											'<span class="ratioColor flex_left_num '+ setColor(item.Ratio) +'">'+ item.Ratio +'</span>' +
+											'<span class="ratioColor flex_left_num '+ setColor(item.Ratio) +'">'+ Ratio +'</span>' +
 											'<p>本周检查进度</p>' +
 										'</div>' +
 										'<div class="flex_item2">' +
@@ -265,11 +273,21 @@
 				
 				mui('#riskContent').on('tap', '.risk_wrap', function() {
 					var title = this.getElementsByTagName("p")[0].innerHTML;
-					var id = this.getAttribute('data-id')
-
+					var id = this.getAttribute('data-id');
+					var isEnd = this.getAttribute('data-isEnd');
+					
+					var toUrl = 'Risk_height.html';
+					//控制进入到哪个页面的控制
+					if(isEnd === '0') {
+						console.log("当前页面")
+						toUrl = 'Risk_height.html'
+					} else if(isEnd === '1') {
+						console.log("三级页面")
+						toUrl = 'Risk_height_2.html'
+					}
 					mui.openWindow({
-						url: 'Risk_height_1.html',
-						id: 'Risk_height_1.html',
+						url: toUrl,
+						id: toUrl,
 						styles: {
 							top: 0, //新页面顶部位置
 							bottom: 0, //新页面底部位置
