@@ -190,20 +190,18 @@
 						timeout: 5000,
 						success: function (data){
 							data = data["DataSource"]["Tables"][0]["Datas"]
-//							console.log("==RRRRR===="+JSON.stringify(data))
 							setHtml(data)
 						},
 						error: function(){
 							console.log('请求错误')
 						}						
 					});
-					
 					function setHtml(data){
 						var len = data.length;
-						for(var i=0; i<len; i++){
+						for(var i=0; i<len; i++){  
 						var ProcVerifyNumber =  data[i]["ProcVerifyNumber"];
 						document.getElementById('changeCount').innerHTML = ProcVerifyNumber || 0;
-						}
+						} 
 					}
 				};
 				

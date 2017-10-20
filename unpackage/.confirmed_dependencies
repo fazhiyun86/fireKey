@@ -400,7 +400,9 @@
 			"css/base.css",
 			"css/totalTarget_email_business.css",
 			"fonts/mui.ttf",
-			"images/header_base_01.png"
+			"images/header_base_01.png",
+			"js/mui.min.js",
+			"css/mui.min.css"
 		]
 	},
 	"Change_Rush_detail_cuiban.html": {
@@ -416,7 +418,13 @@
 	},
 	"Equipment_state_Account.html": {
 		"resources": [
-			"css/Equipment_state_Account.css"
+			"css/Equipment_state_Account.css",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png"
 		],
 		"refer": [
 			"Equipment_state_query_page2.html"
@@ -436,7 +444,12 @@
 	"Equipment_state_query_page2.html": {
 		"resources": [
 			"css/iconfont.css",
-			"js/Equipment_state_query_page2.js"
+			"js/Equipment_state_query_page2.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png"
 		]
 	}
 }

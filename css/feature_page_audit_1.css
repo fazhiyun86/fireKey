@@ -3,7 +3,6 @@ html,body{
 }
 	/*border: 1px solid #E7E7E7;*/	
 .change_matter{
-	padding: 0 0.75rem 0;
 }
 
 /*整改内容*/
@@ -11,62 +10,81 @@ html,body{
 	width: 100%;
 	height: auto;
 	overflow: hidden;
+	padding-top: 0.5rem;
 }
 
 /*整改位置,编号*/
 .change_con_code{
 	width: 100%;
-	height: 4.2rem;
-	border: 1px solid #E7E7E7;
-	padding-left: 0.5rem;
-	padding-top: 0.6rem;
-	margin-top: 1rem;
+	height: auto;
+	padding-top: 0.5rem;
 }
 
 .change_con_code p{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	height: auto;
+	line-height: 2rem;
+	color: #000000;
+	padding-left: 1rem;
+	padding-right: 0.1rem;
 	font-size: 0.9rem;
-	line-height: 1.3rem;
-	color: #494949;
+	font-weight: ;
+	border-bottom: 1px solid #f7f7f7;
 }
 
-.change_con_code span{
-	display: block;
-	font-size: 0.75rem;
-	line-height: 1.15rem;
-	color: #666666;
+div{
+	height: auto;
 }
 
 /*整改通知inform*/
 .change_con_inform{
 	width: 100%;
-	height: 22rem;
-	border: 1px solid #E7E7E7;
-	margin: 0.2rem 0 0.2rem;
+	height: auto;
+	margin-top: 0.3rem;
 }
 
 /*标题*/
-.change_con_inform h5{ 
+h5{ 
+	padding: 0;
+	margin: 0;
 	width: 100%;
-	height: 2.7rem;
-	line-height: 2.7rem;
-	padding-left: 0.5rem;
-	font-size: 0.9rem;
+	padding-left: 1rem;
+	height: auto;
+	line-height: 2rem;
+	font-size: 0.85rem;
 	color: #666666;
-	border-bottom: 1px solid #E7E7E7;
-	margin-bottom: 0.6rem;
+	margin-left: 0;
+}
+
+p{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	height: auto;
+	color: #9c9c9c;
+	padding-left: 1rem;
+	font-size: 0.75rem;
+	line-height: 1.5rem;
+}
+
+.case_record{
+	line-height:1.5rem;;
+	font-size: 0.65rem;
+	color: #494949;
 }
 
 /*情况*/
-.change_con_inform .case_p{
+/*.change_con_inform .case_p{
 	font-size: 0.75rem;
 	line-height: 1.15rem;
 	color: #666666;
 	margin-left: 0.5rem;
-}
+}*/
 
 /*附件*/
-.change_con_inform .case_atta{
-	/*width: 100%;*/
+/*.change_con_inform .case_atta{
 	height: 2rem;
 	margin-left: 1.3rem;
 	margin-top: 1rem;
@@ -106,7 +124,6 @@ html,body{
 .change_con_inform_video dl{
 	margin-top: 0;
 	margin-left: 0.5rem;
-	/*margin-left: 0rem;*/
 	width: 4.5rem;
 	float: left;
 }
@@ -128,54 +145,37 @@ html,body{
 	font-size: 0.9rem;
 	line-height: 1.15rem;
 	margin-top: 0.2rem;
-}
+}*/
 
 /*整改时间,人物*/
-.change_con_inform .case_record{
+/*.change_con_inform .case_record{
 	padding-left: 0.5rem;
 	font-size: 0.75rem;
-	line-height: 1.15rem;
-	color: #666666;
-}
-
-.dv_line1{
-	height: 1px; 
-	background: #E7E7E7;
-	margin-bottom: 0.5rem;
-}
-
+}*/
 
 /*整改报告report*/
-.change_con_report{
+/*.change_con_report{
 	width: 100%;
-	height: 15rem;
 	border: 1px solid #E7E7E7;
-	margin: 0.2rem 0 0.2rem;
-}
+}*/
 
 /*标题*/
-.change_con_report h5{ 
+/*.change_con_report h5{ 
 	width: 100%;
-	height: 2.7rem;
-	line-height: 2.7rem;
 	padding-left: 0.5rem;
 	font-size: 0.9rem;
-	color: #666666;
-	border-bottom: 1px solid #E7E7E7;
-	margin-bottom: 0.6rem;
-}
+}*/
 
 /*情况*/
-.change_con_report .case_p{
+/*.change_con_report .case_p{
 	font-size: 0.75rem;
 	line-height: 1.15rem;
 	color: #666666;
 	margin-left: 0.5rem;
-}
+}*/
 
 /*附件*/
-.change_con_report .case_atta{
-	/*width: 100%;*/
+/*.change_con_report .case_atta{
 	height: 2rem;
 	margin-left: 1.3rem;
 	margin-top: 1rem;
@@ -214,7 +214,6 @@ html,body{
 .change_con_report_video dl{
 	margin-top: 0;
 	margin-left: 0.5rem;
-	/*margin-left: 0rem;*/
 	width: 4.5rem;
 	float: left;
 }
@@ -236,38 +235,26 @@ html,body{
 	font-size: 0.9rem;
 	line-height: 1.15rem;
 	margin-top: 0.2rem;
-}
+}*/
 
 /*整改时间,人物*/
-.change_con_report .case_record{
+/*.change_con_report .case_record{
 	width: 100%;
 	padding-left: 0.5rem;
 	font-size: 0.75rem;
 	line-height: 1.5rem;
 	color: #666666;
-}
-
-/*.change_con_report .case_record_sp{
-	display: block;
-	float: left;
-	font-size: 0.75rem;
-	line-height: 1.5rem;
-	color: #801818;
-}
-
-.change_con_report .case_record_sp:nth-child(2){
-	display: block;
-	float: right;
 }*/
 
-.change_con_report legend{
+
+/*.change_con_report legend{
 	margin-left: 0.5rem;
 	font-size: 0.75rem;
 	line-height: 1.15rem;
 	color: #666666;
-}
+}*/
 
-.change_con_report input{
+/*.change_con_report input{
 	padding: 0;
 	height: 2rem;
 	margin-left: 0.5rem;
@@ -277,15 +264,7 @@ html,body{
 	font-size: 0.9rem;
 	line-height: 1.5rem;
 	background: none;
-}
-
-
-
-.change_con_report .dv_line{
-	height: 1px; 
-	background: #E7E7E7;
-	margin-top: -1rem;
-}
+}*/
 
 /*备注*/
 .change_con_audit{
@@ -301,8 +280,6 @@ html,body{
 	width: 6rem;
 	float: left;
 	font-size: 0.75rem;
-	line-height: 1.15rem;
-	color: #666666;
 	margin-right: 0.5rem;
 }
 
@@ -313,7 +290,6 @@ html,body{
 .change_con_audit p input{
 	margin-left: 2rem;
 }
-
 textarea{
 	font-size: 0.75rem;
 }
@@ -333,20 +309,15 @@ textarea{
 	width: 100%;
 }
 
-.case_record{
-	width: 100%;
-}
-
-
-.case_record span:first-child{
+/*.case_record span:first-child{
 	display: block; 
-	width: 38%; 
 	height: auto; 
+	line-height: 1rem;
 	float: left;
 }
 
 .case_record span:last-child{
 	display: block; 
 	height: auto; 
-	margin-left: 0.5rem;
-}
+	float: right;
+}*/

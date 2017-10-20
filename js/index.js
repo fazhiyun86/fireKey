@@ -15,153 +15,17 @@ mui.plusReady(function() {
 	//页面显示当前时间 
 	var myDate = new Date();
 	var myDatex = '';
-	//	alert(myDate.getDate()); 
 	if(myDate.getDate() < 10) {
 		myDatex = '0' + myDate.getDate();
 	} else {
 		myDatex = myDate.getDate();
 	}
-	//	 localStorage.setItem('ApplicationName',getDatas[0].ApplicationName);
 	document.querySelector(".zdd").innerHTML = localStorage.getItem('ApplicationName');
 	 
 	var time = myDate.getFullYear() + '-' + ((myDate.getMonth() + 1) < 10 ? "0" : "") + (myDate.getMonth() + 1) + '-' + (myDate.getDate() < 10 ? "0" : "") + myDatex;
 	var starttime = myDate.getFullYear() + '年' + ((myDate.getMonth() + 1) < 10 ? "0" : "") + (myDate.getMonth() + 1) + '月' + myDatex + '日';
 	document.getElementById("2017date").innerHTML = starttime;
-	//	alert(starttime)
-	//		starttime
-	//	document.getElementById('totalTarget_time').innerHTML = time;
 	localStorage.setItem('time', time);
-	/*mui.fire(plus.webview.getWebviewById("totalTarget_dtpicker"),"dtpicker:time");	*/
-	function equipState(unitCode) {
-		//通过unitCode和ApplicationID获取设备状态接口信息
-		//	mui.ajax('http://' + '172.16.160.34:8002' + '/WebApi/DataExchange/GetData/WebApp_GetEqStatusStatistical?dataKey=00-00-00-00&ApplicationID=' + localStorage.getItem('ApplicationID') + '&UnitCode=' + unitCode, {
-		var urlzt = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetEqStatusStatistical?dataKey=00-00-00-00&ApplicationID=' + localStorage.getItem('ApplicationID') + '&UnitCode=' + unitCode;
-		//				console.log(urlzt)
-		mui.ajax(urlzt, {
-			data: null,
-			dataType: 'json', //返回
-			type: 'get',
-			timeout: 5000,
-			success: function(data) {
-				//服务器返回响应，根据响应结果，分析是否登陆成功
-				var getDatas = data['DataSource']['Tables'][0]['Datas'];
-				var arrCount = [];
-				var arrName = [];
-				var arrFor = 0;
-				var arrFor1 = 0;
-
-				mui.each(getDatas, function(index, item) {
-					//					console.log(item.count);
-					if(!item.count) {
-						item.count = 0;
-					}
-
-					document.getElementsByClassName('index_list_content_may_two_data')[index].innerHTML = '<span  class="fontFace">' + item.count + '</span>' + '<span>' + item.ItemName + '</span>';
-					//					'<p><span>' + item.count +
-					//					'</span><span>' + item.ItemName +
-					//					'</span></p>';
-					arrCount.push(item.count);
-					arrName.push(item.ItemName);
-				})
-				arrFor = ((Number(arrCount[0])) / ((Number(arrCount[0])) + Number(arrCount[2])) * 100).toFixed(1);
-				//				arrFor = (((Number(arrCount[1]) + Number(arrCount[2]) + Number(arrCount[3])) / Number(arrCount[0])) * 100).toFixed(1);
-				arrFor1 = Number(arrCount[1]) + Number(arrCount[2]) + Number(arrCount[3]) + Number(arrCount[0]);
-				if(arrFor == 'NaN') {
-					arrFor = 0;
-				}
-				localStorage.setItem('arrFor1', arrFor1);
-				$('#indicatorContainer').html('<span class="wanhao">' + '完好率' + '</span>');
-				//setTimeout(function() {
-				$('#indicatorContainer').radialIndicator({
-					radius: 40,
-					barColor: '#61FF00',
-					fontColor: '#494949',
-					fontSize: '17',
-					fontFamily: 'myFont',
-					fontWeight: '100',
-					barWidth: 6.5,
-					initValue: arrFor,
-					roundCorner: false,
-					percentage: true,
-					frameTime: 30
-				});
-				if($(window).width() < 360) {
-					$('#indicatorContainer').css('margin-top', '-1rem');
-				}
-				//				.index_list_content_may .index_list_content_may_three
-				//				}, 500)
-				//									if(getDatas.length == 0) {
-				//										var arr = ['正常使用', '停用停机', '故障维修', '报废处理'];
-				//										for(i = 0; i < document.getElementsByClassName('totalTarget_equipStatus').length; i++) {
-				//											document.getElementsByClassName('totalTarget_equipStatus')[i].innerHTML = '0';
-				//											document.getElementsByClassName("totalTarget_equipStatus_word")[i].innerHTML = arr[i];
-				//										}
-				//									} else {
-				//					
-				//										mui.each(getDatas, function(index, item) {
-				//											document.getElementsByClassName('totalTarget_equipStatus')[index].innerHTML = item.count;
-				//											document.getElementsByClassName("totalTarget_equipStatus_word")[index].innerHTML = item.ItemName;
-				//										});
-				//				
-				//									}
-
-			},
-			error: function() {
-				//异常处理
-				mui.toast('数据请求失败')
-			}
-		});
-	}
-//	equipState(localStorage.getItem('UnitCode'));
-	//通过时间的值和unitCode来得到设备巡检的数据
-
-	function WebApp_GetISMStatistical(time, UnitCode) {
-		//	mui.ajax('http://' + '172.16.160.34:8002' + '/WebApi/DataExchange/GetData/WebApp_GetISMStatistical?dataKey=00-00-00-00&date=' + time + '&UnitCode=' + UnitCode, {
-		var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/WebApp_GetISMStatistical?dataKey=00-00-00-00&date=' + time + '&UnitCode=' + UnitCode;
-		console.log(url)
-		mui.ajax(url, {
-			data: null,
-			dataType: 'json', //返回
-			type: 'get',
-			timeout: 5000,
-			success: function(data) {
-				//服务器返回响应，根据响应结果，分析是否登陆成功
-
-				var getDatas = data['DataSource']['Tables'][0]['Datas'];
-				if(getDatas[0].totalExam == 0) {
-					document.getElementById('xj1').innerHTML = 0 + '/' + getDatas[0].totalTask;
-				} else if(getDatas[0].totalTask == 0) {
-					document.getElementById('xj1').innerHTML = 0;
-				} else {
-					document.getElementById('xj1').innerHTML = getDatas[0].totalExam + '/' + getDatas[0].totalTask;
-				}
-
-				if(getDatas[0].totalObject == 0) {
-					document.getElementById('xj2').innerHTML = 0;
-				} else {
-					document.getElementById('xj2').innerHTML = getDatas[0].totalObject;
-				}
-				if(getDatas[0].NoExamByMonth == 0) {
-					document.getElementById('xj3').innerHTML = 0;
-				} else {
-					document.getElementById('xj3').innerHTML = getDatas[0].NoExamByMonth;
-				}
-				if(getDatas[0].errObject == 0) {
-					document.getElementById('xj4').innerHTML = 0;
-				} else {
-					document.getElementById('xj4').innerHTML = getDatas[0].errObject;
-				}
-
-			},
-			error: function() {
-				//异常处理
-				mui.toast('数据请求失败')
-			}
-		});
-		setTimeout(function() {
-			plus.nativeUI.closeWaiting();
-		}, 500);
-	}
 
 //以上东西没用(但是不能删除)-----------------------------------------------------------------------------------------------------------------------------------
 
@@ -241,13 +105,17 @@ mui.plusReady(function() {
 			localStorage.setItem("HeightTag", isEnd);
 			
 			Bratio = parseFloat(Ratio)
+			console.log(Bratio);
 			Lratio = Bratio.toFixed(1);
+			console.log(Lratio);
 			Str = Lratio.toString();
+			console.log(Str);
 			Str = Str.replace(/\d+\.(\d*)/,"$1");
 			if( Str == 0){
 				Lratio = Bratio.toFixed(0)
 			}
 			Ratio = Lratio + '%';
+			console.log(Ratio)
 			
 			function setFontColor(Ratio){
 				Ratio = parseFloat(Ratio)

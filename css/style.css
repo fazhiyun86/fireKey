@@ -200,7 +200,7 @@ input {
 
 .tit_text_list_con .data_font {
     width: 100px;
-    height: 12px;
+    /*height: 12px;*/
     padding-left: 25px;
     float: right;
 }
