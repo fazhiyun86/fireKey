@@ -510,15 +510,25 @@
 		var totalLen = totalData.length;
 		var totalX = [];
 		var totalY = [];
+		var totalTitle = '';
 		
 		for (var i = 0; i < totalLen; i++) {
 			var item = totalData[i];
 			totalX.push(item.DateValue)
 			totalY.push(item.FireCount)
+			totalTitle = item.FireTitle;
 		}
 		var sumOption = common.lineBaseOption();
 		sumOption.xAxis.data = totalX;
 		sumOption.series[0].data = totalY;
+		sumOption.title = {
+			text: totalTitle,
+			textStyle: {
+				color: '#DB4527',
+				fontSize: '13',
+			},
+			left: 'center'
+		} ;
 		sumOption.IsEnd = '1';
 		sumOption.OrgID = '';
 		

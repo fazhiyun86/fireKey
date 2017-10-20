@@ -46,7 +46,8 @@
 			"Change_Rush.html",
 			"Risk_height.html",
 			"Add_Fire_statistic.html",
-			"Equipment_state.html"
+			"Equipment_state.html",
+			"Risk_height_2.html"
 		]
 	},
 	"main.html": {
@@ -55,7 +56,10 @@
 			"fonts/mui-icons-extra.ttf",
 			"js/area.js",
 			"css/icons-extra.css",
-			"iconfont.css"
+			"iconfont.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
 		],
 		"refer": [
 			"totalTarget_email.html",
@@ -413,6 +417,9 @@
 	"Equipment_state_Account.html": {
 		"resources": [
 			"css/Equipment_state_Account.css"
+		],
+		"refer": [
+			"Equipment_state_query_page2.html"
 		]
 	},
 	"feature_page_audit_1.html": {
@@ -424,6 +431,12 @@
 			"css/iconfont.css",
 			"css/mui.min.css",
 			"images/header_base_01.png"
+		]
+	},
+	"Equipment_state_query_page2.html": {
+		"resources": [
+			"css/iconfont.css",
+			"js/Equipment_state_query_page2.js"
 		]
 	}
 }

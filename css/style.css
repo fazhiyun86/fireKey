@@ -48,14 +48,12 @@ li {
 
 .Micro_task_pspan span:first-child {
 	display: block;
-	width: 40%;
 	float: left;
 }
 
 .Micro_task_pspan span:nth-child(2) {
 	display: block;
-	width: 60%;
-	float: left;
+	float: right;
 }
 
 html,
@@ -201,8 +199,9 @@ input {
 }
 
 .tit_text_list_con .data_font {
-    width: 75px;
+    width: 100px;
     height: 12px;
+    padding-left: 25px;
     float: right;
 }
 
@@ -382,11 +381,11 @@ input {
 	top: -5px;
 	z-index: 100;
 	transform: rotate(-45deg);
-	/*transform:rotate(7deg);
-	-ms-transform:rotate(7deg); 	/* IE 9 */
-	/*-moz-transform:rotate(7deg); 	/* Firefox */
-	/*-webkit-transform:rotate(7deg); /* Safari 和 Chrome */
-	/*-o-transform:rotate(7deg);*/*/*/*/
+	transform:rotate(-45deg);
+	-ms-transform:rotate(-45deg); 	/* IE 9 */
+	-moz-transform:rotate(-45deg); 	/* Firefox */
+	-webkit-transform:rotate(-45deg); /* Safari 和 Chrome */
+	-o-transform:rotate(-45deg);
 }
 /*66b61d  f28d02 17a79a 867eed*/
 .red-top::before {
@@ -434,6 +433,11 @@ input {
 	bottom: -5px;
 	z-index: 100;
 	transform: rotate(-45deg); 
+	transform:rotate(-45deg);
+	-ms-transform:rotate(-45deg); 	/* IE 9 */
+	-moz-transform:rotate(-45deg); 	/* Firefox */
+	-webkit-transform:rotate(-45deg); /* Safari 和 Chrome */
+	-o-transform:rotate(-45deg);
 }
 
 .red-bottom::after {

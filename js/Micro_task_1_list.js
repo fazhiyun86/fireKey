@@ -19,6 +19,7 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data) {
+				
 				//服务器返回响应，根据响应结果，分析是否登陆成功
 				var getDatas = data['DataSource']['Tables'][0]['Datas'];
 				var getDatas1 = data['DataSource']['Tables'][1]['Datas'];
@@ -37,9 +38,9 @@ mui.plusReady(function() {
 				document.getElementById("Microtask1list5").innerHTML = getDatas1[0].TaskStartTime + '至' + getDatas1[0].TaskEndTime;
 				document.getElementById("Microtask1list6").innerHTML = getDatas1[0].ExecutorUser;
 				document.getElementById("Microtask1list7").innerHTML = getDatas1[0].ReleaseTime;
-				document.getElementById("Microtask1list8").innerHTML = getDatas1[0].TaskResult;
+				document.getElementById("Microtask1list8").innerHTML = getDatas1[0].TaskResult + '今天招考是捷达今天招考是捷达今天招考是捷达今天招考是捷达今天招考是捷达';
 				document.getElementById("Microtask1list9").innerHTML = getDatas1[0].PostName;
-				document.getElementById("Microtask1list10").innerHTML = getDatas1[0].ExecuteDescript;
+				document.getElementById("Microtask1list10").innerHTML = getDatas1[0].ExecuteDescript + '事就大就是这样事就大就是这样事就大就是这样事就大就是这样';
 				document.getElementById("Microtask1list11").innerHTML = getDatas1[0].ReleaseUser;
 				document.getElementById("Microtask1list12").innerHTML = getDatas1[0].ExecuteTime;
 				mui.each(getDatas2, function(index, item) {
@@ -112,12 +113,12 @@ mui.plusReady(function() {
 				}
 
 				//mui.each(getDatas, function(index, item) {
-				html1 += '<p style="font-size:0.7rem; color:#757575;" class="Micro_task_pspan">' +
+				html1 += '<p style="font-size:0.65rem!important;" class="Micro_task_pspan">' +
 					'<span  class="fontSize">工作评价：<font>' + Level + '</font></span>' +
 					'<span  class="fontSize">评论时间：<font>' + getDatas1[0].EstimateTime + '</font></span>' +
 					'</p>' +
-					'<p>备注：</p>' +
-					'<p style="color:#999999" >' + getDatas1[0].Estimate + '</p>'
+					'<p style="color: #494949;border-bottom:0; font-size:0.75rem;">备注：</p>' +
+					'<p style="color:#ACACB4" >' + getDatas1[0].Estimate + '我i佛挡杀佛还将符合考生我i佛挡杀佛还将符合考生我i佛挡杀佛还将符合考生</p>'
 				//				})
 				document.querySelector(".Micro_task_1_list_pingjia").innerHTML = html1;
 			},

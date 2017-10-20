@@ -217,8 +217,8 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			
-			success: function(data) {	
-//				console.log(JSON.stringify(data))
+			success: function(data) {
+				console.log('isEnd')
 				setHtml(data)
 				plus.nativeUI.closeWaiting();
 			},
@@ -230,13 +230,24 @@ mui.plusReady(function() {
 		
 		function setHtml (data) {
 			var info = data["DataSource"]['Tables'][0]["Datas"][0]
-
+			
 			var ObjectCount = info["ObjectCount"];
 			var AbnormalCount = info["AbnormalCount"];
 			var AuditCount = info["AuditCount"];
 			var Rate = info["Rate"];
 			var Ratio = info["Ratio"];
+			var isEnd = info["IsEnd"];
+			console.log(isEnd)
+			localStorage.setItem("HeightTag", isEnd);
 			
+			Bratio = parseFloat(Ratio)
+			Lratio = Bratio.toFixed(1);
+			Str = Lratio.toString();
+			Str = Str.replace(/\d+\.(\d*)/,"$1");
+			if( Str == 0){
+				Lratio = Bratio.toFixed(0)
+			}
+			Ratio = Lratio + '%';
 			
 			function setFontColor(Ratio){
 				Ratio = parseFloat(Ratio)
@@ -296,7 +307,6 @@ mui.plusReady(function() {
 			var AbnormalCount = info["AbnormalCount"]; //发现问题
 			var AuditCount = info["AuditCount"];  //解决问题
 			
-			console.log(document.getElementById("donghuo2").innerHTML)
 			document.getElementById("donghuo1").innerHTML = FireCount || 0;
 			document.getElementById("donghuo2").innerHTML = AbnormalCount || 0;
 			document.getElementById("donghuo3").innerHTML = AuditCount || 0;

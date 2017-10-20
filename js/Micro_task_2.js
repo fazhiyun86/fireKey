@@ -21,6 +21,7 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data) {
+//				console.log(JSON.stringify(data));
 				var getDatas = data['DataSource']['Tables'][0]['Datas'];
 				var html = '';
 				if(getDatas.length == 0) {
@@ -32,7 +33,7 @@ mui.plusReady(function() {
 					mui.each(getDatas, function(index, item) {
 
 						html +=
-							'<div class="Equipment_patrol_con1">' +
+							'<div class="Equipment_patrol_con1" style="box-shadow: none;">' +
 							'<input class="sendId1" type="hidden"value="' + item.TaskID + '" />' +
 							'<div style="width:6%;padding-top:2rem;">' +
 							stuts[2] +

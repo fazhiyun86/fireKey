@@ -211,6 +211,15 @@
 					var html = '';
 					for (var i = 0; i < data.length; i++) {
 						var item = data[i];
+						Ratio = item.Ratio;
+						Bratio = parseFloat(Ratio);
+						Lratio = Bratio.toFixed(1);
+						Str = Lratio.toString();
+						Str = Str.replace(/\d+\.(\d*)/,"$1");
+						if( Str == 0){
+							Lratio = Bratio.toFixed(0)
+						};
+						Ratio = Lratio + '%';
 						var val = data[i].Ratio;
 						html += '<div class="risk_wrap" data-id="'+ item.OrganiseUnitID +'">'+
 							'<div class="risk_item">' +
@@ -218,7 +227,7 @@
 								'<div class="risk_item_content">' +
 									'<div class="item_content_top">' +
 										'<div class="flex_item flex_left">' +
-											'<span class="flex_left_num '+ setColor(item.Ratio) +'">'+ item.Ratio +'</span>' +
+											'<span class="flex_left_num '+ setColor(item.Ratio) +'">'+ Ratio +'</span>' +
 											'<p>本周检查进度</p>' +
 										'</div>' +
 										'<div class="flex_item2">' +

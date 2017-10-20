@@ -115,7 +115,7 @@
 						type:'get',
 						timeout: 5000,            
 						success: function(data){
-//							console.log(JSON.stringify(data))
+							console.log(JSON.stringify(data))
 							data = data["DataSource"]["Tables"][0]["Datas"]
 							setHtml(data)
 						},
@@ -132,12 +132,20 @@
 					var html = '';
 					for (var i = 0; i < data.length; i++) {
 						var item = data[i];
+						Bratio = item.Ratio - 0;
+						Lratio = Bratio.toFixed(1);
+						Str = Lratio.toString();
+						Str = Str.replace(/\d+\.(\d*)/,"$1");
+						if( Str == 0){
+							Lratio = Bratio.toFixed(0)
+						};
+						Bratio = Lratio + '%';
 						html += '<div class="risk_wrap" data-id="'+ item.TaskID +'" data-task="'+item.TaskName+'" data-pro="'+ item.OrganiseUnitName +'">\
 								<div class="risk_item height-2-item">\
 									<div style="font-size:13px;">'+ item.OrganiseUnitName +'</div>\
-									<div class="color-green" style="font-size:13px;">'+ item.TaskName +'</div>\
+									<div class="'+ setIcon(item.TotalObjectCount,item.ExamObjectCount) +'" style="font-size:13px;">'+ item.TaskName +'</div>\
 									<div>任务期限:'+ item.TaskStartTime +'~'+ item.TaskEndTime +'</div>\
-									<div style=""><span>检查进度:'+item.Ratio+'%</span><span style="margin-left:0.5rem;">应检:'+item.TotalObjectCount+'</span><span style="margin-left:0.5rem;">已检:'+item.ExamObjectCount+'<span style="margin-left:0.5rem;">异常:'+item.AbNormalObjectCount+'</span><span style="margin-left:0.5rem;">处理:'+item.AuditCount+'</span></div>\
+									<div style=""><span>检查进度:'+ Bratio +'</span><span style="margin-left:0.5rem;">应检:'+item.TotalObjectCount+'</span><span style="margin-left:0.5rem;">已检:'+item.ExamObjectCount+'<span style="margin-left:0.5rem;">异常:'+item.AbNormalObjectCount+'</span><span style="margin-left:0.5rem;">处理:'+item.AuditCount+'</span></div>\
 								</div>\
 							</div>';
 //						var setFontColor = document.getElementsByClassName("setFontColor")[0];
@@ -148,25 +156,18 @@
 					//隐藏加载
 					plus.nativeUI.closeWaiting();
 					
-//					function setIcon(){
-////						for (var i = 0; i < data.length; i++) {
-////							var item = data[i];
-//							
-//							TotalObjectCount = data["TotalObjectCount"];
-////							console.log(TotalObjectCount)
-//							ExamObjectCount = data["ExamObjectCount"];
-////							console.log(ExamObjectCount)
-//							if(TotalObjectCount == ExamObjectCount) { 
-////								setFontColor.style.color = '#228b22'
-//							} else{
-////								setFontColor.style.color = '#000000'
-//							}
-////						}
-//					}
-//					setIcon()
+					function setIcon(noCount,allCount){
+//						Ratio = parseFloat(Ratio)
+
+						var html = '';
+						if(noCount == allCount) {
+							html = 'green-color'
+						}	
+						return html;
+					}
 					
 				}
-				
+			
 				mui('#riskContent').on('tap', '.risk_wrap', function() {
 					
 					var id = this.getAttribute('data-id');

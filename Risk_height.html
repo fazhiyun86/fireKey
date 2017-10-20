@@ -162,6 +162,7 @@
 						success: function(data){
 //							console.log(JSON.stringify(data))
 							data = data["DataSource"]["Tables"][0]["Datas"]
+							
 							setHtml(data);
 						},
 						error: function(){
@@ -176,6 +177,13 @@
 					var html = '';
 					for (var i = 0; i < data.length; i++) {
 						var item = data[i];
+						Ratio = item.Ratio;
+							Bratio = parseFloat(Ratio);
+							Lratio = Bratio.toFixed(1);
+							if( Bratio * 100 == 0){
+								Lratio = Bratio.toFixed(0)
+							}
+						Ratio = Lratio + '%';
 						var val = data[i].Ratio;
 						html += '<div id="mark" class="risk_wrap" data-id="'+ item.OrganiseUnitID +'">'+
 							'<div class="risk_item">' +
@@ -183,7 +191,7 @@
 								'<div class="risk_item_content">' +
 									'<div class="item_content_top">' +
 										'<div class="flex_item flex_left">' +
-											'<span class="ratioColor flex_left_num '+ setColor(item.Ratio) +'">'+ item.Ratio +'</span>' +
+											'<span class="ratioColor flex_left_num '+ setColor(item.Ratio) +'">'+ Ratio +'</span>' +
 											'<p>本周检查进度</p>' +
 										'</div>' +
 										'<div class="flex_item2">' +

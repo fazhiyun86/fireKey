@@ -290,10 +290,13 @@
 				var toUrl = 'Risk_height.html';
 				
 				//控制进入到哪个页面的控制
-				var tag = 0
+				var tag = localStorage.getItem("HeightTag");
+				console.log("tag")
 				if(tag === '0') {
+					console.log("二级页面")
 					toUrl = 'Risk_height.html'
 				} else if(tag === '1') {
+					console.log("三级页面")
 					toUrl = 'Risk_height_2.html'
 				}
 				

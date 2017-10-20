@@ -22,6 +22,14 @@
 			.mui-content {
     			background: #F5F5F5!important;
 			}
+			p{
+				border-bottom: 1px solid #f7f7f7;
+				height: auto;
+				line-height: 1.5rem;
+				margin-top: 0;
+				padding-top: 0;
+			}
+
 		</style>
 	</head>
 
@@ -177,10 +185,10 @@
 					var item = data[i];
 					var RectifyOrg = data[i]['RectifyOrg'];
 					document.getElementById("zgaidx").innerHTML = RectifyOrg;
-						html += '<div class="change_con">' +
+						html += '<div class="change_con" style="color:#494949;">' +
 							'<div class="change_con_code" style="background: #fff; border:0;">' +
-							'<p>'+ item.OrderName +'</p>' +
-							'<span>整改单号：'+ item.OrderCode +'</span>' +
+							'<p style="font-size:1rem;">'+ item.OrderName +'</p>' +
+							'<span style="font-size:1rem">整改单号：'+ item.OrderCode +'</span>' +
 							'</div>' +
 							'<div class="change_con_inform" style="height:auto; background: #fff; border:0; padding-bottom:0.2rem;">' +
 							'<h5>整改内容：</h5>' +

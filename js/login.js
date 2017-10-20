@@ -41,11 +41,11 @@ mui.plusReady(function() {
 	}, 5000);
 	
 	document.querySelector('#logo').addEventListener('tap', function() {
+		
 		five();
 	});
-		
 	
-//  console.log('延时')
+	
 	
 //	mui('.mui-off-canvas-wrap').offCanvas('toggle');
 //	document.querySelector('.checkUpdate').addEventListener('tap', function() {
@@ -82,6 +82,7 @@ mui.plusReady(function() {
 
 	//关闭侧滑菜单触发主页面ajax请求
 	document.getElementById("backdrop").addEventListener('tap', function() {
+		
 		//阻止默认事件
 		event.detail.gesture.preventDefault();
 		serverAddress = document.getElementById("serverAddress").value;
@@ -287,9 +288,22 @@ mui.plusReady(function() {
 			}
 		});
 	};
-
+	
 	//点击按钮登录
 	mui(".mui-btn-primary")[0].addEventListener('tap', function() {
+
+		//检查姓名是否填写
+		var NameVal = $('#userCode').val();
+
+		if(NameVal.length==0){
+			mui.toast("请填写用户名！");
+			return false;
+		}
+		var PassVal = $('#passWord').val();
+		if(PassVal.length==0){
+			mui.toast("请填写密码！");
+			return false;
+		}
 
 		var userCodeVa = document.getElementById("userCode").value;
 		var passWordVa = document.getElementById("passWord").value;
