@@ -26,14 +26,14 @@ html,body{
 .change_con_code p{
 	font-size: 0.9rem;
 	line-height: 1.3rem;
-	color: #495AF2;
+	color: #666666;
 }
 
 .change_con_code span{
 	display: block;
 	font-size: 0.75rem;
 	line-height: 1.15rem;
-	color: #801818;
+	color: #666666;
 }
 
 /*整改通知inform*/
@@ -51,7 +51,7 @@ html,body{
 	line-height: 2.7rem;
 	padding-left: 0.5rem;
 	font-size: 0.9rem;
-	color: #DB4527;
+	color: #666666;
 	border-bottom: 1px solid #E7E7E7;
 	margin-bottom: 0.6rem;
 }
@@ -135,7 +135,7 @@ html,body{
 	padding-left: 0.5rem;
 	font-size: 0.75rem;
 	line-height: 1.15rem;
-	color: #801818;
+	color: #666666;
 }
 
 .dv_line1{
@@ -160,7 +160,7 @@ html,body{
 	line-height: 2.7rem;
 	padding-left: 0.5rem;
 	font-size: 0.9rem;
-	color: #DB4527;
+	color: #666666;
 	border-bottom: 1px solid #E7E7E7;
 	margin-bottom: 0.6rem;
 }
@@ -244,7 +244,7 @@ html,body{
 	padding-left: 0.5rem;
 	font-size: 0.75rem;
 	line-height: 1.5rem;
-	color: #801818;
+	color: #666666;
 }
 
 /*.change_con_report .case_record_sp{
@@ -264,7 +264,7 @@ html,body{
 	margin-left: 0.5rem;
 	font-size: 0.75rem;
 	line-height: 1.15rem;
-	color: #801818;
+	color: #666666;
 }
 
 .change_con_report input{
@@ -273,7 +273,7 @@ html,body{
 	margin-left: 0.5rem;
 	margin-right: 1.3rem;
 	border: 0;
-	color: #83AD50;
+	color: #666666;
 	font-size: 0.9rem;
 	line-height: 1.5rem;
 	background: none;
@@ -302,7 +302,7 @@ html,body{
 	float: left;
 	font-size: 0.75rem;
 	line-height: 1.15rem;
-	color: #801818;
+	color: #666666;
 	margin-right: 0.5rem;
 }
 
@@ -311,7 +311,7 @@ html,body{
 }
 
 .change_con_audit p input{
-	margin-left: 1.5rem;
+	margin-left: 2rem;
 }
 
 textarea{

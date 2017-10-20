@@ -4,7 +4,7 @@
 }
 
 .fontFace {
-	font-family: '11438'!important;
+	font-family: "microsoft yahei"!important;
 }
 video::-internal-media-controls-download-button {
 	display: none;
@@ -382,6 +382,11 @@ input {
 	top: -5px;
 	z-index: 100;
 	transform: rotate(-45deg);
+	/*transform:rotate(7deg);
+	-ms-transform:rotate(7deg); 	/* IE 9 */
+	/*-moz-transform:rotate(7deg); 	/* Firefox */
+	/*-webkit-transform:rotate(7deg); /* Safari 和 Chrome */
+	/*-o-transform:rotate(7deg);*/*/*/*/
 }
 /*66b61d  f28d02 17a79a 867eed*/
 .red-top::before {
