@@ -118,6 +118,8 @@
 						type: 'get',
 						timeout: 5000,
 						success: function(data){
+							console.log(JSON.stringify(data))
+							
 							data = data["DataSource"]["Tables"][0]["Datas"];
 							var len = data.length;
 							setHtml(data);
@@ -135,7 +137,6 @@
 						var html ='';
 						for (var i=0; i < len; i++){ 
 							var item = data[i];
-							console.log(data[i].OrderCode)
 							html += '<div id="ChangeWrap" class="'+ setIcon(item.RectifyResult) +'">\
 											<div class="change_con_left change_con_left1" data-id="'+item.OrderID+'">\
 												<p class="'+ setFont(item.RectifyResult) +'">'+(item.OrderName || 0)+'</p>\
