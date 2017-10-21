@@ -82,7 +82,6 @@ mui.plusReady(function() {
 			timeout: 5000,
 			
 			success: function(data) {
-				console.log('isEnd')
 				setHtml(data)
 				plus.nativeUI.closeWaiting();
 			},
@@ -101,21 +100,16 @@ mui.plusReady(function() {
 			var Rate = info["Rate"];
 			var Ratio = info["Ratio"];
 			var isEnd = info["IsEnd"];
-			console.log(isEnd)
-			localStorage.setItem("HeightTag", isEnd);
-			
+		
+			localStorage.setItem("HeightTag", isEnd);	
 			Bratio = parseFloat(Ratio)
-			console.log(Bratio);
 			Lratio = Bratio.toFixed(1);
-			console.log(Lratio);
 			Str = Lratio.toString();
-			console.log(Str);
 			Str = Str.replace(/\d+\.(\d*)/,"$1");
 			if( Str == 0){
 				Lratio = Bratio.toFixed(0)
 			}
 			Ratio = Lratio + '%';
-			console.log(Ratio)
 			
 			function setFontColor(Ratio){
 				Ratio = parseFloat(Ratio)
@@ -157,7 +151,6 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data){
-				console.log(JSON.stringify(data))
 				setHtml(data)
 				mui.toast('数据请求成功')
 			},

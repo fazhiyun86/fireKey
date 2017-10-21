@@ -21,6 +21,10 @@
 			.mui-bar .mui-icon{
 				padding-top: 15px;
 			}
+			#time_limit {
+				border: 0 none;
+				background-color: #f5f5f5;
+			}
 		</style>
 	</head>
 
@@ -72,6 +76,7 @@
 						    	<div class="p_tit">
 						    		<legend>通知名称：</legend>
 						    		<input class="informName" placeholder="通知名称" type="text" name="" id="" value="" style="font-size: 0.7rem; color: #000000;" />
+
 						    	</div>		  
 						    	<div class="p_tit tit2">
 						    		<legend>整改对象：</legend>
@@ -87,8 +92,10 @@
 						    		<textarea class="changeInf"  placeholder="整改说明" name="txt" clos="100" rows="3" warp="virtual" placeholder="" style="font-size: 0.7rem; color: #000000;"></textarea>
 						    	</div>
 						    	<div class="border_line"></div>
-						    	<div id="time_limit" style="width: 100%; height: auto;" data-time="">整改期限：<span class="timer" style="display: block; width: 7px; height: 7px;" href="#popover" id="openPopover" class="mui-btn mui-btn-primary mui-btn-block"><img src="images/arrow_r.png" style="width: 100%; height: auto;"/></span>
-						    	</div>
+						    	<!--<div id="time_limit" style="width: 100%; height: auto;" data-time="">
+						    		整改期限：
+						    	</div>-->
+						    	<input id="time_limit" type="text" readonly="readonly" />
 					
 						    </div>
 						    <button id="btn"><a href="javascript:;">下达通知</a></button>
@@ -112,6 +119,7 @@
 			(function(){
 				//获得当前时间
 				var myDate = new Date();
+
 				function stTime(){
 					var Year = myDate.getFullYear().toString();
 					var Month = myDate.getMonth()+1;
@@ -140,8 +148,10 @@
 				
 				console.log(stTime()[0])
 				console.log(stTime()[1])
-				document.getElementById("time_limit").innerHTML = stTime()[1];
-			
+//				document.getElementById("time_limit").innerHTML = stTime()[1];
+
+				document.getElementById("time_limit").value = stTime()[1];
+
 				mui.init({
 					swipeBack: false,
 				});
@@ -237,15 +247,15 @@
 					//时间选择弹出框
 					mui(document).on('tap','#time_limit', function() {
 						
-						
+						var myDate = new Date();
+
 						var dtpicker = new mui.DtPicker({
 							"value":stTime()[0],"beginYear":myDate.getFullYear(),"endYear":myDate.getFullYear()+ 10
 						}); 
 						
 						dtpicker.show(function(rs) {
 							var timeValue = '整改期限' + ':' + ' ' + rs.y.value + '年' + rs.m.value + '月' + rs.d.value  + '日' + ' ' + ' ' + rs.h.value + '时' + rs.i.value + '分';
-							console.log (timeValue);
-							$('#time_limit').text(timeValue)
+							$('#time_limit').val(timeValue)
 							var timeVal = rs.y.value + '-' + rs.m.value + '-' + rs.d.value  + ' ' + rs.h.value + ':' + rs.i.value;
 							$('#time_limit').attr("data-time", timeVal)
 						});
