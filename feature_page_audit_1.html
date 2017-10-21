@@ -19,6 +19,11 @@
 				color: #FFFFFF;
 			}
 			
+			.mui-content {
+    			background: #F5F5F5!important;
+			}
+
+
 		</style>
 	</head>
 
@@ -175,27 +180,29 @@
 					var RectifyOrg = data[i]['RectifyOrg'];
 					document.getElementById("zgaidx").innerHTML = RectifyOrg;
 						html += '<div class="change_con">' +
-							'<div class="change_con_code">' +
-							'<p>'+ item.OrderName +'</p>' +
-							'<span>整改单号：'+ item.OrderCode +'</span>' +
+							'<div class="change_con_code" style="background: #fff; border:0;">' +
+								'<p style="">'+ item.OrderName +'</p>' +
+								'<p style="">整改单号：'+ item.OrderCode +'</p>' +
 							'</div>' +
-							'<div class="change_con_inform" style="height:auto">' +
-							'<h5>整改内容</h5>' +
-							'<div class="change_con_inform_case">' +
-							'<p class="case_p">'+ item.RectifyContent +'</p>' +
+							'<div class="change_con_inform" style="background: #fff; border:0; height:auto;">' +
+								'<h5>整改内容：</h5>' +
+								'<p class="case_p" style="color:#ACACB4">'+ item.RectifyContent +'</p>' +
+								'<p class="case_record">整改期限：'+ item.TimeExpired +'</p>' +
+								'<p class="case_record" style="height:auto; line-height:3rem; width:100%; float:left; background:#fff;">'+
+									'<span style="display:block; float:left;">通知下发：'+ item.OrderUser +'</span>'+
+									'<span style="display:block; float:right;">下发时间：'+ item.OrderDate +'</span>'+
+								'</p>' +
 							'</div>' +
-							'<p class="case_record">整改期限：'+ item.TimeExpired +'</p>' +
-							'<p class="case_record"><span>通知下发：'+ item.OrderUser +'</span><span>下发时间：'+ item.OrderDate +'</span></p>' +
+							'<div class="change_con_report" background:#fff; border:0; padding:0; height:auto;">' +
+								'<p class="case_record" style="background:#fff; font-size:0.85rem;">整改意见：</p>' +
+								'<p class="case_record" style="background:#ffffff;"><span class="case_record_sp" style="display:block; float:left;"> 审  核  人 ：</span><span class="case_record_sp" style="display:block; float:right;">审核时间：</span></p>' +
 							'</div>' +
-							'<div class="change_con_report" style="height:6rem">' +
-							'<h5>审核内容</h5>' +
-							'<p class="case_record"><span class="case_record_sp"> 制  单  人 ：'+ item.OrderUser +'</span><span class="case_record_sp">制单时间：'+ item.OrderDate +'</span></p>' +
-							'</div>' +
-							'<div class="change_con_audit">	' +
-							'<legend>整改审核结论：</legend>' +
-							'<p><input class="radio" type="radio" name="choose" value="通过">通过</p>' +
-							'<p><input class="radio" type="radio" name="choose" value="未通过" >未通过</p>' +
-							'<textarea id="textval" name="txt" clos="100" rows="3" warp="virtual" placeholder="审核意见" value=""></textarea>' +
+							
+							'<div class="change_con_audit" style="background:#fff; border:0;margin-top:0;">' +
+								'<legend>整改审核结论：</legend>' +
+								'<p><input class="radio" type="radio" name="choose" value="通过">通过</p>' +
+								'<p><input class="radio" type="radio" name="choose" value="未通过">未通过</p>' +
+								'<textarea id="textval" name="txt" clos="100" rows="3" warp="virtual" placeholder="审核意见" value=""></textarea>' +
 							'<button id="btn"><span class="btn_sub">审核确认</span></button>' +
 							'</div>' +
 					

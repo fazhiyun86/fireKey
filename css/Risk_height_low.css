@@ -131,6 +131,12 @@
 	top: -5px;
 	z-index: 100;
 	transform: rotate(-45deg);
+	transform:rotate(-45deg);
+	-ms-transform:rotate(-45deg); 	/* IE 9 */
+	-moz-transform:rotate(-45deg); 	/* Firefox */
+	-webkit-transform:rotate(-45deg); /* Safari 和 Chrome */
+	-o-transform:rotate(-45deg);
+	
 }
 .triangle-bottom {
 	width: 0;
@@ -143,6 +149,11 @@
 	bottom: -5px;
 	z-index: 100;
 	transform: rotate(-45deg); 
+	transform:rotate(-45deg);
+	-ms-transform:rotate(-45deg); 	/* IE 9 */
+	-moz-transform:rotate(-45deg); 	/* Firefox */
+	-webkit-transform:rotate(-45deg); /* Safari 和 Chrome */
+	-o-transform:rotate(-45deg);
 }
 
 /*Risk_height_2 page style start*/

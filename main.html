@@ -163,6 +163,7 @@
 					timeout: 5000,
 					success: function(data) {
 						//服务器返回响应，根据响应结果，分析是否登陆成功
+						console.log(JSON.stringify(data))
 						var getDatas = data['DataSource']['Tables'][0]['Datas'];
 //						if(getDatas.length == 0) {
 //							$('#getDatasNumm').html('');

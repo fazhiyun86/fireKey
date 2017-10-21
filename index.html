@@ -134,15 +134,15 @@
 										</div>
 										<div class="index_list_content_maymore_three maymore_three_first">
 											<p>
-												<span  id="yunwei1"class="fontFace fire1">-</span>
+												<span id="donghuo1" class="fontFace fire1">-</span>
 												<span>发放动火证</span>
 											</p>
 											<p>
-												<span id="yunwei2"class="fontFace fire2">-</span>
+												<span id="donghuo2" class="fontFace fire2">-</span>
 												<span>发现问题</span>
 											</p>
 											<p>
-												<span id="yunwei3"class="fontFace fire3">-</span>
+												<span id="donghuo3" class="fontFace fire3">-</span>
 												<span>解决问题</span>
 											</p>
 										</div>
@@ -283,33 +283,19 @@
 			document.getElementById("index_zhongdian").innerHTML = localStorage.getItem("IndexOrganiseUnitName")
 			
 			var in_index = document.getElementsByClassName('in_index');
-			
-//			var pageArr = [
-//				"Risk_height.html",
-//				"Add_Fire_statistic.html",
-//				'Fire_work.html',
-//				'Fire_Formally_work.html',
-//				'Equipment_patrol.html',
-//				'maintenance.html',
-//				'Equipment_state.html',
-//				'Equipment_guifan.html',
-//				'Danger_Rectification.html',
-//				'Licence_adopt.html',
-//				'Inspect_Maintain.html',
-//				
-//			]
-//			var DataTime = da.getAttribute('data-id');
-//			console.log(DataTime)
+
 			//高风险点击事件
 			in_index[0].addEventListener('tap', function() {
 				//高风险
 				var toUrl = 'Risk_height.html';
 				
 				//控制进入到哪个页面的控制
-				var tag = 0
+				var tag = localStorage.getItem("HeightTag");
 				if(tag === '0') {
+					console.log("二级页面")
 					toUrl = 'Risk_height.html'
 				} else if(tag === '1') {
+					console.log("三级页面")
 					toUrl = 'Risk_height_2.html'
 				}
 				

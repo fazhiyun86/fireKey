@@ -59,6 +59,7 @@
 			}
 			.hide {
 				display: none!important;
+				
 			}
 		</style>
 	</head>
@@ -103,7 +104,7 @@
 					var data = {
 						OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
 					}
-					
+					console.log(localStorage.getItem("UserOrganiseUnitID"))
 					mui.ajax(url, {
 						data: data,
 						dataType:'json',
@@ -111,6 +112,7 @@
 						timeout: 5000,            
 						success: function(data){
 							
+							console.log(JSON.stringify(data))
 							var optionsArr = common.lineCharts(data['DataSource']['Tables']);
 							var len = optionsArr.length;
 							
@@ -164,9 +166,8 @@
 		        	var id = this.getAttribute('data-id');
 		        	var isEnd = this.getAttribute('data-isend');
 		        	var name = this.getAttribute('data-name');
-		        	
+		        	console.log(isEnd);
 		        	if(isEnd === '0') {
-		        		
 						mui.openWindow({
 						    url: 'Add_Fire_statistic_tab01_1.html',
 						    id: 'Add_Fire_statistic_tab01_1.html',
