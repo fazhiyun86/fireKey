@@ -23,6 +23,9 @@
 				white-space: nowrap;
 			}
 			
+			.state_content_con_tit {
+				padding: 0.3rem 0.2rem 0.3rem 1rem;
+			}
 			.state_content_con {
 				padding: 0.3rem 0.2rem 0.3rem 1rem;
 			}
@@ -200,7 +203,8 @@
 				
 				mui('.wrap').on('tap', '.state_content_con', function() {
 					var id = this.getAttribute("data-id");
-//					id = '6fe1f0ca-4a61-11e7-9bf0-fa163ea287f1'
+					
+					if (id === null) return false;
 					
 					mui.openWindow({
 						url: 'Equipment_state_Account.html',

@@ -475,6 +475,12 @@
             series: [{
                 name: '',
                 type: 'line',
+	            label: {
+	                normal: {
+	                    show: true,
+	                    position: 'top'
+	                }
+	            },
 		    	data:[],
 				itemStyle: {
                 	normal: {				                    		                  

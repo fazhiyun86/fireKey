@@ -1,1 +1,275 @@
+<<<<<<< HEAD
 null
+=======
+{
+	"login.html": {
+		"resources": [
+			"images/systemImg1.png",
+			"js/jquery.min.js",
+			"css/login.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"js/login.js",
+			"css/mui.min.css",
+			"images/personal.png",
+			"images/password.png"
+		],
+		"refer": [
+			"main.html"
+		]
+	},
+	"main.html": {
+		"resources": [
+			"index.html",
+			"fonts/mui-icons-extra.ttf",
+			"js/area.js",
+			"css/icons-extra.css",
+			"iconfont.css"
+		],
+		"refer": [
+			"totalTarget_email.html",
+			"index.html",
+			"Password_edit.html",
+			"feature_page.html",
+			"Micro_task.html"
+		]
+	},
+	"Micro_task_1.html": {
+		"resources": [
+			"css/iconfont.woff",
+			"js/Micro_task_1.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css"
+		],
+		"refer": [
+			"Micro_task_1_list.html"
+		]
+	},
+	"totalTarget_email.html": {
+		"resources": [
+			"css/totalTarget-email.css",
+			"css/base.css"
+		],
+		"refer": [
+			"totalTarget_email_business.html"
+		]
+	},
+	"index.html": {
+		"resources": [
+			"images/jing.png",
+			"js/common.js",
+			"images/icon_xiaohuoshuanzhuangtai.png",
+			"images/cuiban.png",
+			"images/icon_yinhuanzhenggai.png",
+			"css/style.css",
+			"js/radialIndicator.js",
+			"images/icon_donghuo.png",
+			"images/login_01_01.png",
+			"js/index.js",
+			"js/jquery.min.js",
+			"fonts/mui.ttf",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"Add_Fire_statistic.html",
+			"Equipment_state.html",
+			"feature_page_order_01.html",
+			"Change_Rush.html",
+			"Risk_height_2.html"
+		]
+	},
+	"Micro_task_3.html": {
+		"resources": [
+			"js/mui.picker.min.js",
+			"images/arrow_2.png",
+			"js/Uuid.js",
+			"css/mui.picker.min.css",
+			"images/fenlei.png",
+			"js/Micro_task_3.js",
+			"js/jquery.min.js",
+			"fonts/mui.ttf",
+			"css/style.css",
+			"js/common.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/iconfont.woff"
+		],
+		"refer": []
+	},
+	"Password_edit.html": {
+		"resources": [
+			"images/user-photo.png"
+		],
+		"refer": []
+	},
+	"feature_page.html": {
+		"resources": [
+			"css/feature_page.css",
+			"images/weixiushenpi.png",
+			"images/zhenggaishenpi.png",
+			"images/header_base_01.png",
+			"images/zhenggaixiadan.png"
+		],
+		"refer": [
+			"feature_page_audit.html",
+			"feature_page_order.html"
+		]
+	},
+	"Micro_task.html": {
+		"resources": [
+			"Micro_task_1.html",
+			"css/iconfont.css"
+		],
+		"refer": [
+			"Micro_task_1.html",
+			"Micro_task_3.html",
+			"Micro_task_2.html"
+		]
+	},
+	"Micro_task_2.html": {
+		"resources": [
+			"js/Micro_task_2.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"css/iconfont.woff"
+		],
+		"refer": []
+	},
+	"Add_Fire_statistic_tab01.html": {
+		"resources": [
+			"js/echarts.min.js",
+			"images/loading.gif"
+		],
+		"refer": []
+	},
+	"Add_Fire_statistic_tab.html": {
+		"resources": [
+			"Add_Fire_statistic_tab01.html"
+		],
+		"refer": [
+			"Add_Fire_statistic_tab01.html",
+			"Add_Fire_statistic_tab02.html",
+			"Add_Fire_statistic_tab03.html"
+		]
+	},
+	"Add_Fire_statistic.html": {
+		"resources": [
+			"css/Add_Fire_statistic.css",
+			"Add_Fire_statistic_tab.html"
+		],
+		"refer": [
+			"Add_Fire_statistic_tab.html"
+		]
+	},
+	"Equipment_state.html": {
+		"resources": [
+			"css/Equipment_state.css",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png"
+		],
+		"refer": [
+			"Equipment_state_Account.html"
+		]
+	},
+	"Equipment_state_Account.html": {
+		"resources": [
+			"css/Equipment_state_Account.css"
+		],
+		"refer": []
+	},
+	"feature_page_order_01.html": {
+		"resources": [
+			"images/bg_2.png",
+			"images/bg_1.png",
+			"css/feature_page_order_01.css",
+			"images/bg_3.png",
+			"css/feature_page.css",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png"
+		],
+		"refer": [
+			"Change_Rush_detail.html"
+		]
+	},
+	"Change_Rush_detail.html": {
+		"resources": [
+			"css/Change_Rush_detail.css"
+		],
+		"refer": []
+	},
+	"Change_Rush.html": {
+		"resources": [
+			"images/cuiban_w.png",
+			"css/Change_Rush.css"
+		],
+		"refer": [
+			"Change_Rush_detail_cuiban.html"
+		]
+	},
+	"Change_Rush_detail_cuiban.html": {
+		"resources": [
+			"css/Change_Rush_detail_cuiban.css"
+		],
+		"refer": []
+	},
+	"Micro_task_1_list.html": {
+		"resources": [
+			"js/mui.zoom.js",
+			"js/Micro_task_1_list.js",
+			"css/imageViewer.css",
+			"js/mui.previewimage.js"
+		],
+		"refer": []
+	},
+	"feature_page_audit.html": {
+		"resources": [
+			"css/feature_page_audit.css",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"feature_page_audit_1.html"
+		]
+	},
+	"feature_page_order.html": {
+		"resources": [
+			"images/arrow_r.png",
+			"css/feature_page_order.css",
+			"fonts/mui.ttf"
+		],
+		"refer": []
+	},
+	"totalTarget_email_business.html": {
+		"resources": [
+			"css/totalTarget_email_business.css"
+		],
+		"refer": []
+	},
+	"Risk_height_2.html": {
+		"resources": [
+			"css/Risk_height_low.css",
+			"fonts/mui.ttf"
+		],
+		"refer": []
+	},
+	"feature_page_audit_1.html": {
+		"resources": [
+			"css/feature_page_audit_1.css"
+		],
+		"refer": []
+	}
+}
+>>>>>>> Mar
