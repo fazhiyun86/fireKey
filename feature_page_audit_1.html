@@ -9,6 +9,23 @@
 		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="css/feature_page_audit_1.css" />
 		<style type="text/css">
+			
+			.feature{
+				height: 3.1rem;
+				line-height: 3.1rem;
+				padding-top: 0.3rem;
+				background: url("images/header_base_01.png");
+    			background-size: 100%;
+  				background-repeat: no-repeat;
+			}
+			
+			.feature h1{
+				width: 11rem;
+				float: left;
+				font-size: 1.1rem;
+				color: #FFFFFF;
+				float: left;
+			}
 			.titBackg{
 				background: url("images/header_base_01.png");
     			background-size: 100%;
@@ -23,14 +40,19 @@
     			background: #F5F5F5!important;
 			}
 
-
+			html{
+				font-family: sans-serif;
+			}
+			p{
+				font-family: sans-serif;
+			}
 		</style>
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav titBackg">
+		<header class="mui-bar mui-bar-nav titBackg feature">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 id="zgaidx" class="mui-title">首都大酒店A栋</h1>
+			<h1 id="zgaidx" class="mui-titles">整改记录</h1>
 		</header>
 		<div id="change_matter" class="mui-content change_matter" style="background-color:#FFFFFF; height: auto;">
 			<!--整改内容-->
@@ -177,30 +199,31 @@
 					for (var i=0; i < len; i++){
 					global_OrderID = data[i].OrderID
 					var item = data[i];
-					var RectifyOrg = data[i]['RectifyOrg'];
-					document.getElementById("zgaidx").innerHTML = RectifyOrg;
+//					var RectifyOrg = data[i]['RectifyOrg'];
+//					document.getElementById("zgaidx").innerHTML = RectifyOrg;
 						html += '<div class="change_con">' +
-							'<div class="change_con_code" style="background: #fff; border:0;">' +
-								'<p style="">'+ item.OrderName +'</p>' +
-								'<p style="">整改单号：'+ item.OrderCode +'</p>' +
+							'<div class="change_con_code" style="background: #fff; border:0; padding-bottom:0.3rem;border-bottom:0!impotant;">' +
+								'<p style="font-size:0.9rem;color:#000; line-height:1.5rem;border-bottom: 1px solid #f7f7f7;">'+ item.OrderName +'</p>' +
+								'<p style="font-size:0.9rem;color:#000; line-height:1.5rem; border-bottom:0!impotant;">整改单号：'+ item.OrderCode +'</p>' +
 							'</div>' +
-							'<div class="change_con_inform" style="background: #fff; border:0; height:auto;">' +
-								'<h5>整改内容：</h5>' +
-								'<p class="case_p" style="color:#ACACB4">'+ item.RectifyContent +'</p>' +
-								'<p class="case_record">整改期限：'+ item.TimeExpired +'</p>' +
-								'<p class="case_record" style="height:auto; line-height:3rem; width:100%; float:left; background:#fff;">'+
-									'<span style="display:block; float:left;">通知下发：'+ item.OrderUser +'</span>'+
-									'<span style="display:block; float:right;font-family:"微软雅黑"">下发时间：'+ item.OrderDate +'</span>'+
+							'<div class="change_con_inform" style="background: #fff; border:0; height:8rem; margin-bottom:0.3rem;">' +
+								'<h5 style="font-size:0.8rem; line-height:2rem;background:#fff;padding-top:0.3rem;">整改内容：</h5>' +
+								'<p class="case_p" style="color:#ACACB4;border-bottom: 1px solid #f7f7f7;">'+ item.RectifyContent +'</p>' +
+								'<p class="case_record" style="height:auto; line-height:2rem!important; font-size:0.7rem!important;">整改期限：'+ item.TimeExpired +'</p>' +
+								'<p class="case_record" style="height:auto;width:100%; background:#fff; border-bottom: 1px solid #f7f7f7;">'+
+									'<span style="width:auto; display:block; float:left; line-height:2rem!important; font-size:0.7rem!important;">通知下发：'+ item.OrderUser +'</span>'+
+									'<span style="width:auto; display:block; float:right; line-height:2rem!important; font-size:0.7rem!important;">下发时间：'+ item.OrderDate +'</span>'+
 								'</p>' +
 							'</div>' +
-							'<div class="change_con_report" background:#fff; border:0; padding:0; height:auto;">' +
-								'<p class="case_record" style="background:#fff; font-size:0.85rem;">整改意见：</p>' +
-								'<p class="case_record" style="background:#ffffff;"><span class="case_record_sp" style="display:block; float:left;"> 审  核  人 ：</span><span class="case_record_sp" style="display:block; float:right;">审核时间：</span></p>' +
+							
+							'<div class="change_con_report" background:#fff; border:0; margin-top:2rem;">' +
+								'<h5 style="font-size:0.8rem;background:#fff; border-bottom:1px solid #f7f7f7;padding-top:0.3rem;">整改意见：</h5>' +
+								'<p class="case_record" style="background:#ffffff; height:2rem;"><span class="case_record_sp" style="width:auto; display:block; float:left; line-height:2rem!important; font-size:0.7rem!important;"> 审核人 ：</span><span class="case_record_sp" style="width:auto; display:block; float:right; line-height:2rem!important; font-size:0.7rem!important;">审核时间：</span></p>' +
 							'</div>' +
 							
-							'<div class="change_con_audit" style="background:#fff; border:0;margin-top:0;">' +
-								'<legend>整改审核结论：</legend>' +
-								'<p><input class="radio" type="radio" name="choose" value="通过">通过</p>' +
+							'<div class="change_con_audit" style="background:#fff; border:0;margin-top:0rem;font-size:0.8rem;background:#fff;padding-top:0.3rem;">' +
+								'<legend style="font-size:0.8rem; color:#494949;margiin-right:2rem;">整改审核结论：</legend>' +
+								'<p style="margin-left:6rem;"><input class="radio" type="radio" name="choose" value="通过">通过</p>' +
 								'<p><input class="radio" type="radio" name="choose" value="未通过">未通过</p>' +
 								'<textarea id="textval" name="txt" clos="100" rows="3" warp="virtual" placeholder="审核意见" value=""></textarea>' +
 							'<button id="btn"><span class="btn_sub">审核确认</span></button>' +
@@ -284,7 +307,7 @@
 					//审批意见
 					var DescriptValue =  $('#textval').val();
 					if( DescriptValue == '' ){
-						mui.toast('通知名称不能为空');
+						mui.toast('审核意见不能为空');
 						return
 					}else{
 						ProcAuditDescript = DescriptValue;

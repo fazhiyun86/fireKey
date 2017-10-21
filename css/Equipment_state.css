@@ -156,7 +156,7 @@ input[type=text] {
 }
 
 #state_title .state_title_area{
-	width: 40%;
+	width: auto;
 	height: 1.3rem;
 	float: left;
 	font-size: 0.8rem;
@@ -165,7 +165,7 @@ input[type=text] {
 
 #state_title .state_title_offo{
 	display: block;
-	width: 25%;
+	width: auto;
 	height: 1.3rem;
 	float: left;
 	float: right;

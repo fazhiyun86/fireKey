@@ -296,12 +296,12 @@ mui.plusReady(function() {
 		var NameVal = $('#userCode').val();
 
 		if(NameVal.length==0){
-			mui.toast("请填写用户名！");
+			mui.toast("输入登录账号");
 			return false;
 		}
 		var PassVal = $('#passWord').val();
 		if(PassVal.length==0){
-			mui.toast("请填写密码！");
+			mui.toast("输入登录密码！");
 			return false;
 		}
 

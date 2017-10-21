@@ -9,6 +9,14 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="css/Change_Rush_detail_cuiban.css" />
+		<style type="text/css">
+			html{
+				font-family: sans-serif;
+			}
+			p{
+				font-family: sans-serif;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -166,11 +174,11 @@
 							html += '<div class="change_con_report" style="height: auto!important;background: #fff; border:0; padding-bottom:0.2rem"">'+
 								'<h5 style="font-size:0.8rem; color:#494949; line-height:1.5rem; height:auto; padding-top:0.2rem;border-bottom: 1px solid #f7f7f7;">审核内容：</h5>'+
 								'<p class="case_record" style="font-size:0.7rem; line-height:1.3rem; color:#494949;border-bottom: 1px solid #f7f7f7; padding-left:0.3rem;"><span>整改审核：'+ item.OrderAuditUser +'</span><span style="width:auto; float:right;padding-right:0.5rem;">审核时间：'+ item.OrderAuditDate +'</span></p>'+
-								'<p class="case_record" style="font-size:0.7rem; line-height:1.3rem; color:#494949;padding-left:0.3rem;">审核意见：'+ item.ProcAuditDescript +'</p>'+
+								'<p class="case_record" style="font-size:0.8rem; line-height:1.3rem; color:#494949;padding-left:0.3rem;">审核意见：'+ item.ProcAuditDescript +'</p>'+
 							'</div>';
 							
 							html += '<div class="change_con_remark">'+
-								'<p style="font-size:0.6rem; padding-left:0rem;"><span style="display:block; width:auto;">催办时间：'+ item.UrgeDate +'</span><span style="display:block; width:auto;float:right;">'+item.UrgeCompany+'：'+ item.UrgeUser +'</span>'+
+								'<p style="font-size:0.6rem; padding-left:0rem;"><span style="display:block; width:auto;">催办时间：'+ item.UrgeDate +'</span><span style="display:block; width:auto;float:right;">'+ item.UrgeCompany + '&nbsp' + item.UrgeUser +'</span>'+
 								'</p>'+
 								'</div>';
 							

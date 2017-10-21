@@ -18,30 +18,32 @@ html,body{
 	width: 100%;
 	border: 1px solid #f7f7f7;
 	padding-left: 0.5rem;
-	padding-top: 0.6rem;
+	padding-top: 0.5rem;
 	margin-top: 1rem;
 	font-size: 0.8rem;
+	padding-bottom: 0.5rem;
 }
 
 .change_con_code p{
 	font-size: 0.9rem;
 	line-height: 1.5rem;
 	color: #000000;
+	border-bottom:1px solid #f7f7f7;
 }
 
 .change_con_code span{
 	font-size: 0.9rem;
-	line-height: 1.15rem;
+	line-height: 1.5rem;
 	color: #000000;
 }
 
 /*整改通知inform*/
-.change_con_inform{
+/*.change_con_inform{
 	width: 100%;
 	height: auto;
 	border: 1px solid #f7f7f7;
 	margin: 0.2rem 0 0.2rem;
-}
+}*/
 
 /*标题*/
 .change_con_inform h5{ 
@@ -76,11 +78,11 @@ html,body{
 
 
 /*整改报告report*/
-.change_con_report{
+/*.change_con_report{
 	width: 100%;
 	border: 1px solid #f7f7f7;
 	margin: 0.2rem 0 0.2rem;
-}
+}*/
 
 /*标题*/
 .change_con_report h5{ 
@@ -101,7 +103,7 @@ html,body{
 }
 
 /*整改时间,人物*/
-.change_con_report .case_record{
+/*.change_con_report .case_record{
 	width: 100%;
 	height: auto;
 	margin-left: 0.2rem;
@@ -109,7 +111,7 @@ html,body{
 	line-height: 1.5rem;
 	border-bottom: 1px solid #f7f7f7;
 	color: #494949;
-}
+}*/
 
 .change_con_report .case_record .span1{
 	height: auto;
@@ -124,7 +126,7 @@ html,body{
 	float: right;
 	background: #fffff;
 }
-
+/*
 .change_con_report .p3{
 	width: 100%;
 	height: auto;
@@ -134,7 +136,7 @@ html,body{
 	color: blue;
 	background: #fffff;
 	margin-top: 10px;
-}
+}*/
 
 
 
