@@ -71,7 +71,7 @@
 <!--						    	<div class="p_text">整改单号：EXAMR201703281488987</div>	-->
 						    	<div class="p_tit">
 						    		<legend>通知名称：</legend>
-						    		<input class="informName" type="text" name="" id="" value="" style="font-size: 0.7rem; color: #000000;" placeholder="通知名称"/>
+						    		<input class="informName" placeholder="通知名称" type="text" name="" id="" value="" style="font-size: 0.7rem; color: #000000;" />
 						    	</div>		  
 						    	<div class="p_tit tit2">
 						    		<legend>整改对象：</legend>
@@ -80,7 +80,7 @@
 						    	</div>			     	
 						    	<div class="p_inp">
 						    		<p>整改内容：</p>
-						    		<textarea class="changeCon"  placeholder="整改内容" name="txt" clos="100" rows="3" warp="virtual" placeholder=""  style="font-size: 0.7rem; color: #000000;" style="font-size: 0.7rem;"></textarea>
+						    		<textarea class="changeCon"  placeholder="整改内容" name="txt" clos="100" rows="3" warp="virtual" value="" placeholder=""  style="font-size: 0.7rem; color: #000000;" style="font-size: 0.7rem;"></textarea>
 						    	</div>		    	
 						    	<div class="p_inp">
 						    		<p>整改说明：</p>
@@ -110,8 +110,38 @@
 		<script src="js/common.js"></script>
 		<script type="text/javascript">
 			(function(){
+				//获得当前时间
 				var myDate = new Date();
-				document.getElementById("time_limit").innerHTML = '整改期限：' + myDate.getFullYear() + '年' + myDate.getMonth() + '月' + myDate.getDate() + '日' + ' ' + myDate.getHours() + '时' + myDate.getMinutes() + '分';
+				function stTime(){
+					var Year = myDate.getFullYear().toString();
+					var Month = myDate.getMonth()+1;
+					Month = Month.toString();
+					if (Month.length == 1){
+						Month = '0' + Month;
+						addDate(Month, 1)
+					}
+					var day = myDate.getDate()+1
+					day = day.toString();
+					if(day.length == 1){
+						day = '0' + day;
+					}
+					var Hours = myDate.getHours().toString();
+					if(Hours.length == 1){
+						Hours = '0' + Hours;
+					}
+					var Minutes = myDate.getMinutes().toString();
+					if(Minutes.length == 1){
+						Minutes = '0' + Minutes;
+					}
+					intTime = Year + '-' + Month + '-' + day + ' ' +Hours + ":" + Minutes;
+					NowTime = '整改期限：' + Year + '年' + Month + '月' + day + '日' + ' ' + Hours + '时' + Minutes + '分'
+					return [intTime,NowTime]
+				}
+				
+				console.log(stTime()[0])
+				console.log(stTime()[1])
+				document.getElementById("time_limit").innerHTML = stTime()[1];
+			
 				mui.init({
 					swipeBack: false,
 				});
@@ -202,14 +232,15 @@
 					    $(this).find("img").removeClass("rotating")
 					}
 				});
-
+				
 				mui.ready(function() {
 					//时间选择弹出框
 					mui(document).on('tap','#time_limit', function() {
-						var myDate = new Date();
+						
+						
 						var dtpicker = new mui.DtPicker({
-							"value":"2015-10-10 10:10","beginYear":myDate.getFullYear(),"endYear":myDate.getFullYear()+ 10
-						}) ; 
+							"value":stTime()[0],"beginYear":myDate.getFullYear(),"endYear":myDate.getFullYear()+ 10
+						}); 
 						
 						dtpicker.show(function(rs) {
 							var timeValue = '整改期限' + ':' + ' ' + rs.y.value + '年' + rs.m.value + '月' + rs.d.value  + '日' + ' ' + ' ' + rs.h.value + '时' + rs.i.value + '分';
@@ -227,6 +258,7 @@
 						var NameVal = $('.informName').val();
 						if( NameVal == '' ){
 							mui.toast('通知名称不能为空');
+							 $('.informName').focus();
 							return
 						}else{
 							OrderName = NameVal;
@@ -268,6 +300,10 @@
 						}
 						sendRequest();
 					}
+					
+					mui(document).on('tap','input',function(e){
+						$(this).focus(e);
+					})
 					
 					//下达通知完成
 					document.getElementById("btn").addEventListener('tap', function(e) {
