@@ -51,7 +51,7 @@
 		<!--<header class="mui-bar mui-bar-nav">
 			<h1 id="title" class="mui-title">首页</h1>
 		</header>-->
-		<nav class="mui-bar mui-bar-tab">
+		<nav id="bottomNav" class="mui-bar mui-bar-tab">
 			<a id="defaultTab" class="mui-tab-item mui-active" href="index.html">
 				<span class="mui-icon mui-icon-home"></span>
 				<span class="mui-tab-label">首页</span>
@@ -82,6 +82,7 @@
 		<script src="js/area.js"></script>
 		<!--<script src="js/jquery.min.js"></script>-->
 		<script type="text/javascript" charset="utf-8">
+		
 			//mui初始化 
 			mui.init();
 			var subpages = ['index.html', 'Micro_task.html', 'feature_page.html','totalTarget_email.html', 'Password_edit.html'];
@@ -95,6 +96,7 @@
 
 			//创建子页面，首个选项卡页面显示，其它均隐藏；
 			mui.plusReady(function() {
+				
 //				console.log("当前页面URL："+plus.webview.currentWebview().getURL()); 
 				var self = plus.webview.currentWebview();
 				for(var i = 0; i < 5; i++) {
