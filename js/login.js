@@ -347,7 +347,6 @@ mui.plusReady(function() {
 
 					/*plus.webview.open('main.html','main',null,"slide-in-right");*/
 					
-											alert('123'),
 					mui.openWindow({
 						url: 'main.html',
 						id: 'main',
