@@ -285,7 +285,8 @@
 			"images/header_base_01.png"
 		],
 		"refer": [
-			"Change_Rush_detail_cuiban.html"
+			"Change_Rush_detail_cuiban.html",
+			"quiz_bsjs.html"
 		]
 	},
 	"feature_page_audit.html": {
@@ -355,7 +356,12 @@
 	"Change_Rush_detail_cuiban.html": {
 		"resources": [
 			"css/iconfont.css",
-			"css/Change_Rush_detail_cuiban.css"
+			"css/Change_Rush_detail_cuiban.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png"
 		]
 	},
 	"Risk_height.html": {
@@ -401,6 +407,12 @@
 			"css/style.css",
 			"images/header_base_01.png",
 			"css/Risk_height_low.css"
+		]
+	},
+	"quiz_bsjs.html": {
+		"resources": [
+			"images/bg_tishi.png",
+			"images/蒙牛logo.png"
 		]
 	}
 }
