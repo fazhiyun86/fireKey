@@ -290,9 +290,11 @@
 			in_index[0].addEventListener('tap', function() {
 				//高风险
 				var toUrl = 'Risk_height.html';
-				
+
 				//控制进入到哪个页面的控制
 				var tag = localStorage.getItem("HeightTag");
+				console.log(tag)
+				
 				if(tag === '0') {
 					console.log("二级页面")
 					toUrl = 'Risk_height.html'
@@ -300,7 +302,7 @@
 					console.log("三级页面")
 					toUrl = 'Risk_height_2.html'
 				}
-				
+				 
 //				console.log(DataTime)
 				mui.openWindow({
 					url: toUrl,

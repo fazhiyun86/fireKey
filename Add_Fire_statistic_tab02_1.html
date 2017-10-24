@@ -70,6 +70,11 @@
 		<script src="js/common.js"></script>
 		<script type="text/javascript">
 			(function($){
+				var oneDate = localStorage.getItem("oneDate");
+				var curYear = localStorage.getItem("startTime");
+				var Y = curYear.split('-');
+				document.getElementById("state_zong").innerHTML = Y[0] +'年'+ oneDate;
+//				console.log(Y[0] +'年'+ oneDate);
 				
 				$(".mui-scroll-wrapper").scroll({
 					bounce: false,//滚动条是否有弹力默认是true
@@ -127,8 +132,8 @@
 						Bratio = Lratio + '%';
 						html += '<div class="risk_wrap" data-id="'+ item.TaskID +'" data-task="'+item.TaskName+'" data-pro="'+ item.OrganiseUnitName +'">\
 								<div class="risk_item height-2-item">\
-									<div>'+ item.OrganiseUnitName +'</div>\
-									<div class="'+ setIcon(item.TotalObjectCount,item.ExamObjectCount) +'">'+ item.TaskName +'</div>\
+									<div style="font-size:13px;">'+ item.OrganiseUnitName +'</div>\
+									<div class="'+ setIcon(item.TotalObjectCount,item.ExamObjectCount) +'" style="font-size:13px;">'+ item.TaskName +'</div>\
 									<div>任务期限:'+ item.TaskStartTime +'~'+ item.TaskEndTime +'</div>\
 									<div><span>检查进度:'+ Bratio +'</span><span style="margin-left:0.5rem;">应检:'+item.TotalObjectCount+'</span><span style="margin-left:0.5rem;">已检:'+item.ExamObjectCount+'</span><span style="margin-left:0.5rem;">异常:'+item.AbNormalObjectCount+'</span><span style="margin-left:0.5rem;">处理:'+item.AuditCount+'<span></div>\
 								</div>\

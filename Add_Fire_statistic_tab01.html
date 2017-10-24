@@ -111,7 +111,6 @@
 						type:'get',
 						timeout: 5000,            
 						success: function(data){
-							
 							console.log(JSON.stringify(data))
 							var optionsArr = common.lineCharts(data['DataSource']['Tables']);
 							var len = optionsArr.length;
