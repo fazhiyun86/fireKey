@@ -1885,7 +1885,8 @@
 					"images/loading.gif"
 				],
 				"refer": [
-					"Add_Fire_statistic_tab01_1.html"
+					"Add_Fire_statistic_tab01_1.html",
+					"Add_Fire_statistic_tab01_2.html"
 				],
 				"priority": 0
 			},
@@ -2145,7 +2146,8 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"images/header_base_01.png",
-					"images/fujian.png"
+					"images/fujian.png",
+					"css/style.css"
 				],
 				"refer": [],
 				"priority": 0
