@@ -415,8 +415,9 @@
         	title:{
         		text: "",
         		textStyle: {
-        			fontSize: '13'
-        		}
+        			fontSize: '11'
+        		},
+				padding:[2,5,20,10],
         	},
             tooltip: {},
             color: ["#eaa906"],
@@ -432,16 +433,13 @@
 		    		inside: 'true',
 		    		length: 0,
 		    	},
-//		    	axisLabel :{
-//		    		interval: '0',
-//		    		margin: 10,
-//		    	},
+
                 data: [],
             },
 		    grid: {
 		        left: '3%',
 		        right: '4%',
-		        bottom: '3%',
+		        bottom: '2%',
 		        top: '15%',
 		        containLabel: true
 		    },
@@ -531,8 +529,9 @@
 			text: totalTitle,
 			textStyle: {
 				color: '#DB4527',
-				fontSize: '13',
+				fontSize: '14.5',
 			},
+			padding:[2,5,20,5],
 			left: 'center'
 		} ;
 		sumOption.IsEnd = '1';

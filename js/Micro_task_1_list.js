@@ -19,7 +19,7 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data) {
-				
+				console.log(JSON.stringify(data))
 				//服务器返回响应，根据响应结果，分析是否登陆成功
 				var getDatas = data['DataSource']['Tables'][0]['Datas'];
 				var getDatas1 = data['DataSource']['Tables'][1]['Datas'];
@@ -36,12 +36,12 @@ mui.plusReady(function() {
 				document.getElementById("Microtask1list3").innerHTML = getDatas1[0].RegionName;
 				document.getElementById("Microtask1list4").innerHTML = getDatas1[0].TaskDescript;
 				document.getElementById("Microtask1list5").innerHTML = getDatas1[0].TaskStartTime + '至' + getDatas1[0].TaskEndTime;
-				document.getElementById("Microtask1list6").innerHTML = getDatas1[0].ExecutorUser;
+				document.getElementById("Microtask1list6").innerHTML = getDatas1[0].ReleaseUser;
 				document.getElementById("Microtask1list7").innerHTML = getDatas1[0].ReleaseTime;
 				document.getElementById("Microtask1list8").innerHTML = getDatas1[0].TaskResult;
 				document.getElementById("Microtask1list9").innerHTML = getDatas1[0].PostName;
 				document.getElementById("Microtask1list10").innerHTML = getDatas1[0].ExecuteDescript;
-				document.getElementById("Microtask1list11").innerHTML = getDatas1[0].ReleaseUser;
+				document.getElementById("Microtask1list11").innerHTML = getDatas1[0].ExecutorUser;
 				document.getElementById("Microtask1list12").innerHTML = getDatas1[0].ExecuteTime;
 				mui.each(getDatas2, function(index, item) {
 
