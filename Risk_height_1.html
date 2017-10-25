@@ -147,10 +147,11 @@
 					
 					//设置标题的名字
 					var selfView = plus.webview.currentWebview();
-					var info = selfView.info;
-					document.getElementById("companyTit").innerHTML = info.title
+					var taskID = selfView.info.taskID;
+					var title = selfView.info.title;
+					document.getElementById("companyTit").innerHTML = title;
 					
-					getData(info.idVal)
+					getData(taskID)
 					
 				})
 				
@@ -171,12 +172,12 @@
 				}
 				
 				//获取数据的请求
-				function getData (id) {
+				function getData (taskID) {
 					
 					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_ChildrenOrg_ISMTask_Statistical?dataKey=00-00-00-00';
 					
 					var data = {
-						OrganiseUnitID: id,
+						OrganiseUnitID: taskID,
 						StartDate: localStorage.getItem("startTime"),
 						EndDate: localStorage.getItem("endTime"),
 						ProjectType: 2
@@ -222,7 +223,7 @@
 						};
 						Ratio = Lratio + '%';
 						var val = data[i].Ratio;
-						html += '<div class="risk_wrap" data-id="'+ item.OrganiseUnitID +'">'+
+						html += '<div class="risk_wrap" data-id="'+ item.OrganiseUnitID +'" data-isEnd="' + item.IsEnd +'">'+
 							'<div class="risk_item">' +
 								'<p class="risk_item_tit">'+ item.OrganiseUnitName +'</p>' +
 								'<div class="risk_item_content">' +
@@ -292,15 +293,30 @@
 					var title = this.getElementsByTagName("p")[0].innerHTML;
 					var id = this.getAttribute('data-id')
 					
+					var isEnd = this.getAttribute('data-isEnd');
+					
+					console.log(isEnd)
+					var toUrl = 'Risk_height_1.html';
+					//控制进入到哪个页面的控制
+					if(isEnd === '0') {
+						console.log("当前页面")
+						toUrl = 'Risk_height_1.html'
+					} else if(isEnd === '1') {
+						console.log("三级页面")
+						toUrl = 'Risk_height_2.html'
+					}
 					mui.openWindow({
-						url: 'Risk_height_2.html',
-						id: 'Risk_height_2.html',
+						url: toUrl,
+						id: toUrl,
 						styles: {
 							top: 0, //新页面顶部位置
 							bottom: 0, //新页面底部位置
 						},
 						extras: {
-							taskID: id
+							info:{
+								taskID: id
+							}
+							
 						},
 						show: {
 							duration: '300'

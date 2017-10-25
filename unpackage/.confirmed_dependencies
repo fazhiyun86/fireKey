@@ -53,7 +53,10 @@
 			"fonts/mui-icons-extra.ttf",
 			"js/area.js",
 			"css/icons-extra.css",
-			"iconfont.css"
+			"iconfont.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
 		],
 		"refer": [
 			"totalTarget_email.html",
@@ -108,7 +111,10 @@
 			"images/weixiushenpi.png",
 			"images/zhenggaishenpi.png",
 			"images/header_base_01.png",
-			"images/zhenggaixiadan.png"
+			"images/zhenggaixiadan.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
 		],
 		"refer": [
 			"feature_page_audit.html",
@@ -118,7 +124,12 @@
 	"Micro_task.html": {
 		"resources": [
 			"Micro_task_1.html",
-			"css/iconfont.css"
+			"css/iconfont.css",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png"
 		],
 		"refer": [
 			"Micro_task_1.html",
@@ -381,6 +392,15 @@
 	"Risk_height_1.html": {
 		"refer": [
 			"Risk_height_2.html"
+		],
+		"resources": [
+			"js/common.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"css/Risk_height_low.css"
 		]
 	},
 	"feature_page_audit_1.html": {
@@ -393,10 +413,12 @@
 			"fonts/mui.ttf",
 			"css/mui.min.css",
 			"css/style.css",
-			"images/header_base_01.png"
+			"images/header_base_01.png",
+			"feature_page.html"
 		],
 		"refer": [
-			"feature_page_audit.html"
+			"feature_page_audit.html",
+			"feature_page.html"
 		]
 	},
 	"Add_Fire_statistic_tab02_2.html": {
@@ -413,6 +435,16 @@
 		"resources": [
 			"images/bg_tishi.png",
 			"images/蒙牛logo.png"
+		]
+	},
+	"Risk_height_3.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"css/Risk_height_low.css"
 		]
 	}
 }

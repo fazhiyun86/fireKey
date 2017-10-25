@@ -63,10 +63,10 @@
 		<script src="js/jquery.min.js"></script>
 		<script type="text/javascript">
 			(function(){
+					
 			
 				mui.plusReady(function() {
 					var selfView = plus.webview.currentWebview();
-					WebApp_FeatureAudit();
 				});
 				
 				mui(".mui-scroll-wrapper").scroll({
@@ -119,6 +119,7 @@
 						document.getElementById("change_con").innerHTML = html;
 					};
 				}
+				WebApp_FeatureAudit();
 
 				mui.ready(function() {
 					//点击进入详情页面	
@@ -136,6 +137,8 @@
 						});
 					})
 				})
+				
+				console.log('再次請求')
 			})();
 		</script>
 	</body>

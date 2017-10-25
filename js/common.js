@@ -433,16 +433,39 @@
 		    		inside: 'true',
 		    		length: 0,
 		    	},
-
+				axisLabel: {
+					formatter:'{value}日'
+				},
                 data: [],
+//              axisLabel:{
+//              	interval:0,
+//              }
             },
 		    grid: {
 		        left: '3%',
 		        right: '4%',
-		        bottom: '2%',
+		        bottom: '15%',
 		        top: '15%',
 		        containLabel: true
 		    },
+		    dataZoom:[{
+	            id: 'dataZoomX',
+	            type: 'slider',
+	            backgroundColor:'rgba(255,255,255,0.2)',
+//	            fillerColor:'rgba(255,255,255,0.2)',
+	            textStyle:false,
+	            xAxisIndex: [0],
+	            filterMode: 'filter',
+//	            width: 50, 
+                height: '10%',
+//              handleSize: 8,
+                showDataShadow: false,
+//              left: '93%',
+//              top:'90%',
+                bottom:'1%',
+//              start:0,
+//              end:30,
+        	}],
             yAxis: {
             	type:'value',
             	boundaryGap: [0, 40],
@@ -453,22 +476,7 @@
 		    		inside: 'true',
 		    		length: 0,
 		    	},
-	    		nameLocation: 'start',
-//	    		axisLabel :{
-//		    		
-//		    	},
-//				min:'datamin',
-//				value:[30,200],
-//				min: function(value) {
-//					return value.min - 20;
-//				},
-//				max: function(min) {
-//					return min + 20;
-//				},
-//		    	interval: 'auto',
-				
-				
-//              splitNumber: a('0') + 20,   
+	    		nameLocation: 'start',  
             },
             series: [{
                 name: '',

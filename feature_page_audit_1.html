@@ -149,7 +149,7 @@
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
 			(function(){			
-				
+
 				var global_OrderID = '';
 				
 				mui(".mui-scroll-wrapper").scroll({
@@ -161,7 +161,7 @@
 					var selfView = plus.webview.currentWebview();
 					OrderID = selfView.info.id;
 //					console.log(OrderID)
-//					console.log(OrderID);
+					console.log(OrderID);
 					WebApp_FeatureAuditdetail(OrderID)	  				
 				})
 				
@@ -265,7 +265,7 @@
 					return JSON.stringify(data);
 				};
 
-				//点击图标是否删除？
+				
 				function getVals(){
 				    var res = getRadioRes('rds');
 				    if(res == null){mui.toast('请选择'); return;}
@@ -313,7 +313,8 @@
 					var btnArray = ['确认', '取消'];
 					mui.confirm('您确认此次整改已通过审核？', '提示', btnArray, function(e) {
 						if (e.index == 0) {
-							location.href = 'feature_page_audit.html';
+//							mui.back();
+							location.href = 'feature_page.html';
 						}
 					})
 					suBmit();

@@ -144,7 +144,8 @@
 						Minutes = '0' + Minutes;
 					}
 					intTime = Year + '-' + Month + '-' + day + ' ' +Hours + ":" + Minutes;
-					NowTime = '整改期限：' + Year + '年' + Month + '月' + day + '日' + ' ' + Hours + '时' + Minutes + '分'
+					NowTime = '整改期限：' + Year + '年' + Month + '月' + day + '日' + ' ' + Hours + '时' + Minutes + '分';
+					NowDate = Year + Month  + day  +Hours  + Minutes;
 					return [intTime,NowTime]
 				}
 				
@@ -252,8 +253,9 @@
 						var myDate = new Date();
 
 						var dtpicker = new mui.DtPicker({
-							"value":stTime()[0],"beginYear":myDate.getFullYear(),"endYear":myDate.getFullYear()+ 10
+							"value":stTime()[0],"beginDate":myDate.getFullYear(),"endYear":myDate.getFullYear()+ 10
 						}); 
+//						dtpicker.hide()
 						
 						dtpicker.show(function(rs) {
 							var timeValue = '整改期限' + ':' + ' ' + rs.y.value + '年' + rs.m.value + '月' + rs.d.value  + '日' + ' ' + ' ' + rs.h.value + '时' + rs.i.value + '分';
