@@ -2148,7 +2148,8 @@
 					"css/mui.min.css",
 					"images/header_base_01.png",
 					"images/fujian.png",
-					"css/style.css"
+					"css/style.css",
+					"feature_page.html"
 				],
 				"refer": [],
 				"priority": 0
