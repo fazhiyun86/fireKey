@@ -94,7 +94,7 @@
 					
 					//设置标题的名字
 					var selfView = plus.webview.currentWebview();
-					var taskID = selfView.taskID;
+					var taskID = selfView.info.taskID;
 					
 					getData(taskID)
 					
@@ -110,7 +110,9 @@
 						EndDate: localStorage.getItem("endTime"),
 						ProjectType: 2
 					}
-					
+					console.log(data.OrganiseUnitID)
+					console.log(JSON.stringify(data))
+					console.log(url)
 					mui.ajax(url, {
 						data: data,
 						dataType:'json',

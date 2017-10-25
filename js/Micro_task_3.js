@@ -294,9 +294,13 @@
 					var options = ({
 						"type": "datetime",
 						beginDate: new Date(dataIng[0], dataIng[1], dataIng[2], dataIng[3], dataIng[4]), //设置开始日期 
+//						beginDate: new Date(getFullYear, getMonth, getDate, getHours, getMinutes),
 						endDate: new Date(Number(dataIng[0]) + 30, 12), //设置结束日期 
+					
 	
-					});
+					});	
+					console.log(options.endDate)
+					console.log(options.beginDate)
 					//var options = JSON.parse(optionsJson);
 					var id = this.getAttribute('id');
 					/*

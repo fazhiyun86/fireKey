@@ -96,20 +96,24 @@
 				</li>
 			</ul>
 		</div>
-		
-		
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
+			
 			(function(){
-				mui.plusReady(function() {
+				console.log('111')
+				
+				mui.plusReady(function() { 
 					var selfView = plus.webview.currentWebview();
 					changeCount();
 				})
 				
 				mui.ready(function() {
+					
 					//点击进入详情页面
 					//整改审批
-					mui('#grid_list').on('tap', '.feature_list_1', function() {						
+					mui('#grid_list').on('tap', '.feature_list_1', function() {		
+					changeCount();
+						
 						mui.openWindow({
 							url: 'feature_page_audit.html',
 							id: 'feature_page_audit.html',
@@ -189,17 +193,20 @@
 						type: 'get',
 						timeout: 5000,
 						success: function (data){
+							console.log(JSON.stringify(data))
 							data = data["DataSource"]["Tables"][0]["Datas"]
 							setHtml(data)
 						},
 						error: function(){
-							console.log('请求错误')
+							console.log('请求错误');
 						}						
 					});
 					function setHtml(data){
 						var len = data.length;
 						for(var i=0; i<len; i++){  
+							
 						var ProcVerifyNumber =  data[i]["ProcVerifyNumber"];
+						console.log(ProcVerifyNumber)
 						document.getElementById('changeCount').innerHTML = ProcVerifyNumber || 0;
 						} 
 					}
@@ -234,6 +241,7 @@
 //				};
 			})();
 		</script>
+		
 	</body>
 
 </html>
