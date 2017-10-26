@@ -29,7 +29,7 @@ mui.plusReady(function() {
 					return;
 				}
 
-					var stuts = ['<i style="color:#3F51B5;font-size:1rem;" class="iconfont icon-shijian"></i>', '<i style="color:#8EC21F;font-size:1rem;" class="iconfont icon-iconshandianfahuo"></i>', '<i style="color:#FF4081;font-size:1rem;" class="iconfont icon-duigou-copy"></i>'];
+					var stuts = ['<i style="color:#3F51B5;font-size:1rem;" class="iconfont icon-shijian"></i>', '<i style="color:#E51C23;font-size:1rem;" class="iconfont icon-iconshandianfahuo"></i>', '<i style="color:#8EC21F;font-size:1rem;" class="iconfont icon-duigou-copy"></i>'];
 					mui.each(getDatas, function(index, item) {
 
 						html +=

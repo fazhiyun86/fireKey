@@ -124,9 +124,12 @@
 						success: function(data){
 							
 							plus.nativeUI.closeWaiting();
-							setHtmlList(data["DataSource"]["Tables"][0]["Datas"])
-							setHtmlInfo(data["DataSource"]["Tables"][1]["Datas"])
-							setImg(data["DataSource"]["Tables"][1]["Datas"])
+							List = data["DataSource"]["Tables"][0]["Datas"]
+							Info = data["DataSource"]["Tables"][1]["Datas"]
+							Img = data["DataSource"]["Tables"][1]["Datas"]
+							setHtmlList(List)
+							setHtmlInfo(Info)
+							setImg(Img)
 						},
 						error: function(){
 							console.log("Risk_height_3.html 数据请求报错！");

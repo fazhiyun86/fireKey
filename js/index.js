@@ -151,6 +151,7 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data){
+				console.log(JSON.stringify(data))
 				setHtml(data)
 				mui.toast('数据请求成功')
 			},
@@ -206,7 +207,7 @@ mui.plusReady(function() {
 			var ScrapCount = info["ScrapCount"];  //报废数量
 			
 			document.getElementsByClassName("Status1")[0].innerHTML = NormalCount || 0;
-			document.getElementsByClassName("Status2")[0].innerHTML = AuditCount || 0;
+			document.getElementsByClassName("Status2")[0].innerHTML = RepairCount  || 0;
 		}
 	}
 

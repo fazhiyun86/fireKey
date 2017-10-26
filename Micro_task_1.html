@@ -25,8 +25,15 @@
 			.Equipment_patrol_con1 div p {
 				line-height: 1.25rem;
 			}
+			
+			.Equipment_patrol_con_listDis{
+				padding-left: 4rem;
+			}
+			
 			.Equipment_patrol_con_listDis p{
-				     margin-left: 0!important; 
+				width: 30%;
+				margin-left: 0!important; 
+				padding-left: 0;
 			}
 		</style>
 	</head>
@@ -36,8 +43,8 @@
 			<div class="Equipment_patrol_con_list Equipment_patrol_con_listDis">
 				<!--<p id="address11">朝阳区分公司</p>-->
 				<p id="Equipment_patrol_status1"><i class="iconfont icon-shijian " style="color: #3F51B5;"></i>正在进行中</p>
-				<p id="Equipment_patrol_status2"><i class="iconfont icon-iconshandianfahuo " style="color: #8EC21F;"></i>逾期未完</p>
-				<p id="Equipment_patrol_status3"><i class="iconfont icon-duigou-copy " style="color: #FF4081;"></i>按时完成</p>
+				<p id="Equipment_patrol_status2"><i class="iconfont icon-iconshandianfahuo " style="color: #FF4081;"></i>逾期未完</p>
+				<p id="Equipment_patrol_status3"><i class="iconfont icon-duigou-copy " style="color: #8EC21F;"></i>按时完成</p>
 				
 			</div>
 			<div id="Micro_task_1">
@@ -82,6 +89,7 @@
 		<script src="js/mui.min.js"></script>
 		<script src="js/Micro_task_1.js"></script>
 		<script type="text/javascript">
+			
 //			mui.init();
 
 			mui('#Micro_task_1').on('tap', '.Equipment_patrol_con1', function() {

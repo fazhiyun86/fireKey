@@ -151,17 +151,17 @@
 					function setHeaderHtml (item) {
 						var html = '<p class="state_content_con_first" style="margin-right:1rem">\
 									<span>\
-										<span id="Hydrant">'+(item.ClassName||"-")+'</span>\
-										<span id="HydrantCount">'+item.AllCount+'</span>\
+										<span id="Hydrant" style="font-size:1rem;">'+(item.ClassName||"-")+'</span>\
+										<span id="HydrantCount" style="font-size:0.9rem;">'+item.AllCount+'</span>\
 									</span>\
 								</p>\
 								<p  class="pc_color">\
-									<span id="NormalUse">'+(item.NormalCount||0)+'</span>\
-									<span>正常使用</span>\
+									<span id="NormalUse" style="font-size:0.9rem;">'+(item.NormalCount||0)+'</span>\
+									<span style="font-size:0.8rem;">正常使用</span>\
 								</p>\
 								<p  class="pc_color">\
-									<span id="FailureRepair">'+(item.RepairCount||0)+'</span>\
-									<span>故障维修</span>\
+									<span id="FailureRepair" style="font-size:0.9rem;">'+(item.RepairCount||0)+'</span>\
+									<span style="font-size:0.8rem;">故障维修</span>\
 								</p>';
 						
 						document.getElementById("headerWrap").innerHTML = html;
@@ -175,8 +175,8 @@
 							html += '<div id="state_content_con state_content_skip" class="base">\
 								<div class="state_content_con" data-id="'+item.OrganiseUnitID+'" style="box-shadow: none; border: 1px solid #E7E7E7;">\
 									<div id="state_title">\
-										<p id="engineering" class="state_title_area">'+(item.OrganiseUnitName)+'</p>\
-										<span id="group" class="state_title_offo">'+(item.ParentOrganiseUnitName)+'</span>\
+										<p id="engineering" class="state_title_area" style:"width:auto; float:left;">'+(item.OrganiseUnitName)+'</p>\
+										<span id="group" class="state_title_offo" style:"width:auto; float:right;">'+(item.ParentOrganiseUnitName)+'</span>\
 									</div>\
 									<p class="state_content_con_first" style="margin-right: 1rem; padding-left:0.5rem;">\
 										<span id="EquipmentAll" class="state_count">'+(item.AllCount)+'</span>\

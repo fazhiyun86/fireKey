@@ -38,7 +38,7 @@ mui.plusReady(function() {
 	}
 	setInterval(function() {
 		NumTime = 0;
-	}, 5000);
+	}, 1500);
 	
 	document.querySelector('#logo').addEventListener('tap', function() {
 		
@@ -296,12 +296,12 @@ mui.plusReady(function() {
 		var NameVal = $('#userCode').val();
 
 		if(NameVal.length==0){
-			mui.toast("请填写用户名！");
+			mui.toast("输入登录账号");
 			return false;
 		}
 		var PassVal = $('#passWord').val();
 		if(PassVal.length==0){
-			mui.toast("请填写密码！");
+			mui.toast("输入登录密码！");
 			return false;
 		}
 
@@ -346,6 +346,7 @@ mui.plusReady(function() {
 					}
 
 					/*plus.webview.open('main.html','main',null,"slide-in-right");*/
+					
 					mui.openWindow({
 						url: 'main.html',
 						id: 'main',
@@ -415,9 +416,9 @@ mui.plusReady(function() {
 	window.onresize = function() {
 		if(document.documentElement.clientHeight < hei) {
 			//
-			document.querySelector(".logo_name_1").style.marginTop = '-0.2px';
-			document.querySelector(".logo_name_2").style.marginTop = '10.4px';
-			document.querySelector(".logo").style.marginTop = '38.35px';
+			document.querySelector(".logo_name_1").style.marginTop = '19.8px';
+			document.querySelector(".logo_name_2").style.marginTop = '30.4px';
+			document.querySelector(".logo").style.marginTop = '28.35px';
 			//			document.querySelector(".logo_name_1").style.visibility = "hidden";
 			//			document.querySelector(".logo_name_2").style.visibility = "hidden";
 			//
@@ -438,5 +439,5 @@ mui.plusReady(function() {
 		document.querySelector(".logo_name_1").style.marginTop = '19.8px';
 		document.querySelector(".logo_name_2").style.marginTop = '30.4px';
 		document.querySelector(".logo").style.marginTop = '58.35px';
-	},6000)
+	},20)
 })
