@@ -160,8 +160,7 @@
 				mui.plusReady(function() {
 					var selfView = plus.webview.currentWebview();
 					OrderID = selfView.info.id;
-//					console.log(OrderID)
-					console.log(OrderID);
+
 					WebApp_FeatureAuditdetail(OrderID)	  				
 				})
 				
@@ -173,6 +172,7 @@
 					console.log(data.OrderID)
 					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAM_RectifyTaskDetail?dataKey=00-00-00-00';	
 					
+					console.log(urlg)
 					mui.ajax(urlg, {
 						data: data,
 						dataType: 'json',

@@ -204,10 +204,11 @@
 					function setHtml(data){
 						var len = data.length;
 						for(var i=0; i<len; i++){  
+
+							var ProcVerifyNumber =  data[i]["ProcVerifyNumber"];
 							
-						var ProcVerifyNumber =  data[i]["ProcVerifyNumber"];
-						console.log(ProcVerifyNumber)
-						document.getElementById('changeCount').innerHTML = ProcVerifyNumber || 0;
+							document.getElementById('changeCount').innerHTML = ProcVerifyNumber || 0;
+
 						} 
 					}
 				};

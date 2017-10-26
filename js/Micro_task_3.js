@@ -327,6 +327,7 @@
 	
 						result.value = rs.text;
 						TaskCode = rs.text;
+<<<<<<< HEAD
 //						return false;
 						//					console.log(TaskCodes)
 						/* 
@@ -396,6 +397,9 @@
 						//						document.querySelector(".inputDate").value = '请选择';
 						//						return;
 						//					}
+=======
+						
+>>>>>>> Mar
 	
 						picker.dispose();
 					});
@@ -459,12 +463,18 @@
 	}
 	// 设置显示的Html 
 	function setHtml (imgSrc) {
+		var $taskImgWrap = $("#taskImgWrap");
+		
+		if($taskImgWrap[0].children.length >= 5) {
+			mui.toast('最多上传5张照片')
+			return false;
+		}
 		var html = '<div class="task-img-item">\
 				<img class="task-img" src="'+ imgSrc +'" width="120" alt="" />\
 				<span class="remove-img"><i class="mui-icon mui-icon-closeempty"></i></span>\
 			</div>'
-			
-		$("#taskImgWrap").append(html);
+		
+		$taskImgWrap.append(html);
 	}
 	
 	// 上传的方法

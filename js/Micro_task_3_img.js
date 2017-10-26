@@ -36,11 +36,12 @@
 	        }, false);
 	        
 	    function getImage() {
+	    	console.log('拍照')
             var c = plus.camera.getCamera();
             c.captureImage(function(e) {
                 plus.io.resolveLocalFileSystemURL(e, function(entry) {
                 	var imgSrc = entry.toLocalURL() + "?version=" + new Date().getTime();
-     
+     				
                    	setHtml(imgSrc);
                    	
 //                  uploadHead(s); /*上传图片*/
@@ -60,7 +61,8 @@
 					<img class="task-img" src="'+ srcArr +'" width="50" alt="" />\
 					<span class="remove-img"><i class="mui-icon mui-icon-closeempty"></i></span>\
 				</div>'
-				
+			
+			console.log($("#taskImgWrap").children.length)
 	    	$("#taskImgWrap").append(html);
 	    }
 	    
@@ -117,13 +119,13 @@
     	}
 
         
-function galleryImg() {
-	// 从相册中选择图片
-	console.log("从相册中选择图片:");
-    plus.gallery.pick( function(path){
-    	console.log(path);
-    }, function ( e ) {
-    	console.log( "取消选择图片" );
-    }, {filter:"image"} );
-}
+	function galleryImg() {
+		// 从相册中选择图片
+		console.log("从相册中选择图片:");
+	    plus.gallery.pick( function(path){
+	    	console.log(path);
+	    }, function ( e ) {
+	    	console.log( "取消选择图片" );
+	    }, {filter:"image"} );
+	}
 })()
