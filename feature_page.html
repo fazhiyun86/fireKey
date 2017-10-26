@@ -199,8 +199,9 @@
 					function setHtml(data){
 						var len = data.length;
 						for(var i=0; i<len; i++){  
-						var ProcVerifyNumber =  data[i]["ProcVerifyNumber"];
-						document.getElementById('changeCount').innerHTML = ProcVerifyNumber || 0;
+							var ProcVerifyNumber =  data[i]["ProcVerifyNumber"];
+							
+							document.getElementById('changeCount').innerHTML = ProcVerifyNumber || 0;
 						} 
 					}
 				};

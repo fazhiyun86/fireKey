@@ -53,7 +53,10 @@
 			"fonts/mui-icons-extra.ttf",
 			"js/area.js",
 			"css/icons-extra.css",
-			"iconfont.css"
+			"iconfont.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
 		],
 		"refer": [
 			"totalTarget_email.html",
@@ -108,7 +111,10 @@
 			"images/weixiushenpi.png",
 			"images/zhenggaishenpi.png",
 			"images/header_base_01.png",
-			"images/zhenggaixiadan.png"
+			"images/zhenggaixiadan.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
 		],
 		"refer": [
 			"feature_page_audit.html",
