@@ -148,12 +148,9 @@
 					NowDate = Year + Month  + day  +Hours  + Minutes; 
 					return [intTime,NowTime]
 				}
-				
-				console.log(stTime()[0])
-				console.log(stTime()[1])
-//				document.getElementById("time_limit").innerHTML = stTime()[1];
 
-				document.getElementById("time_limit").value = stTime()[1];
+//				document.getElementById("time_limit").value = stTime()[1];
+				document.getElementById("time_limit").value = '整改期限：请选择整改期限';
 
 				mui.init({
 					swipeBack: false,
@@ -251,9 +248,12 @@
 					mui(document).on('tap','#time_limit', function() {
 						
 						var myDate = new Date();
-						console.log(myDate);
+						
 						var dtpicker = new mui.DtPicker({
-							"value":stTime()[0],"beginDate":myDate.getFullYear(),"endYear":myDate.getFullYear()+ 10
+							type: "datetime",
+							value: stTime()[0],
+							beginDate: new Date(stTime()[0]),
+							endDate:myDate.getFullYear()+ 10
 						}); 
 
 						dtpicker.show(function(rs) {

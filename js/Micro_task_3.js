@@ -327,75 +327,7 @@
 	
 						result.value = rs.text;
 						TaskCode = rs.text;
-//						return false;
-						//					console.log(TaskCodes)
-						/* 
-						 * 返回 false 可以阻止选择框的关闭
-						 * return false;
-						 */
-						/*
-						 * 释放组件资源，释放后将将不能再操作组件
-						 * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
-						 * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
-						 * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
-						 */
-						//选择时间不可小于当前时间
-						//					var rand = "";
-						//					var date = new Date();
-						//					var getMonth = '';
-						//					var getDate = '';
-						//					var getHours = '';
-						//					var getMinutes = '';
-						//					var getSeconds = '';
-						//					var GetGlobaltime = '';
-						//					var inputDate = '';
-						//					var getFullYear = date.getFullYear();
-						//
-						//					//TaskCode
-						//					if(date.getMonth().toString().length < 2) {
-						//						getMonth = 0 + String(date.getMonth());
-						//					} else {
-						//						getMonth = String(date.getMonth());
-						//					}
-						//					if(date.getDate().toString().length < 2) {
-						//						getDate = 0 + String(date.getDate());
-						//					} else {
-						//						getDate = String(date.getDate());
-						//					}
-						//					if(date.getHours().toString().length < 2) {
-						//						getHours = 0 + String(date.getHours());
-						//
-						//					} else {
-						//						getHours = String(date.getHours());
-						//
-						//					}
-						//					if(date.getMinutes().toString().length < 2) {
-						//						getMinutes = 0 + String(date.getMinutes());
-						//					} else {
-						//						getMinutes = String(date.getMinutes());
-						//					}
-						//
-						//					if(date.getSeconds().toString().length < 2) {
-						//						getSeconds = 0 + String(date.getSeconds());
-						//					} else {
-						//						getSeconds = String(date.getSeconds());
-						//					}
-						//
-						//					for(var i = 0; i < 3; i++) {
-						//						var r = Math.floor(Math.random() * 10);
-						//						rand += r;
-						//					}
-						//
-						//					TaskCodes = getFullYear + getMonth + getDate + getHours + getMinutes
-						//					console.log(TaskCodes);
-						//
-						//					var dataFnX = rs.y.value + (rs.m.value -1) + rs.d.value + rs.h.value + rs.i.value;
-						//					console.log(dataFnX)
-						//					if(Number(dataFnX) <= Number(TaskCodes)){
-						//						mui.toast('不可小于当前时间');
-						//						document.querySelector(".inputDate").value = '请选择';
-						//						return;
-						//					}
+						
 	
 						picker.dispose();
 					});
@@ -459,12 +391,18 @@
 	}
 	// 设置显示的Html 
 	function setHtml (imgSrc) {
+		var $taskImgWrap = $("#taskImgWrap");
+		
+		if($taskImgWrap[0].children.length >= 5) {
+			mui.toast('最多上传5张照片')
+			return false;
+		}
 		var html = '<div class="task-img-item">\
 				<img class="task-img" src="'+ imgSrc +'" width="120" alt="" />\
 				<span class="remove-img"><i class="mui-icon mui-icon-closeempty"></i></span>\
 			</div>'
-			
-		$("#taskImgWrap").append(html);
+		
+		$taskImgWrap.append(html);
 	}
 	
 	// 上传的方法

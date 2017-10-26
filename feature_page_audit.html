@@ -87,7 +87,6 @@
 						type: 'get',
 						timeout: 5000,
 						success: function(data){
-							console.log(JSON.stringify(data))
 							
 							data = data["DataSource"]["Tables"][0]["Datas"];
 							var len = data.length;
@@ -103,7 +102,7 @@
 						var len = data.length;
 						for( var i = 0; i<len; i++ ){
 							var item = data[i];
-//							console.log(data[i]['OrderCode'])
+//							console.log(item.OrderID)
 							html += '<div id="ChangeWrap" class="change-wrap">\
 								<div class="change_con_left" data-id="'+ item.OrderID +'">\
 									<p>'+ (item.OrderName) +'</p>\
@@ -125,6 +124,8 @@
 					//点击进入详情页面	
 					mui('#change_con').on('tap', '.change_con_left', function() {		
 						var taskID = this.getAttribute("data-id");
+						
+						console.log(taskID)
 						
 						mui.openWindow({
 							url: 'feature_page_audit_1.html',
