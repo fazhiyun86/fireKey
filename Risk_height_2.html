@@ -70,13 +70,11 @@
 		<script src="js/common.js"></script>
 		<script type="text/javascript">
 		(function($){
-//			alert('三级页面')
 			
 			var oneDate = localStorage.getItem("oneDate");
 			var curYear = localStorage.getItem("startTime");
 			var Y = curYear.split('-')
 			document.getElementById("state_zong").innerHTML = Y[0] +'年'+ oneDate;
-//			console.log(Y[0] +'年'+ oneDate)
 
 			setTimeout(function () {
 				go()
@@ -110,17 +108,16 @@
 						EndDate: localStorage.getItem("endTime"),
 						ProjectType: 2
 					}
-					console.log(data.OrganiseUnitID)
-					console.log(JSON.stringify(data))
-					console.log(url)
+					
 					mui.ajax(url, {
 						data: data,
 						dataType:'json',
 						type:'get',
 						timeout: 5000,            
 						success: function(data){
-							
+						
 							console.log(JSON.stringify(data)) 
+							
 							data = data["DataSource"]["Tables"][0]["Datas"]
 							setHtml(data)
 						},

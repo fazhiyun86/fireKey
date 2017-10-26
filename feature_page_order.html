@@ -329,8 +329,7 @@
 						var data = getParams();
 						
 						urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/SendData/EXAM_ExamineRectify_ImportOne?dataKey=00-00-00-00';
-						console.log(urlg);
-						console.log(data);
+					
 						mui.ajax(urlg, {
 							data: data, 
 							dataType: 'json',
@@ -366,13 +365,10 @@
 						data.TaskID = ''; //检查任务ID   
 						data.TaskItemIDs = ''; //检查任务项目ID字符拼接串
 						data.ModifiedBy = localStorage.getItem("UserID"); //登录人ID
-//						console.log()
-						return JSON.stringify(data);
+						
+						return data;
 					};
-//					//时间弹出窗
-//					document.getElementById('openPopover').addEventListener('tap', function() {
-//						mui('.mui-popover').popover('toggle',document.getElementById("openPopover"));
-//					});
+					
 				});
 				
 				//下属单位获取

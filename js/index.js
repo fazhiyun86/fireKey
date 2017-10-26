@@ -80,8 +80,8 @@ mui.plusReady(function() {
 			dataType: 'json', //返回
 			type: 'get',
 			timeout: 5000,
-			
 			success: function(data) {
+				
 				setHtml(data)
 				plus.nativeUI.closeWaiting();
 			},
@@ -251,7 +251,7 @@ mui.plusReady(function() {
 	}
 	
 	//整改催办
-	function WebApp_GetChange(){  
+	function WebApp_GetChange(){
 		
 		var data ={
 			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
