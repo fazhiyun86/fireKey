@@ -1885,7 +1885,8 @@
 					"images/loading.gif"
 				],
 				"refer": [
-					"Add_Fire_statistic_tab01_1.html"
+					"Add_Fire_statistic_tab01_1.html",
+					"Add_Fire_statistic_tab01_2.html"
 				],
 				"priority": 0
 			},
@@ -2060,7 +2061,8 @@
 					"images/cuiban_w.png"
 				],
 				"refer": [
-					"Change_Rush_detail_cuiban.html"
+					"Change_Rush_detail_cuiban.html",
+					"quiz_bsjs.html"
 				],
 				"priority": 0
 			},
@@ -2145,7 +2147,9 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"images/header_base_01.png",
-					"images/fujian.png"
+					"images/fujian.png",
+					"css/style.css",
+					"feature_page.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -2248,6 +2252,14 @@
 					"css/mui.min.css",
 					"css/style.css",
 					"images/header_base_01.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"quiz_bsjs.html": {
+				"resources": [
+					"images/bg_tishi.png",
+					"images/蒙牛logo.png"
 				],
 				"refer": [],
 				"priority": 0

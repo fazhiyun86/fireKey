@@ -151,17 +151,17 @@
 					function setHeaderHtml (item) {
 						var html = '<p class="state_content_con_first" style="margin-right:1rem">\
 									<span>\
-										<span id="Hydrant">'+(item.ClassName||"-")+'</span>\
-										<span id="HydrantCount">'+item.AllCount+'</span>\
+										<span id="Hydrant" style="font-size:1rem;">'+(item.ClassName||"-")+'</span>\
+										<span id="HydrantCount" style="font-size:0.9rem;">'+item.AllCount+'</span>\
 									</span>\
 								</p>\
 								<p  class="pc_color">\
-									<span id="NormalUse">'+(item.NormalCount||0)+'</span>\
-									<span>正常使用</span>\
+									<span id="NormalUse" style="font-size:0.9rem;">'+(item.NormalCount||0)+'</span>\
+									<span style="font-size:0.8rem;">正常使用</span>\
 								</p>\
 								<p  class="pc_color">\
-									<span id="FailureRepair">'+(item.RepairCount||0)+'</span>\
-									<span>故障维修</span>\
+									<span id="FailureRepair" style="font-size:0.9rem;">'+(item.RepairCount||0)+'</span>\
+									<span style="font-size:0.8rem;">故障维修</span>\
 								</p>';
 						
 						document.getElementById("headerWrap").innerHTML = html;

@@ -139,16 +139,18 @@
 				
 				mui.plusReady(function() {
 					plus.nativeUI.showWaiting();
-					getData();
+					var selfView = plus.webview.currentWebview();
+					var taskID = selfView.info.taskID;
+					getData(taskID);
 				})
 				
 				//获取数据的请求
-				function getData () {
+				function getData (taskID) {
 					
 					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_ChildrenOrg_ISMTask_Statistical?dataKey=00-00-00-00';
 					
 					var data = {
-						OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
+						OrganiseUnitID: taskID,
 						StartDate: localStorage.getItem("startTime"),
 						EndDate: localStorage.getItem("endTime"),
 						ProjectType: 2
@@ -276,6 +278,7 @@
 					var id = this.getAttribute('data-id');
 					var isEnd = this.getAttribute('data-isEnd');
 					
+					console.log(isEnd)
 					var toUrl = 'Risk_height_1.html';
 					//控制进入到哪个页面的控制
 					if(isEnd === '0') {
@@ -295,7 +298,7 @@
 						extras: {
 							info: {
 								title: title,
-								idVal: id
+								taskID: id
 							}
 							//自定义扩展参数，可以用来处理页面间传值
 						},

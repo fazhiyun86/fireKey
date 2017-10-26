@@ -70,12 +70,14 @@
 		<script src="js/common.js"></script>
 		<script type="text/javascript">
 		(function($){
+//			alert('三级页面')
 			
 			var oneDate = localStorage.getItem("oneDate");
 			var curYear = localStorage.getItem("startTime");
 			var Y = curYear.split('-')
 			document.getElementById("state_zong").innerHTML = Y[0] +'年'+ oneDate;
-			
+//			console.log(Y[0] +'年'+ oneDate)
+
 			setTimeout(function () {
 				go()
 			}, 0)
@@ -92,7 +94,7 @@
 					
 					//设置标题的名字
 					var selfView = plus.webview.currentWebview();
-					var taskID = selfView.taskID;
+					var taskID = selfView.info.taskID;
 					
 					getData(taskID)
 					
@@ -108,14 +110,17 @@
 						EndDate: localStorage.getItem("endTime"),
 						ProjectType: 2
 					}
-					
+					console.log(data.OrganiseUnitID)
+					console.log(JSON.stringify(data))
+					console.log(url)
 					mui.ajax(url, {
 						data: data,
 						dataType:'json',
 						type:'get',
 						timeout: 5000,            
 						success: function(data){
-							console.log(JSON.stringify(data))
+							
+							console.log(JSON.stringify(data)) 
 							data = data["DataSource"]["Tables"][0]["Datas"]
 							setHtml(data)
 						},
@@ -151,6 +156,10 @@
 //						var setFontColor = document.getElementsByClassName("setFontColor")[0];
 //							console.log(setFontColor)
 					}
+					if( data.length == 0){
+						mui.toast('没有加载到数据')
+					}
+					
 					document.getElementById('riskContentWrap').innerHTML = html
 	
 					//隐藏加载
@@ -173,7 +182,7 @@
 					var id = this.getAttribute('data-id');
 					var taskName = this.getAttribute('data-task');
 					var projectName = this.getAttribute('data-pro');
-					
+					console.log(id)
 					mui.openWindow({
 						url: 'Risk_height_3.html',
 						id: 'Risk_height_3.html',
