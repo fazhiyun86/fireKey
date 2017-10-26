@@ -112,7 +112,7 @@
 								<p>'+ item.OrderName +'</p>\
 								<span>整改单号：'+ item.OrderCode +'</span>\
 								<span style="width:16rem">整改期限：'+ item.RectifyTime +'</span>\
-								<span>整改对象：'+ item.OrderName +'</span>\
+								<span>整改对象：'+ item.OrganiseUnitName +'</span>\
 							</div>\
 							<div class="right">\
 								<div class="change_con_right '+ setColor(item.IsUrge) +'" data-status="'+ item.IsUrge +'" data-id="'+ item.OrderID +'">\
@@ -185,10 +185,11 @@
 						timeout: 5000,
 						headers:{'Content-Type':'application/json'},						
 						success: function(data){
-							data = data["DataSource"]["Tables"][0]["Datas"];
-							$("#ChangeWrap").remove();
-							setHtml(data);
-							mui.toast('数据请求失败');
+//							console.log(JSON.stringify(data))
+							//重新请求数据
+							setTimeout(function () {
+								CuibanSubmit_tab1();
+							}, 200)
 						},					
 						error: function(){
 							mui.toast('数据请求失败');
@@ -251,7 +252,7 @@
 						type: 'get', 
 						timeout: 5000,
 						success: function(data){
-//							console.log(JSON.stringify(data))
+							console.log(JSON.stringify(data))
 							data = data["DataSource"]["Tables"][0]["Datas"];
 							var len = data.length;
 							setHtml(data);
