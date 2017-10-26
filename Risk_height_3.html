@@ -77,6 +77,8 @@
 		<script type="text/javascript">
 			
 			(function($){
+					
+				
 				$(".mui-scroll-wrapper").scroll({
 					bounce: false,//滚动条是否有弹力默认是true
 					indicators: false, //是否显示滚动条,默认是true
@@ -104,13 +106,14 @@
 						TaskID: taskID
 					}
 					
+					console.log(data.TaskID)
 					mui.ajax(url, {
 						data: data,
 						dataType:'json',
 						type:'get',
 						timeout: 5000,            
 						success: function(data){
-							console.log(JSON.stringify(data))
+							console.log(JSON.stringify(data));
 							plus.nativeUI.closeWaiting();
 							setHtml(data["DataSource"]["Tables"][0]["Datas"])
 						},

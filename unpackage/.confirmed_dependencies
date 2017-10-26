@@ -81,7 +81,9 @@
 			"js/mui.min.js",
 			"css/iconfont.css",
 			"css/mui.min.css",
-			"css/iconfont.woff"
+			"css/iconfont.woff",
+			"pick.min.js",
+			"pick.js"
 		]
 	},
 	"login.html": {
@@ -439,6 +441,22 @@
 	},
 	"Risk_height_3.html": {
 		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"images/header_base_01.png",
+			"css/Risk_height_low.css"
+		],
+		"refer": [
+			"Risk_height_4.html"
+		]
+	},
+	"Risk_height_4.html": {
+		"resources": [
+			"js/mui.zoom.js",
+			"css/imageViewer.css",
+			"js/mui.previewimage.js",
 			"js/mui.min.js",
 			"fonts/mui.ttf",
 			"css/mui.min.css",

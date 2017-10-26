@@ -97,7 +97,7 @@
 						    	<!--<div id="time_limit" style="width: 100%; height: auto;" data-time="">
 						    		整改期限：
 						    	</div>-->
-						    	<input id="time_limit" type="text" readonly="readonly" />
+						    	<input id="time_limit" type="text" readonly="readonly" data-options = '{}'/>
 					
 						    </div>
 						    <button id="btn"><a href="javascript:;">下达通知</a></button>
@@ -145,7 +145,7 @@
 					}
 					intTime = Year + '-' + Month + '-' + day + ' ' +Hours + ":" + Minutes;
 					NowTime = '整改期限：' + Year + '年' + Month + '月' + day + '日' + ' ' + Hours + '时' + Minutes + '分';
-					NowDate = Year + Month  + day  +Hours  + Minutes;
+					NowDate = Year + Month  + day  +Hours  + Minutes; 
 					return [intTime,NowTime]
 				}
 				
@@ -251,12 +251,11 @@
 					mui(document).on('tap','#time_limit', function() {
 						
 						var myDate = new Date();
-
+						console.log(myDate);
 						var dtpicker = new mui.DtPicker({
 							"value":stTime()[0],"beginDate":myDate.getFullYear(),"endYear":myDate.getFullYear()+ 10
 						}); 
-//						dtpicker.hide()
-						
+
 						dtpicker.show(function(rs) {
 							var timeValue = '整改期限' + ':' + ' ' + rs.y.value + '年' + rs.m.value + '月' + rs.d.value  + '日' + ' ' + ' ' + rs.h.value + '时' + rs.i.value + '分';
 							$('#time_limit').val(timeValue)

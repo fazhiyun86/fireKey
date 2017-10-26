@@ -63,6 +63,7 @@
 		}
 	
 		TaskCodes = getFullYear + getMonth + getDate + getHours + getMinutes + getSeconds;
+
 	
 		//点击确认
 		mui('.sendBtn').on('tap', '.sendBtnClick', function() {
@@ -294,15 +295,18 @@
 					var options = ({
 						"type": "datetime",
 						beginDate: new Date(dataIng[0], dataIng[1], dataIng[2], dataIng[3], dataIng[4]), //设置开始日期 
-//						beginDate: new Date(getFullYear, getMonth, getDate, getHours, getMinutes),
+//						console.log('beginDate'),
 						endDate: new Date(Number(dataIng[0]) + 30, 12), //设置结束日期 
 					
 	
 					});	
-					console.log(options.endDate)
+//					console.log(options.endDate)
 					console.log(options.beginDate)
-					//var options = JSON.parse(optionsJson);
+//					var options = JSON.parse(optionsJson);
+					var optionsJson = this.getAttribute('data-options') || '{}';
+//					var options = JSON.parse(optionsJson);
 					var id = this.getAttribute('id');
+			
 					/*
 					 * 首次显示时实例化组件
 					 * 示例为了简洁，将 options 放在了按钮的 dom 上
@@ -323,6 +327,7 @@
 	
 						result.value = rs.text;
 						TaskCode = rs.text;
+//						return false;
 						//					console.log(TaskCodes)
 						/* 
 						 * 返回 false 可以阻止选择框的关闭
