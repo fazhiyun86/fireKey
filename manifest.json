@@ -2127,7 +2127,8 @@
 					"images/header_base_01.png",
 					"images/weixiushenpi.png",
 					"images/zhenggaishenpi.png",
-					"images/zhenggaixiadan.png"
+					"images/zhenggaixiadan.png",
+					"feature_page_audit_1.html"
 				],
 				"refer": [
 					"feature_page_audit.html",
