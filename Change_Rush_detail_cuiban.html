@@ -121,7 +121,6 @@
 		<script type="text/javascript">
 			(function(){
 //				var OrganiseUnitID = '';
-				
 				mui.plusReady(function() {
 					var selfView = plus.webview.currentWebview();				
 					ValueID = selfView.Info.orderID;
@@ -178,15 +177,23 @@
 							'</div>';
 							
 							html += '<div class="change_con_remark">'+
-								'<p style="font-size:0.6rem; padding-left:0rem;"><span style="display:block; width:auto;">催办时间：'+ item.UrgeDate +'</span><span style="display:block; width:auto;float:right;">'+ item.UrgeCompany + '&nbsp' + item.UrgeUser +'</span>'+
+								'<p style="font-size:0.6rem; padding-left:0rem;"><span style="display:block; width:auto;">催办时间：'+ item.UrgeDate +'</span><span class="danwei" style="display:block; width:auto;float:right;">'+ item.UrgeCompany + ':' + item.UrgeUser +'</span>'+
 								'</p>'+
 								'</div>';
 							
 
 						};
 						document.getElementById("change_matter").innerHTML = html;
+						//催办单位和催办人为空时候  冒号不显示
+						var Company = item.UrgeCompany;
+						var Personal = item.UrgeUser;
+						console.log(Personal);
+						if( Company.length == 0 && Personal.length == 0 ){
+							document.getElementsByClassName("danwei")[0].innerHTML = ''
+						}
 					}
 				}	
+				
 			})();
 		</script>
 	</body>
