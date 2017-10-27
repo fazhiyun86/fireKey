@@ -1985,7 +1985,8 @@
 				],
 				"refer": [
 					"Add_Fire_statistic_tab02_3.html"
-				]
+				],
+				"priority": 0
 			},
 			"Risk_low.html": {
 				"resources": [

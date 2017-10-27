@@ -431,6 +431,9 @@
 			"css/style.css",
 			"images/header_base_01.png",
 			"css/Risk_height_low.css"
+		],
+		"refer": [
+			"Add_Fire_statistic_tab02_3.html"
 		]
 	},
 	"quiz_bsjs.html": {
@@ -463,6 +466,13 @@
 			"css/style.css",
 			"images/header_base_01.png",
 			"css/Risk_height_low.css"
+		]
+	},
+	"Add_Fire_statistic_tab02_3.html": {
+		"resources": [
+			"js/mui.zoom.js",
+			"css/imageViewer.css",
+			"js/mui.previewimage.js"
 		]
 	}
 }
