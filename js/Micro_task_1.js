@@ -23,10 +23,10 @@ mui.plusReady(function() {
 					return;
 				}
 				//				
-				document.querySelector(".Equipment_patrol_con_listDis").innerHTML =
-					'<p id="Equipment_patrol_status1"><i class="iconfont icon-shijian " style="color: #3F51B5;"></i>正在进行</p>' +
-					'<p id="Equipment_patrol_status2"><i class="iconfont icon-iconshandianfahuo " style="color:#E51C23;"></i>任务逾期</p>' +
-					'<p id="Equipment_patrol_status3"><i class="iconfont icon-duigou-copy " style="color: #8EC21F;"></i>任务完成</p>';
+//				document.querySelector(".Equipment_patrol_con_listDis").innerHTML =
+//					'<p id="Equipment_patrol_status1"><i class="iconfont icon-shijian " style="color: #3F51B5;"></i>正在进行</p>' +
+//					'<p id="Equipment_patrol_status2"><i class="iconfont icon-iconshandianfahuo " style="color:#E51C23;"></i>任务逾期</p>' +
+//					'<p id="Equipment_patrol_status3"><i class="iconfont icon-duigou-copy " style="color: #8EC21F;"></i>任务完成</p>';
 
 				var html = '';
 				var stuts = ['<i style="color:#3F51B5;font-size:1rem;" class="iconfont icon-shijian"></i>', '<i style="color: #E51C23;font-size:1rem;" class="iconfont icon-iconshandianfahuo"></i>', '<i style="color: #8EC21F;font-size:1rem;" class="iconfont icon-duigou-copy"></i>'];

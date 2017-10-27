@@ -63,7 +63,12 @@
 		<script src="js/jquery.min.js"></script>
 		<script type="text/javascript">
 			(function(){
-					
+				
+				
+				window.addEventListener('refresh', function(e){//执行刷新
+					console.log('请求数据--------')
+//				    location.reload();
+				});
 			
 				mui.plusReady(function() {
 					var selfView = plus.webview.currentWebview();
@@ -125,8 +130,6 @@
 					mui('#change_con').on('tap', '.change_con_left', function() {		
 						var taskID = this.getAttribute("data-id");
 						
-						console.log(taskID)
-						
 						mui.openWindow({
 							url: 'feature_page_audit_1.html',
 							id: 'feature_page_audit_1.html',
@@ -138,8 +141,6 @@
 						});
 					})
 				})
-				
-				console.log('再次請求')
 			})();
 		</script>
 	</body>

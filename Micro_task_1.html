@@ -41,11 +41,9 @@
 	<body>
 		<div class="mui-content Equipment_patrol_con">
 			<div class="Equipment_patrol_con_list Equipment_patrol_con_listDis">
-				<!--<p id="address11">朝阳区分公司</p>-->
 				<p id="Equipment_patrol_status1"><i class="iconfont icon-shijian " style="color: #3F51B5;"></i>正在进行中</p>
 				<p id="Equipment_patrol_status2"><i class="iconfont icon-iconshandianfahuo " style="color: #FF4081;"></i>逾期未完</p>
 				<p id="Equipment_patrol_status3"><i class="iconfont icon-duigou-copy " style="color: #8EC21F;"></i>按时完成</p>
-				
 			</div>
 			<div id="Micro_task_1">
 				<!--<div class="Equipment_patrol_con1">
@@ -81,8 +79,6 @@
 							<span>评价时间：item.EstimateTime </span>
 						</p>
 					</div>-->
-				
-
 			</div>
 		</div>
 		<!--</div>-->
@@ -90,10 +86,8 @@
 		<script src="js/Micro_task_1.js"></script>
 		<script type="text/javascript">
 			
-//			mui.init();
-
 			mui('#Micro_task_1').on('tap', '.Equipment_patrol_con1', function() {
-
+				
 				mui.openWindow({
 					url: 'Micro_task_1_list.html',
 					id: 'Micro_task_1_list.html',

@@ -418,7 +418,8 @@
 			"css/mui.min.css",
 			"css/style.css",
 			"images/header_base_01.png",
-			"feature_page.html"
+			"feature_page.html",
+			"images/fujian.png"
 		],
 		"refer": [
 			"feature_page_audit.html",
