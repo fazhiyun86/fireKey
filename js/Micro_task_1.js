@@ -17,7 +17,9 @@ mui.plusReady(function() {
 			timeout: 5000,
 			success: function(data) {
 				var getDatas = data['DataSource']['Tables'][0]['Datas'];
-
+				
+				console.log(JSON.stringify(getDatas))
+				
 				if(getDatas.length == 0) {
 					document.getElementById("Micro_task_1").innerHTML = '<p style="text-align:center;color:#999999;"><span>暂无任务</span></p>';
 					return;

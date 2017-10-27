@@ -61,9 +61,11 @@ mui.plusReady(function() {
 //					var mp4 = '/uploadfiles/2017/20170725/1126/20170725112612076717.mp4';
 //					var mp3 = '/uploadfiles/2017/20170725/1126/20170725112632232235.mp3';
 					var dat = item.Url;
-					console.log(dat) 
 					var typeT = test(dat);
+					
 					function test(file_name) {
+						if(!file_name) return '';
+						
 						var result = file_name.lastIndexOf("\.")
 						file_name  = file_name.substring(result + 1, file_name.length).toLowerCase();
 						return '.'+file_name;

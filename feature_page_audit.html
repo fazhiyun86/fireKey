@@ -66,7 +66,9 @@
 				
 				
 				window.addEventListener('refresh', function(e){//执行刷新
-					console.log('请求数据--------')
+					
+					WebApp_FeatureAudit();
+					
 //				    location.reload();
 				});
 			
@@ -92,7 +94,7 @@
 						type: 'get',
 						timeout: 5000,
 						success: function(data){
-							
+							console.log('请求数据')
 							data = data["DataSource"]["Tables"][0]["Datas"];
 							var len = data.length;
 							setHtml(data);

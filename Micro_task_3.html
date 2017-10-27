@@ -297,6 +297,8 @@
 				classList.add('mui-slide-in');
 				offCanvasWrapper.offCanvas().refresh();
 				document.getElementById('renwuId').addEventListener('tap', function() {
+					document.querySelector(".renwuVal").blur();
+					document.querySelector(".renwuTextarea").blur();
 					offCanvasWrapper.offCanvas('show');
 				});
 

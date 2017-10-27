@@ -97,8 +97,9 @@
 						    	<!--<div id="time_limit" style="width: 100%; height: auto;" data-time="">
 						    		整改期限：
 						    	</div>-->
-						    	<input id="time_limit" type="text" readonly="readonly" data-options = '{}'/>
-					
+						    	<div class="p_tit">
+						    		<input id="time_limit" type="text" readonly="readonly" data-options = '{}'/>	
+						    	</div>
 						    </div>
 						    <button id="btn"><a href="javascript:;">下达通知</a></button>
 						    <div id="complete">整改通知已下达</div>
@@ -119,6 +120,9 @@
 		<script src="js/common.js"></script>
 		<script type="text/javascript">
 			(function(){
+				
+				
+				
 				//获得当前时间
 				var myDate = new Date();
 
@@ -150,10 +154,18 @@
 				}
 
 //				document.getElementById("time_limit").value = stTime()[1];
-				document.getElementById("time_limit").value = '整改期限：请选择整改期限';
+				document.getElementById("time_limit").value = '整改期限：                请选择整改期限';
 
 				mui.init({
 					swipeBack: false,
+				    beforeback: function() {
+				　　　　 //获得父页面的webview
+				        var list = plus.webview.currentWebview().opener();
+				　　　　 //触发父页面的自定义事件(refresh),从而进行刷新
+				        mui.fire(list, 'featureRefresh');
+				        //返回true,继续页面关闭逻辑
+				        return true;
+				    }
 				});
 				
 				mui(".mui-scroll-wrapper").scroll({
@@ -298,7 +310,9 @@
 										RectifyDescript = DescriptVal;
 										//整改期限
 										var TimeVal = $('#time_limit').attr('data-time');
-										if( TimeVal == '' ){
+										console.log(TimeVal)
+										
+										if( !TimeVal){
 											mui.toast('整改期限不能为空');
 											return
 										}else{

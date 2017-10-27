@@ -3,10 +3,20 @@ mui.init({
 	gestureConfig: {
 		hold: true, 
 	},
-	keyEventBind: {
-	},
-
+//	pullRefresh: {
+//		container: '#offCanvasContentScroll',
+//		down: {
+//			style:'circle',
+//    		color:'#2BD009',
+//			callback: s
+//		}
+//	}
 });
+
+function s() {
+	console.log("ssss")
+	mui('#offCanvasContentScroll').pullRefresh().endPulldownToRefresh();
+}
 
 mui.plusReady(function() {
 	

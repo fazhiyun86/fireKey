@@ -21,8 +21,10 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data) {
-//				console.log(JSON.stringify(data));
+				
 				var getDatas = data['DataSource']['Tables'][0]['Datas'];
+				console.log(JSON.stringify(getDatas));
+				
 				var html = '';
 				if(getDatas.length == 0) {
 					document.getElementById("Micro_task_1").innerHTML = '<p style="text-align:center;color:#999999;"><span>暂无评价</span></p>';
@@ -36,7 +38,7 @@ mui.plusReady(function() {
 							'<div class="Equipment_patrol_con1" style="box-shadow: none;">' +
 							'<input class="sendId1" type="hidden"value="' + item.TaskID + '" />' +
 							'<div style="width:6%;padding-top:2rem;">' +
-							stuts[2] +
+							stuts[item.Status] +
 							'</div>' +
 							'<div class="Equipment_patrol_ccon2" style="width: 94%;">' +
 							'<p style="font-size:0.85rem;">' + item.TaskName + '</p>' +

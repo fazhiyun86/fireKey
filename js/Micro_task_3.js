@@ -203,8 +203,6 @@
 			 	
 			 	 //侧滑二级菜单的点击样式
 			mui('.area_con_list').on('tap', '.lists', function(e) {
-				document.querySelector(".renwuVal").blur();
-				document.querySelector(".renwuTextarea").blur();
 				
 			 	if($(this).find("#hide").is(":hidden")) {
 			 		$(this).find("#hide").show(); //如果元素为隐藏,则将它显现
