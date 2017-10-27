@@ -449,7 +449,6 @@
 		        containLabel: true
 		    },
 		    dataZoom:[{
-	            id: 'dataZoomX',
 	            type: 'slider',
 	            backgroundColor:'rgba(255,255,255,0.2)',
 //	            fillerColor:'rgba(255,255,255,0.2)',
@@ -460,11 +459,9 @@
                 height: '10%',
 //              handleSize: 8,
                 showDataShadow: false,
-//              left: '93%',
-//              top:'90%',
                 bottom:'1%',
-//              start:0,
-//              end:30,
+//              start: 70,
+//              end: 100,
         	}],
             yAxis: {
             	type:'value',

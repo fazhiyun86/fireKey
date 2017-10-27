@@ -100,7 +100,12 @@
 		<script type="text/javascript">
 			
 			(function(){
-				console.log('111')
+				
+				window.addEventListener('featureRefresh', function(e){//执行刷新
+					
+					changeCount();
+					
+				});
 				
 				mui.plusReady(function() { 
 					var selfView = plus.webview.currentWebview();

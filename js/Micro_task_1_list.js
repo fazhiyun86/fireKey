@@ -19,7 +19,7 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data) {
-				console.log(JSON.stringify(data))
+				
 				//服务器返回响应，根据响应结果，分析是否登陆成功
 				var getDatas = data['DataSource']['Tables'][0]['Datas'];
 				var getDatas1 = data['DataSource']['Tables'][1]['Datas'];
@@ -52,6 +52,8 @@ mui.plusReady(function() {
 					console.log(dat) 
 					var typeT = test(dat);
 					function test(file_name) {
+						if(!file_name) return '';
+						
 						var result = file_name.lastIndexOf("\.")
 						file_name  = file_name.substring(result + 1, file_name.length).toLowerCase();
 						return '.'+file_name;
@@ -119,7 +121,7 @@ mui.plusReady(function() {
 					'</p>' +
 					'<p style="color: #494949;border-bottom:0; font-size:0.75rem;">备注：</p>' +
 					'<p style="color:#ACACB4" >' + getDatas1[0].Estimate + '</p>';
-				//				})
+				
 				document.querySelector(".Micro_task_1_list_pingjia").innerHTML = html1;
 			},
 			error: function() {

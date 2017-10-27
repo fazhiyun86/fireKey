@@ -147,7 +147,11 @@
 			"js/mui.min.js",
 			"css/iconfont.css",
 			"css/mui.min.css",
-			"css/style.css"
+			"css/style.css",
+			"css/iconfont.woff"
+		],
+		"refer": [
+			"Micro_task_2_list.html"
 		]
 	},
 	"Risk_height_2.html": {
@@ -439,7 +443,7 @@
 	"quiz_bsjs.html": {
 		"resources": [
 			"images/bg_tishi.png",
-			"images/蒙牛logo.png"
+			"images/�[logo.png"
 		]
 	},
 	"Risk_height_3.html": {
@@ -466,6 +470,22 @@
 			"css/style.css",
 			"images/header_base_01.png",
 			"css/Risk_height_low.css"
+		]
+	},
+	"Micro_task_2_list.html": {
+		"resources": [
+			"js/Micro_task_2_list.js",
+			"fonts/mui.ttf",
+			"js/mui.zoom.js",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"css/imageViewer.css",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"js/mui.previewimage.js",
+			"css/style.css",
+			"css/iconfont.woff",
+			"images/header_base_01.png"
 		]
 	}
 }
