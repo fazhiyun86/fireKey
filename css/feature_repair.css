@@ -1,0 +1,48 @@
+.marb10 {
+	margin-bottom: 10px;
+}
+.licence-wrap {
+	padding: 5px 10px;
+}
+.licence-wrap li {
+	width: 100%;
+	border: 1px solid #ccc;
+	padding: 10px;
+	font-size: 12px;
+}
+.licence-item {
+	display: table;
+}
+.repair-table {
+	display: table;
+}
+.repair-table span {
+	display: table-cell;
+	width: 1%;
+}
+.content-wrap {
+	padding: 10px;
+}
+.content-item {
+	font-size: 12px!important;
+	padding: 10px;
+	background-color: #fff;
+	border: 1px solid #CCCCCC;
+}
+
+.content-table-cell {
+	display: table-cell;
+	width: 1%;
+}
+.repair-attachment {
+	overflow: hidden;
+}
+.repair-attachment > span {
+	float: left;
+	margin-right: 10px;
+	text-align: center;
+	font-size: 10px!important;
+}
+.repair-attachment img {
+	width: 60px;
+}

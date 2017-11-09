@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>证照查询</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" href="css/feature_licence_check.css" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav titBackg">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">特种作业操作证</h1>
+		</header>
+		<!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<!--数据列表-->
+			<div class="content-wrap">
+				<div class="content-item">
+					<p class="content-detail">
+						<label for="">证件编号：</label>
+						<input type="number" />
+					</p>
+					<div class="content-detail margb10">
+						<p class="content-table-cell">
+							<label for="">人员姓名：</label>
+							<input class="limit-width marl5" type="text" />
+						</p>
+						<p class="content-table-cell">
+							<label for="">性别：</label>
+							<input class="limit-width" type="text" />
+						</p>
+					</div>
+					<p class="content-detail">
+						<label for="">作业类别：</label>
+						<input type="text" />
+					</p>
+					<p class="content-detail">
+						<label for="">初领日期：</label>
+						<input type="text" />
+					</p>
+					<p class="content-detail">
+						<label for="">有限期限：</label>
+						<input type="text" />
+					</p>
+					<p class="content-detail">
+						<label for="">复审日期：</label>
+						<input type="text" />
+					</p>
+					<p class="content-detail">
+						<label for="">身份证号：</label>
+						<input type="number" />
+					</p>
+					<p class="content-detail">
+						<label for="">手机号码：</label>
+						<input type="number" />
+					</p>
+					<p class="content-detail">
+						<label for="">证件照片：</label>
+						<div>
+							<img src="images/119logo.png" alt="" />
+						</div>
+					</p>
+					<p class="button-p">
+						<button type="button" class="mui-btn mui-btn-danger"><span class="mui-icon mui-icon-closeempty"></span>拒绝</button>
+						<button type="button" class="mui-btn mui-btn-success"><span class="mui-icon mui-icon-checkmarkempty"></span>通过</button>
+					</p>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script>
+		(function () {
+			mui(".mui-scroll-wrapper").scroll({
+				bounce: false,//滚动条是否有弹力默认是true
+				indicators: false, //是否显示滚动条,默认是true
+			});
+			
+			mui.plusReady(function() {
+				plus.nativeUI.showWaiting();
+				
+				getData()
+			})
+			
+			function getData() {
+				
+				setTimeout(function () {
+					plus.nativeUI.closeWaiting();
+				}, 1000)
+			}
+			
+		})()
+	</script>
+</html>

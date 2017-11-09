@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>证照查询</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" href="css/feature_licence_check.css" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav titBackg">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">特种作业审核</h1>
+		</header>
+		<!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<!--数据列表-->
+			<ul id="licenceWrap" class="licence-wrap">
+				<li class="licence-item">
+					<div class="padb5">
+						<span>柯善群</span> <span>有限期限：2016-08-22至2019-08-22</span>
+					</div>
+					<div>
+						<span>作业种类：金属焊接切割</span> <span>复审日期：2017-08-22</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script>
+		(function () {
+			
+			
+			mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					up: {
+//						auto:true,
+						contentrefresh: '正在加载...',
+						callback: getListData
+					}
+				}
+			});
+			
+			var count = 0;
+			
+			function getListData() {
+				console.log(123)
+				pullupRefresh()
+			}
+			
+			function pullupRefresh() {
+				
+				mui('#pullrefresh').pullRefresh().endPullupToRefresh( false );
+
+				setHtml();
+			}
+			
+			function setHtml(data) {
+				var newLi = document.createElement('li');
+				newLi.className = "licence-item";
+				newLi.innerHTML = '<div class="padb5">\
+						<span>柯善群</span> <span>有限期限：2016-08-22至2019-08-22</span>\
+					</div>\
+					<div>\
+						<span>作业种类：金属焊接切割</span> <span>复审日期：2017-08-22</span>\
+					</div>';
+				
+				document.getElementById('licenceWrap').appendChild(newLi)
+			}
+			
+			// 证照查询	
+			mui('#licenceWrap').on('tap', '.licence-item', function() {
+				
+				mui.openWindow({
+					url: 'feature_licence_check_detail.html',
+					id: 'feature_licence_check_detail.html',
+					styles: {
+						top: 0, //新页面顶部位置
+						bottom: 0, //新页面底部位置
+					},
+					extras: {
+
+					},
+					show: {
+						duration: '300'
+					},
+					waiting: {
+						autoShow: true, //自动显示等待框，默认为true
+						title: '加载中...', //等待对话框上显示的提示内容
+					}
+				});
+			})
+			
+			
+	
+			
+			
+		})()
+	</script>
+</html>

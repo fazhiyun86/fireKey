@@ -91,7 +91,8 @@ mui.plusReady(function() {
 			type: 'get',
 			timeout: 5000,
 			success: function(data) {
-				
+				console.log('-----');
+				console.log(JSON.stringify(data));
 				setHtml(data)
 				plus.nativeUI.closeWaiting();
 			},

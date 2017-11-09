@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>证照查询</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" href="css/feature_licence_search.css" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav titBackg">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">特种作业操作证</h1>
+		</header>
+		<!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<!--数据列表-->
+			<div class="content-wrap">
+				<div class="content-item">
+					<p class="content-detail">
+						<label for="">证件编号：</label>
+						<span>42262319871123093102</span>
+					</p>
+					<p class="content-detail">
+						<label for="">人员姓名：</label>
+						<span>402</span>
+						<label for="">性别：</label>
+						<span>男</span>
+					</p>
+					<p class="content-detail">
+						<label for="">作业类别：</label>
+						<span>焊接与热切割作业</span>
+					</p>
+					<p class="content-detail">
+						<label for="">初领日期：</label>
+						<span>2016-08-22</span>
+					</p>
+					<p class="content-detail">
+						<label for="">有限期限：</label>
+						<span>2016-08-22</span>
+					</p>
+					<p class="content-detail">
+						<label for="">复审日期：</label>
+						<span>2016-08-22</span>
+					</p>
+					<p class="content-detail">
+						<label for="">身份证号：</label>
+						<span>38374297484830294</span>
+					</p>
+					<p class="content-detail">
+						<label for="">手机号码：</label>
+						<span>13802569837</span>
+					</p>
+					<p class="content-detail">
+						<label for="">证件照片：</label>
+						<div>
+							<img src="images/119logo.png" alt="" />
+						</div>
+					</p>
+					<p class="content-detail">
+						<label for="">审核人：</label>
+						<span>李少城                      北京城建集团</span>
+					</p>
+					<p class="content-detail">
+						<label for="">审核日期：</label>
+						<span>2017-10-12</span>
+					</p>	
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script>
+		(function () {
+				
+			mui.plusReady(function() {
+				plus.nativeUI.showWaiting();
+				
+				getData()
+			})
+			
+			function getData() {
+				
+				setTimeout(function () {
+					plus.nativeUI.closeWaiting();
+				}, 1000)
+			}
+			
+		})()
+	</script>
+</html>

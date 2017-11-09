@@ -2134,7 +2134,11 @@
 				"refer": [
 					"feature_page_audit.html",
 					"feature_page_order.html",
-					"feature_page_approve.html"
+					"feature_page_approve.html",
+					"feature_licence_search.html",
+					"feature_licence_check.html",
+					"feature_fire_approve.html",
+					"feature_repair.html"
 				],
 				"priority": 0
 			},
@@ -2262,6 +2266,118 @@
 				"resources": [
 					"images/bg_tishi.png",
 					"images/蒙牛logo.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"feature_licence_search.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"css/style.css",
+					"fonts/mui.ttf",
+					"css/feature_licence_search.css",
+					"images/header_base_01.png"
+				],
+				"refer": [
+					"feature_licence_search_detail.html"
+				],
+				"priority": 0
+			},
+			"feature_licence_search_detail.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/feature_licence_search.css",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"images/119logo.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"feature_licence_check.html": {
+				"resources": [
+					"css/feature_licence_check.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png"
+				],
+				"refer": [
+					"feature_licence_check_detail.html"
+				],
+				"priority": 0
+			},
+			"feature_licence_check_detail.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/feature_licence_check.css",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/119logo.png",
+					"images/header_base_01.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"feature_fire_approve.html": {
+				"resources": [
+					"css/feature_licence_check.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"css/feature_fire_approve.css"
+				],
+				"refer": [
+					"feature_fire_approve_detail.html"
+				],
+				"priority": 0
+			},
+			"feature_fire_approve_detail.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/feature_fire_approve.css",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"images/119logo.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"feature_repair.html": {
+				"resources": [
+					"css/feature_licence_check.css",
+					"css/style.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/header_base_01.png",
+					"css/feature_repair.css"
+				],
+				"refer": [
+					"feature_repair_detail.html"
+				],
+				"priority": 0
+			},
+			"feature_repair_detail.html": {
+				"resources": [
+					"css/feature_licence_search.css",
+					"images/119logo.png",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/style.css",
+					"images/header_base_01.png",
+					"css/feature_repair.css",
+					"images/qq.png"
 				],
 				"refer": [],
 				"priority": 0

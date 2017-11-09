@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>证照查询</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" href="css/feature_repair.css" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav titBackg">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">特种作业操作证</h1>
+		</header>
+		<!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<!--数据列表-->
+			<div class="content-wrap">
+				<div class="content-item">
+					<p class="content-detail">
+						<label for="">申报单号：</label>
+						<span>EMF2017040714365505</span>
+					</p>
+					<p class="content-detail">
+						<label for="">设备名称：</label>
+						<span>加油站防爆照明灯1</span>
+					</p>
+					<p class="content-detail">
+						<label for="">设备位置：</label>
+						<span>行政办公区A1项目部东区1号楼5层408</span>
+					</p>
+					<div class="content-table marb10">
+						<p class="content-table-cell">
+							<label for="">申报人员：</label>
+							<span>402</span>
+						</p>
+						<p class="content-table-cell">
+							<label for="">申报时间：</label>
+							<span>402</span>
+						</p>
+					</div>
+					<div class="content-table marb10">
+						<p class="content-table-cell">
+							<label for="">故障类型：</label>
+							<span>402</span>
+						</p>
+						<p class="content-table-cell">
+							<label for="">故障原因：</label>
+							<span>402</span>
+						</p>
+					</div>
+					<p class="content-detail">
+						<label for="">故障情况的说明：</label>
+						<span>男</span>
+					</p>
+					<div>
+						<span>附件</span>
+					</div>
+					<div class="repair-attachment">
+						<span>
+							<img src="images/qq.png" alt="" />
+							<p>附件1</p>
+						</span>
+						<span>
+							<img src="images/qq.png" alt="" />
+							<p>附件1</p>
+						</span>
+						<span>
+							<img src="images/qq.png" alt="" />
+							<p>附件1</p>
+						</span>
+						<span>
+							<img src="images/qq.png" alt="" />
+							<p>附件1</p>
+						</span>
+						<span>
+							<img src="images/qq.png" alt="" />
+							<p>附件1</p>
+						</span>
+					</div>
+					<hr />
+					<p class="content-detail">
+						<label for="">审批意见：</label>
+						<div>
+							<textarea name="" rows="" cols=""></textarea>
+						</div>
+					</p>
+					<button class="mui-btn mui-btn-danger mui-btn-block">确定</button>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script>
+		(function () {
+				
+			mui.plusReady(function() {
+				plus.nativeUI.showWaiting();
+				
+				getData()
+			})
+			
+			function getData() {
+				
+				setTimeout(function () {
+					plus.nativeUI.closeWaiting();
+				}, 1000)
+			}
+			
+		})()
+	</script>
+</html>

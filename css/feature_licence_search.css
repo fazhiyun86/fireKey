@@ -1,0 +1,36 @@
+.feature {
+	
+}
+.padb5 {
+	padding-bottom: 5px;;
+}
+.licence-wrap {
+	padding: 5px 10px;
+}
+.licence-wrap li {
+	width: 100%;
+	border: 1px solid #ccc;
+	padding: 10px;
+	font-size: 12px;
+}
+.licence-item {
+	margin-top: 5px;
+}
+.licence-item > div {
+	display: flex;
+	justify-content: space-between;
+	
+}
+/*详情页面*/
+
+.content-wrap {
+	padding: 10px 10px;
+}
+.content-item {
+	width: 100%;
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+.content-detail {
+	width: 100%;
+}

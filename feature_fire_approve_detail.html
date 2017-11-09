@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>动火审批</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" href="css/feature_fire_approve.css" />
+		
+		<style>
+			.mui-card .mui-control-content {
+				padding: 10px;
+			}
+			.mui-control-content {
+				/*height: 150px;*/
+			}
+			.mui-control-item {
+				background-color: transparent!important;
+			}
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+				color: #000000;
+				border: 0 none;
+			}
+			.mui-active {
+				background-color: #fff!important;
+			}
+			.mui-segmented-control .mui-control-item {
+				line-height: 43px;
+			}
+			.fire-content {
+				padding: 10px;
+				background-color: #fff;
+				border: 1px solid #E0E0E0;
+				box-sizing: content-box;
+			}
+			.content-flex {
+				font-size: 14px!important;
+				display: flex;
+				justify-content: flex-start;
+			}
+			.content-table {
+				display: table;
+				width: 100%;
+			}
+			.content-flex .content-flex-tit {
+				/*width: 20%;*/
+			}
+			.content-flex .content-flex-val {
+				/*width: 80%;*/
+			}
+			.content-table-cell {
+				display: table-cell;
+				width: 1%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav titBackg">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">动火审批</h1>
+		</header>
+		<div class="mui-content">
+			<div>
+				<div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted">
+					<a class="mui-control-item mui-active" href="#item1">动火申请</a>
+					<a class="mui-control-item" href="#item2">特种操作证</a>
+				</div>
+			</div>
+			<div style="padding: 10px;">
+				<div>
+					<div id="item1" class="mui-control-content mui-active">
+						<div class="fire-content">
+							<p class="content-flex">
+								<span class="content-flex-tit">证书编号：</span>
+								<span class="content-flex-val">T201710120014</span>
+							</p>
+							<p class="content-flex">
+								<span class="content-flex-tit">项目工程：</span>
+								<span class="content-flex-val">北京城建集团行政办公区A1 工程</span>
+							</p>
+							<p class="content-flex">
+								<span class="content-flex-tit">施工单位：</span>
+								<span class="content-flex-val">江苏正太建筑劳务有限公司</span>
+							</p>
+							<p class="content-flex">
+								<span class="content-flex-tit">动火区域：</span>
+								<span class="content-flex-val">东区1号楼2层</span>
+							</p>
+							<p class="content-flex">
+								<span class="content-flex-tit">动火位置：</span>
+								<span class="content-flex-val">东侧幕墙</span>
+							</p>
+							<p class="content-flex">
+								<span class="content-flex-tit">消防器材：</span>
+								<span class="content-flex-val">干粉灭火器</span>
+							</p>
+							<p>
+								<p class="content-table-cell">
+									<span class="content-flex-tit">作业级别：</span>
+									<span class="content-flex-val">二级</span>
+								</p>
+								<p class="content-table-cell">
+									<span class="content-flex-tit">作业级别：</span>
+									<span class="content-flex-val">二级</span>
+								</p>
+							</p>
+							<p>
+								<p class="content-table-cell">
+									<span class="content-flex-tit">作业项目：</span>
+									<span class="content-flex-val">龙骨</span>
+								</p>
+								<p class="content-table-cell">
+									<span class="content-flex-tit">看火人员：</span>
+									<span class="content-flex-val">陆益民</span>
+								</p>
+							</p>
+							<p class="content-flex">
+								<span class="content-flex-tit">动火时间：</span>
+								<span class="content-flex-val">2017-10-28  12:30  至 2017-10-28  14:00</span>
+							</p>
+							<p>
+								<p class="content-table-cell">
+									<span class="content-flex-tit">动火申请：</span>
+									<span class="content-flex-val">陆益民</span>
+								</p>
+								<p class="content-table-cell">
+									<span class="content-flex-tit">申请时间：</span>
+									<span class="content-flex-val">2017-10-28  14:00</span>
+								</p>
+							</p>
+						</div>
+						<div class="fire-content mart10">
+							<p class="content-flex">
+								<span class="content-flex-tit">审批结果：</span>
+								<span class="content-flex-val">
+									<label for=""><input name="radio1" type="radio"> <span>通过</span> </label>
+									<label for=""><input name="radio1" type="radio"> <span>拒绝</span> </label>
+								</span>
+							</p>
+							<p class="content-flex">
+								<span class="content-flex-tit">审批意见：</span>
+								<div>
+									<textarea name="" rows="" cols="">
+										
+									</textarea>
+								</div>
+							</p>
+							<button class="mui-btn mui-btn-danger mui-btn-block">确定</button>
+						</div>
+					</div>
+					
+					<div id="item2" class="mui-control-content">
+						<div class="fire-content">
+							<p class="content-detail">
+								<label for="">证件编号：</label>
+								<input type="number" />
+							</p>
+							<p>
+								<p class="content-table-cell">
+									<span class="content-flex-tit">人员姓名：</span>
+									<span class="content-flex-val"><input class="limit-width marl5" type="text" /></span>
+								</p>
+								<p class="content-table-cell">
+									<span class="content-flex-tit">性别：</span>
+									<span class="content-flex-val"><input class="limit-width" type="text" /></span>
+								</p>
+							</p>
+							<p class="content-detail">
+								<label for="">作业类别：</label>
+								<input type="text" />
+							</p>
+							<p class="content-detail">
+								<label for="">初领日期：</label>
+								<input type="text" />
+							</p>
+							<p class="content-detail">
+								<label for="">有限期限：</label>
+								<input type="text" />
+							</p>
+							<p class="content-detail">
+								<label for="">复审日期：</label>
+								<input type="text" />
+							</p>
+							<p class="content-detail">
+								<label for="">身份证号：</label>
+								<input type="number" />
+							</p>
+							<p class="content-detail">
+								<label for="">手机号码：</label>
+								<input type="number" />
+							</p>
+							<p class="content-detail">
+								<label for="">证件照片：</label>
+								<div>
+									<img src="images/119logo.png" alt="" />
+								</div>
+							</p>
+							<p>
+								<p class="content-table-cell">
+									<span class="content-flex-tit">证件审核：</span>
+									<span class="content-flex-val">柯善群</span>
+								</p>
+								<p class="content-table-cell">
+									<span class="content-flex-tit">北京城建集团</span>
+								</p>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script>
+			
+//			mui.init({
+//				swipeBack: true //启用右滑关闭功能
+//			});
+//			(function($) {
+//				$('#scroll').scroll({
+//					indicators: true //是否显示滚动条
+//				});
+//				var segmentedControl = document.getElementById('segmentedControl');
+//				$('.mui-input-group').on('change', 'input', function() {
+//					
+//					console.log("--")
+//					
+//					if (this.checked) {
+//						var styleEl = document.querySelector('input[name="style"]:checked');
+//						var colorEl = document.querySelector('input[name="color"]:checked');
+//						if (styleEl && colorEl) {
+//							var style = styleEl.value;
+//							var color = colorEl.value;
+//							// mui-segmented-control-inverted
+//							segmentedControl.className = 'mui-segmented-control' + (style ? (' mui-segmented-control-' + style) : '') + ' mui-segmented-control-' + color;
+//						}
+//					}
+//				});
+//			})(mui);
+			
+		</script>
+
+	</body>
+
+</html>

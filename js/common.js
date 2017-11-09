@@ -205,24 +205,51 @@
 		var option = {
 		    title : {
 		        text: '',
-//		        x:'center'
+        		textStyle: {
+        			fontSize: '13',
+        			align: 'center'
+        		}
 		    },
 		    tooltip : {
 		        trigger: 'item',
-		        formatter: "{a} <br/>{b} : {c} ({d}%)"
+             	position: ['0%', '50%'],
+		        formatter: "{b} : {c} ({d}%)"
 		    },
 		    legend: {
-		        orient: 'vertical',
-		        right: 'right',
+	        	type: 'scroll',
+	        	orient: 'vertical',
+	            show: true,
+		        right: 0,
+		        top: 20,
+		        bottom: 20,
+		        textStyle: {
+		        	fontSize: 7
+		        },
+	            formatter: function (name) {
+				    return (name.length > 8 ? (name.slice(0,8)+"...") : name ); 
+				},
 		        data: []
 		    },
 		    series : [
 		        {
 		            name: '问题',
 		            type: 'pie',
-		            radius : '55%',
-		            center: ['35%', '60%'],
+		            radius : '60%',
+		            center: ['35%', '50%'],
 		            data:[],
+		            labelLine: {
+		                normal: {
+		                    show: true
+		                }
+		            },
+		            label: {
+		                normal: {
+		                    show: true,
+		                    position: 'inner',
+		                    formatter: '{c}',
+		                    fontSize: 7
+		                }
+		            },
 		            itemStyle: {
 		                emphasis: {
 		                    shadowBlur: 10,
@@ -240,12 +267,19 @@
 	 * @param {Object} info
 	 */
 	
-	common.pipeChartsDataChange = function (info) {
+	common.pipeChartsDataChange = function (data) {
+		var result = [];
+		
 		var tempName = {};
+		var total = data['DataSource']['Tables'][0]['Datas'];
+		var info = data['DataSource']['Tables'][1]['Datas'];
 		var len = info.length;
 		
-		for(var i = 0; i < len; i++) {
-			var item = info[i]
+		
+		// 总数
+		for(var i = 0; i < total.length; i++) {
+
+			var item = total[i];
 			var temp = {};
 			var name = item['OrganiseUnitID'];
 			var obj = {
@@ -269,6 +303,36 @@
 				tempName[name] = temp;
 			}
 		}
+		
+		// 下面的每一项
+		for(var i = 0; i < len; i++) {
+
+			var item = info[i];
+			var temp = {};
+			var name = item['OrganiseUnitID'];
+			var obj = {
+				name: item.DisplayName,
+				value: item.AbnormalIndicatorCount
+			}
+			if(tempName[name]) {
+				if(obj.name) {
+					tempName[name].data.push(obj);
+					tempName[name].legendData.push(item.DisplayName);
+				}
+			} else {
+				temp.title = item.OrganiseUnitName;
+				temp.subName = item['ParentOrganiseUnitName'];
+				
+				if (obj.name) {
+					temp.data = [obj];
+					temp.legendData = [item.DisplayName];
+				} else{
+					temp.data = [];
+					temp.legendData = [];
+				}
+				tempName[name] = temp;
+			}
+		}
 
 		var res= [];
 		for(var key in tempName) {
@@ -280,7 +344,8 @@
 		for (var i = 0; i < res.length; i++) {
 			var baseOpt = common.pipeChartsBase();
 			var item = res[i];
-			baseOpt.title.text = item.title;
+			baseOpt.title.text = item.title || '本周总数量';
+			baseOpt.title.subtext = item.subName;
 			// 如果没有数据就不向结果里面添加数据 
 			if(item.legendData.length === 0) continue;
 			
@@ -288,7 +353,22 @@
 			baseOpt.series[0].data = item.data;
 			optionArr.push(baseOpt);
 		}
+		
 		return optionArr
+	}
+	
+	function stringInsertBR(str) {
+		if (!str) return '';
+		var result = '';
+		str = str.split('');
+
+		for (var i = 0; i < str.length; i++) {
+			if(!str[i]) continue;
+			result += str[i];
+			if (!(i%4)&&i != 0) result += '\r\n';
+		}
+
+		return result;
 	}
 	
 	/**
@@ -325,37 +405,6 @@
         return option;
 	}
 	
-	var ddd = [
-            {
-                "Name": "DFI_AllCountTable",
-                "Key": "CompanyID",
-                "Datas": [
-                    {
-                        "CompanyID": "123456",
-                        "CompanyName": "A1工程",
-                        "AllFireCount": "982"
-                    }
-                ]
-            },
-            {
-                "Name": "DFI_OrgCountTable",
-                "Key": "ID",
-                "Datas": [
-                    {
-                        "ID": "f7b0990d-a03e-11e7-814d-fa163e4635ff",
-                        "DateValue": "2017/9/11 0:00:00",
-                        "CompanyID": "123456",
-                        "FireCount": "12"
-                    },
-                    {
-                        "ID": "f7b09937-a03e-11e7-814d-fa163e4635ff",
-                        "DateValue": "2017/9/12 0:00:00",
-                        "CompanyID": "123456",
-                        "FireCount": "123"
-                    },
-                ]
-            }
-        ]
    	/***
 	 * 在柱状图里面转化时间格式
 	 */
@@ -460,8 +509,8 @@
 //              handleSize: 8,
                 showDataShadow: false,
                 bottom:'1%',
-//              start: 70,
-//              end: 100,
+                start: 80,
+                end: 100,
         	}],
             yAxis: {
             	type:'value',
