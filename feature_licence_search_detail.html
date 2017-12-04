@@ -17,79 +17,164 @@
 		    <h1 class="mui-title">特种作业操作证</h1>
 		</header>
 		<!--下拉刷新容器-->
-		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
-			<!--数据列表-->
-			<div class="content-wrap">
-				<div class="content-item">
-					<p class="content-detail">
-						<label for="">证件编号：</label>
-						<span>42262319871123093102</span>
-					</p>
-					<p class="content-detail">
-						<label for="">人员姓名：</label>
-						<span>402</span>
-						<label for="">性别：</label>
-						<span>男</span>
-					</p>
-					<p class="content-detail">
-						<label for="">作业类别：</label>
-						<span>焊接与热切割作业</span>
-					</p>
-					<p class="content-detail">
-						<label for="">初领日期：</label>
-						<span>2016-08-22</span>
-					</p>
-					<p class="content-detail">
-						<label for="">有限期限：</label>
-						<span>2016-08-22</span>
-					</p>
-					<p class="content-detail">
-						<label for="">复审日期：</label>
-						<span>2016-08-22</span>
-					</p>
-					<p class="content-detail">
-						<label for="">身份证号：</label>
-						<span>38374297484830294</span>
-					</p>
-					<p class="content-detail">
-						<label for="">手机号码：</label>
-						<span>13802569837</span>
-					</p>
-					<p class="content-detail">
-						<label for="">证件照片：</label>
-						<div>
-							<img src="images/119logo.png" alt="" />
+		<div id="pullrefresh" class="mui-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<!--数据列表-->
+					<div class="content-wrap">
+						<div class="content-item" id="detail-wrap">
+							<!--<p class="content-detail">
+								<label for="">证件编号：</label>
+								<span>42262319871123093102</span>
+							</p>
+							<div class="flex-box">
+								<p class="content-detail col-half">
+									<label for="">人员姓名：</label>
+									<span>402</span>
+								</p>		
+								<p class="content-detail col-half">
+									<label for="">性别：</label>
+									<span>男</span>
+								</p>
+							</div>
+							<p class="content-detail">
+								<label for="">作业类别：</label>
+								<span>焊接与热切割作业</span>
+							</p>
+							<p class="content-detail">
+								<label for="">初领日期：</label>
+								<span>2016-08-22</span>
+							</p>
+							<p  class="content-detail">
+								<label for="">初领日期：</label>
+								<span>2016-08-22</span>
+								<label class="center">至</label>
+								<span>2016-08-22</span>
+							</p>
+							<p class="content-detail">
+								<label for="">复审日期：</label>
+								<span>2016-08-22</span>
+							</p>
+							<p class="content-detail">
+								<label for="">身份证号：</label>
+								<span>38374297484830294</span>
+							</p>
+							<p class="content-detail">
+								<label for="">手机号码：</label>
+								<span>13802569837</span>
+							</p>
+							<p class="content-detail">
+								<label for="">证件照片：</label>
+								<div>
+									<img src="images/119logo.png" alt="" />
+								</div>
+							</p>
+							<p class="content-detail">
+								<label for="">审核人：</label>
+								<span>李少城 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;北京城建集团</span>
+							</p>
+							<p class="content-detail">
+								<label for="">审核日期：</label>
+								<span>2017-10-12</span>
+							</p>-->	
 						</div>
-					</p>
-					<p class="content-detail">
-						<label for="">审核人：</label>
-						<span>李少城                      北京城建集团</span>
-					</p>
-					<p class="content-detail">
-						<label for="">审核日期：</label>
-						<span>2017-10-12</span>
-					</p>	
+					</div>
 				</div>
 			</div>
 		</div>
 	</body>
 	<script src="js/mui.min.js"></script>
+	<script src="js/feature_common.js"></script>
 	<script>
 		(function () {
 				
 			mui.plusReady(function() {
 				plus.nativeUI.showWaiting();
-				
+				mui('.mui-scroll-wrapper').scroll();
 				getData()
 			})
 			
 			function getData() {
+				var currWebView = plus.webview.currentWebview();
+				var RegisterID = currWebView.RegisterID;
 				
-				setTimeout(function () {
-					plus.nativeUI.closeWaiting();
-				}, 1000)
+				var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/FW_GetFireCertificateDetail_Client_IIS?dataKey=00-00-00-00';
+				var data = {
+					RegisterID: RegisterID
+				}; 
+				
+				mui.ajax(url, {
+					type: 'get',
+					dataType: 'json',
+					data: data,
+					success: function (response) {
+						plus.nativeUI.closeWaiting();
+						var data = response.DataSource.Tables[0].Datas;
+						console.log('证照查询-详情', JSON.stringify(data));
+						setHtml(data);
+					},
+					error: function() {
+						mui.toast('详情获取失败');
+					}
+				})
 			}
-			
+			function setHtml(data) {
+				data = data[0];
+				var html = '' +
+					'<p class="content-detail">' + 
+						'<label for="">证件编号：</label>' +
+						'<span>'+ data.CertificateCode +'</span>'+
+					'</p>'+
+					'<div class="flex-box">' +
+						'<p class="content-detail col-half">'+
+							'<label for="">人员姓名：</label>'+
+							'<span>'+ data.UserName +'</span>'+
+						'</p>'+
+						'<p class="content-detail col-half">'+
+							'<label for="">性别：</label>'+
+							'<span>'+ featureCommon.getGender(data.Gender) +'</span>'+
+						'</p>'+
+					'</div>'+	
+					'<p class="content-detail">'+
+						'<label for="">作业类别：</label>'+
+						'<span>'+ data.JobProject +'</span>'+
+					'</p>'+
+					'<p class="content-detail">'+
+						'<label for="">初领日期：</label>'+
+						'<span>'+ featureCommon.formatDate(data.CertificateDate) +'</span>'+
+					'</p>'+
+					'<p class="content-detail">'+
+						'<label for="">有限期限：</label>'+
+						'<span>'+ featureCommon.formatDate(data.ValidityStartDate) +
+						'<label class="center">至</label>' +
+						'<span>'+ featureCommon.formatDate(data.ValidityEndDate) +'</span>'+
+					'</p>'+
+					'<p class="content-detail">'+
+						'<label for="">复审日期：</label>'+
+						'<span>'+ featureCommon.formatDate(data.ReviewDate) +'</span>'+
+					'</p>'+
+					'<p class="content-detail">'+
+						'<label for="">身份证号：</label>'+
+						'<span>'+ data.IDCard +'</span>'+
+					'</p>'+
+					'<p class="content-detail">'+
+						'<label for="">手机号码：</label>'+
+						'<span>'+ data.Mobile +'</span>'+
+					'</p>'+
+					'<div class="content-detail  block-box">'+
+						'<label for="">证件照片：</label>'+
+						'<div>'+ featureCommon.getImgs(data.Url, data.Title) +'</div>'+
+					'</div>'+
+					'<p class="content-detail">'+
+						'<label for="">审核人：</label>'+
+						'<span>'+ data.AuditUserName +'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+ data.ProjectCompanyName +'</span>'+
+					'</p>'+
+					'<p class="content-detail">'+
+						'<label for="">审核日期：</label>'+
+						'<span>'+ featureCommon.formatDate(data.ModifiedDate) +'</span>'+
+					'</p>';
+				document.getElementById('detail-wrap').innerHTML = html;
+			}
 		})()
 	</script>
 </html>

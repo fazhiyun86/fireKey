@@ -1,5 +1,11 @@
+.mui-bar-nav~.mui-content {
+    padding-top: 50px;
+}
+.mui-scroll-wrapper {
+	top: 50px;
+}
 .padb5 {
-	padding-bottom: 5px;;
+	padding-bottom: 5px;
 }
 .margb10 {
 	margin-bottom: 10px;
@@ -8,15 +14,22 @@
 	margin-left: 5px!important;
 }
 .licence-wrap {
-	padding: 5px 10px;
+	padding: 10px 10px 5px;
+	margin: 0;
 }
 .licence-wrap li {
 	width: 100%;
 	border: 1px solid #ccc;
 	padding: 10px;
-	font-size: 12px;
+	font-size: 0.8rem;
+	color: #777;
+	background: #fff;
 }
-.licence-item {
+.licence-wrap li .highlight-name {
+	color: #333;
+	font-size: 0.93rem;
+}
+.licence-item:not(:first-child) {
 	margin-top: 5px;
 }
 .licence-item > div {
@@ -33,38 +46,85 @@
 	width: 100%;
 	border: 1px solid #ccc;
 	padding: 10px;
+	background: #fff;
+}
+.flex-box {
+	display: flex;
+}
+.content-detail.block-box {
+	display:block;
+	height: auto;
 }
 .content-detail {
-	width: 100%;
 	display: flex;
-	height: 30px;
-	line-height: 30px;
+	width: 100%;
+	height: 1.75rem;
+	line-height: 1.75rem;
+	font-size: 0;
+	margin-bottom: 10px;
+}
+.content-detail.col-half {
+	width: 50%;
+}
+.content-detail.col-more {
+	width: 55%;
+}
+.content-detail.col-less {
+	width: 45%;
 }
 .content-detail label {
-	width: 100px;
-	height: 30px;
-	line-height: 30px;
+	width: 25px;
+}
+.content-detail.col-less .content-input {
+	margin-left: -25px;
+	padding-left: 25px;
+}
+.content-detail > * {
+	font-size: 0.8rem;
+}
+.content-detail label {
+	display: inline-block;
+	width: 4.5rem;
+	height: 1.75rem;
+	line-height: 1.75rem;
+	color: #777;
+	text-align: center;
+}
+.content-detail .content-input {
+	display: inline-block;
+	width: 100%;
+	margin-left: -4.5rem;
+	padding-left: 4.5rem;
+}
+.content-detail .center {
+	text-align: center;
 }
 .content-detail input {
 	display: inline-block;
 	/*margin: 0px!important;*/
 	border-radius: 0px;
-	padding: 5px 10px;
+	padding: 5px;
 	width: 100%;
 	line-height: 0;
-	height: 30px;
+	height: 1.75rem;
+	font-size: 0.8rem;
 }
+.content-detail img {
+	display: block;
+	max-width: 100%;
+}
+
 .limit-width {
 	display: inline-block;
 	width: 50px!important;
 }
 .button-p {
 	text-align: center;
-	position: relative;
+	/*position: relative;*/
 }
 .button-p .mui-icon {
 	margin-left: 5px;
-	font-size: 20px;
+	font-size: 1.25rem;
 	padding-right: 0px;
 	color: #FFFFFF;
 }
@@ -72,3 +132,4 @@
 	display: table-cell;
 	width: 50%;
 }
+

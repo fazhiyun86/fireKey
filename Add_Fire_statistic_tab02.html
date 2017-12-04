@@ -69,7 +69,7 @@
 								
 							</div>-->
 							<div id="certificSend" class="content-wrap">
-								
+								<!--<h5 class="box-category">2017年10月数据</h5>-->  <!--2017/11/28新增，TODO:动态设置 -->
 								<!--<section class="box-item tab-02-item">
 									<p>行政办公区A1工程</p>
 									<div class="tab-02-bottom">
@@ -109,8 +109,8 @@
 				})
 				
 				function getData () {
-					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_FWOrgObject_Statistical?dataKey=00-00-00-00';
-					
+//					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_FWOrgObject_Statistical?dataKey=00-00-00-00';
+					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_FWOrgExamine_Statistical?dataKey=00-00-00-00';
 					var data = {
 						OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
 						StartDate: localStorage.getItem("startTime"),
@@ -123,13 +123,12 @@
 						type:'get',
 						timeout: 5000,            
 						success: function(data){
-							console.log(JSON.stringify(data))
 							plus.nativeUI.closeWaiting();
-							setHtml(data['DataSource']['Tables'][0]['Datas'])
+							data = data['DataSource']['Tables'][0]['Datas'];
+							console.log('动火检查记录列表', JSON.stringify(data))
+							setHtml(data)
 						},
 						error: function(){
-							console.log("数据请求报错！");
-//							plus.nativeUI.closeWaiting(); 
 							mui.toast('数据请求失败')
 						}
 					});
@@ -142,13 +141,13 @@
 						html += '<section class="box-item tab-02-item">\
 								<p>'+ item.OrganiseUnitName+'</p>\
 								<div class="tab-02-bottom">\
-									<span>检查动火点: '+(item.FireCoun|| 0)+'</span>\
-									<span>异常问题: '+(item.AbnormalCount|| 0)+'</span>\
-									<span>处理问题: '+(item.AuditCount|| 0)+'</span>\
+									<span>检查动火点: '+(item.FireCount || 0)+'</span>\
+									<span>动火检查:'+ (item.FireExamineCount || 0) +'</span>\
+									<span>看火检查:'+ (item.WatchExamineCount || 0) +'</span>\
 								</div>\
 							</section>';
 					}
-					document.getElementById("certificSend").innerHTML = html
+					document.getElementById("certificSend").innerHTML = html;
 					plus.nativeUI.closeWaiting();
 				}
 				

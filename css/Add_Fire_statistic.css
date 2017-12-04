@@ -1,15 +1,21 @@
-
+body {
+	background: #fff!important;
+}
 
 .content-wrap {
 	padding: 0px 10px;
-	background-color: #fff;
+	/*background-color: #fff;*/
 }
 /*01tab start*/
 .box-item {
 	border: 1px solid #ccc;
 	padding: 5px;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 	width: 100%;
+	background: #fff;
+}
+.box-item p {
+	font-size: 0.93rem;
 }
 .box-item > h2 {
 	font-size: 1rem;
@@ -24,6 +30,12 @@
 	display: flex;
 }
 .tab-02-bottom span {
-	font-size: 0.69rem;
+	font-size: 0.75rem;
 	flex-grow: 1;
+	color: #777;
+}
+
+.box-category {
+	color: #484848;
+	line-height: 24px;
 }

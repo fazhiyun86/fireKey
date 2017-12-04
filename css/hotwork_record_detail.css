@@ -1,0 +1,129 @@
+body {
+	background: #f5f5f5;
+	color: #666;
+}
+.mui-scroll-wrapper {
+	top: 88px;
+}
+.mui-bar-nav~.mui-content {
+    padding-top: 50px;
+}
+.mui-segmented-control {
+	border: 0;
+	border-radius: 0;
+	font-size: 0.93rem;
+}
+.mui-segmented-control .mui-control-item {
+	background: #fff;
+	color: #666;
+	border: 0;
+}
+.mui-control-item.mui-active {
+	background: #f5f5f5!important;
+	color: #000!important;
+}
+.tab-content {
+	padding: 10px;
+}
+.mui-control-content.mui-active {
+	background: #f5f5f5!important;
+}
+.tab-content .content-wrap {
+	border: 1px solid #ccc;
+	padding: 10px;
+	background: #fff;
+}
+.tab-content .content-wrap:not(:last-child) {
+	margin-bottom: 10px;
+}
+.content-title {
+	line-height: 1.7rem;
+	margin: 0 0 10px 0;
+	border-bottom: 1px solid #ddd;
+	font-size: 0.93rem;
+	color: #101010;
+	text-align: center;
+}
+.hotwork-supervision .content-title {
+	text-align: left;
+}
+.operation-license .content-title {
+	border-bottom: 0;
+}
+/*.content-title + div {
+	margin-bottom: 8px;
+}*/
+.content-row {
+	display: flex;
+	margin-bottom: 8px;
+}
+/*.content-row:last-child {
+	margin-bottom: 0;
+}*/
+.content-box {
+	display: flex;
+	width: 100%;
+	line-height: 1.7rem;
+	font-size: 0;
+}
+.content-box.half-col {
+	width: 50%;
+}
+.content-box.over-half {
+	width: 80%;
+}
+.content-box.more-col {
+	width: 55%;
+}
+.content-box.less-col {
+	width: 45%;
+}
+.content-box.one-third {
+	width: 33.3333%;
+}
+.content-label,
+.content-value {
+	font-size: 0.8rem;
+}
+.content-label {
+	flex: none;/* 0 0 auto*/
+	display: inline-block;
+	width: 4.3rem;
+	text-align: right
+}
+.hotwork-license .content-label {
+	text-align: left;
+}
+.less-col .content-label {
+	width: 2rem;
+}
+.less-col .content-value {
+	margin-left: -2rem;
+	padding-left: 2rem;
+}
+.content-value {
+	width: 100%;
+	margin-left: -4.3rem;
+	padding-left: 4.3rem;
+	color: #101010;
+}
+.content-value .input {
+	width: 100%;
+	height: 1.7rem;
+	padding: 0 0.5rem;
+	border: 1px solid #bbb;
+	color: #101010;
+	font-size: 0.8rem;
+}
+.img-row {
+	margin: 10px -5px 0;
+}
+.img-row .content-box {
+	display: block;
+	height: auto;
+	padding: 0 5px;
+}
+.img-row img{
+	display: block;
+	max-width: 100%;
+}
