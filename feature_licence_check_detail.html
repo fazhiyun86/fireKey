@@ -26,7 +26,7 @@
 							<div class="content-detail">
 								<label for="CertificateCode">证件编号：</label>
 								<div class="content-input">
-									<input id="CertificateCode" type="number" />
+									<input id="CertificateCode" type="text" />
 								</div>
 							</div>
 							<div class="flex-box">
@@ -78,7 +78,7 @@
 							<div class="content-detail">
 								<label for="IDCard">身份证号：</label>
 								<div class="content-input">
-									<input id="IDCard" type="number" />
+									<input id="IDCard" type="text" />
 								</div>
 							</div>
 							<div class="content-detail">
@@ -204,7 +204,7 @@
 				
 				function listener (data) {
 					console.log('证照审核参数', JSON.stringify(data));
-					alert(url);
+//					alert(url);
 					mui.ajax(url, {
 						type: 'post',
 						data: JSON.stringify(data),

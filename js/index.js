@@ -324,6 +324,7 @@ mui.plusReady(function() {
 	document.getElementById("bodyId").addEventListener("swipedown", function() {
 
 	})
+	console.log(JSON.stringify(localStorage))
 
 })
 
