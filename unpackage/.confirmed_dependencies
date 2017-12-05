@@ -262,6 +262,9 @@
 	"Risk_height.html": {
 		"resources": [
 			"css/Risk_height_low.css"
+		],
+		"refer": [
+			"Risk_height_1.html"
 		]
 	},
 	"feature_page_approve.html": {
@@ -405,6 +408,11 @@
 	"Change_Rush_detail_cuiban.html": {
 		"resources": [
 			"css/Change_Rush_detail_cuiban.css"
+		]
+	},
+	"Risk_height_1.html": {
+		"refer": [
+			"Risk_height_2.html"
 		]
 	}
 }
