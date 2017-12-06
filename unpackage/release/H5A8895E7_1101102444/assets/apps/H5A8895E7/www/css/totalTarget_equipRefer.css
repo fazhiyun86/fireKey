@@ -1,0 +1,80 @@
+.smcx{
+	text-align: center;
+	font-size: 1.2rem;
+	margin-top: 30px;
+}
+.scanContent{
+	display: flex;
+	justify-content: space-around;
+}
+.scan{
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	margin-top: 10px;
+}
+.barcode{
+	background: url(../images/scan_qrcode_1_.png);
+	background-size: cover;
+}
+.dbarcode{
+	background: url(../images/scan_qrcode_2_.png);
+	background-size: cover;
+}
+.rfid{
+	background: url(../images/scan_qrcode_3_.png);
+	background-size: cover;
+}
+.scanWord{
+	text-align: center;
+	width: 70px;
+	margin-top: 10px;
+}
+.underline{
+	border-bottom: 1px solid #ddd;
+	width: 92%;
+	margin-left: 4%;
+	margin-top: 15px;
+}
+.referWord{
+	text-align: center;
+	margin-top: 15px;
+	font-size: 1.2rem;
+}
+.demand{
+	width: 100%;
+	height: 25px;
+	margin-top: 15px;
+}
+.equipNum{
+	float: left;
+	margin-left:9%;
+	font-size: 1.1rem;
+	line-height: 25px;
+}
+.equipContent{
+	float: left;
+	margin-left: 10px;
+	width: 70%;
+}
+.equipContent>input{
+	height: 25px;
+	width: 100%;
+	font-size: 1.1rem;
+	padding: 0;
+	padding-left: 10px;
+}
+.demandBtn{
+	clear: both;
+	width: 86.5%;
+	height: 30px;
+	background: #738ffe;
+	border: 1px solid #4e6cef;
+	border-radius: 2px;
+	color: white;
+	font-size: 1.2rem;
+	text-align: center;
+	line-height: 30px;
+	margin-left: 9%;
+	margin-top: 35px;
+}

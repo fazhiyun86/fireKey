@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/Change_Rush_detail_cuiban.css" />
+		<style type="text/css">
+			html{
+				font-family: sans-serif;
+			}
+			p{
+				font-family: sans-serif;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav titBackg">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 id="zgaidx" class="mui-title">首都大酒店A栋</h1>
+		</header>
+		<div id="change_matter" class="mui-content change_matter" style="height: auto; overflow: hidden;">
+			<!--//整改内容-->
+			<!--<div id="changeWrap" class="change_con">
+				//整改位置，编号start
+				<div class="change_con_code">
+					<p id="xq_id">16楼北侧逃生通道堵塞问题整改</p>
+					<span id="xq_code">整改单号：EXAMR201703281488920</span>
+				</div>
+				//整改位置，编号end
+
+				//整改内容通知start
+				<div class="change_con_inform">
+					<h5>整改内容</h5>
+					<div class="change_con_inform_case">
+						<p class="case_p">16楼北侧逃生通知情况：存在异常</p>
+						<p class="case_p">发现堆积有纸箱等杂物，影响通道畅通，存在安全隐患。</p>
+						<p class="case_atta">
+							<a><img src="images/fujian.png" /></a><span>附件</span>
+						</p>
+						<div class="change_con_inform_video">
+							<dl>
+								<dt></dt>
+								<dd>标题</dd>
+							</dl>
+							<dl>
+								<dt></dt>
+								<dd>标题</dd>
+							</dl>
+							<dl>
+								<dt></dt>
+								<dd>标题</dd>
+							</dl>
+							<dl>
+								<dt></dt>
+								<dd>标题</dd>
+							</dl>
+						</div>
+					</div>
+					<p class="case_record">整改期限：2017年8月19日--2017年8月27日</p>
+					<p class="case_record">通知下发：<span>张华标</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下发时间：<span>2017-8-12 24:23:19</span></p>
+					<p class="case_record">通知签收：<span>张华标</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;签收时间：<span>2017-8-12 24:23:19</span></p>
+				</div>
+				//整改内容通知end
+
+				//整改上报start
+				<div class="change_con_report">
+					<h5>整改内容</h5>
+					<div class="change_con_report_case">
+						<p class="case_p">已安排人员进行了清理，目前逃生通道畅通。</p>
+						<div class="case_atta">
+							<a><img src="images/fujian.png" /></a>
+							<span>附件</span>
+						</div>
+						<div class="change_con_report_video">
+							<dl>
+								<dt></dt>
+								<dd>标题</dd>
+							</dl>
+							<dl>
+								<dt></dt>
+								<dd>标题</dd>
+							</dl>
+							<dl>
+								<dt></dt>
+								<dd>标题</dd>
+							</dl>
+							<dl>
+								<dt></dt>
+								<dd>标题</dd>
+							</dl>
+						</div>
+					</div>
+					<p class="case_record">整改期限：<span>2017年8月19日--2017年8月27日</span></p>
+					<p class="case_record">整改登记：<span>张华标</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;登记时间：<span>2017-8-12 24:23:19</span></p>
+					<p class="case_record">整改审核：<span>张华标</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;审核时间：<span>2017-8-12 24:23:19</span></p>
+					<legend>审核意见：</legend>
+					<input type="text" id="" value="按要求整改完成，请消防主管验收" />
+					<div class="dv_line"></div>
+					<p class="case_record">整改验收：<span>张华标</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;验收时间：<span>2017-8-12 24:23:19</span></p>
+					<p class="case_record">验收结论：<span>通过</span></p>
+					<legend>验收意见：</legend>
+					<input type="text" id="" value="经验收，隐患整改完成，符合安全条件" />
+				</div>
+					//整改内容上报end
+					
+					//备注
+				<div class="change_con_remark">
+					<p>催办时间：<span>2017-8-12 24:23:19</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;东城区消防支队：<span>彭建军</span>
+					</p>
+				</div>-->
+				
+			<!--</div>-->
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			(function(){
+//				var OrganiseUnitID = '';
+				mui.plusReady(function() {
+					var selfView = plus.webview.currentWebview();				
+					ValueID = selfView.Info.orderID;
+					WebApp_RushDetail(ValueID)
+				});
+
+				function WebApp_RushDetail(ValueID){
+	
+					var data = {
+						OrderID: ValueID,
+					}
+					
+					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAMRectifyUrgeDetail?dataKey=00-00-00-00';	
+					mui.ajax(urlg, {
+						data: data,
+						dataType: 'json',
+						type: 'get',
+						timeout: 5000,
+						success: function(data){
+//							console.log(JSON.stringify(data));
+							data = data["DataSource"]["Tables"][0]["Datas"];
+							setHtml(data);							
+						},
+						error: function(){
+							mui.toast('数据请求失败')
+						}
+					});
+
+					function setHtml (data) {
+						var len = data.length;
+						var html = '';
+						for (var i=0; i < len; i++){
+							var item = data[i];
+							var RectifyOrg = data[i]['RectifyOrg'];
+							document.getElementById("zgaidx").innerHTML = RectifyOrg;
+							html += '<div class="change_con_code" id=" item.OrderID " style="height: auto; background: #fff; border:0; padding-bottom:0.2rem;" >\
+									<p id="xq_id" style="font-size:0.9rem;color:#000; line-height:1.5rem;border-bottom: 1px solid #f7f7f7;">'+ item.OrderName +'</p>\
+									<span id="xq_code" style="font-size:0.9rem;color:#000; line-height:1.5rem;">整改单号：'+ item.OrderCode +'</span>\
+								</div>';
+							
+							html += '<div class="change_con_inform" style="height: auto; background: #fff; border:0; padding-bottom:0.2rem;">'+
+								'<h5 style="font-size:0.8rem; color:#494949; line-height:1.5rem; height:auto; padding-top:0.2rem;">整改内容：</h5>'+
+								'<div class="change_con_inform_case">'+
+									'<p class="case_p" style="font-size:0.8rem; color:#acacac; line-height:1.5rem; height:auto;border-bottom: 1px solid #f7f7f7;">'+ item.RectifyContent +'</p>'+
+								'</div>'+
+								'<p class="case_record" style="font-size:0.7rem; line-height:1.3rem; color:#494949;padding-left:0.3rem;border-bottom: 1px solid #f7f7f7;">整改期限：'+ item.TimeExpired +'</p>'+
+								'<p class="case_record" style="font-size:0.7rem; line-height:1.3rem; color:#494949;padding-left:0.3rem;padding-right:0.5rem;"><span>通知下发：'+ item.OrderUser +'</span><span style="width:auto; float:right;">下发时间：'+ item.OrderDate +'</span></p>'+
+							'</div>';
+							
+							html += '<div class="change_con_report" style="height: auto!important;background: #fff; border:0; padding-bottom:0.2rem"">'+
+								'<h5 style="font-size:0.8rem; color:#494949; line-height:1.5rem; height:auto; padding-top:0.2rem;border-bottom: 1px solid #f7f7f7;">审核内容：</h5>'+
+								'<p class="case_record" style="font-size:0.7rem; line-height:1.3rem; color:#494949;border-bottom: 1px solid #f7f7f7; padding-left:0.3rem;"><span>整改审核：'+ item.OrderAuditUser +'</span><span style="width:auto; float:right;padding-right:0.5rem;">审核时间：'+ item.OrderAuditDate +'</span></p>'+
+								'<p class="case_record" style="font-size:0.8rem; line-height:1.3rem; color:#494949;padding-left:0.3rem;">审核意见：'+ item.ProcAuditDescript +'</p>'+
+							'</div>';
+							
+							html += '<div class="change_con_remark">'+
+								'<p style="font-size:0.6rem; padding-left:0rem;"><span style="display:block; width:auto;">催办时间：'+ item.UrgeDate +'</span><span class="danwei" style="display:block; width:auto;float:right;">'+ item.UrgeCompany + ':' + item.UrgeUser +'</span>'+
+								'</p>'+
+								'</div>';
+							
+
+						};
+						document.getElementById("change_matter").innerHTML = html;
+						//催办单位和催办人为空时候  冒号不显示
+						var Company = item.UrgeCompany;
+						var Personal = item.UrgeUser;
+						console.log(Personal);
+						if( Company.length == 0 && Personal.length == 0 ){
+							document.getElementsByClassName("danwei")[0].innerHTML = ''
+						}
+					}
+				}	
+				
+			})();
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,181 @@
+html,body{
+	padding: 0;
+}
+	/*border: 1px solid #E7E7E7;*/	
+.change_matter{
+	padding: 0 0.5rem 0;
+}
+
+/*整改内容*/
+.change_con{
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+
+/*整改位置,编号*/
+.change_con_code{
+	width: 100%;
+	padding-left: 0.5rem;
+	margin-top: 1rem;
+	padding-top: 0.5rem;
+}
+
+/*整改通知inform*/
+.change_con_inform{
+	width: 100%;
+	height: auto;
+	/*margin: 0.2rem 0 0.2rem;*/
+}
+
+/*标题*/
+.change_con_inform h5{ 
+	width: 100%;
+	height: auto;
+	padding-left: 0.5rem;
+}
+
+/*情况*/
+.change_con_inform .case_p{
+	margin-left: 0.5rem;
+}
+
+
+/*整改时间,人物*/
+.change_con_inform .case_record{
+	width: 100%;
+	margin-left: 0.2rem;
+}
+
+
+/*整改报告report*/
+.change_con_report{
+	width: 100%;
+	margin: 0.2rem 0 0.2rem;
+}
+
+/*标题*/
+.change_con_report h5{ 
+	width: 100%;
+	height: auto;
+	padding-left: 0.5rem;
+}
+
+/*情况*/
+.change_con_report .case_p{
+	margin-left: 0.5rem;
+}
+
+
+
+/*整改时间,人物*/
+.change_con_report .case_record{
+	width: 100%;
+	margin-left: 0.2rem;
+}
+
+
+/*备注*/
+.change_con_remark{
+	width: 100%;
+	height: 3rem;
+	margin-top: 1rem;
+}
+
+.change_con_remark p{
+	font-size: 0.75rem;
+	color: #DB4527;
+}
+
+.change_con_remark p>span{
+	display: block;
+	width: 50%;
+	height: auto;
+	float: left;
+	line-height: 1rem;
+}
+
+/*.case_record{
+	width: 100%;
+	margin-left: 0.5rem;
+}
+
+
+.case_record span:first-child{
+	display: block; 
+	width: 50%; 
+	height: auto; 
+	float: left;
+}
+
+.case_record span:last-child{
+	display: block; 
+	height: auto; 
+}*/
+
+
+
+/*附件*/
+/*.change_con_report .case_atta{
+
+	height: 2rem;
+	margin-left: 0.5rem;
+	margin-top: 1rem;
+	padding-right: 0;
+}
+
+.change_con_report .case_atta a{
+	display: block;
+	width: 2rem;
+	height: 2rem;
+	float: left;
+}
+
+.change_con_report .case_atta a img{
+	display: block;
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.change_con_report .case_atta span{
+	display: block;
+	width: 2rem;
+	height: 1.5rem;
+	font-size: 0.9rem;
+	line-height: 1.5rem;
+	float: left;
+}
+
+.change_con_report_video{
+	margin-bottom: 1rem;
+	width: 100%;
+	height: 5rem;
+	padding: 0 0.2rem 0 0;
+	border-bottom: 1px solid #E7E7E7;
+}
+
+.change_con_report_video dl{
+	margin-top: 0;
+	margin-left: 0.5rem;
+	width: 4.5rem;
+	float: left;
+}
+.change_con_report_video dl img{
+	width: 100%;
+	height: 100%;
+}
+
+.change_con_report_video dl dt{
+	width: 100%;
+	height: 3rem;
+	border: 1px solid #FF0000;
+}
+
+.change_con_report_video dl dd{
+	margin-left: 0;
+	text-align: left;
+	width: 100%;
+	font-size: 0.9rem;
+	line-height: 1.15rem;
+	margin-top: 0.2rem;
+}*/

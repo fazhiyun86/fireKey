@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/Risk_height_low.css" />
+		<style>
+			.mui-scroll-wrapper {
+				overflow: auto!important;
+			}
+			
+			.state_content_con_first {
+				text-align: left;
+			}
+			
+			.state_content_con_first span {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			
+			.state_content_con {
+				padding: 0.3rem 0.2rem 0.3rem 1rem;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="mui-off-canvas-wrap mui-draggable">
+		  
+			<div class="mui-inner-wrap">
+				<!-- 主页面标题 -->
+					<p style="padding: 5px 20px;margin-bottom: 5px;">
+
+					</p>
+					<header class="mui-bar mui-bar-nav titBackg" style="z-index: 99999999;">
+						<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+						<h1 class="mui-title">北京城建集团</h1>
+					</header>
+				
+				<div class="mui-content mui-scroll-wrapper">
+					<div id="riskContent" class="mui-scroll">
+						<p class="state_titp">
+							<span id="state_zong">2017年第46周  2017-09-11-2017-09-17</span>
+							<span id="state_diqu"></span>
+							<span id="offCanvasShow" style="display: none;" class="mui-icon mui-icon-list"></span>
+						</p>
+						<div id="riskContentWrap">
+							
+						</div>
+						<!--显示的盒子 start-->
+						<!--<div class="risk_wrap">
+							<div class="risk_item height-2-item">
+								<div>行政办公区A1项目</div>
+								<div class="color-green">消火栓覆盖范围及周边动火点的检查任务(2017091607)</div>
+								<div>任务期限：2017年09月02日-2017年09月09日</div>
+								<div>检查进度: 100%       应检：79      已检：79      异常：1      处理：1</div>
+							</div>
+						</div>-->
+						<!--显示的盒子 end-->
+						 
+					</div>
+				</div>  
+		    </div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/common.js"></script>
+		<script type="text/javascript">
+		(function($){
+			
+			var oneDate = localStorage.getItem("oneDate");
+			var curYear = localStorage.getItem("startTime");
+			var Y = curYear.split('-')
+			document.getElementById("state_zong").innerHTML = Y[0] +'年'+ oneDate;
+
+			setTimeout(function () {
+				go()
+			}, 0)
+			
+			function go () {
+				
+				$(".mui-scroll-wrapper").scroll({
+					bounce: false,//滚动条是否有弹力默认是true
+					indicators: false, //是否显示滚动条,默认是true
+				});
+				
+				mui.plusReady(function() {
+					plus.nativeUI.showWaiting();
+					
+					//设置标题的名字
+					var selfView = plus.webview.currentWebview();
+					var taskID = selfView.info.taskID;
+					
+					getData(taskID)
+					
+				})
+				//获取数据的请求
+				function getData (taskID) {
+					
+					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_ISMTaskList?dataKey=00-00-00-00';
+					
+					var data = {
+						OrganiseUnitID: taskID,
+						StartDate: localStorage.getItem("startTime"),
+						EndDate: localStorage.getItem("endTime"),
+						ProjectType: 2
+					}
+					
+					mui.ajax(url, {
+						data: data,
+						dataType:'json',
+						type:'get',
+						timeout: 5000,            
+						success: function(data){
+						
+							console.log(JSON.stringify(data)) 
+							
+							data = data["DataSource"]["Tables"][0]["Datas"]
+							setHtml(data)
+						},
+						error: function(){
+							console.log("高风险二级数据请求报错！");
+							plus.nativeUI.closeWaiting(); 
+							mui.toast('数据请求失败')
+						}
+					});
+				}
+				// 数据的显示
+				function setHtml (data) {
+					
+					var html = '';
+					for (var i = 0; i < data.length; i++) {
+						var item = data[i];
+						Bratio = item.Ratio - 0;
+						Lratio = Bratio.toFixed(1);
+						Str = Lratio.toString();
+						Str = Str.replace(/\d+\.(\d*)/,"$1");
+						if( Str == 0){
+							Lratio = Bratio.toFixed(0)
+						};
+						Bratio = Lratio + '%';
+						html += '<div class="risk_wrap" data-id="'+ item.TaskID +'" data-task="'+item.TaskName+'" data-pro="'+ item.OrganiseUnitName +'">\
+								<div class="risk_item height-2-item">\
+									<div style="font-size:13px;">'+ item.OrganiseUnitName +'</div>\
+									<div class="'+ setIcon(item.TotalObjectCount,item.ExamObjectCount) +'" style="font-size:13px;">'+ item.TaskName +'</div>\
+									<div>任务期限:'+ item.TaskStartTime +'~'+ item.TaskEndTime +'</div>\
+									<div style=""><span>检查进度:'+ Bratio +'</span><span style="margin-left:0.5rem;">应检:'+item.TotalObjectCount+'</span><span style="margin-left:0.5rem;">已检:'+item.ExamObjectCount+'<span style="margin-left:0.5rem;">异常:'+item.AbNormalObjectCount+'</span><span style="margin-left:0.5rem;">处理:'+item.AuditCount+'</span></div>\
+								</div>\
+							</div>';
+//						var setFontColor = document.getElementsByClassName("setFontColor")[0];
+//							console.log(setFontColor)
+					}
+					if( data.length == 0){
+						mui.toast('没有加载到数据')
+					}
+					
+					document.getElementById('riskContentWrap').innerHTML = html
+	
+					//隐藏加载
+					plus.nativeUI.closeWaiting();
+					
+					function setIcon(noCount,allCount){
+//						Ratio = parseFloat(Ratio)
+
+						var html = '';
+						if(noCount == allCount) {
+							html = 'green-color'
+						}	
+						return html;
+					}
+					
+				}
+			
+				mui('#riskContent').on('tap', '.risk_wrap', function() {
+					
+					var id = this.getAttribute('data-id');
+					var taskName = this.getAttribute('data-task');
+					var projectName = this.getAttribute('data-pro');
+					console.log(id)
+					mui.openWindow({
+						url: 'Risk_height_3.html',
+						id: 'Risk_height_3.html',
+						styles: {
+							top: 0, //新页面顶部位置
+							bottom: 0, //新页面底部位置
+						},
+						extras: {
+							info: {
+								taskID: id,
+								taskName: taskName,
+								projectName: projectName
+							}
+						},
+						show: {
+							duration: '300'
+						},
+						waiting: {
+							autoShow: true, //自动显示等待框，默认为true
+							title: '加载中...', //等待对话框上显示的提示内容
+						}
+					});
+						
+				})	
+			}
+				
+		})(mui);
+		</script>
+	</body>
+</html>

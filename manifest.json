@@ -1960,7 +1960,8 @@
 					"js/searchCode.js"
 				],
 				"refer": [
-					"Add_Fire_statistic_tab02_2.html"
+					"Add_Fire_statistic_tab02_2.html",
+					"Add_Fire_statistic_detail.html"
 				],
 				"priority": 0
 			},
@@ -2138,7 +2139,8 @@
 					"feature_licence_search.html",
 					"feature_licence_check.html",
 					"feature_fire_approve.html",
-					"feature_repair.html"
+					"feature_repair.html",
+					"Change_Rush.html"
 				],
 				"priority": 0
 			},

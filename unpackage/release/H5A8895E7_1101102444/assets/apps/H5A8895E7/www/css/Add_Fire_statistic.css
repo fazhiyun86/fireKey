@@ -1,0 +1,29 @@
+
+
+.content-wrap {
+	padding: 0px 10px;
+	background-color: #fff;
+}
+/*01tab start*/
+.box-item {
+	border: 1px solid #ccc;
+	padding: 5px;
+	margin-bottom: 10px;
+	width: 100%;
+}
+.box-item > h2 {
+	font-size: 1rem;
+}
+/*01tab end*/
+
+/*02tab s*/
+.tab-02-item {
+	padding: 10px;
+}
+.tab-02-bottom {
+	display: flex;
+}
+.tab-02-bottom span {
+	font-size: 0.69rem;
+	flex-grow: 1;
+}

@@ -17,7 +17,8 @@
 			"Add_Fire_statistic.html",
 			"Risk_height_2.html",
 			"Risk_height.html",
-			"Change_Rush.html"
+			"Change_Rush.html",
+			"feature_page_order_01.html"
 		],
 		"resources": [
 			"images/jing.png",
@@ -120,7 +121,8 @@
 			"feature_licence_search.html",
 			"feature_licence_check.html",
 			"feature_fire_approve.html",
-			"feature_repair.html"
+			"feature_repair.html",
+			"Change_Rush.html"
 		]
 	},
 	"Micro_task.html": {
@@ -187,6 +189,9 @@
 	"Add_Fire_statistic_tab02_1.html": {
 		"resources": [
 			"css/Risk_height_low.css"
+		],
+		"refer": [
+			"Add_Fire_statistic_detail.html"
 		]
 	},
 	"feature_page_order.html": {
@@ -413,6 +418,11 @@
 	"Risk_height_1.html": {
 		"refer": [
 			"Risk_height_2.html"
+		]
+	},
+	"feature_page_order_01.html": {
+		"refer": [
+			"Change_Rush_detail.html"
 		]
 	}
 }

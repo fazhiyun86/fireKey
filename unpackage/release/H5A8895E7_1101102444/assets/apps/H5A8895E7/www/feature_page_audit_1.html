@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/feature_page_audit_1.css" />
+		<style type="text/css">
+			.feature{
+				background: url("images/header_base_01.png");
+    			background-size: 100%;
+  				background-repeat: no-repeat;
+			}
+			
+			.feature a{
+				color: #FFFFFF;
+			}
+			
+			.feature h1{
+				font-size: 1.2rem;
+				color: #FFFFFF;
+			}
+			.titBackg{
+				background: url("images/header_base_01.png");
+    			background-size: 100%;
+  				background-repeat: no-repeat;
+			}
+			
+			.titBackg a, .mui-title{
+				color: #FFFFFF;
+			}
+			
+			.mui-content {
+    			background: #F5F5F5!important;
+			}
+
+			html{
+				font-family: sans-serif;
+			}
+			p{
+				font-family: sans-serif;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav feature">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">整改记录</h1>
+		</header>
+		<div id="change_matter" class="mui-content change_matter" style="background-color:#FFFFFF; height: auto;">
+			
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			(function(){
+				mui.init({
+				    beforeback: function() {
+				　　　　 //获得父页面的webview
+				        var list = plus.webview.currentWebview().opener();
+				　　　　 //触发父页面的自定义事件(refresh),从而进行刷新
+				        mui.fire(list, 'refresh');
+				        //返回true,继续页面关闭逻辑
+				        return true;
+				    }
+				});
+
+				var global_OrderID = '';
+				
+				mui(".mui-scroll-wrapper").scroll({
+					bounce: false,//滚动条是否有弹力默认是true
+					indicators: false, //是否显示滚动条,默认是true
+				});
+					
+				mui.plusReady(function() {
+					var selfView = plus.webview.currentWebview();
+					OrderID = selfView.info.id;
+
+					WebApp_FeatureAuditdetail(OrderID)	  				
+				})
+				
+				function WebApp_FeatureAuditdetail(OrderID){
+					
+					var data = {
+						OrderID: OrderID
+					}
+					console.log(data.OrderID)
+					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAM_RectifyTaskDetail?dataKey=00-00-00-00';	
+					
+					console.log(urlg)
+					mui.ajax(urlg, {
+						data: data,
+						dataType: 'json',
+						type: 'get',
+						timeout: 5000,
+						success: function(data){
+							console.log(JSON.stringify(data))
+							data = data["DataSource"]["Tables"][0]["Datas"]
+							setHtml(data);
+							mui.toast('数据请求成功')
+							
+						},						
+						error: function(){
+							mui.toast('数据请求失败')
+						}
+					});
+				};
+
+				function setHtml(data) {
+					var len = data.length;
+					var html = '';
+					for (var i=0; i < len; i++){
+					global_OrderID = data[i].OrderID
+					var item = data[i];
+//					var RectifyOrg = data[i]['RectifyOrg'];
+//					document.getElementById("zgaidx").innerHTML = RectifyOrg;
+						html += '<div class="change_con">' +
+							'<div class="change_con_code" style="background: #fff; border:0; padding-bottom:0.3rem;border-bottom:0!impotant;">' +
+								'<p style="font-size:0.9rem;color:#000; line-height:1.5rem;border-bottom: 1px solid #f7f7f7;">'+ item.OrderName +'</p>' +
+								'<p style="font-size:0.9rem;color:#000; line-height:1.5rem; border-bottom:0!impotant;">整改单号：'+ item.OrderCode +'</p>' +
+							'</div>' +
+							'<div class="change_con_inform" style="background: #fff; border:0; height:8rem; margin-bottom:0.3rem;">' +
+								'<h5 style="font-size:0.8rem; line-height:2rem;background:#fff;padding-top:0.3rem;">整改内容：</h5>' +
+								'<p class="case_p" style="color:#ACACB4;border-bottom: 1px solid #f7f7f7;">'+ item.RectifyContent +'</p>' +
+								'<p class="case_record" style="height:auto; line-height:2rem!important; font-size:0.7rem!important;">整改期限：'+ item.TimeExpired +'</p>' +
+								'<p class="case_record" style="height:auto;width:100%; background:#fff; border-bottom: 1px solid #f7f7f7;overflow: hidden;">'+
+									'<span style="width:auto; display:block; float:left; line-height:2rem!important; font-size:0.7rem!important;">通知下发：'+ item.OrderUser +'</span>'+
+									'<span style="width:auto; display:block; float:right; line-height:2rem!important; font-size:0.7rem!important;">下发时间：'+ item.OrderDate +'</span>'+
+								'</p>' +
+							'</div>' +
+							
+							'<div class="change_con_report" style="background:#fff; border:0; margin-top:2rem;">' +
+								'<h5 style="font-size:0.8rem;background:#fff; border-bottom:1px solid #f7f7f7;padding-top:0.3rem;">整改意见：</h5>' +
+								'<p class="case_record" style="background:#ffffff; height:2rem;"><span class="case_record_sp" style="width:auto; display:block; float:left; line-height:2rem!important; font-size:0.7rem!important;"> 审核人 ：</span><span class="case_record_sp" style="width:auto; display:block; float:right; line-height:2rem!important; font-size:0.7rem!important;">审核时间：</span></p>' +
+							'</div>' +
+							
+							'<div class="change_con_audit" style="background:#fff; border:0;margin-top:0rem;font-size:0.8rem;background:#fff;padding-top:0.3rem;">' +
+								'<legend style="font-size:0.8rem; color:#494949;margiin-right:2rem;">整改审核结论：</legend>' +
+								'<p style="margin-left:6rem;"><input class="radio" checked type="radio" name="choose" value="通过">通过</p>' +
+								'<p><input class="radio" type="radio" name="choose" value="未通过">未通过</p>' +
+								'<textarea id="textval" name="txt" clos="100" rows="3" warp="virtual" placeholder="审核意见" value=""></textarea>' +
+							'<button id="btn"><span class="btn_sub">审核确认</span></button>' +
+							'</div>' +
+					
+							'</div>';
+					}
+					
+//					console.log(html)
+					document.getElementById("change_matter").innerHTML = html;
+				}
+				
+				function suBmit(){
+					var data = getValue();
+					
+					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/SendData/TZDH_WebApp_EXAM_ExamineRectify_AuditOne?dataKey=00-00-00-00';
+					
+					mui.ajax(urlg, {
+						data:data,
+						dataType:'json',
+						type:'post',
+						timeout:5000,
+						headers:{'Content-Type':'application/json'},
+						success:function(data) {
+							console.log(JSON.stringify(data))
+							mui.toast('提交成功')
+							mui.back();
+						},
+						error: function(){
+							mui.toast('请求失败')
+						}
+					});
+				}
+	
+				function getValue () {
+					var data = {}
+
+					data.OrderID = global_OrderID;
+					data.ProcAuditDescript = $('#textval').val();
+					data.RectifyStatus = getRadioRes('radio');
+					data.ModifiedBy = localStorage.getItem('userCodeVa');
+					data.RectifyResult = resultVal();
+					
+					return JSON.stringify(data);
+				};
+
+				
+				function getVals(){
+				    var res = getRadioRes('rds');
+				    if(res == null){mui.toast('请选择'); return;}
+				    mui.toast(res);
+				};
+				function getRadioRes(className){
+				    var rdsObj = document.getElementsByClassName(className);
+				    var checkVal = null;
+				    for(i = 0; i < rdsObj.length; i++){
+				        if(rdsObj[i].checked){
+				        	if( rdsObj[i].value == '通过'){
+				        		checkVal = 9
+				        	}else if( rdsObj[i].value == '未通过'){
+				        		checkVal = 10
+				        	}
+				        }
+				    }
+				    return checkVal;
+				};
+				
+				function resultVal(){
+					
+					var RectifyResult = null;
+					
+					getRadioRes('radio');
+					
+					if( getRadioRes('radio') == 9 ){
+						RectifyResult = 1
+					}else if( getRadioRes('radio') == 10 ){
+						RectifyResult = -1
+					}
+					return RectifyResult;
+				};
+				
+				//	校验
+				function judgment(){
+					//审批意见
+					var DescriptValue =  $('#textval').val();
+					if( DescriptValue == '' ){
+						mui.toast('审核意见不能为空');
+						return
+					}else{
+						ProcAuditDescript = DescriptValue;
+					};
+					var btnArray = ['确认', '取消'];
+					mui.confirm('您确认此次整改已通过审核？', '提示', btnArray, function(e) {
+						if (e.index == 0) {
+							suBmit();
+						}
+					})
+				};
+				
+	  			mui("#change_matter").on('tap', '.btn_sub', function(e) {
+	  				judgment();
+          		});
+			})();
+		</script>
+	</body>
+
+</html>
