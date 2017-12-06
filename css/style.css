@@ -2,6 +2,10 @@
 	font-family: '11438';
 	src: url('11438.ttf');
 }
+@font-face {
+	font-family: 'FpcNumberFont';
+	src: url('../fonts/fpc-font.ttf');
+}
 
 .fontFace {
 	font-family: "microsoft yahei"!important;
