@@ -125,7 +125,7 @@
 						success: function(data){
 							plus.nativeUI.closeWaiting();
 							data = data['DataSource']['Tables'][0]['Datas'];
-							console.log('动火检查记录列表', JSON.stringify(data))
+							console.log('动火检查记录列表--' + JSON.stringify(data))
 							setHtml(data)
 						},
 						error: function(){
@@ -138,7 +138,7 @@
 					var html = '';
 					for (var i = 0; i < data.length; i++) {
 						var item = data[i];
-						html += '<section class="box-item tab-02-item">\
+						html += '<section class="box-item tab-02-item" data-OrganiseUnitID="'+ item.OrganiseUnitID +'">\
 								<p>'+ item.OrganiseUnitName+'</p>\
 								<div class="tab-02-bottom">\
 									<span>检查动火点: '+(item.FireCount || 0)+'</span>\
@@ -152,7 +152,7 @@
 				}
 				
 				mui('#certificSend').on('tap', '.tab-02-item', function() {
-			
+					var OrganiseUnitID = this.getAttribute('data-OrganiseUnitID');
 					mui.openWindow({
 						url: 'Add_Fire_statistic_tab02_1.html',
 						id: 'Add_Fire_statistic_tab02_1.html',
@@ -161,7 +161,7 @@
 							bottom: 0, //新页面底部位置
 						},
 						extras: {
-							taskID: 'id'
+							OrganiseUnitID: OrganiseUnitID
 						},
 						show: {
 							duration: '300'

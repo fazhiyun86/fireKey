@@ -122,24 +122,24 @@
 					
 					//设置标题的名字
 					var selfView = plus.webview.currentWebview();
-					var taskID = selfView.taskID;
+					var OrganiseUnitID = selfView.OrganiseUnitID;
 					
-					getData(taskID)
+					getData(OrganiseUnitID)
 					
 				})
 				//获取数据的请求
-				function getData (taskID) {
+				function getData (OrganiseUnitID) {
 					
 //					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_FWTaskList?dataKey=00-00-00-00';
 					
 					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_GetFireWorkPermitListByProject_Client_IIS?dataKey=00-00-00-00';
 					
 					var data = {
-						OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
+						OrganiseUnitID: OrganiseUnitID,
 						StartDate: localStorage.getItem("startTime"),
 						EndDate: localStorage.getItem("endTime")
 					}
-					
+	
 					mui.ajax(url, {
 						data: data,
 						dataType:'json',
@@ -148,7 +148,8 @@
 						success: function(data){
 							plus.nativeUI.closeWaiting();
 							data = data["DataSource"]["Tables"][0]["Datas"];
-							console.log('动火统计二级数据列表', JSON.stringify(data));
+							console.log('动火统计二级数据列表---'+ JSON.stringify(data));
+							
 							setHtml(data);
 						},
 						error: function(){
