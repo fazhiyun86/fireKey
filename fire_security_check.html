@@ -51,7 +51,7 @@
 					<div class="mui-scroll">
 						<div class="content-wrap">
 							<div class="list-desc">
-								<div class="list-organise">北京城建集团<span class="mui-icon mui-icon-arrowdown"></span></div>
+								<div class="list-organise"><span id="organiseUnit">...</span><span class="mui-icon mui-icon-arrowdown"></span></div>
 								<div class="list-legend">
 									<div class="legend"><i class="iconfont icon-shijian onprocess"></i>正在进行</div>
 									<div class="legend"><i class="iconfont icon-iconshandianfahuo overdue"></i>任务逾期</div>
@@ -65,12 +65,12 @@
 									<p>任务期限：2017年8月2号 - 2017年8月9号</p>
 									<p>任务进度：86.5%  应检：219 已检：189 异常：0 整改：0</p>
 								</div>
-								<div class="list-item">
+								<!--<div class="list-item">
 									<p class="overdue"><i class="iconfont icon-shijian"></i>消防安全检查</p>
 									<p>检查单位：北京城建集团</p>
 									<p>任务期限：2017年8月2号 - 2017年8月9号</p>
 									<p>任务进度：86.5%  应检：219 已检：189 异常：0 整改：0</p>
-								</div>
+								</div>-->
 							</div>
 						</div>
 					</div>
@@ -81,55 +81,66 @@
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init();
-			var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/';
+			var baseurl = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/';
+			
+			var initUserOrganiseUnitID = localStorage.getItem('UserOrganiseUnitID');
+			var initOrganiseUnitName = localStorage.getItem('UserOrganiseUnitName');
+			
+			document.querySelector('.list-organise').setAttribute('data-ID', initUserOrganiseUnitID);
+			document.querySelector('.list-organise').setAttribute('data-name', initOrganiseUnitName);
+
+			document.getElementById('organiseUnit').innerHTML = initOrganiseUnitName;
 			
 			mui.plusReady(function(){
-				//plus.nativeUI.showWaiting();
-				//getList(localStorage.getItem('UserOrganiseUnitID'));
-				
+				plus.nativeUI.showWaiting();
+				// 初始加载当前登录
+				getList(initUserOrganiseUnitID);
 			});
-			;
-			function getOrganiseList () {
-				var currentOrganiseUnitID = localStorage.getItem('UserOrganiseUnitID');
-				var url = url + 'TZDH_WebApp_GetLastOrgList??dataKey=00-00-00-00';
+			function getOrganiseList (OrganiseUnitID, OrganiseUnitName) {
+				var url = baseurl + 'TZDH_WebApp_GetLastOrgList?dataKey=00-00-00-00';
 				mui.ajax(url, {
-					data: data,
+					data: {
+						OrganiseUnitID: OrganiseUnitID
+					},
 					dataType:'json',
 					type:'get',
 					timeout: 5000,
 					success: function (response) {
 						var data = response.DataSource.Tables[0].Datas;
-						setOrganiseData(data);
+						console.log('单位列表--' + JSON.stringify(data));
+						setOrganiseData(data, OrganiseUnitName);
 					},
 					error: function () {
 						mui.toast('单位列表请求失败')
 					}
 				})
 			}
-			function setOrganiseData (data) {
+			function setOrganiseData (data, OrganiseUnitName) {
 				var html = '';
 				for (var i = 0; i < data.length; i++) {
-					html += ''
+					var item = data[i];
+					html += '<li class="mui-table-view-cell mui-collapse">'+
+								'<a class="mui-navigate-right" href="#">'+
+									'<div>'+ item.OrganiseUnitName +'</div>'+
+									'<div class="light-color">'+ OrganiseUnitName +'</div>'+
+								'</a>'+
+								'<div class="mui-collapse-content">'+
+									'<div class="building">东区-1号楼</div>'+
+									'<div class="building">东区-2号楼</div>'+
+									'<div class="building">东区-3号楼</div>'+
+								'</div>'+
+							'</li>';
 				}
-					/*<li class="mui-table-view-cell mui-collapse">
-									<a class="mui-navigate-right" href="#">
-										<div>行政办公区A1工程</div>
-										<div class="light-color">北京城建集团</div>
-									</a>
-									<div class="mui-collapse-content">
-										<div class="building">东区-1号楼</div>
-										<div class="building">东区-2号楼</div>
-										<div class="building">东区-3号楼</div>
-									</div>
-								</li>*/
+				document.getElementById('region').innerHTML = html;
 			}
 			function getList (OrganiseUnitID) {
 				var data = {
 					OrganiseUnitID : OrganiseUnitID,
-					startDate : localStorage.getItem('startTime'),
-					endDate : localStorage.getItem('endTime')
+					StartDate : localStorage.getItem('startTime'),
+					EndDate : localStorage.getItem('endTime')
 				}
-				var url = url + 'TZDH_WebApp_EXAMList?dataKey=00-00-00-00';
+				var url = baseurl + 'TZDH_WebApp_EXAMList?dataKey=00-00-00-00';
+				
 				mui.ajax(url, {
 					data: data,
 					dataType:'json',
@@ -141,6 +152,7 @@
 						setData(data);
 					},
 					error: function () {
+						alert(JSON.stringify(arguments))
 						mui.toast('检查列表请求失败')
 					}
 				})	
@@ -182,6 +194,17 @@
 					}
 				})
 			});
+			mui('.list-desc').on('tap', '.list-organise', function() {
+				var OrganiseUnitID = this.getAttribute('data-ID');
+				var OrganiseUnitName = this.getAttribute('data-name');
+				//alert(OrganiseUnitID);
+				getOrganiseList(OrganiseUnitID, OrganiseUnitName);
+				mui('.mui-off-canvas-wrap').offCanvas('show');
+			});
+			/*mui('#region').on('tap', function(){
+				//var 
+			});*/
+			mui('.mui-scroll-wrapper').scroll();
 		</script>
 	</body>
 </html>

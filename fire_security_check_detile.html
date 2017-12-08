@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>通州城市副中心建设</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/fire_security_check_detile.css" />
+	</head>
+
+	<body>
+		<!--<div class="offCanvasConClass">
+			<div class="tit_text">
+				<span class="zdd">消防安全检查</span>
+			</div>
+			<font class="mui-icon mui-icon-left-nav"></font>
+		</div>-->
+		<!-- 主页面标题 -->
+		<header class="mui-bar mui-bar-nav titBackg">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">消防安全检查</h1>
+		</header>
+		<div class="conbody listde">
+			<ul>
+				<li><span id="checkName">东区-1号楼-4层-材料间100</span></li>
+				<li>
+					<span class="font10">灭火器</span>
+					<i>无缺失</i>
+				</li>
+				<li>
+					<span class="font10">消防栓</span>
+					<i>正常</i>
+				</li>
+				<li>
+					<span class="font10">喷淋系统</span>
+					<i>正常</i>
+				</li>
+				<li>
+					<span class="font10">应急指示灯</span>
+					<i>正常</i>
+				</li>
+				<li>
+					<span class="font10">消防门</span>
+					<i>正常</i>
+				</li>
+				<li class="lip">
+					<p class="font10">
+						<span id="checkUser">检查人：赵阳</span>
+						<i id="checkTime">检查时间:2017-12-8 18:46:29</i>
+					</p>
+					<p class="font10" id="checkType">检查方式：扫码</p>
+				</li>
+			</ul>
+		</div>
+		<div class="conbody">
+			<div class="tit">
+				<img src="images/imgLIc.jpg" />
+				<!--	<font class="mui-icon mui-icon-arrowdown"></font>-->
+				<span>图片附件</span>
+			</div>
+			<div class="imgde">
+				<ul id="imgShow">
+					<li>
+						<img src="images/imgimg.png" />
+						<span>14:24:21</span>
+						<p>消防门</p>
+					</li>
+					<li>
+						<img src="images/imgimg.png" />
+						<span>14:24:21</span>
+						<p>消防门</p>
+					</li>
+					<li>
+						<img src="images/imgimg.png" />
+						<span>14:24:21</span>
+						<p>消防门</p>
+					</li>
+					<li>
+						<img src="images/imgimg.png" />
+						<span>14:24:21</span>
+						<p>消防门</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				var selfView = plus.webview.currentWebview();
+				var TaskItemID = selfView.TaskItemID;
+				var data = {
+					TaskItemID: TaskItemID
+				}; 
+				
+				var baseurl = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/';
+				var url = baseurl+'TZDH_WebApp_EXAMItemDetail?dataKey=00-00-00-00';
+				
+				mui.ajax(url, {
+					type: 'get',
+					dataType: 'json',
+					data: data,
+					success: function(response) {
+						plus.nativeUI.closeWaiting();
+						var data = response.DataSource.Tables[0].Datas;
+//						console.log('证照审核-详情', JSON.stringify(data));
+						setValue(data);
+					},
+					error: function() {
+						mui.toast('详情获取失败');
+					}
+				});
+				
+				function setValue(data) {
+					if(!data) {
+						document.getElementById('checkName').value = data.TaskName;				//检查
+						document.getElementById('checkUser').value = '检查人：'+data.ExamUser;
+						document.getElementById('checkTime').value = '检查时间：'+data.ExamTime;
+	//					document.getElementById('checkType').value = '检查方式：'+data.ExamTime;	//缺少检查方式
+						var imgTitle = data.Title;
+						var imgUrl = data.Url;
+						
+						//图片列表
+						var text = '';
+						for(var a=0;a<imgTitle.length; a++) {
+							var theUrl = imgUrl[a];
+							var theTitle = imgTitle[a];
+							text += '<li><img src="'+theUrl+'" /><p>'+theTitle+'</p></li>';
+						}
+						document.getElementById('imgShow').innerHTML = text;
+					}
+					
+				}
+			});
+		</script>
+	</body>
+
+</html>
