@@ -2387,12 +2387,17 @@
 			},
 			"fire_security_check_list.html": {
 				"resources": [
+<<<<<<< HEAD
+=======
 					"js/feature_common.js",
+>>>>>>> Mar
 					"css/mui.min.css",
 					"css/style.css"
 				],
 				"refer": [],
 				"priority": 0
+<<<<<<< HEAD
+=======
 			},
 			"fire_security_check.html": {
 				"resources": [
@@ -2404,6 +2409,7 @@
 					"fire_security_check_list.html"
 				],
 				"priority": 0
+>>>>>>> Mar
 			}
 		},
 		"idle": {
