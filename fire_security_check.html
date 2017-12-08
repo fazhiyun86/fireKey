@@ -84,7 +84,7 @@
 			var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/';
 			
 			mui.plusReady(function(){
-				plus.nativeUI.showWaiting(0);
+				//plus.nativeUI.showWaiting();
 				//getList(localStorage.getItem('UserOrganiseUnitID'));
 				
 			});
@@ -146,6 +146,7 @@
 				})	
 			}
 			function setData(data){
+				plus.nativeUI.closeWaiting();
 				var html = '';
 				for(var i = 0; i < data.length; i++) {
 					var item = data[i];
