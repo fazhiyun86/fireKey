@@ -1,1 +1,129 @@
-null
+{
+	"main.html": {
+		"resources": [
+			"fonts/mui-icons-extra.ttf",
+			"css/icons-extra.css",
+			"iconfont.css",
+			"index.html",
+			"js/area.js"
+		],
+		"refer": [
+			"totalTarget_email.html",
+			"index.html",
+			"Password_edit.html",
+			"feature_page.html",
+			"Micro_task.html"
+		]
+	},
+	"login.html": {
+		"resources": [
+			"images/systemImg1.png",
+			"js/jquery.min.js",
+			"css/login.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"js/login.js",
+			"css/mui.min.css",
+			"images/personal.png",
+			"images/password.png"
+		],
+		"refer": [
+			"main.html"
+		]
+	},
+	"Micro_task_1.html": {
+		"resources": [
+			"js/Micro_task_1.js"
+		]
+	},
+	"totalTarget_email.html": {
+		"resources": [
+			"css/totalTarget-email.css",
+			"css/base.css",
+			"css/mui.min.css",
+			"images/header_base_01.png"
+		]
+	},
+	"index.html": {
+		"resources": [
+			"images/jing.png",
+			"js/common.js",
+			"images/icon_xiaohuoshuanzhuangtai.png",
+			"images/cuiban.png",
+			"images/icon_yinhuanzhenggai.png",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/radialIndicator.js",
+			"images/icon_donghuo.png",
+			"images/login_01_01.png",
+			"js/index.js"
+		],
+		"refer": [
+			"fire_security_check.html"
+		]
+	},
+	"Micro_task_3.html": {
+		"resources": [
+			"js/mui.picker.min.js",
+			"images/arrow_2.png",
+			"js/Uuid.js",
+			"css/mui.picker.min.css",
+			"images/fenlei.png",
+			"js/Micro_task_3.js"
+		]
+	},
+	"feature_page.html": {
+		"resources": [
+			"css/feature_page.css",
+			"images/weixiushenpi.png",
+			"images/zhenggaishenpi.png",
+			"css/mui.min.css",
+			"images/header_base_01.png",
+			"images/zhenggaixiadan.png"
+		]
+	},
+	"Password_edit.html": {
+		"resources": [
+			"css/mui.min.css",
+			"css/style.css",
+			"images/user-photo.png"
+		]
+	},
+	"Micro_task.html": {
+		"resources": [
+			"Micro_task_1.html",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"css/style.css",
+			"css/iconfont.woff",
+			"images/header_base_01.png"
+		],
+		"refer": [
+			"Micro_task_1.html",
+			"Micro_task_3.html",
+			"Micro_task_2.html"
+		]
+	},
+	"Micro_task_2.html": {
+		"resources": [
+			"js/Micro_task_2.js"
+		]
+	},
+	"fire_security_check_list.html": {
+		"resources": [
+			"js/feature_common.js",
+			"css/mui.min.css",
+			"css/style.css"
+		]
+	},
+	"fire_security_check.html": {
+		"resources": [
+			"css/fire_security_check.css",
+			"css/mui.min.css",
+			"css/style.css"
+		],
+		"refer": [
+			"fire_security_check_list.html"
+		]
+	}
+}

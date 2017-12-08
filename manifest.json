@@ -2384,6 +2384,14 @@
 				],
 				"refer": [],
 				"priority": 0
+			},
+			"fire_security_check_list.html": {
+				"resources": [
+					"css/mui.min.css",
+					"css/style.css"
+				],
+				"refer": [],
+				"priority": 0
 			}
 		},
 		"idle": {
