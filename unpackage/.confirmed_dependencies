@@ -10,6 +10,9 @@
 			"css/iconfont.css",
 			"css/mui.min.css",
 			"css/style.css"
+		],
+		"refer": [
+			"Add_Fire_statistic_tab01_1.html"
 		]
 	},
 	"index.html": {
@@ -423,6 +426,11 @@
 	"feature_page_order_01.html": {
 		"refer": [
 			"Change_Rush_detail.html"
+		]
+	},
+	"Add_Fire_statistic_tab01_1.html": {
+		"refer": [
+			"Add_Fire_statistic_tab01_2.html"
 		]
 	}
 }

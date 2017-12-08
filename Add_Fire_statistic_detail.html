@@ -568,12 +568,10 @@
 					plus.nativeUI.showWaiting();
 					var currWebview = plus.webview.currentWebview();
 					var PermitID = currWebview.info.PermitID;
-					var RegisterID = currWebview.info.RegisterID;
 					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/';
 					
 					getFireWork();
-					getCertificate();
-					//动火证、动火检查、看火检查
+					//动火证、动火检查、看火检查、操作证照
 					function getFireWork(){
 						var fireworkUrl = url + 'FW_GetFireWorkExamineDetail_Client_IIS?dataKey=00-00-00-00';
 					
@@ -600,6 +598,7 @@
 						}
 						function setPermitData(permitData) {
 							permitData = permitData[0];
+							console.log('动火证--'+JSON.stringify(permitData))
 							var fields = ['ProjectCompanyName', 'ApplyCompanyName', 'FireWorkRegion', 'FirePositions', 'FireApparatus', 'JobLevel', 'JobType', 'ProjectName', 'SupervisionUserName', 'StartTime', 'EndTime', 'ApplyUserName', 'ApplyTime', 'ApplyUnitManagerName', 'AuditTime', 'AuditDescript'];
 							for(var i = 0; i < fields.length; i++) {
 								var field = fields[i];
@@ -611,6 +610,9 @@
 								var id = 'permit.' + field;
 								document.getElementById(id).innerHTML = value;
 							}
+							
+							//设置操作证照
+							getCertificate(permitData.RegisterID);
 						}
 						function setTaskItem(taskBasic, taskItems) {
 							console.log(JSON.stringify(taskBasic));
@@ -749,7 +751,7 @@
 					}
 					
 					//操作证照
-					function getCertificate () {
+					function getCertificate (RegisterID) {
 						var licenseUrl = url + 'FW_GetFireCertificateDetail_Client_IIS?dataKey=00-00-00-00';
 						mui.ajax(licenseUrl, {
 							type: 'get',
