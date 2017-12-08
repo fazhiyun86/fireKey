@@ -38,6 +38,11 @@
 .lighter-color {
 	color: #999;
 }
+.fire-security-check,
+.fire-security-check p {
+	font-size: 0.75rem;
+	margin: 0;
+}
 .fire-security-check .mui-navigate-right {
 	line-height: 1rem;
 }
@@ -61,19 +66,53 @@
 .content-wrap {
 	padding: 10px;
 }
+.list-organise .mui-icon {
+	margin-left: 5px;
+	color: #333;
+}
 .list-legend {
 	display: flex;
 	align-items: center;
+	margin-left: auto;
 }
 .legend {
 	width: 30%;
+	margin-left: 5px;
+	white-space: nowrap;
 }
 .onprocess {
-	color: #3F51B5;
+	/*color: #3F51B5;*/
+	color: #008FD1;
 }
 .overdue {
-	color: #FF4081;
+	/*color: #FF4081;*/
+	color: #e51c23;
 }
 .complete {
-	color: #8EC21F;
+	/*color: #8EC21F;*/
+	color: #8bc34a;
+}
+.list-desc {
+	display: flex;
+	align-items: center;
+	margin-bottom: 5px;
+}
+
+.list-desc .iconfont {
+	font-size: 0.9rem;
+}
+
+.list-wrap .list-item {
+	background: #fff;
+	padding: 10px;
+	border: 1px solid #ccc;
+	margin-bottom: 5px;
+}
+.list-wrap .list-item:last-child {
+	margin-bottom: 0;
+}
+
+.list-item i.iconfont {
+	vertical-align: -2px;
+	margin-right: 3px;
 }

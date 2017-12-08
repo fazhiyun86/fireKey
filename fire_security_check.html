@@ -7,6 +7,7 @@
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/fire_security_check.css" />
+		<link rel="stylesheet" href="css/iconfont.css" />
 	</head>
 	<body class="fire-security-check">
 		<!-- 侧滑导航根容器 -->
@@ -52,14 +53,23 @@
 							<div class="list-desc">
 								<div class="list-organise">北京城建集团<span class="mui-icon mui-icon-arrowdown"></span></div>
 								<div class="list-legend">
-									<div class="legend onprocess"><i class="iconfont icon-shijian "></i>正在进行</div>
-									<div class="legend overdue"><i class="iconfont icon-iconshandianfahuo "></i>任务逾期</div>
-									<div class="legend complete"><i class="iconfont icon-duigou-copy "></i>任务完成</div>
+									<div class="legend"><i class="iconfont icon-shijian onprocess"></i>正在进行</div>
+									<div class="legend"><i class="iconfont icon-iconshandianfahuo overdue"></i>任务逾期</div>
+									<div class="legend"><i class="iconfont icon-duigou-copy complete"></i>任务完成</div>
 								</div>
 							</div>
-							<div class="list-wrap">
+							<div class="list-wrap" id="listContent">
 								<div class="list-item">
-									
+									<p class="onprocess"><i class="iconfont icon-shijian"></i>消防安全检查</p>
+									<p>检查单位：北京城建集团</p>
+									<p>任务期限：2017年8月2号 - 2017年8月9号</p>
+									<p>任务进度：86.5%  应检：219 已检：189 异常：0 整改：0</p>
+								</div>
+								<div class="list-item">
+									<p class="overdue"><i class="iconfont icon-shijian"></i>消防安全检查</p>
+									<p>检查单位：北京城建集团</p>
+									<p>任务期限：2017年8月2号 - 2017年8月9号</p>
+									<p>任务进度：86.5%  应检：219 已检：189 异常：0 整改：0</p>
 								</div>
 							</div>
 						</div>
@@ -70,7 +80,105 @@
 		
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init();
+			var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/';
+			
+			mui.plusReady(function(){
+				plus.nativeUI.showWaiting(0);
+				getList(localStorage.getItem('UserOrganiseUnitID'));
+				
+			});
+			;
+			function getOrganiseList () {
+				var currentOrganiseUnitID = localStorage.getItem('UserOrganiseUnitID');
+				var url = url + 'TZDH_WebApp_GetLastOrgList??dataKey=00-00-00-00';
+				mui.ajax(url, {
+					data: data,
+					dataType:'json',
+					type:'get',
+					timeout: 5000,
+					success: function (response) {
+						var data = response.DataSource.Tables[0].Datas;
+						setOrganiseData(data);
+					},
+					error: function () {
+						mui.toast('单位列表请求失败')
+					}
+				})
+			}
+			function setOrganiseData (data) {
+				var html = '';
+				for (var i = 0; i < data.length; i++) {
+					html += ''
+				}
+					/*<li class="mui-table-view-cell mui-collapse">
+									<a class="mui-navigate-right" href="#">
+										<div>行政办公区A1工程</div>
+										<div class="light-color">北京城建集团</div>
+									</a>
+									<div class="mui-collapse-content">
+										<div class="building">东区-1号楼</div>
+										<div class="building">东区-2号楼</div>
+										<div class="building">东区-3号楼</div>
+									</div>
+								</li>*/
+			}
+			function getList (OrganiseUnitID) {
+				var data = {
+					OrganiseUnitID : OrganiseUnitID,
+					startDate : localStorage.getItem('startTime'),
+					endDate : localStorage.getItem('endTime')
+				}
+				var url = url + 'TZDH_WebApp_EXAMList?dataKey=00-00-00-00';
+				mui.ajax(url, {
+					data: data,
+					dataType:'json',
+					type:'get',
+					timeout: 5000,
+					success: function (response) {
+						var data = response.DataSource.Tables[0].Datas;
+						console.log('消防安全检查一级列表--'+ JSON.stringify(data));
+						setData(data);
+					},
+					error: function () {
+						mui.toast('检查列表请求失败')
+					}
+				})	
+			}
+			function setData(data){
+				var html = '';
+				for(var i = 0; i < data.length; i++) {
+					var item = data[i];
+					html += '<div class="list-item" data-taskID='+ item.TaskID +'>' +
+						'<p class="onprocess"><i class="iconfont icon-shijian"></i>消防安全检查</p>'+
+						'<p>检查单位：'+ item.OrganiseUnitName +'</p>'+
+						'<p>任务期限：2017年8月2号 - 2017年8月9号</p>'+
+						'<p>任务进度：'+ item.Ratio +'  应检：'+ item.TotalItemCount +' 已检：'+ item.ExamItemCount +' 异常：'+ item.AbnormalItemCount +' 整改：'+ item.SolveCount +'</p>'+
+					'</div>';
+				}
+				document.getElementById('listContent').innerHTML = html;
+			}
+			mui('#listContent').on('tap', '.list-item', function() {
+				var TaskID = this.getAttribute('data-taskID');
+				mui.openWindow({
+					url: 'fire_security_check_list.html',
+					id: 'fire_security_check_list.html',
+					styles: {
+						top: 0, //新页面顶部位置
+						bottom: 0, //新页面底部位置
+					},
+					extras: {
+						TaskID: TaskID
+					},
+					show: {
+						duration: '300'
+					},
+					waiting: {
+						autoShow: true, 
+						title: '加载中...'
+					}
+				})
+			});
 		</script>
 	</body>
 </html>
