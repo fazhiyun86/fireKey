@@ -100,12 +100,18 @@
 					}
 				}
 			});*/
+			var TASK_ID;
 			mui.plusReady(function(){
 				
 				var selfView = plus.webview.currentWebview();
 				
-				console.log(JSON.stringify(selfView))
+				TASK_ID = selfView.taskID;
 				
+				var name = selfView.OrganiseUnitName;
+
+				document.getElementById('projectName').innerHTML = name;
+				
+				// 接口没有问题的时候放开下面的注释
 //				getListData();
 			});
 			mui(".mui-scroll-wrapper").scroll();
@@ -118,7 +124,7 @@
 			function getListData() {
 				var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAMItemList?dataKey=00-00-00-00';
 				var data = {
-					TaskID: ''
+					TaskID: TASK_ID
 				};
 				
 				mui.ajax(url, {
@@ -129,7 +135,7 @@
 						console.log('证照审核列表', JSON.stringify(response));
 						var data = response.DataSource.Tables[0].Datas;
 						
-//						setHtml(data);
+						setHtml(data);
 					},
 					error: function(){
 						mui.toast('获取数据失败');
@@ -147,10 +153,9 @@
 			
 			function setHtml(data) {
 				var wrapDom = document.getElementById('safecheck');
+				
 				var html = '';
 				//TODO：全部替换or追加数据
-				wrapDom.innerHTML = '';
-				var docFrag = document.createDocumentFragment();
 				if(!data.length) {
 					wrapDom.innerHTML = '<li style="text-align: center">暂无数据</li>';
 					return;
@@ -160,9 +165,7 @@
 					var item = data[i];
 					html += 
 						'<li class="safe-check-item" data-id="'+ item.TaskItemID +'">\
-							<div class="padb5">\
-								<span>'+ item.ItemName +'</span>\
-							</div>\
+							<div class="padb5">'+ changeColor(item) +'</div>\
 							<div class="safe-check-item-bottom">\
 								<span>检查项：'+ item.TotalIndicatorCount +'</span>\
 								<span>异常：'+ item.AbNormalIndicatorCount +'</span>\
@@ -170,26 +173,34 @@
 								<span>'+ item.ExamTime +'</span>\
 							</div>\
 						</li>';
-					
-					docFrag.appendChild(newLi);
 				}
-				wrapDom.appendChild(docFrag);
+				wrapDom.innerHTML = wrapDom.innerHTML + html;
+				
+				// 项目名字颜色的控制
+				function changeColor(item) {
+					var html = '';
+					if(true){
+						html = '<span class="abnormal-color">'+ item.ItemName +'</span>'
+					} else {
+						html = '<span>'+ item.ItemName +'</span>'
+					}
+					return html
+				}
 			}
 			
 			// 下一级页面
 			mui('#safecheck').on('tap', '.safe-check-item', function() {
-//				var RegisterID = ;
+				var RegisterID = this.getAttribute('data-id');
 				
-				return false;
 				mui.openWindow({
-					url: 'feature_licence_check_detail.html',
-					id: 'feature_licence_check_detail.html',
+					url: 'fire_security_check_detile.html',
+					id: 'fire_security_check_detile.html',
 					styles: {
 						top: 0, //新页面顶部位置
 						bottom: 0, //新页面底部位置
 					},
 					extras: {
-						RegisterID: RegisterID
+						TaskItemID: RegisterID
 					},
 					show: {
 						duration: '300'
