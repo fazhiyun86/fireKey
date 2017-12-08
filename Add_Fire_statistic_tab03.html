@@ -161,7 +161,7 @@
 						type:'get',
 						timeout: 5000,            
 						success: function(data){
-							
+							console.log('动火统计饼图---'+ JSON.stringify(data));
 							var info = data;
 							var options = common.pipeChartsDataChange(info)
 							

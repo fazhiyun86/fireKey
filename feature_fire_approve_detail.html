@@ -11,53 +11,6 @@
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" href="css/feature_fire_approve.css" />
-		
-		<style>
-			.mui-card .mui-control-content {
-				padding: 10px;
-			}
-			.mui-control-content {
-				/*height: 150px;*/
-			}
-			.mui-control-item {
-				background-color: transparent!important;
-			}
-			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
-				color: #000000;
-				border: 0 none;
-			}
-			.mui-active {
-				background-color: #fff!important;
-			}
-			.mui-segmented-control .mui-control-item {
-				line-height: 43px;
-			}
-			.fire-content {
-				padding: 10px;
-				background-color: #fff;
-				border: 1px solid #E0E0E0;
-				box-sizing: content-box;
-			}
-			.content-flex {
-				font-size: 14px!important;
-				display: flex;
-				justify-content: flex-start;
-			}
-			.content-table {
-				display: table;
-				width: 100%;
-			}
-			.content-flex .content-flex-tit {
-				/*width: 20%;*/
-			}
-			.content-flex .content-flex-val {
-				/*width: 80%;*/
-			}
-			.content-table-cell {
-				display: table-cell;
-				width: 1%;
-			}
-		</style>
 	</head>
 
 	<body>
@@ -65,186 +18,365 @@
 		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		    <h1 class="mui-title">动火审批</h1>
 		</header>
-		<div class="mui-content">
-			<div>
-				<div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted">
-					<a class="mui-control-item mui-active" href="#item1">动火申请</a>
-					<a class="mui-control-item" href="#item2">特种操作证</a>
-				</div>
+		<div class="mui-content fire-approve-detail">
+			<div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted">
+				<a class="mui-control-item mui-active" href="#item1">动火申请</a>
+				<a class="mui-control-item" href="#item2">特种操作证</a>
 			</div>
-			<div style="padding: 10px;">
-				<div>
-					<div id="item1" class="mui-control-content mui-active">
-						<div class="fire-content">
-							<p class="content-flex">
-								<span class="content-flex-tit">证书编号：</span>
-								<span class="content-flex-val">T201710120014</span>
-							</p>
-							<p class="content-flex">
-								<span class="content-flex-tit">项目工程：</span>
-								<span class="content-flex-val">北京城建集团行政办公区A1 工程</span>
-							</p>
-							<p class="content-flex">
-								<span class="content-flex-tit">施工单位：</span>
-								<span class="content-flex-val">江苏正太建筑劳务有限公司</span>
-							</p>
-							<p class="content-flex">
-								<span class="content-flex-tit">动火区域：</span>
-								<span class="content-flex-val">东区1号楼2层</span>
-							</p>
-							<p class="content-flex">
-								<span class="content-flex-tit">动火位置：</span>
-								<span class="content-flex-val">东侧幕墙</span>
-							</p>
-							<p class="content-flex">
-								<span class="content-flex-tit">消防器材：</span>
-								<span class="content-flex-val">干粉灭火器</span>
-							</p>
-							<p>
-								<p class="content-table-cell">
-									<span class="content-flex-tit">作业级别：</span>
-									<span class="content-flex-val">二级</span>
+			<div class="mui-scroll-wrapper">
+		    	<div class="mui-scroll">
+					<div style="padding: 10px;">
+						<div id="item1" class="mui-control-content mui-active">
+							<div class="fire-content">
+								<p class="content-flex">
+									<label class="content-flex-tit">证书编号：</label>
+									<span class="content-flex-val" id="approval.PermitCode"></span>
 								</p>
-								<p class="content-table-cell">
-									<span class="content-flex-tit">作业级别：</span>
-									<span class="content-flex-val">二级</span>
+								<p class="content-flex">
+									<label class="content-flex-tit">项目工程：</label>
+									<span class="content-flex-val" id="approval.ProjectCompanyName"></span>
 								</p>
-							</p>
-							<p>
-								<p class="content-table-cell">
-									<span class="content-flex-tit">作业项目：</span>
-									<span class="content-flex-val">龙骨</span>
+								<p class="content-flex">
+									<label class="content-flex-tit">施工单位：</label>
+									<span class="content-flex-val" id="approval.ApplyCompanyName"></span>
 								</p>
-								<p class="content-table-cell">
-									<span class="content-flex-tit">看火人员：</span>
-									<span class="content-flex-val">陆益民</span>
+								<p class="content-flex">
+									<label class="content-flex-tit">动火区域：</label>
+									<span class="content-flex-val" id="approval.FireWorkRegion"></span>
 								</p>
-							</p>
-							<p class="content-flex">
-								<span class="content-flex-tit">动火时间：</span>
-								<span class="content-flex-val">2017-10-28  12:30  至 2017-10-28  14:00</span>
-							</p>
-							<p>
-								<p class="content-table-cell">
-									<span class="content-flex-tit">动火申请：</span>
-									<span class="content-flex-val">陆益民</span>
+								<p class="content-flex">
+									<label class="content-flex-tit">动火位置：</label>
+									<span class="content-flex-val" id="approval.FirePositions"></span>
 								</p>
-								<p class="content-table-cell">
-									<span class="content-flex-tit">申请时间：</span>
-									<span class="content-flex-val">2017-10-28  14:00</span>
+								<p class="content-flex">
+									<label class="content-flex-tit">消防器材：</label>
+									<span class="content-flex-val" id="approval.FireApparatus"></span>
 								</p>
-							</p>
-						</div>
-						<div class="fire-content mart10">
-							<p class="content-flex">
-								<span class="content-flex-tit">审批结果：</span>
-								<span class="content-flex-val">
-									<label for=""><input name="radio1" type="radio"> <span>通过</span> </label>
-									<label for=""><input name="radio1" type="radio"> <span>拒绝</span> </label>
-								</span>
-							</p>
-							<p class="content-flex">
-								<span class="content-flex-tit">审批意见：</span>
-								<div>
-									<textarea name="" rows="" cols="">
-										
-									</textarea>
+								<div class="content-flex flex-box">
+									<p class="col-half">
+										<label class="content-flex-tit">作业级别：</label>
+										<span class="content-flex-val" id="approval.JobLevel"></span>
+									</p>
+									<p class="col-half">
+										<label class="content-flex-tit">作业种类：</label>
+										<span class="content-flex-val" id="approval.JobType"></span>
+									</p>
 								</div>
-							</p>
-							<button class="mui-btn mui-btn-danger mui-btn-block">确定</button>
+								<div  class="content-flex">
+									<p class="col-half">
+										<label class="content-flex-tit">作业项目：</label>
+										<span class="content-flex-val" id="approval.ProjectName"></span>
+									</p>
+									<p class="col-half">
+										<label class="content-flex-tit">看火人员：</label>
+										<span class="content-flex-val" id="approval.SupervisionUserName"></span>
+									</p>
+								</div>
+								<p class="content-flex">
+									<label class="content-flex-tit">动火时间：</label>
+									<span class="content-flex-val" id="approval.ValidTime"></span>
+								</p>
+								<p class="content-flex">
+									<label class="content-flex-tit">动火申请：</label>
+									<span class="content-flex-val" id="approval.ApplyUserName"></span>
+								</p>
+								<p class="content-flex">
+									<label class="content-flex-tit">申请时间：</label>
+									<span class="content-flex-val" id="approval.ApplyTime"></span>
+								</p>
+							</div>
+							<div class="fire-content mart5">
+								<p class="content-flex">
+									<label class="content-flex-tit">审批结果：</label>
+									<span class="content-flex-val">
+										<label class="radio-label" for="agree"><input id="agree" name="AuditExplain" type="radio" value="0"/>通过</label>
+										<label class="radio-label" for="refuse"><input id="refuse" name="AuditExplain" type="radio" value="1"/>拒绝</label>
+									</span>
+								</p>
+								<div class="content-flex block-box">
+									<span class="content-flex-tit">审批意见：</span>
+									<textarea rows="3" id="AuditDescript" placeholder="您可以输入审批意见"></textarea>
+								</div>
+								<button id="AuditBtn" class="mui-btn mui-btn-danger mui-btn-block">确定</button>
+							</div>
+						</div>
+							
+						<div id="item2" class="mui-control-content">
+							<div class="fire-content">
+								<h5 class="certificate-title">特种作业操作证</h5>
+								<div class="content-detail">
+									<label for="CertificateCode">证号：</label>
+									<div class="content-input">
+										<input id="CertificateCode" type="text" />
+									</div>
+								</div>
+								<div class="flex-box">
+									<div class="content-detail col-half">
+										<label for="UserName">姓名：</label>
+										<div class="content-input">
+											<input id="UserName" type="text" />
+										</div>
+									</div>
+									<div class="content-detail col-half">
+										<label for="Gender">性别：</label>
+										<div class="content-input">
+											<input id="Gender" type="text" />
+										</div>
+									</div>
+								</div>
+								<div class="content-detail">
+									<label for="JobProject">作业类别：</label>
+									<div class="content-input">
+										<input id="JobProject" type="text" />
+									</div>
+								</div>
+								<div class="content-detail">
+									<label for="CertificateDate">初领日期：</label>
+									<div class="content-input">
+										<input id="CertificateDate" type="text" />
+									</div>	
+								</div>
+								<div class="flex-box">
+									<div class="content-detail col-more">
+										<label for="">有限期限：</label>
+										<div class="content-input">
+											<input id="ValidityStartDate" type="text" />
+										</div>	
+									</div>
+									<div class="content-detail col-less">
+										<label class="center">至</label>
+										<div class="content-input">
+											<input id="ValidityEndDate" type="text" />
+										</div>	
+									</div>
+								</div>
+								<div class="content-detail">
+									<label for="ReviewDate">复审日期：</label>
+									<div class="content-input">
+										<input id="ReviewDate" type="text" />
+									</div>
+								</div>
+								<div class="content-detail">
+									<label for="IDCard">身份证号：</label>
+									<div class="content-input">
+										<input id="IDCard" type="text" />
+									</div>
+								</div>
+								<div class="content-detail">
+									<label for="Mobile">手机号码：</label>
+									<div class="content-input">
+										<input id="Mobile" type="number" />
+									</div>
+								</div>
+								<div class="content-detail block-box">
+									<label for="Url">证件照片：</label>
+									<div id="Url">
+										<!--<img src="images/01-in-1080.png" />-->
+									</div>
+								</div>
+								<div class="content-detail">
+									<label for="Mobile">证件审核：</label>
+									<div class="content-input">
+										<span id="AuditUserName"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="ProjectCompanyName"></span>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
-					
-					<div id="item2" class="mui-control-content">
-						<div class="fire-content">
-							<p class="content-detail">
-								<label for="">证件编号：</label>
-								<input type="number" />
-							</p>
-							<p>
-								<p class="content-table-cell">
-									<span class="content-flex-tit">人员姓名：</span>
-									<span class="content-flex-val"><input class="limit-width marl5" type="text" /></span>
-								</p>
-								<p class="content-table-cell">
-									<span class="content-flex-tit">性别：</span>
-									<span class="content-flex-val"><input class="limit-width" type="text" /></span>
-								</p>
-							</p>
-							<p class="content-detail">
-								<label for="">作业类别：</label>
-								<input type="text" />
-							</p>
-							<p class="content-detail">
-								<label for="">初领日期：</label>
-								<input type="text" />
-							</p>
-							<p class="content-detail">
-								<label for="">有限期限：</label>
-								<input type="text" />
-							</p>
-							<p class="content-detail">
-								<label for="">复审日期：</label>
-								<input type="text" />
-							</p>
-							<p class="content-detail">
-								<label for="">身份证号：</label>
-								<input type="number" />
-							</p>
-							<p class="content-detail">
-								<label for="">手机号码：</label>
-								<input type="number" />
-							</p>
-							<p class="content-detail">
-								<label for="">证件照片：</label>
-								<div>
-									<img src="images/119logo.png" alt="" />
-								</div>
-							</p>
-							<p>
-								<p class="content-table-cell">
-									<span class="content-flex-tit">证件审核：</span>
-									<span class="content-flex-val">柯善群</span>
-								</p>
-								<p class="content-table-cell">
-									<span class="content-flex-tit">北京城建集团</span>
-								</p>
-							</p>
-						</div>
-					</div>
-				</div>
+				</div>	
 			</div>
 		</div>
+		<script>window.FastClick = true;</script> <!--解决radio，点击第二个，选中第一个radio的问题-->
 		<script src="js/mui.min.js"></script>
+		<script src="js/feature_common.js"></script>
 		<script>
+		mui.init({
+			swipeBack: false,
+			beforeback: function(){
+				var list = plus.webview.currentWebview().opener();
+		        mui.fire(list, 'refresh');
+		        return true;
+			}
+		});
+		var scroll = mui(".mui-scroll-wrapper").scroll();
+		mui("#segmentedControl").on('tap', '.mui-control-item', function(e){
+			scroll.scrollTo(0, 0);
+		});
+		
+		mui.plusReady(function(){
+			plus.nativeUI.showWaiting();
+			var currWebView = plus.webview.currentWebview();
+			var PermitID = currWebView.info.PermitID;
+			var RegisterID = currWebView.info.RegisterID;
 			
-//			mui.init({
-//				swipeBack: true //启用右滑关闭功能
-//			});
-//			(function($) {
-//				$('#scroll').scroll({
-//					indicators: true //是否显示滚动条
-//				});
-//				var segmentedControl = document.getElementById('segmentedControl');
-//				$('.mui-input-group').on('change', 'input', function() {
-//					
-//					console.log("--")
-//					
-//					if (this.checked) {
-//						var styleEl = document.querySelector('input[name="style"]:checked');
-//						var colorEl = document.querySelector('input[name="color"]:checked');
-//						if (styleEl && colorEl) {
-//							var style = styleEl.value;
-//							var color = colorEl.value;
-//							// mui-segmented-control-inverted
-//							segmentedControl.className = 'mui-segmented-control' + (style ? (' mui-segmented-control-' + style) : '') + ' mui-segmented-control-' + color;
-//						}
-//					}
-//				});
-//			})(mui);
+			getApprovalData(PermitID);
+			addEvent(PermitID);
 			
+			getCertificateData(RegisterID);
+		});
+		// 获取动火申请详情
+		function getApprovalData(PermitID) {
+			var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/FW_GetFireWorkPermitDetail_Client_IIS?dataKey=00-00-00-00';
+			var data = {
+				PermitID: PermitID
+			};
+			mui.ajax(url, {
+				type: 'get',
+				dataType: 'json',
+				data: data,
+				success: function(response) {
+					plus.nativeUI.closeWaiting();
+					var data = response.DataSource.Tables[0].Datas;
+					console.log('动火申请详情', JSON.stringify(data));
+					setApprovalValue(data);
+				},
+				error: function(){
+					mui.toast('数据获取失败');
+				}
+			})
+		}
+		// 展示动火申请数据
+		function setApprovalValue(data) {
+			data = data[0];
+			var fields = ['PermitCode', 'ProjectCompanyName', 'ApplyCompanyName', 'FireWorkRegion', 'FirePositions', 'FireApparatus', 'JobLevel', 'JobType', 'ProjectName', 'SupervisionUserName', 'ValidTime', 'ApplyUserName', 'ApplyTime'];
+			
+			for(var i = 0; i < fields.length; i++) {
+				var field = fields[i],
+					id = 'approval.' + field,
+					dom = document.getElementById(id),
+					value;
+				
+				if(field == 'ValidTime') {
+					var startTime = featureCommon.formatTime(data.StartTime),
+							endTime = featureCommon.formatTime(data.EndTime);
+						value = startTime + ' 至 ' + endTime;
+				}else {
+					value = data[field];
+				}
+				
+				if(/Time/.test(field) && field != 'ValidTime') {
+					value = featureCommon.formatTime(value);
+				}
+				
+				dom.innerHTML = value;
+			}
+		}
+		// 动火申请提交意见
+		function addEvent(PermitID){
+			var btn = document.getElementById('AuditBtn');
+			var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/SendData/FW_FireWorkPermit_AuditOne_Client_IIS?dataKey=00-00-00-00';
+			
+			btn.onclick = function() {
+				//
+				if(!validAuditForm()){
+					return;
+				}
+				//审批意见 0通过 、1未通过
+				var AuditExplain = document.querySelector('[name="AuditExplain"]:checked').value;
+				//审批意见选择通过该参数传3，不通过传2
+				var WorkStatus = AuditExplain === '0' ? '3' : '2';
+				
+				var data = {
+					PermitID: PermitID,
+					AuditTime: featureCommon.formatTime(new Date(), true),
+					AuditExplain: AuditExplain,
+					AuditDescript: document.getElementById('AuditDescript').value,
+					WorkStatus: WorkStatus,
+					ModifiedBy: localStorage.getItem('UserID')
+				};
+				console.log('动火审批参数', JSON.stringify(data));
+				mui.ajax(url, {
+					type: 'post',
+					data: JSON.stringify(data),
+					dataType: 'json',
+					headers:{
+						'Content-Type':'application/json'
+					},
+					processData: false,
+					success: function (response){
+						console.log('动火审批提交', JSON.stringify(response));
+						if(response.Summary.StatusCode == 100) {
+							mui.toast('审批成功');
+						}else{
+							mui.toast('审批失败');
+						}
+						mui.back();
+					},
+					error: function () {
+						console.log(JSON.stringify(arguments));
+						mui.toast('审批失败');
+					}
+				})
+			}
+		}
+		// 验证表单
+		function validAuditForm(){
+			//var AuditDescript = document.getElementById('AuditDescript');  //意见可为空
+			var result = document.querySelector('[name="AuditExplain"]:checked');  //结果
+			if(!result) {
+				mui.toast('请填写审批结果');
+				return false;
+			}
+			/*if(!AuditDescript.value.trim()){
+				mui.toast('请填写审批意见');
+				return false;
+			}*/
+			return true;
+		}
+		
+		//获取特种操作证
+		function getCertificateData(RegisterID) {
+			var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/FW_GetFireCertificateDetail_Client_IIS?dataKey=00-00-00-00';
+			var data = {
+				RegisterID: RegisterID
+			}; 
+			
+			mui.ajax(url, {
+				type: 'get',
+				dataType: 'json',
+				data: data,
+				success: function (response) {
+					plus.nativeUI.closeWaiting();
+					var data = response.DataSource.Tables[0].Datas;
+					console.log('动火审批中的证照详情', JSON.stringify(data));
+					setCertificateValue(data);
+				},
+				error: function() {
+					mui.toast('详情获取失败');
+				}
+			});
+		}
+		// 设置特种操作证值
+		function setCertificateValue(data) {
+			data = data[0];					
+				
+			var fields = ['CertificateCode','UserName','Gender','JobProject','CertificateDate','ValidityStartDate','ValidityEndDate','ReviewDate','IDCard','Mobile','Url', 'AuditUserName','ProjectCompanyName'];
+			for(var i = 0; i < fields.length; i++){
+				var field = fields[i],
+					dom = document.getElementById(field),
+					value = data[field];
+				
+				if(/Date/.test(field)) {
+					value = featureCommon.formatDate(value);
+				}
+				
+				if(field == 'Gender') {
+					value = featureCommon.getGender(value);
+				}
+				
+				if(field == 'Url') {
+					dom.innerHTML = featureCommon.getImgs(value, data.Title);
+					continue;
+				}
+				
+				if(field == 'ProjectCompanyName' || field == 'AuditUserName') {
+					dom.innerHTML = value;
+					continue;
+				}
+				
+				dom.value = value;
+			}
+		}
 		</script>
-
 	</body>
-
 </html>

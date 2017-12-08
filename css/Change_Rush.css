@@ -33,6 +33,7 @@ html,body{
 }
 
 .change-wrap {
+	display: flex;
 	width: 100%;
 	height: 6.5rem;
 	padding: 0.5rem 0 0.5rem 0.5rem;

@@ -26,8 +26,8 @@
 			}*/
 			
 			.fontFace {
-				font-family: "Microsoft YaHei"!important;
-				font-weight: 100;
+				font-family: "microsoft yahei"!important;
+				font-weight: 400;
 				color: #484848;
 				font-size: 18px;
 			}
@@ -92,24 +92,24 @@
 										<div class="index_list_content_may_first index_list_content_maymore_first ">消火栓巡检</div>
 										<div class="list_main_flex">
 											<div class="flex_item flex_left text_center">
-												<span id="Ratio" class="flex_left_num">-</span>
+												<span id="Ratio" class="flex_left_num fontFace">-</span>
 												<p>本周检查进度</p>
 											</div>
 											<div class="flex_item2">
 												<p>
-													<span id="Rate" class="right_num">-</span>
+													<span id="Rate" class="right_num fontFace">-</span>
 													<span class="right_desc">检查任务</span>
 												</p>
 												<p>
-													<span id="ObjectCount" class="right_num">-</span>
+													<span id="ObjectCount" class="right_num fontFace">-</span>
 													<span class="right_desc">检查设备</span>
 												</p>
 												<p>
-													<span id="AbnormalCount" class="right_num" style="color: #DB4528;">-</span>
+													<span id="AbnormalCount" class="right_num fontFace" style="color: #DB4528;">-</span>
 													<span class="right_desc">异常问题</span>
 												</p>
 												<p>
-													<span id="AuditCount" class="right_num" style="color: #66B61D;">-</span>
+													<span id="AuditCount" class="right_num fontFace" style="color: #66B61D;">-</span>
 													<span class="right_desc">解决问题</span>
 												</p>
 											</div>
@@ -143,7 +143,35 @@
 									</div>
 									<!--动火统计  end-->
 									
-									
+									<!--消防安全检查 start-->
+									<div class="index_list_content_maymore in_index">
+										<div class="index_list_content_may_first index_list_content_maymore_first">消防安全检查</div>
+										<div class="list_main_flex">
+											<div class="flex_item flex_left text_center">
+												<span id="LowRatio" class="fontFace flex_left_num" style="color:#66b61d;">-%</span>
+												<p>本周检查进度</p>
+											</div>
+											<div class="flex_item2">
+												<p>
+													<span id="" class="fontFace right_num">-</span>
+													<span class="right_desc">检查任务</span>
+												</p>
+												<p>
+													<span id="" class="fontFace right_num">-</span>
+													<span class="right_desc">风险源</span>
+												</p>
+												<p>
+													<span id="" class="fontFace right_num" style="color: #DB4528;">-</span>
+													<span class="right_desc">异常问题</span>
+												</p>
+												<p>
+													<span id="" class="fontFace right_num" style="color: #66B61D;">-</span>
+													<span class="right_desc">解决问题</span>
+												</p>
+											</div>
+										</div>
+									</div>
+									<!--消防安全检查 end-->
 									
 									<!--设备状态  start-->
 									<div class="index_list_content_maymore in_index">
@@ -272,7 +300,7 @@
 		});
 
 		mui.plusReady(function() {
-			
+			console.log('localstorage--'+JSON.stringify(localStorage))
 			//修改左上角的工程名字
 			document.getElementById("index_zhongdian").innerHTML = localStorage.getItem("IndexOrganiseUnitName")
 			
@@ -362,6 +390,7 @@
 			var pageArr = [
 				'Risk_height.html',
 				'Add_Fire_statistic.html',
+				'fire_security_check.html',
 				'Equipment_state.html',
 				'Risk_low.html',
 				'feature_page_order_01.html',

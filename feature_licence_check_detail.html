@@ -17,65 +17,107 @@
 		    <h1 class="mui-title">特种作业操作证</h1>
 		</header>
 		<!--下拉刷新容器-->
-		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
-			<!--数据列表-->
-			<div class="content-wrap">
-				<div class="content-item">
-					<p class="content-detail">
-						<label for="">证件编号：</label>
-						<input type="number" />
-					</p>
-					<div class="content-detail margb10">
-						<p class="content-table-cell">
-							<label for="">人员姓名：</label>
-							<input class="limit-width marl5" type="text" />
-						</p>
-						<p class="content-table-cell">
-							<label for="">性别：</label>
-							<input class="limit-width" type="text" />
-						</p>
-					</div>
-					<p class="content-detail">
-						<label for="">作业类别：</label>
-						<input type="text" />
-					</p>
-					<p class="content-detail">
-						<label for="">初领日期：</label>
-						<input type="text" />
-					</p>
-					<p class="content-detail">
-						<label for="">有限期限：</label>
-						<input type="text" />
-					</p>
-					<p class="content-detail">
-						<label for="">复审日期：</label>
-						<input type="text" />
-					</p>
-					<p class="content-detail">
-						<label for="">身份证号：</label>
-						<input type="number" />
-					</p>
-					<p class="content-detail">
-						<label for="">手机号码：</label>
-						<input type="number" />
-					</p>
-					<p class="content-detail">
-						<label for="">证件照片：</label>
-						<div>
-							<img src="images/119logo.png" alt="" />
+		<div id="pullrefresh" class="mui-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<!--数据列表-->
+					<div class="content-wrap">
+						<div class="content-item">
+							<div class="content-detail">
+								<label for="CertificateCode">证件编号：</label>
+								<div class="content-input">
+									<input id="CertificateCode" type="text" />
+								</div>
+							</div>
+							<div class="flex-box">
+								<div class="content-detail col-half">
+									<label for="UserName">人员姓名：</label>
+									<div class="content-input">
+										<input id="UserName" type="text" />
+									</div>
+								</div>
+								<div class="content-detail col-half">
+									<label for="Gender">性别：</label>
+									<div class="content-input">
+										<input id="Gender" type="text" />
+									</div>
+								</div>
+							</div>
+							<div class="content-detail">
+								<label for="JobProject">作业类别：</label>
+								<div class="content-input">
+									<input id="JobProject" type="text" />
+								</div>
+							</div>
+							<div class="content-detail">
+								<label for="CertificateDate">初领日期：</label>
+								<div class="content-input">
+									<input id="CertificateDate" type="text" />
+								</div>	
+							</div>
+							<div class="flex-box">
+								<div class="content-detail col-more">
+									<label for="">有限期限：</label>
+									<div class="content-input">
+										<input id="ValidityStartDate" type="text" />
+									</div>	
+								</div>
+								<div class="content-detail col-less">
+									<label class="center">至</label>
+									<div class="content-input">
+										<input id="ValidityEndDate" type="text" />
+									</div>	
+								</div>
+							</div>
+							<div class="content-detail">
+								<label for="ReviewDate">复审日期：</label>
+								<div class="content-input">
+									<input id="ReviewDate" type="text" />
+								</div>
+							</div>
+							<div class="content-detail">
+								<label for="IDCard">身份证号：</label>
+								<div class="content-input">
+									<input id="IDCard" type="text" />
+								</div>
+							</div>
+							<div class="content-detail">
+								<label for="Mobile">手机号码：</label>
+								<div class="content-input">
+									<input id="Mobile" type="number" />
+								</div>
+							</div>
+							<div class="content-detail block-box">
+								<label for="Url">证件照片：</label>
+								<div id="Url">
+									<!--<img src="images/01-in-1080.png" />-->
+								</div>
+							</div>
+							<p class="button-p">
+								<button id="refuseBtn" type="button" class="mui-btn mui-btn-danger"><span class="mui-icon mui-icon-closeempty"></span>拒绝</button>
+								<button id="agreeBtn" type="button" class="mui-btn mui-btn-success"><span class="mui-icon mui-icon-checkmarkempty"></span>通过</button>
+							</p>
 						</div>
-					</p>
-					<p class="button-p">
-						<button type="button" class="mui-btn mui-btn-danger"><span class="mui-icon mui-icon-closeempty"></span>拒绝</button>
-						<button type="button" class="mui-btn mui-btn-success"><span class="mui-icon mui-icon-checkmarkempty"></span>通过</button>
-					</p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</body>
 	<script src="js/mui.min.js"></script>
+	<script src="js/feature_common.js"></script>
 	<script>
 		(function () {
+			mui.init({
+				swipeBack: false,
+			    beforeback: function() {
+			　　　　 	//获得父页面的webview，并触发父页面自定义事件。
+			        var list = plus.webview.currentWebview().opener();
+			        mui.fire(list, "refresh");
+			        //返回true,继续页面关闭逻辑
+			        return true;
+			    }
+			});
+			
 			mui(".mui-scroll-wrapper").scroll({
 				bounce: false,//滚动条是否有弹力默认是true
 				indicators: false, //是否显示滚动条,默认是true
@@ -83,17 +125,109 @@
 			
 			mui.plusReady(function() {
 				plus.nativeUI.showWaiting();
+				var currWebView = plus.webview.currentWebview();
+				var RegisterID = currWebView.RegisterID;
 				
-				getData()
+				getData(RegisterID);
+				//绑定通过/拒绝事件
+				addEvent(RegisterID);
 			})
 			
-			function getData() {
+			function getData(RegisterID) {
+				var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/FW_GetFireCertificateDetail_Client_IIS?dataKey=00-00-00-00';
+				var data = {
+					RegisterID: RegisterID
+				}; 
 				
-				setTimeout(function () {
-					plus.nativeUI.closeWaiting();
-				}, 1000)
+				mui.ajax(url, {
+					type: 'get',
+					dataType: 'json',
+					data: data,
+					success: function (response) {
+						plus.nativeUI.closeWaiting();
+						var data = response.DataSource.Tables[0].Datas;
+						console.log('证照审核-详情', JSON.stringify(data));
+						setValue(data);
+					},
+					error: function() {
+						mui.toast('详情获取失败');
+					}
+				});
 			}
 			
+			function setValue(data) {
+				data = data[0];					
+				
+				var fields = ['CertificateCode','UserName','Gender','JobProject','CertificateDate','ValidityStartDate','ValidityEndDate','ReviewDate','IDCard','Mobile','Url'];
+				for(var i = 0; i < fields.length; i++){
+					var field = fields[i],
+						dom = document.getElementById(field),
+						value = data[field];
+						
+					if(/Date/.test(field)) {
+						value = featureCommon.formatDate(value);
+					}
+					
+					if(field == 'Gender') {
+						value = featureCommon.getGender(value);
+					}
+					
+					if(field == 'Url') {
+						dom.innerHTML = featureCommon.getImgs(value, data.Title);
+						continue;
+					}
+					
+					dom.value = value;
+				}
+			}
+			
+			function addEvent(RegisterID){
+				// AuditResult： 0拒绝，1通过
+				var refuseBtn = document.getElementById('refuseBtn');
+				var agreeBtn = document.getElementById('agreeBtn');
+				var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/SendData/FW_FireCertificate_AuditOne_Client_IIS?dataKey=00-00-00-00';
+				
+				var data = {
+					RegisterID: RegisterID,
+					ModifiedBy: localStorage.getItem('UserID'),
+					AuditExplain: ''
+				};
+				
+				refuseBtn.onclick = function(){
+					data.AuditResult = '0';
+					listener(data);
+				}
+				agreeBtn.onclick = function(){
+					data.AuditResult = '1';
+					listener(data);
+				}
+				
+				function listener (data) {
+					console.log('证照审核参数', JSON.stringify(data));
+//					alert(url);
+					mui.ajax(url, {
+						type: 'post',
+						data: JSON.stringify(data),
+						dataType: 'json',
+						headers:{
+							'Content-Type':'application/json'
+						},
+						processData: false,
+						success: function (response) {
+							console.log('证照审核提交', JSON.stringify(response));
+							if(response.Summary.StatusCode == 100) {
+								mui.toast('审核成功');
+							}else {
+								mui.toast('审核失败');
+							}
+							mui.back();
+						},
+						error: function(){
+							mui.toast('审核错误');
+						}
+					})
+				}
+			}
 		})()
 	</script>
 </html>

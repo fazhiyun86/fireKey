@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/hotwork_record_detail.css" />
+		<title>动火证查询</title>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav titBackg">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">动火证查询</h1>
+		</header>
+		<div class="mui-content">
+		    <div class="mui-segmented-control" id="segmentedControl">
+		        <a class="mui-control-item mui-active" href="#permit">动火证</a>
+		        <a class="mui-control-item" href="#inspection">动火检查</a>
+		        <a class="mui-control-item" href="#supervision">看火检查</a>
+		        <a class="mui-control-item" href="#license">操作证照</a>
+		    </div>
+		    <div class="mui-scroll-wrapper">
+		    	<div class="mui-scroll">
+				    <div class="tab-content">
+				    	<div class="mui-control-content mui-active hotwork-license" id="permit">
+				    		<div class="content-wrap">
+					    		<div class="content-row">
+					    			<div class="content-box">
+					    				<label class="content-label">项目工程：</label>
+					    				<div class="content-value" id="permit.ProjectCompanyName"></div>
+					    			</div>
+					    		</div>
+					    		<div class="content-row">
+					    			<div class="content-box">
+					    				<label class="content-label">施工单位：</label>
+					    				<div class="content-value" id="permit.ApplyCompanyName"></div>
+					    			</div>
+					    		</div>
+					    		<div class="content-row">
+					    			<div class="content-box">
+					    				<label class="content-label">动火区域：</label>
+					    				<div class="content-value" id="permit.FireWorkRegion"></div>
+					    			</div>
+					    		</div>
+					    		<div class="content-row">
+					    			<div class="content-box">
+					    				<label class="content-label">动火位置：</label>
+					    				<div class="content-value" id="permit.FirePositions"></div>
+					    			</div>
+					    		</div>
+					    		<div class="content-row">
+					    			<div class="content-box">
+					    				<label class="content-label">消防器材：</label>
+					    				<div class="content-value" id="permit.FireApparatus"></div>
+					    			</div>
+					    		</div>
+					    		<div class="content-row">
+					    			<div class="content-box half-col">
+					    				<label class="content-label">作业级别：</label>
+					    				<div class="content-value" id="permit.JobLevel"></div>
+					    			</div>
+					    			<div class="content-box half-col">
+					    				<label class="content-label">作业种类：</label>
+					    				<div class="content-value" id="permit.JobType"></div>
+					    			</div>
+					    		</div>
+					    		<div class="content-row">
+					    			<div class="content-box half-col">
+					    				<label class="content-label">作业项目：</label>
+					    				<div class="content-value" id="permit.ProjectName"></div>
+					    			</div>
+					    			<div class="content-box half-col">
+					    				<label class="content-label">看火人员：</label>
+					    				<div class="content-value" id="permit.SupervisionUserName"></div>
+					    			</div>
+					    		</div>
+					    		<div class="content-row">
+					    			<div class="content-box half-col">
+					    				<label class="content-label">动火时间：</label>
+					    				<div class="content-value" id="permit.StartTime"></div>
+					    			</div>
+					    			<div class="content-box half-col">
+					    				<label class="content-label mui-text-center">至</label>
+					    				<div class="content-value" id="permit.EndTime"></div>
+					    			</div>
+					    		</div>
+					    		<div class="content-row">
+					    			<div class="content-box half-col">
+					    				<label class="content-label">动火申请：</label>
+					    				<div class="content-value" id="permit.ApplyUserName"></div>
+					    			</div>
+					    			<div class="content-box half-col">
+					    				<label class="content-label">申请时间：</label>
+					    				<div class="content-value" id="permit.ApplyTime"></div>
+					    			</div>
+					    		</div>
+					    		<div class="content-row">
+					    			<div class="content-box half-col">
+					    				<label class="content-label">审批人：</label>
+					    				<div class="content-value" id="permit.ApplyUnitManagerName"></div>
+					    			</div>
+					    			<div class="content-box half-col">
+					    				<label class="content-label">审批时间：</label>
+					    				<div class="content-value" id="permit.AuditTime"></div>
+					    			</div>
+					    		</div>
+					    		<div class="content-row">
+					    			<div class="content-box">
+					    				<label class="content-label">审批意见：</label>
+					    				<div class="content-value" id="permit.AuditDescript"></div>
+					    			</div>
+					    		</div>
+				    		</div>
+				    	</div>
+				    	<div class="mui-control-content hotwork-inspection" id="inspection">
+				    		<div class="content-wrap">
+				    			<h5 class="content-title">总包检查</h5>
+				    			<div id="zongbao"></div>
+				    			<!--<div class="content-row">
+				    				<div class="content-box half-col">
+				    					<label class="content-label">可燃物：</label>
+				    					<div class="content-value">
+				    						<div class="input">清理</div>
+				    					</div>	
+				    				</div>
+				    				<div class="content-box half-col">
+				    					<label class="content-label">操作证：</label>
+				    					<div class="content-value">
+				    						<div class="input">随身携带</div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box half-col">
+				    					<label class="content-label">动火证：</label>
+				    					<div class="content-value">
+				    						<div class="input">有效</div>
+				    					</div>	
+				    				</div>
+				    				<div class="content-box half-col">
+				    					<label class="content-label">作业位置：</label>
+				    					<div class="content-value">
+				    						<div class="input">准确</div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box half-col">
+				    					<label class="content-label">接火措施：</label>
+				    					<div class="content-value">
+				    						<div class="input">到位</div>
+				    					</div>	
+				    				</div>
+				    				<div class="content-box half-col">
+				    					<label class="content-label">看火人：</label>
+				    					<div class="content-value">
+				    						<div class="input">在位</div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box half-col">
+				    					<label class="content-label">灭火器材：</label>
+				    					<div class="content-value">
+				    						<div class="input">齐全</div>
+				    					</div>	
+				    				</div>
+				    				<div class="content-box half-col">
+				    					<label class="content-label">灭火水桶：</label>
+				    					<div class="content-value">
+				    						<div class="input">配备</div>
+				    					</div>	
+				    				</div>
+				    			</div>	
+				    			<div class="content-row">
+				    				<div class="content-box half-col">
+				    					<label class="content-label">袖标：</label>
+				    					<div class="content-value">
+				    						<div class="input">佩戴</div>
+				    					</div>	
+				    				</div>
+				    				<div class="content-box half-col">
+				    					<label class="content-label">存在问题：</label>
+				    					<div class="content-value">
+				    						<div class="input">无</div>
+				    					</div>	
+				    				</div>
+				    			</div>-->
+				    			<div class="content-row">
+				    				<div class="content-box half-col">
+				    					<label class="content-label">检查人：</label>
+				    					<div class="content-value">
+				    						<div class="input" id="zongbao.ExamUser">章宏斌</div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box over-half">
+				    					<label class="content-label">检查时间：</label>
+				    					<div class="content-value">
+				    						<div class="input" id="zongbao.ExamTime">2017-10-12 14:32:23</div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row img-row" id="zongbao.Url">
+				    				<!--<div class="content-box one-third">
+				    					<img src="images/controlboard.png" />
+				    				</div>-->
+				    			</div>
+				    		</div>
+				    		<div class="content-wrap">
+				    			<h5 class="content-title">分包检查</h5>
+				    			<div id="fenbao"></div>
+				    			<!--<div class="content-row">
+				    				<div class="content-box half-col">
+				    					<label class="content-label">可燃物：</label>
+				    					<div class="content-value">
+				    						<div class="input">清理</div>
+				    					</div>	
+				    				</div>
+				    				<div class="content-box half-col">
+				    					<label class="content-label">操作证：</label>
+				    					<div class="content-value">
+				    						<div class="input">随身携带</div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box half-col">
+				    					<label class="content-label">动火证：</label>
+				    					<div class="content-value">
+				    						<div class="input">有效</div>
+				    					</div>	
+				    				</div>
+				    				<div class="content-box half-col">
+				    					<label class="content-label">作业位置：</label>
+				    					<div class="content-value">
+				    						<div class="input">准确</div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box half-col">
+				    					<label class="content-label">接火措施：</label>
+				    					<div class="content-value">
+				    						<div class="input">到位</div>
+				    					</div>	
+				    				</div>
+				    				<div class="content-box half-col">
+				    					<label class="content-label">看火人：</label>
+				    					<div class="content-value">
+				    						<div class="input">在位</div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box half-col">
+				    					<label class="content-label">灭火器材：</label>
+				    					<div class="content-value">
+				    						<div class="input">齐全</div>
+				    					</div>	
+				    				</div>
+				    				<div class="content-box half-col">
+				    					<label class="content-label">灭火水桶：</label>
+				    					<div class="content-value">
+				    						<div class="input">配备</div>
+				    					</div>	
+				    				</div>
+				    			</div>	
+				    			<div class="content-row">
+				    				<div class="content-box half-col">
+				    					<label class="content-label">袖标：</label>
+				    					<div class="content-value">
+				    						<div class="input">佩戴</div>
+				    					</div>	
+				    				</div>
+				    				<div class="content-box half-col">
+				    					<label class="content-label">存在问题：</label>
+				    					<div class="content-value">
+				    						<div class="input">无</div>
+				    					</div>	
+				    				</div>
+				    			</div>-->
+				    			<div class="content-row">
+				    				<div class="content-box half-col">
+				    					<label class="content-label">检查人：</label>
+				    					<div class="content-value">
+				    						<div class="input" id="fenbao.ExamUser">章宏斌</div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box over-half">
+				    					<label class="content-label">检查时间：</label>
+				    					<div class="content-value">
+				    						<div class="input" id="fenbao.ExamTime">2017-10-12 14:32:23</div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row img-row" id="fenbao.Url">
+				    				<!--<div class="content-box one-third">
+				    					<img src="images/controlboard.png" />
+				    				</div>-->
+				    			</div>
+				    		</div>
+				    	</div>
+				    	<div class="mui-control-content hotwork-supervision" id="supervision">
+				    		<div class="content-wrap">
+				    			<h5 class="content-title">动火前准备</h5>
+				    			<div id="beforeWork"></div>
+				    			<!--<div class="content-row">
+				    				<div class="content-box half-col">
+				    					<label class="content-label">可燃物：</label>
+				    					<div class="content-value">
+				    						<div class="input">清理</div>
+				    					</div>	
+				    				</div>
+				    				<div class="content-box half-col">
+				    					<label class="content-label">操作证：</label>
+				    					<div class="content-value">
+				    						<div class="input">随身携带</div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box half-col">
+				    					<label class="content-label">动火证：</label>
+				    					<div class="content-value">
+				    						<div class="input">有效</div>
+				    					</div>	
+				    				</div>
+				    				<div class="content-box half-col">
+				    					<label class="content-label">作业位置：</label>
+				    					<div class="content-value">
+				    						<div class="input">准确</div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box half-col">
+				    					<label class="content-label">接火措施：</label>
+				    					<div class="content-value">
+				    						<div class="input">到位</div>
+				    					</div>	
+				    				</div>
+				    				<div class="content-box half-col">
+				    					<label class="content-label">灭火器材：</label>
+				    					<div class="content-value">
+				    						<div class="input">齐全</div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box half-col">
+				    					<label class="content-label">袖标：</label>
+				    					<div class="content-value">
+				    						<div class="input">佩戴</div>
+				    					</div>	
+				    				</div>
+				    				<div class="content-box half-col">
+				    					<label class="content-label">灭火水桶：</label>
+				    					<div class="content-value">
+				    						<div class="input">配备</div>
+				    					</div>	
+				    				</div>
+				    			</div>	-->
+				    			<div class="content-row">
+				    				<div class="content-box half-col">
+				    					<label class="content-label">检查人：</label>
+				    					<div class="content-value">
+				    						<div class="input" id="beforeWork.ExamUser"></div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box over-half">
+				    					<label class="content-label">登记时间：</label>
+				    					<div class="content-value">
+				    						<div class="input" id="beforeWork.ExamTime"></div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row img-row" id="beforeWork.Url">
+				    				<!--<div class="content-box one-third">
+				    					<img src="images/controlboard.png" />
+				    				</div>-->
+				    			</div>
+				    		</div>
+				    		<div class="content-wrap">
+				    			<h5 class="content-title">动火中情况</h5>
+				    			<div id="duringWork"></div>
+				    			<!--<div class="content-row">
+				    				<div class="content-box half-col">
+										<label class="content-label">现场情况：</label>
+										<div class="content-value">
+											<div class="input">正常</div>
+										</div>
+				    				</div>
+				    			</div>-->
+				    			<div class="content-row">
+				    				<div class="content-box half-col">
+										<label class="content-label">检查人：</label>
+										<div class="content-value">
+											<div class="input" id="duringWork.ExamUser"></div>
+										</div>
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box over-half">
+										<label class="content-label">登记时间：</label>
+										<div class="content-value">
+											<div class="input" id="duringWork.ExamTime"></div>
+										</div>
+				    				</div>
+				    			</div>
+				    			<div class="content-row img-row" id="duringWork.Url">
+				    				<!--<div class="content-box one-third">
+										<img src="images/119logo.png" />
+				    				</div>-->
+				    			</div>
+				    		</div>
+				    		<div class="content-wrap">
+				    			<h5 class="content-title">动火后清理</h5>
+				    			<div  id="afterWork"></div>
+				    			<!--<div class="content-row">
+				    				<div class="content-box half-col">
+										<label class="content-label">火星焊渣：</label>
+										<div class="content-value">
+											<div class="input">清理淹灭</div>
+										</div>
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box half-col">
+										<label class="content-label">其他工作：</label>
+										<div class="content-value">
+											<div class="input">清理完成</div>
+										</div>
+				    				</div>
+				    			</div>-->
+				    			<div class="content-row">
+				    				<div class="content-box over-half">
+										<label class="content-label">登记时间：</label>
+										<div class="content-value">
+											<div class="input" id="afterWork.ExamTime"></div>
+										</div>
+				    				</div>
+				    			</div>
+				    			<div class="content-row img-row" id="afterWork.Url">
+				    				<!--<div class="content-box one-third">
+										<img src="images/119logo.png" />
+				    				</div>-->
+				    			</div>
+				    		</div>
+				    	</div>
+				    	<div class="mui-control-content operation-license" id="license">
+				    		<div class="content-wrap">
+				    			<h5 class="content-title">特种作业操作证</h5>
+				    			<div class="content-row">
+				    				<div class="content-box">
+				    					<label class="content-label">证号：</label>
+				    					<div class="content-value">
+				    						<div class="input" id="license.CertificateCode"></div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box half-col">
+				    					<label class="content-label">姓名：</label>
+				    					<div class="content-value">
+				    						<div class="input" id="license.UserName"></div>
+				    					</div>	
+				    				</div>
+				    				<div class="content-box half-col">
+				    					<label class="content-label">性别：</label>
+				    					<div class="content-value">
+				    						<div class="input" id="license.Gender"></div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box">
+				    					<label class="content-label">作业类别：</label>
+				    					<div class="content-value">
+				    						<div class="input" id="license.JobProject"></div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box more-col">
+				    					<label class="content-label">初领日期：</label>
+				    					<div class="content-value">
+				    						<div class="input" id="license.CertificateDate"></div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box more-col">
+				    					<label class="content-label">有限期限：</label>
+				    					<div class="content-value">
+				    						<div class="input" id="license.ValidityStartDate"></div>
+				    					</div>	
+				    				</div>
+				    				<div class="content-box less-col">
+				    					<label class="content-label mui-text-center">至</label>
+				    					<div class="content-value">
+				    						<div class="input" id="license.ValidityEndDate"></div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box more-col">
+				    					<label class="content-label">复审日期：</label>
+				    					<div class="content-value">
+				    						<div class="input" id="license.ReviewDate"></div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box">
+				    					<label class="content-label">身份证号：</label>
+				    					<div class="content-value">
+				    						<div class="input" id="license.IDCard"></div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box">
+				    					<label class="content-label">手机号：</label>
+				    					<div class="content-value">
+				    						<div class="input" id="license.Mobile"></div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row img-row">
+				    				<div class="content-box">
+				    					<label class="content-label">证件照片：</label>
+				    					<div class="content-img" id="license.Url">
+				    						<!--<img src="images/01-in-1080.png" />-->
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box">
+				    					<label class="content-label">证件审核：</label>
+				    					<div class="content-value"><span id="license.AuditUserName"></span> &nbsp;&nbsp;&nbsp; <span id="license.ProjectCompanyName"></span></div>
+				    				</div>
+				    			</div>
+				    		</div>
+				    	</div>
+				    </div>
+			    </div>
+		    </div>
+		</div>
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/feature_common.js"></script>
+		<script>
+			(function(mui){
+				mui.init();
+				var scroll = mui('.mui-scroll-wrapper').scroll();
+				mui("#segmentedControl").on('tap', '.mui-control-item', function(e){
+					scroll.scrollTo(0, 0);
+				});
+				
+				mui.plusReady(function () {
+					plus.nativeUI.showWaiting();
+					var currWebview = plus.webview.currentWebview();
+					var PermitID = currWebview.info.PermitID;
+					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/';
+					
+					getFireWork();
+					//动火证、动火检查、看火检查、操作证照
+					function getFireWork(){
+						var fireworkUrl = url + 'FW_GetFireWorkExamineDetail_Client_IIS?dataKey=00-00-00-00';
+					
+						mui.ajax(fireworkUrl, {
+							type: 'get',
+							dataType: 'json',
+							data: {
+								PermitID: PermitID
+							},
+							success: function (response) {
+								var tables = response.DataSource.Tables;
+								setTables(tables);
+							},
+							error: function () {
+								mui.toast('详情请求失败！');
+							}
+						});
+						function setTables(tables) {
+							//动火证
+							setPermitData(tables[0].Datas);
+							//总包、分包、看火
+							setTaskItem(tables[1].Datas, tables[2].Datas);
+							plus.nativeUI.closeWaiting();
+						}
+						function setPermitData(permitData) {
+							permitData = permitData[0];
+							console.log('动火证--'+JSON.stringify(permitData))
+							var fields = ['ProjectCompanyName', 'ApplyCompanyName', 'FireWorkRegion', 'FirePositions', 'FireApparatus', 'JobLevel', 'JobType', 'ProjectName', 'SupervisionUserName', 'StartTime', 'EndTime', 'ApplyUserName', 'ApplyTime', 'ApplyUnitManagerName', 'AuditTime', 'AuditDescript'];
+							for(var i = 0; i < fields.length; i++) {
+								var field = fields[i];
+								var value = permitData[field];
+								if(/Time/.test(field)) {
+									value = featureCommon.formatTime(value);
+								}
+								
+								var id = 'permit.' + field;
+								document.getElementById(id).innerHTML = value;
+							}
+							
+							//设置操作证照
+							getCertificate(permitData.RegisterID);
+						}
+						function setTaskItem(taskBasic, taskItems) {
+							console.log(JSON.stringify(taskBasic));
+							console.log(JSON.stringify(taskItems));
+							var types = {
+								'1': 'zongbao',
+								'2': 'fenbao',
+								'3': 'kanhuo',
+								'kanhuo': ['beforeWork', 'duringWork', 'afterWork']
+							};
+							//设置检查人 + 时间  + 图片
+							var kanhuo = 0;
+							for(var i = 0; i < taskBasic.length; i++) {
+								var eachTask = taskBasic[i];
+								var id = types[eachTask.TaskType];
+								
+								if(eachTask.TaskType == '3') {
+									id = types[id][kanhuo];  //3时， id == TaskType == 'kanhuo'
+									kanhuo++;
+								}
+								//alert(id);
+								var ExamUserDom = document.getElementById(id + '.ExamUser');
+								var ExamTimeDom = document.getElementById(id + '.ExamTime');
+								var UrlDom = document.getElementById(id + '.Url');
+								
+								ExamUserDom && (ExamUserDom.innerHTML = eachTask.ExamUser);
+								ExamTimeDom && (ExamTimeDom.innerHTML = eachTask.ExamTime);
+								
+								if(eachTask.Url){
+									var urlArr = eachTask.Url.split(',');
+									var titleArr = eachTask.Title.split(',');
+									var imgHtml = '';
+									for (var im = 0; im < urlArr.length; im++) {
+										imgHtml += '<div class="content-box one-third">' +
+											( featureCommon.getImgs( urlArr[im], titleArr[im] ) ) +
+					    				'</div>';
+									}
+									UrlDom.innerHTML = imgHtml;
+								}
+							}
+							
+							// -- 分类检查项
+							var zongbaoItems = [], 
+								fenbaoItems = [],
+								kanhuoItems = {
+									'beforeWork': [],
+									'duringWork': [],
+									'afterWork': []
+								};
+							var kanhuoDep = ['beforeWork', 'duringWork', 'afterWork'];
+							var kanhuoCate = {};
+							var k = 0;
+							console.log(JSON.stringify(taskItems) );
+							for (var t = 0; t < taskItems.length; t++) {
+								var taskItem = taskItems[t];
+								var task = {
+									displayName: taskItem.DisplayName,
+									value: taskItem.Value								
+								};
+								if(taskItem.TaskType == '1') {
+									zongbaoItems.push(task);
+								}
+								if(taskItem.TaskType == '2') {
+									fenbaoItems.push(task);
+								}
+								if(taskItem.TaskType == '3') {
+									var dep = kanhuoCate[ taskItem.TaskItemID ];
+									if(!dep) {
+										dep = kanhuoCate[ taskItem.TaskItemID ] = kanhuoDep[k];
+										k++;
+									}
+									//alert(dep)
+									kanhuoItems[dep].push(task);	
+								}
+							}
+							console.log(JSON.stringify(zongbaoItems) );
+							
+							//设置检查项 -- 总包
+							var html = '';
+							for (var zi = 0; zi < zongbaoItems.length; zi++){
+								if(zi%2==0) {
+									html += '<div class="content-row">';
+								}
+								
+								html += htmlTemp(zongbaoItems[zi].displayName, zongbaoItems[zi].value);
+								
+								if(zi%2==1) {
+									html += '</div>';
+								}
+							}
+							console.log(html)
+							document.getElementById('zongbao').innerHTML = html;
+							
+							//设置检查项 -- 分包
+							var html = '';
+							for (var fi = 0; fi < fenbaoItems.length; fi++){
+								if(fi%2==0) {
+									html += '<div class="content-row">';
+								}
+								
+								html += htmlTemp(fenbaoItems[fi].displayName, fenbaoItems[fi].value);
+								
+								if(fi%2==1) {
+									html += '</div>';
+								}
+							}
+							document.getElementById('fenbao').innerHTML = html;
+							//看火
+							for (var kItem in kanhuoItems) {
+								var html = '';
+								for(var ki = 0; ki < kanhuoItems[kItem].length; ki++) {
+									if(ki%2==0) {
+										html += '<div class="content-row">';
+									}
+									
+									html += htmlTemp(kanhuoItems[kItem][ki].displayName, kanhuoItems[kItem][ki].value);
+									
+									if(ki%2==1) {
+										html += '</div>';
+									}
+								}
+								document.getElementById(kItem).innerHTML = html;
+							}
+
+						}
+						function htmlTemp (displayName, value) {
+							var html = ''+
+								'<div class="content-box half-col">'+
+			    					'<label class="content-label">'+ displayName +'：</label>'+
+			    					'<div class="content-value">'+
+			    						'<div class="input">'+ value +'</div>'+
+			    					'</div>'+	
+			    				'</div>';
+			    			return html;
+						}
+					}
+					
+					//操作证照
+					function getCertificate (RegisterID) {
+						var licenseUrl = url + 'FW_GetFireCertificateDetail_Client_IIS?dataKey=00-00-00-00';
+						mui.ajax(licenseUrl, {
+							type: 'get',
+							dataType: 'json',
+							data: {
+								RegisterID: RegisterID
+							},
+							success: function (response) {
+								var data = response.DataSource.Tables[0].Datas;
+								console.log('动火统计中的操作证照', JSON.stringify(data));
+								setCertificateValue(data);
+							},
+							error: function () {
+								mui.toast('证照获取失败');
+							}
+						});
+						
+						// 设置特种操作证值
+						function setCertificateValue(data) {
+							data = data[0];					
+								
+							var fields = ['CertificateCode','UserName','Gender','JobProject','CertificateDate','ValidityStartDate','ValidityEndDate','ReviewDate','IDCard','Mobile','Url', 'AuditUserName','ProjectCompanyName'];
+							for(var i = 0; i < fields.length; i++){
+								var field = fields[i],
+									id = 'license.' + field,
+									dom = document.getElementById(id),
+									value = data[field];
+								
+								if(/Date/.test(field)) {
+									value = featureCommon.formatDate(value);
+								}
+								
+								if(field == 'Gender') {
+									value = featureCommon.getGender(value);
+								}
+								
+								if(field == 'Url') {
+									value = featureCommon.getImgs(value, data.Title);
+								}
+								
+								dom.innerHTML = value;
+							}
+						}
+					}
+				});
+			})(mui);
+		</script>
+	</body>
+</html>

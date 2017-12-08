@@ -122,7 +122,7 @@
 						type:'get',
 						timeout: 5000,            
 						success: function(data){
-							
+							console.log('设备巡检详情---'+ JSON.stringify(data["DataSource"]["Tables"]))
 							plus.nativeUI.closeWaiting();
 							List = data["DataSource"]["Tables"][0]["Datas"]
 							Info = data["DataSource"]["Tables"][1]["Datas"]

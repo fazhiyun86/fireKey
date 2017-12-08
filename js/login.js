@@ -3,8 +3,8 @@ mui.init();
 mui.plusReady(function() {
 
 	plus.nativeUI.showWaiting('加载中...') /*ios基础上为安卓端修改*/
-	var ApplicationID = 'e2b16b1a-a0ab-11e6-b7b0-02004c4f4f50';
-	//	var ApplicationID = 'a121e2e6-c0e6-11e6-98bc-000c29624c55';
+	var ApplicationID = 'e2b16b1a-a0ab-11e6-b7b0-02004c4f4f50'; // 144.251
+//		var ApplicationID = 'a121e2e6-c0e6-11e6-98bc-000c29624c55';  //142.171
 	
 	// 更新下载的情况需要
 	var appID = '25074475045226193'

@@ -1,0 +1,46 @@
+/*动火统计 - 动火检查记录*/
+.mui-bar-nav~.mui-content {
+    padding-top: 50px;
+}
+.content_wrap {
+	padding: 0 10px 10px;
+}
+.state_titp {
+	line-height: 1.9rem;
+	padding: 0;
+	font-size: 0.8rem;
+}
+.risk_wrap {
+	width: 100%;
+	margin: 0;
+}
+.risk_wrap:not(:last-child) {
+	margin-bottom: 5px;
+}
+.risk_item {
+	padding: 10px;
+	background-color: #fff;
+	border: 1px solid #CCCCCC;
+	font-size: 0.8rem;
+	color: #777;
+}
+.job_position {
+	margin-bottom: 0.25rem;
+	color: #333;
+	font-size: 0.93rem;
+	font-weight: normal;
+}
+.flex_box {
+	display: flex;
+	/*justify-content: space-between;*/
+}
+.content_detail {
+	text-align: left;
+	line-height: 1.7rem;
+}
+.content_detail.half_col {
+	width: 50%;
+}
+.content_detail.third_col {
+	width: 33.3333%;
+}

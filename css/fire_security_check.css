@@ -1,0 +1,79 @@
+.mui-bar-nav ~ .mui-content {
+	padding-top: 50px;
+}
+.mui-off-canvas-right {
+	background: #F5F5F5;
+}
+.mui-off-canvas-right .mui-content {
+	color: #333;
+}
+.mui-content>.mui-table-view:first-child {
+	margin-top: 0;
+}
+.mui-table-view>li {
+	padding: 11px 15px;
+}
+.mui-table-view:before,
+.mui-table-view:after {
+	height: 0;
+}
+.mui-table-view-cell:last-child:after, 
+.mui-table-view-cell:last-child:before {
+    height: 1px;
+}
+.mui-table-view-cell.mui-collapse.mui-active {
+	margin-top: 0;
+	background: #fff!important;
+}
+.mui-table-view-cell:after {
+	left: 0;
+}
+.fire-security-check .mui-table-view-cell .mui-navigate-right {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+.light-color {
+	color: #666;
+}
+.lighter-color {
+	color: #999;
+}
+.fire-security-check .mui-navigate-right {
+	line-height: 1rem;
+}
+.fire-security-check .mui-navigate-right.mui-active {
+	background: #fff!important;
+}
+.fire-security-check .mui-table-view-cell.mui-collapse .mui-collapse-content {
+	padding-top: 0;
+}
+.mui-collapse-content .building {
+	width: 80%;
+	margin: 0 auto 5px;
+	padding: 0 10px;
+	line-height: 1.7;
+	border: 1px solid #ccc;	
+	color: #999;
+}
+.mui-collapse-content .building:last-child {
+	margin-bottom: 0;
+}
+.content-wrap {
+	padding: 10px;
+}
+.list-legend {
+	display: flex;
+	align-items: center;
+}
+.legend {
+	width: 30%;
+}
+.onprocess {
+	color: #3F51B5;
+}
+.overdue {
+	color: #FF4081;
+}
+.complete {
+	color: #8EC21F;
+}

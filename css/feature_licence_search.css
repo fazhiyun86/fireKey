@@ -1,19 +1,33 @@
 .feature {
 	
 }
+/*灰色字色：777，黑色字色：333*/
+.mui-bar-nav~.mui-content {
+    padding-top: 50px;
+}
+.mui-scroll-wrapper {
+	top: 50px;
+}
 .padb5 {
-	padding-bottom: 5px;;
+	padding-bottom: 5px;
 }
 .licence-wrap {
-	padding: 5px 10px;
+	padding: 10px 10px 5px;
+	margin: 0;
 }
 .licence-wrap li {
 	width: 100%;
 	border: 1px solid #ccc;
 	padding: 10px;
-	font-size: 12px;
+	font-size: 0.8rem;
+	color: #777;
+	background: #fff;
 }
-.licence-item {
+.licence-wrap li .highlight-name {
+	color: #333;
+	font-size: 0.93rem;
+}
+.licence-item:not(:first-child) {
 	margin-top: 5px;
 }
 .licence-item > div {
@@ -24,13 +38,54 @@
 /*详情页面*/
 
 .content-wrap {
-	padding: 10px 10px;
+	padding: 10px;
+	color: #333;
 }
 .content-item {
 	width: 100%;
 	border: 1px solid #ccc;
 	padding: 10px;
+	background: #fff;
 }
 .content-detail {
 	width: 100%;
+	font-size: 0;
+	margin-bottom: 10px;
+}
+.flex-box {
+	display: flex;
+}
+.block-box {
+	display: block;
+}
+.content-detail.col-half {
+	width: 50%;
+}
+.content-detail.block-box {
+	display:block;
+	height: auto;
+}
+.content-detail > * {
+	font-size: 0.8rem;
+}
+.content-detail>label {
+	display: inline-block;
+	width: 4.5rem;
+	margin-right: 3px;
+	text-align: right;
+	color: #777;
+}
+.content-detail>.less-width {
+	width: 40px;
+	margin-right: 10px;
+}
+.content-detail img {
+	display: block;
+	max-width: 100%;
+}
+.pull-right {
+	float: right;
+}
+.content-detail .center {
+	text-align: center;
 }

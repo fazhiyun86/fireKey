@@ -38,7 +38,7 @@
 					</p>
 					<header class="mui-bar mui-bar-nav titBackg" style="z-index: 99999999;">
 						<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-						<h1 class="mui-title">北京城建集团</h1>
+						<h1 class="mui-title" id="projectCompanyName">北京城建集团</h1>
 					</header>
 				
 				<div class="mui-content mui-scroll-wrapper">
@@ -93,6 +93,12 @@
 					//设置标题的名字
 					var selfView = plus.webview.currentWebview();
 					var taskID = selfView.info.taskID;
+					var title = selfView.info.title;
+
+					if(!selfView.info.title) {
+						title = localStorage.getItem('UserOrganiseUnitName');
+					}
+					document.getElementById('projectCompanyName').innerHTML = title;
 					
 					getData(taskID)
 					

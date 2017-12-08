@@ -413,7 +413,8 @@
 					"maintenance_list1.html",
 					"Risk_low_2.html",
 					"feature_page_order_01.html",
-					"Risk_height_2.html"
+					"Risk_height_2.html",
+					"fire_security_check.html"
 				],
 				"priority": 0
 			},
@@ -1960,7 +1961,8 @@
 					"js/searchCode.js"
 				],
 				"refer": [
-					"Add_Fire_statistic_tab02_2.html"
+					"Add_Fire_statistic_tab02_2.html",
+					"Add_Fire_statistic_detail.html"
 				],
 				"priority": 0
 			},
@@ -2138,7 +2140,8 @@
 					"feature_licence_search.html",
 					"feature_licence_check.html",
 					"feature_fire_approve.html",
-					"feature_repair.html"
+					"feature_repair.html",
+					"Change_Rush.html"
 				],
 				"priority": 0
 			},
