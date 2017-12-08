@@ -11,8 +11,12 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" href="css/fire_security_check.css" />
 		<style>
+			.safe-check-main {
+				padding: 60px 10px 0px 10px;
+			}
 			#safecheck {
-				padding: 40px 10px 0px;
+				padding-left: 0px;
+				margin: 0px;
 			}
 			.safe-check-item {
 				border: 1px solid #ccc;
@@ -25,6 +29,12 @@
 			}
 			.safe-check-item-bottom {
 				display: table;
+			}
+			.safe-check-item-bottom > span {
+				padding-left: 5px;
+			}
+			.safe-check-item-bottom > span:last-child {
+				padding: 0px;
 			}
 			.abnormal-color {
 				color: rgba(219, 69, 39, 1);
@@ -41,7 +51,7 @@
 			<div class="mui-scroll-wrapper">
 				<div class="mui-scroll">
 					<!--数据列表-->
-					<div>
+					<div class="safe-check-main">
 						<div>
 							<p id="projectName">北京城建集团-行政办公区A1项目部</p>
 						</div>
@@ -52,9 +62,9 @@
 								</div>
 								<div class="safe-check-item-bottom">
 									<span>检查项：12</span>
-									<span>异常：0</span>
-									<span>检查人：陈丽</span>
-									<span>2017-08-22 12：22:22</span>
+									<span>异常：0 </span>
+									<span>检查人：陈丽  </span>
+									<span>2017-08-22 12:22:22</span>
 								</div>
 							</li>
 							<li class="safe-check-item">
@@ -91,7 +101,12 @@
 				}
 			});*/
 			mui.plusReady(function(){
-				getListData();
+				
+				var selfView = plus.webview.currentWebview();
+				
+				console.log(JSON.stringify(selfView))
+				
+//				getListData();
 			});
 			mui(".mui-scroll-wrapper").scroll();
 			window.addEventListener('refresh', function(e){
@@ -163,7 +178,7 @@
 			
 			// 下一级页面
 			mui('#safecheck').on('tap', '.safe-check-item', function() {
-				var RegisterID = ;
+//				var RegisterID = ;
 				
 				return false;
 				mui.openWindow({
