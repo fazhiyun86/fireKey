@@ -21,7 +21,9 @@
 			"Risk_height_2.html",
 			"Risk_height.html",
 			"Change_Rush.html",
-			"feature_page_order_01.html"
+			"feature_page_order_01.html",
+			"Risk_low.html",
+			"fire_security_check.html"
 		],
 		"resources": [
 			"images/jing.png",
@@ -431,6 +433,11 @@
 	"Add_Fire_statistic_tab01_1.html": {
 		"refer": [
 			"Add_Fire_statistic_tab01_2.html"
+		]
+	},
+	"Risk_low.html": {
+		"refer": [
+			"Risk_low_1.html"
 		]
 	}
 }

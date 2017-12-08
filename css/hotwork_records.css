@@ -28,7 +28,7 @@
 	margin-bottom: 0.25rem;
 	color: #333;
 	font-size: 0.93rem;
-	font-weight: 500;
+	font-weight: normal;
 }
 .flex_box {
 	display: flex;

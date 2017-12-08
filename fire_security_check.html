@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/fire_security_check.css" />
+	</head>
+	<body class="fire-security-check">
+		<!-- 侧滑导航根容器 -->
+		<div class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+		  <!-- 菜单容器 -->
+		    <aside class="mui-off-canvas-right">
+		        <div class="mui-scroll-wrapper">
+		        	<div class="mui-scroll">
+		          		<!--菜单内容-->
+		          		<div class="title scroll_top">
+							<p class="scroll_top_text"><img src="images/jing.png" /><span>区域选择</span></p>
+						</div>
+						<div class="mui-content">
+							<ul class="mui-table-view" id="region">
+								<li class="mui-table-view-cell mui-collapse">
+									<a class="mui-navigate-right" href="#">
+										<div>行政办公区A1工程</div>
+										<div class="light-color">北京城建集团</div>
+									</a>
+									<div class="mui-collapse-content">
+										<div class="building">东区-1号楼</div>
+										<div class="building">东区-2号楼</div>
+										<div class="building">东区-3号楼</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+		        	</div>
+		      	</div>
+		    </aside>
+		    <!-- 主页面容器 -->
+			<div class="mui-inner-wrap">
+				<!--遮罩层-->
+				<div class="mui-off-canvas-backdrop"></div>
+			    <!-- 主页面标题 -->
+			    <header class="mui-bar mui-bar-nav titBackg">
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+					<h1 class="mui-title">消防安全检查</h1>
+				</header>
+				<div class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="content-wrap">
+							<div class="list-desc">
+								<div class="list-organise">北京城建集团<span class="mui-icon mui-icon-arrowdown"></span></div>
+								<div class="list-legend">
+									<div class="legend onprocess"><i class="iconfont icon-shijian "></i>正在进行</div>
+									<div class="legend overdue"><i class="iconfont icon-iconshandianfahuo "></i>任务逾期</div>
+									<div class="legend complete"><i class="iconfont icon-duigou-copy "></i>任务完成</div>
+								</div>
+							</div>
+							<div class="list-wrap">
+								<div class="list-item">
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> 
+		    </div>
+		</div>
+		
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+</html>
