@@ -22,7 +22,7 @@
 						</div>
 						<div class="mui-content">
 							<ul class="mui-table-view" id="region">
-								<li class="mui-table-view-cell mui-collapse">
+								<!--<li class="mui-table-view-cell mui-collapse">
 									<a class="mui-navigate-right" href="#">
 										<div>行政办公区A1工程</div>
 										<div class="light-color">北京城建集团</div>
@@ -32,7 +32,7 @@
 										<div class="building">东区-2号楼</div>
 										<div class="building">东区-3号楼</div>
 									</div>
-								</li>
+								</li>-->
 							</ul>
 						</div>
 		        	</div>
@@ -59,13 +59,13 @@
 								</div>
 							</div>
 							<div class="list-wrap" id="listContent">
-								<div class="list-item">
+								<!--<div class="list-item">
 									<p class="onprocess"><i class="iconfont icon-shijian"></i>消防安全检查</p>
 									<p>检查单位：北京城建集团</p>
 									<p>任务期限：2017年8月2号 - 2017年8月9号</p>
 									<p>任务进度：86.5%  应检：219 已检：189 异常：0 整改：0</p>
 								</div>
-								<!--<div class="list-item">
+								<div class="list-item">
 									<p class="overdue"><i class="iconfont icon-shijian"></i>消防安全检查</p>
 									<p>检查单位：北京城建集团</p>
 									<p>任务期限：2017年8月2号 - 2017年8月9号</p>
@@ -84,19 +84,15 @@
 			var baseurl = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/';
 			
 			var initUserOrganiseUnitID = localStorage.getItem('UserOrganiseUnitID');
-			var initOrganiseUnitName = localStorage.getItem('UserOrganiseUnitName');
-			
-			document.querySelector('.list-organise').setAttribute('data-ID', initUserOrganiseUnitID);
-			document.querySelector('.list-organise').setAttribute('data-name', initOrganiseUnitName);
-
-			document.getElementById('organiseUnit').innerHTML = initOrganiseUnitName;
 			
 			mui.plusReady(function(){
 				plus.nativeUI.showWaiting();
 				// 初始加载当前登录
-				getList(initUserOrganiseUnitID);
+				//getList(initUserOrganiseUnitID);
+				// 获取侧滑单位列表
+				getOrganiseList(initUserOrganiseUnitID);
 			});
-			function getOrganiseList (OrganiseUnitID, OrganiseUnitName) {
+			function getOrganiseList (OrganiseUnitID) {
 				var url = baseurl + 'TZDH_WebApp_GetLastOrgList?dataKey=00-00-00-00';
 				mui.ajax(url, {
 					data: {
@@ -108,31 +104,34 @@
 					success: function (response) {
 						var data = response.DataSource.Tables[0].Datas;
 						console.log('单位列表--' + JSON.stringify(data));
-						setOrganiseData(data, OrganiseUnitName);
+						setOrganiseData(data);
 					},
 					error: function () {
 						mui.toast('单位列表请求失败')
 					}
 				})
 			}
-			function setOrganiseData (data, OrganiseUnitName) {
+			function setOrganiseData (data) {
 				var html = '';
+				
 				for (var i = 0; i < data.length; i++) {
 					var item = data[i];
-					html += '<li class="mui-table-view-cell mui-collapse">'+
-								'<a class="mui-navigate-right" href="#">'+
+					html += '<li class="mui-table-view-cell" data-id="'+ item.OrganiseUnitID +'" data-name="'+ item.OrganiseUnitName +'">'+
+								'<a class="table-item" href="#">'+
 									'<div>'+ item.OrganiseUnitName +'</div>'+
-									'<div class="light-color">'+ OrganiseUnitName +'</div>'+
+									'<div class="light-color">'+ item.ParentOrganiseUnitName +'</div>'+
 								'</a>'+
-								'<div class="mui-collapse-content">'+
-									'<div class="building">东区-1号楼</div>'+
-									'<div class="building">东区-2号楼</div>'+
-									'<div class="building">东区-3号楼</div>'+
-								'</div>'+
 							'</li>';
 				}
 				document.getElementById('region').innerHTML = html;
+				getListByOrganiseUnitID(data[0]);
 			}
+			
+			function getListByOrganiseUnitID (data) {
+				document.getElementById('organiseUnit').innerHTML = data.OrganiseUnitName;
+				getList(data.OrganiseUnitID);
+			}
+			
 			function getList (OrganiseUnitID) {
 				var data = {
 					OrganiseUnitID : OrganiseUnitID,
@@ -160,14 +159,31 @@
 			function setData(data){
 				plus.nativeUI.closeWaiting();
 				var html = '';
+		
 				for(var i = 0; i < data.length; i++) {
 					var item = data[i];
+					
+					var Bratio = parseFloat(item.Ratio),
+						Lratio = Bratio.toFixed(1),
+						Str = Lratio.toString();
+					Str = Str.replace(/\d+\.(\d*)/,"$1");
+					if( Str == 0){
+						Lratio = Bratio.toFixed(0)
+					};
+					Bratio = Lratio + '%';
+					
+					var classname = item.TaskStatus == '1'? 'onprocess' : item.TaskStatus == '2' ? 'complete' : 'overdue';
+					
 					html += '<div class="list-item" data-taskID='+ item.TaskID +' data-unitName='+ item.OrganiseUnitName +'>' +
-						'<p class="onprocess"><i class="iconfont icon-shijian"></i>消防安全检查</p>'+
+						'<p class="'+ classname +'"><i class="iconfont icon-shijian"></i>消防安全检查</p>'+
 						'<p>检查单位：'+ item.OrganiseUnitName +'</p>'+
-						'<p>任务期限：2017年8月2号 - 2017年8月9号</p>'+
-						'<p>任务进度：'+ item.Ratio +'  应检：'+ item.TotalItemCount +' 已检：'+ item.ExamItemCount +' 异常：'+ item.AbnormalItemCount +' 整改：'+ item.SolveCount +'</p>'+
+						'<p>任务期限：'+ item.TaskStartTime +' ~ '+ item.TaskEndTime +'</p>'+
+						'<p>任务进度：'+ Bratio +'&nbsp;&nbsp;&nbsp;应检：'+ item.TotalItemCount +'&nbsp;&nbsp;&nbsp;已检：'+ item.ExamItemCount +'&nbsp;&nbsp;&nbsp;异常：'+ item.AbnormalItemCount +'&nbsp;&nbsp;&nbsp;整改：'+ item.SolveCount +'</p>'+
 					'</div>';
+				}
+				
+				if(!data.length) {
+					html += '<div class="mui-text-center">暂无数据</div>';
 				}
 				document.getElementById('listContent').innerHTML = html;
 			}
@@ -182,8 +198,8 @@
 						bottom: 0, //新页面底部位置
 					},
 					extras: {
-						TaskID: '123',
-						OrganiseUnitName: '单位名称'
+						TaskID: TaskID,
+						OrganiseUnitName: OrganiseUnitName
 					},
 					show: {
 						duration: '300'
@@ -195,15 +211,17 @@
 				})
 			});
 			mui('.list-desc').on('tap', '.list-organise', function() {
-				var OrganiseUnitID = this.getAttribute('data-ID');
-				var OrganiseUnitName = this.getAttribute('data-name');
-				//alert(OrganiseUnitID);
-				getOrganiseList(OrganiseUnitID, OrganiseUnitName);
 				mui('.mui-off-canvas-wrap').offCanvas('show');
 			});
-			/*mui('#region').on('tap', function(){
-				//var 
-			});*/
+			mui('#region').on('tap', '.mui-table-view-cell', function(){
+				var data = {
+					OrganiseUnitName: this.getAttribute('data-name'),
+					OrganiseUnitID: this.getAttribute('data-id')
+				}
+				plus.nativeUI.showWaiting();
+				getListByOrganiseUnitID(data);
+				mui('.mui-off-canvas-wrap').offCanvas('close');
+			});
 			mui('.mui-scroll-wrapper').scroll();
 		</script>
 	</body>

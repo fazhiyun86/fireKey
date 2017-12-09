@@ -146,7 +146,7 @@
 			 		OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
 			 	}
 			
-			 	urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_GetChildrenOrganiseUnitAndRegion?dataKey=00-00-00-00';
+			 	urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_GetLastOrgListAndRegion?dataKey=00-00-00-00';
 			
 			 	mui.ajax(urlg, {
 			 		data: data,

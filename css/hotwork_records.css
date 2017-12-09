@@ -6,9 +6,9 @@
 	padding: 0 10px 10px;
 }
 .state_titp {
-	line-height: 1.9rem;
-	padding: 0;
-	font-size: 0.8rem;
+	/*line-height: 1.9rem;*/
+	padding: 5px 10px;
+	font-size: 0.75rem;
 }
 .risk_wrap {
 	width: 100%;
@@ -21,13 +21,14 @@
 	padding: 10px;
 	background-color: #fff;
 	border: 1px solid #CCCCCC;
-	font-size: 0.8rem;
+	font-size: 0.69rem;
 	color: #777;
 }
 .job_position {
-	margin-bottom: 0.25rem;
-	color: #333;
-	font-size: 0.93rem;
+	/*margin-bottom: 0.25rem;*/
+	color: #484848;
+	/*font-size: 0.93rem;*/
+	font-size: 0.75rem;
 	font-weight: normal;
 }
 .flex_box {
@@ -36,7 +37,7 @@
 }
 .content_detail {
 	text-align: left;
-	line-height: 1.7rem;
+	/*line-height: 1.7rem;*/
 }
 .content_detail.half_col {
 	width: 50%;

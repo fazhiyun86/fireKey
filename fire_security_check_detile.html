@@ -14,21 +14,14 @@
 	</head>
 
 	<body>
-		<!--<div class="offCanvasConClass">
-			<div class="tit_text">
-				<span class="zdd">消防安全检查</span>
-			</div>
-			<font class="mui-icon mui-icon-left-nav"></font>
-		</div>-->
-		<!-- 主页面标题 -->
 		<header class="mui-bar mui-bar-nav titBackg">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">消防安全检查</h1>
 		</header>
 		<div class="conbody listde">
-			<ul>
-				<li><span id="checkName">东区-1号楼-4层-材料间100</span></li>
-				<li>
+			<div class="taskItemInfo"><span id="checkName"></span></div>
+			<ul id="itemData">
+				<!--<li class="abnormal">
 					<span class="font10">灭火器</span>
 					<i>无缺失</i>
 				</li>
@@ -47,48 +40,34 @@
 				<li>
 					<span class="font10">消防门</span>
 					<i>正常</i>
-				</li>
-				<li class="lip">
-					<p class="font10">
-						<span id="checkUser">检查人：赵阳</span>
-						<i id="checkTime">检查时间:2017-12-8 18:46:29</i>
-					</p>
-					<p class="font10" id="checkType">检查方式：扫码</p>
-				</li>
+				</li>-->
 			</ul>
+			<div class="taskItemInfo lip">
+				<p class="font10">
+					<span id="checkUser"></span>
+					<i id="checkTime"></i>
+				</p>
+				<p class="font10" id="checkType"></p>
+			</div>
+			
 		</div>
 		<div class="conbody">
 			<div class="tit">
 				<img src="images/imgLIc.jpg" />
-				<!--	<font class="mui-icon mui-icon-arrowdown"></font>-->
 				<span>图片附件</span>
 			</div>
 			<div class="imgde">
 				<ul id="imgShow">
-					<li>
+					<!--<li>
 						<img src="images/imgimg.png" />
 						<span>14:24:21</span>
 						<p>消防门</p>
-					</li>
-					<li>
-						<img src="images/imgimg.png" />
-						<span>14:24:21</span>
-						<p>消防门</p>
-					</li>
-					<li>
-						<img src="images/imgimg.png" />
-						<span>14:24:21</span>
-						<p>消防门</p>
-					</li>
-					<li>
-						<img src="images/imgimg.png" />
-						<span>14:24:21</span>
-						<p>消防门</p>
-					</li>
+					</li>-->
 				</ul>
 			</div>
 		</div>
 		<script src="js/mui.min.js"></script>
+		<scrip src="js/common.js"></scrip>
 		<script type="text/javascript">
 			mui.plusReady(function(){
 				var selfView = plus.webview.currentWebview();
@@ -106,8 +85,8 @@
 					data: data,
 					success: function(response) {
 						plus.nativeUI.closeWaiting();
-						var data = response.DataSource.Tables[0].Datas;
-//						console.log('证照审核-详情', JSON.stringify(data));
+						var data = response.DataSource.Tables[0].Datas[0];
+						console.log('消防安全检查详情--' + JSON.stringify(data));
 						setValue(data);
 					},
 					error: function() {
@@ -116,24 +95,57 @@
 				});
 				
 				function setValue(data) {
-					if(!data) {
-						document.getElementById('checkName').value = data.TaskName;				//检查
-						document.getElementById('checkUser').value = '检查人：'+data.ExamUser;
-						document.getElementById('checkTime').value = '检查时间：'+data.ExamTime;
-	//					document.getElementById('checkType').value = '检查方式：'+data.ExamTime;	//缺少检查方式
-						var imgTitle = data.Title;
-						var imgUrl = data.Url;
-						
-						//图片列表
-						var text = '';
-						for(var a=0;a<imgTitle.length; a++) {
-							var theUrl = imgUrl[a];
-							var theTitle = imgTitle[a];
-							text += '<li><img src="'+theUrl+'" /><p>'+theTitle+'</p></li>';
-						}
-						document.getElementById('imgShow').innerHTML = text;
+					document.getElementById('checkName').innerHTML = data.ItemName;				//检查
+					document.getElementById('checkUser').innerHTML = '检查人：'+data.ExamUser;
+					document.getElementById('checkTime').innerHTML = '检查时间：'+data.ExamTime;
+					document.getElementById('checkType').innerHTML = '检查方式：';	//缺少检查方式
+					
+					var imgTitle = data.Title.split(',');
+					var imgUrl = data.Url.split(',');
+					var itemData = data.ItemData;
+					
+					/*var str = '<ItemData CreatedBy="default" CreatedDate="2017-12-06 10:44:20.756">'+
+							      '<keranwu EnumID="300a5a77-d897-11e7-814d-fa163e4635ff" IndicatorName="keranwu" DisplayName="可燃物" Value="清理" IndicatorID="6e60cc2a-d896-11e7-814d-fa163e4635ff" IsCounter="0" CountUnitName="" IndicatorCode="100000097" IsNormal="1" Score="-0.00" />'+
+							      '<caozuozheng EnumID="4963f44b-d897-11e7-814d-fa163e4635ff" IndicatorName="caozuozheng" DisplayName="操作证" Value="随身携带" IndicatorID="7a3bcd36-d896-11e7-814d-fa163e4635ff" IsCounter="0" CountUnitName="" IndicatorCode="100000098" IsNormal="0" Score="-0.00" />'+
+							   '</ItemData>';*/	
+					handleXMLResponse (itemData);
+					//图片列表
+					var text = '';
+					for(var a=0;a<imgTitle.length; a++) {
+						var theUrl = imgUrl[a];
+						var theTitle = imgTitle[a];
+						text += '<li><img src="'+theUrl+'" /><p>'+theTitle+'</p></li>';
+					}
+					document.getElementById('imgShow').innerHTML = text;
+				}
+				
+				function handleXMLResponse (str) {
+					if(!str) return;
+					function escape2Html(str) {
+					  var arrEntities={'lt':'<','gt':'>','nbsp':' ','amp':'&','quot':'"'};
+					  return str.replace(/&(lt|gt|nbsp|amp|quot);/ig,function(all,t){return arrEntities[t];});
+					}
+					str = escape2Html(str);
+					var doc = null;
+					// IE
+					if(!window.addEventListener) {
+						doc = new ActiveXObject("MSXML2.DOMDocument");
+						doc.loadXML(str);
+					}else {
+						doc = (new DOMParser()).parseFromString(str, 'text/xml');
+					}	
+					var itemDataList = doc.querySelector('ItemData');
+					var items = itemDataList.children;
+					var html = '';
+					for (var i = 0, len = items.length; i < len; i++) {
+						var item = items[i];
+						var displayName = item.getAttribute('DisplayName');
+						var value = item.getAttribute('Value');
+						var classStr = item.getAttribute('IsNormal')=='1'?'' : 'class="abnormal"';
+						html += '<li '+ classStr +'><span class="font10">'+ displayName +'</span><i>'+ value +'</i></li>';
 					}
 					
+					document.getElementById('itemData').innerHTML = html;
 				}
 			});
 		</script>

@@ -74,6 +74,8 @@ mui.plusReady(function() {
 		WebApp_EquipmentStatus();  //设备状态--- 消火栓状态
 		WebApp_GetRectify ();    //隐患整改
 		WebApp_GetChange();    //整改催办
+		
+		getFireExamStatistic();  //消防安全检查
 	}, 500)
 	
 	//高风险数据获取
@@ -164,7 +166,7 @@ mui.plusReady(function() {
 			success: function(data){
 				console.log(JSON.stringify(data))
 				setHtml(data)
-				mui.toast('数据请求成功')
+				//mui.toast('数据请求成功')
 			},
 			
 			error: function(){
@@ -176,13 +178,29 @@ mui.plusReady(function() {
 		function setHtml(data) {    
 			
 			var info = data['DataSource']['Tables'][0]["Datas"][0];
-			var FireCount = info["FireCount"]; //动火数量
-			var AbnormalCount = info["AbnormalCount"]; //发现问题
-			var AuditCount = info["AuditCount"];  //解决问题
 			
-			document.getElementById("donghuo1").innerHTML = FireCount || 0;
-			document.getElementById("donghuo2").innerHTML = AbnormalCount || 0;
-			document.getElementById("donghuo3").innerHTML = AuditCount || 0;
+			function formatRatio (ratio) {
+				var Ratio;
+				if (ratio != '') {
+					var Bratio = parseFloat(ratio),
+						Lratio = Bratio.toFixed(1),
+						Str = Lratio.toString();
+					Str = Str.replace(/\d+\.(\d*)/,"$1");
+					if( Str == 0){
+						Lratio = Bratio.toFixed(0)
+					}
+					Ratio = Lratio + '%';
+				}else {
+					Ratio = '0%';
+				}
+				
+				return Ratio;
+			}
+			document.getElementById("FireCount").innerHTML = info.FireCount || 0;
+			document.getElementById("FireExamineCount").innerHTML = info.FireExamineCount || 0;
+			document.getElementById("FireExamineRatio").innerHTML = formatRatio(info.FireExamineRatio);
+			document.getElementById("WatchExamineCount").innerHTML = info.WatchExamineCount || 0;
+			document.getElementById("WatchExamineRatio").innerHTML = formatRatio(info.WatchExamineRatio);
 		}
 	}
 	
@@ -318,6 +336,8 @@ mui.plusReady(function() {
 		WebApp_GetRectify ();   //隐患整改
 		WebApp_GetChange();    //整改催办
 		
+		getFireExamStatistic();  //消防安全检查
+		
 	})
 	
 
@@ -325,6 +345,70 @@ mui.plusReady(function() {
 
 	})
 	console.log(JSON.stringify(localStorage))
+	
+	function getFireExamStatistic () {
+		var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/';
+		url += 'TZDH_WebApp_First_EXAM_Statistical?dataKey=00-00-00-00';
+		
+		var data ={
+			OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID"),
+			StartDate: localStorage.getItem("startTime"),
+			EndDate: localStorage.getItem("endTime")
+		};
+		
+		mui.ajax(url, {
+			data: data,
+			dataType: 'json',
+			type: 'get',
+			timeout: 5000,
+			success: function(data){
+				data = data.DataSource.Tables[0].Datas[0];
+				console.log('消防安全检查统计---'+ JSON.stringify(data))
+				setHtml(data)
+			},
+			error: function(){
+				mui.toast('消防安全检查统计数据请求失败')
+			}
+		});
+		
+		function setHtml(data) {
+			var Ratio;
+			if (data.Ratio != '') {
+				var Bratio = parseFloat(data.Ratio),
+					Lratio = Bratio.toFixed(1),
+					Str = Lratio.toString();
+				Str = Str.replace(/\d+\.(\d*)/,"$1");
+				if( Str == 0){
+					Lratio = Bratio.toFixed(0)
+				}
+				Ratio = Lratio + '%';
+			}else {
+				Ratio = '0%';
+			}
+			
+			function setFontColor(Ratio){
+				Ratio = parseFloat(Ratio)
+				var mark = document.getElementById("mark");
+				if(Ratio < 80) {
+					document.getElementById("fireExamRatio").style.color = '#db4527';
+					mark.className = "index_list_content_maymore"  + " red-top" + " red-bottom";
+				}if (Ratio >= 80 && Ratio < 100) {
+					document.getElementById("fireExamRatio").style.color = '#e8a600';
+					mark.className = "index_list_content_maymore" + " yellow-top" + " yellow-bottom";
+				} else if(Ratio == 100){
+					document.getElementById("fireExamRatio").style.color = '#228b22';
+					mark.className = "index_list_content_maymore" + " green-top" + " green-bottom";
+				}
+			}
+			setFontColor(Ratio);
+			
+			document.getElementById('fireExamRatio').innerHTML = Ratio || '-';
+			document.getElementById('fireExamRate').innerHTML = data.Rate || 0;
+			document.getElementById('fireExamRiskCount').innerHTML = data.RiskCount || 0;
+			document.getElementById('fireExamAbnormalCount').innerHTML = data.AbnormalCount || 0;
+			document.getElementById('fireExamSolveCount').innerHTML = data.SolveCount || 0;
+		}
+	}
 
 })
 

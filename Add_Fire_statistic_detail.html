@@ -466,6 +466,30 @@
 				    				</div>
 				    			</div>
 				    			<div class="content-row">
+				    				<div class="content-box">
+				    					<label class="content-label">证照名称：</label>
+				    					<div class="content-value">
+				    						<div class="input" id="license.CertificateName"></div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box">
+				    					<label class="content-label">发证机关：</label>
+				    					<div class="content-value">
+				    						<div class="input" id="license.IssuingAuthority"></div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box">
+				    					<label class="content-label">工程单位：</label>
+				    					<div class="content-value">
+				    						<div class="input" id="license.ProjectCompanyName"></div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
 				    				<div class="content-box half-col">
 				    					<label class="content-label">姓名：</label>
 				    					<div class="content-value">
@@ -530,6 +554,14 @@
 				    					<label class="content-label">手机号：</label>
 				    					<div class="content-value">
 				    						<div class="input" id="license.Mobile"></div>
+				    					</div>	
+				    				</div>
+				    			</div>
+				    			<div class="content-row">
+				    				<div class="content-box">
+				    					<label class="content-label">备注：</label>
+				    					<div class="content-value">
+				    						<div class="input" id="license.Remark"></div>
 				    					</div>	
 				    				</div>
 				    			</div>
@@ -670,7 +702,8 @@
 								var taskItem = taskItems[t];
 								var task = {
 									displayName: taskItem.DisplayName,
-									value: taskItem.Value								
+									value: taskItem.Value,
+									isNormal: taskItem.IsNormal
 								};
 								if(taskItem.TaskType == '1') {
 									zongbaoItems.push(task);
@@ -697,7 +730,7 @@
 									html += '<div class="content-row">';
 								}
 								
-								html += htmlTemp(zongbaoItems[zi].displayName, zongbaoItems[zi].value);
+								html += htmlTemp(zongbaoItems[zi].displayName, zongbaoItems[zi].value, zongbaoItems[zi].isNormal);
 								
 								if(zi%2==1) {
 									html += '</div>';
@@ -713,7 +746,7 @@
 									html += '<div class="content-row">';
 								}
 								
-								html += htmlTemp(fenbaoItems[fi].displayName, fenbaoItems[fi].value);
+								html += htmlTemp(fenbaoItems[fi].displayName, fenbaoItems[fi].value, fenbaoItems[fi].isNormal);
 								
 								if(fi%2==1) {
 									html += '</div>';
@@ -728,7 +761,7 @@
 										html += '<div class="content-row">';
 									}
 									
-									html += htmlTemp(kanhuoItems[kItem][ki].displayName, kanhuoItems[kItem][ki].value);
+									html += htmlTemp(kanhuoItems[kItem][ki].displayName, kanhuoItems[kItem][ki].value, kanhuoItems[kItem][ki].isNormal);
 									
 									if(ki%2==1) {
 										html += '</div>';
@@ -738,9 +771,10 @@
 							}
 
 						}
-						function htmlTemp (displayName, value) {
+						function htmlTemp (displayName, value, isNormal) {
+							var normalClass = isNormal == '1' ? '' : 'abnormal';
 							var html = ''+
-								'<div class="content-box half-col">'+
+								'<div class="content-box half-col '+ normalClass +'">'+
 			    					'<label class="content-label">'+ displayName +'：</label>'+
 			    					'<div class="content-value">'+
 			    						'<div class="input">'+ value +'</div>'+
@@ -773,7 +807,7 @@
 						function setCertificateValue(data) {
 							data = data[0];					
 								
-							var fields = ['CertificateCode','UserName','Gender','JobProject','CertificateDate','ValidityStartDate','ValidityEndDate','ReviewDate','IDCard','Mobile','Url', 'AuditUserName','ProjectCompanyName'];
+							var fields = ['CertificateCode','CertificateName','IssuingAuthority','ProjectCompanyName','Remark','UserName','Gender','JobProject','CertificateDate','ValidityStartDate','ValidityEndDate','ReviewDate','IDCard','Mobile','Url', 'AuditUserName','ProjectCompanyName'];
 							for(var i = 0; i < fields.length; i++){
 								var field = fields[i],
 									id = 'license.' + field,

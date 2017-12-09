@@ -392,7 +392,7 @@ input {
 	-o-transform:rotate(-45deg);
 }
 /*66b61d  f28d02 17a79a 867eed*/
-.red-top::before {
+/*.red-top::before {
     border-left: 8px solid #db4527;
 }
 
@@ -404,25 +404,33 @@ input {
     border-left: 8px solid #228b22;
 }
 
+.index_list_content_maymore:nth-child(1)::before {
+    border-left: 8px solid #66B61D;
+}
+
 .index_list_content_maymore:nth-child(2)::before {
     border-left: 8px solid #f28d02;
 }
 
 .index_list_content_maymore:nth-child(3)::before {
-    border-left: 8px solid #867eed;
+    border-left: 8px solid #DB4527;
 }
 
 .index_list_content_maymore:nth-child(4)::before {
-    border-left: 8px solid #db4528;
+    border-left: 8px solid #867eed;
 }
 
 .index_list_content_maymore:nth-child(5)::before {
-    border-left: 8px solid #17a79a;
+    border-left: 8px solid #db4528;
 }
 
 .index_list_content_maymore:nth-child(6)::before {
-    border-left: 8px solid #f28d02;
+    border-left: 8px solid #17a79a;
 }
+
+.index_list_content_maymore:nth-child(7)::before {
+    border-left: 8px solid #f28d02;
+}*/
 
 
 .index_list_content_maymore::after {
@@ -444,7 +452,7 @@ input {
 	-o-transform:rotate(-45deg);
 }
 
-.red-bottom::after {
+/*.red-bottom::after {
     border-right: 8px solid #db4527;
 }
 
@@ -456,25 +464,33 @@ input {
     border-right: 8px solid #228b22;
 }
 
+.index_list_content_maymore:nth-child(1)::after {
+    border-right: 8px solid #66B61D;
+}
+
 .index_list_content_maymore:nth-child(2)::after {
     border-right: 8px solid #f28d02;
 }
 
 .index_list_content_maymore:nth-child(3)::after {
-    border-right: 8px solid #867eed;
+    border-right: 8px solid #DB4527;
 }
 
 .index_list_content_maymore:nth-child(4)::after {
-    border-right: 8px solid #db4528;
+    border-right: 8px solid #867eed;
 }
 
 .index_list_content_maymore:nth-child(5)::after {
-    border-right: 8px solid #17a79a;
+    border-right: 8px solid #db4528;
 }
 
 .index_list_content_maymore:nth-child(6)::after {
-    border-right: 8px solid #f28d02;
+    border-right: 8px solid #17a79a;
 }
+
+.index_list_content_maymore:nth-child(7)::after {
+    border-right: 8px solid #f28d02;
+}*/
 
 .index_list_content_maymore .index_list_content_maymore_first {
 	font-family: "Microsoft YaHei";
@@ -725,7 +741,7 @@ input {
 }
 
 .state_titp {
-	padding: 10px 10px;
+	padding: 10px 10px 5px;
 	font-size: 0.75rem;
 	margin-bottom: 0px;
 	font-family: "Microsoft YaHei";
@@ -1858,7 +1874,14 @@ canvas {
 	flex-grow: 1;
 }
 .flex_item2 {
+	
 	/*flex-grow: 2;*/	
+}
+.in_index .flex_item {
+	width: 33%;
+}
+.in_index .flex_item2 {
+	width: 67%;
 }
 .flex_item2 > p {
 	float: left;

@@ -41,7 +41,7 @@
 	<body>
 		<header class="mui-bar mui-bar-nav feature">
 		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">隐患整改审批</h1>
+		    <h1 class="mui-title">隐患整改验收</h1>
 		</header>
 		<div class="mui-scroll-wrapper">
 		    <div class="mui-scroll">
@@ -63,7 +63,16 @@
 		<script src="js/jquery.min.js"></script>
 		<script type="text/javascript">
 			(function(){
-				
+				mui.init({
+				    beforeback: function() {
+				　　　　 //获得父页面的webview
+				        var opener = plus.webview.currentWebview().opener();
+				　　　　 //触发父页面的自定义事件(refresh),从而进行刷新
+				        mui.fire(opener, 'featureRefresh');
+				        //返回true,继续页面关闭逻辑
+				        return true;
+				    }
+				});
 				
 				window.addEventListener('refresh', function(e){//执行刷新
 					
