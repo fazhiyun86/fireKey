@@ -177,7 +177,9 @@
 				//设置图片
 				function setImg (data) {
 					data = data[0]
+					
 					var imgUrls = data.AttachUrl;
+					
 					var imgContents = data.AttachTitle;
 					
 					imgUrls = imgUrls.split(',')
@@ -186,9 +188,11 @@
 					for(var i = 0; i < imgUrls.length; i++) {
 						var urlItem = imgUrls[i];
 						var conItem = imgContents[i];
+						if(!urlItem) continue;
 						
 						html += '<img src="'+ urlItem +'" alt="" width="70px" data-preview-src="" data-preview-group="1"/>'
 					}
+					
 					document.getElementById("riskContentImg").innerHTML = html
 				}
 				
