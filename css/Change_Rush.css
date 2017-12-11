@@ -23,9 +23,11 @@ html,body{
 	display: block;
 	width: 33.3%;
 	font-size: 0.9rem;
-	line-height: 2.8rem;
+	/*line-height: 2.8rem;*/
+	line-height: 38px;
 	float: left;
-	background:#E0E0E0;
+	/*background:#E0E0E0;*/
+	background: #fff;
 }
 
 .change_rush_con{
