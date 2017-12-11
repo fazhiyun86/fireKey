@@ -31,7 +31,8 @@
 			"fonts/mui.ttf",
 			"js/jquery.min.js",
 			"js/mui.min.js",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"images/icon_donghuo.png"
 		],
 		"refer": [
 			"feature_page_order_01.html",
@@ -95,7 +96,10 @@
 	},
 	"Password_edit.html": {
 		"resources": [
-			"images/user-photo.png"
+			"images/user-photo.png",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/style.css"
 		],
 		"refer": []
 	},
@@ -109,7 +113,10 @@
 			"images/icon_zhenggaiyanshou.png",
 			"images/icon_donghuozhengshenpi.png",
 			"images/icon_zhengzhaochaxun.png",
-			"images/icon_xiadazhenggai.png"
+			"images/icon_xiadazhenggai.png",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
 		],
 		"refer": []
 	},
