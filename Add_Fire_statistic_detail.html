@@ -79,9 +79,9 @@
 					    			<div class="content-box">
 					    				<label class="content-label">动火时间：</label>
 					    				<div class="content-value">
-					    					<span id="permit.StartTime">1111年11月11日</span>&nbsp;
-					    					<span>至</span>&nbsp;
-					    					<span id="permit.EndTime">1111年11月11日</span>
+					    					<span id="permit.StartTime"></span>&nbsp;
+					    					<span style="color: #666">至</span>&nbsp;
+					    					<span id="permit.EndTime"></span>
 					    				</div>
 					    			</div>
 					    		</div>
@@ -117,7 +117,7 @@
 				    		<div class="content-wrap">
 				    			<h5 class="content-title">总包检查</h5>
 				    			<div id="zongbao"></div>
-				    			<div class="content-row">
+				    			<!--<div class="content-row">
 				    				<div class="content-box half-col">
 				    					<label class="content-label">可燃物：</label>
 				    					<div class="content-value">
@@ -186,12 +186,12 @@
 				    						<div class="input">无</div>
 				    					</div>	
 				    				</div>
-				    			</div>
+				    			</div>-->
 				    			<div class="content-row">
 				    				<div class="content-box half-col">
 				    					<label class="content-label">检查人：</label>
 				    					<div class="content-value">
-				    						<div class="input" id="zongbao.ExamUser">章宏斌</div>
+				    						<div class="input" id="zongbao.ExamUser"></div>
 				    					</div>	
 				    				</div>
 				    			</div>
@@ -199,7 +199,7 @@
 				    				<div class="content-box over-half">
 				    					<label class="content-label">检查时间：</label>
 				    					<div class="content-value">
-				    						<div class="input" id="zongbao.ExamTime">2017-10-12 14:32:23</div>
+				    						<div class="input" id="zongbao.ExamTime"></div>
 				    					</div>	
 				    				</div>
 				    			</div>
@@ -286,7 +286,7 @@
 				    				<div class="content-box half-col">
 				    					<label class="content-label">检查人：</label>
 				    					<div class="content-value">
-				    						<div class="input" id="fenbao.ExamUser">章宏斌</div>
+				    						<div class="input" id="fenbao.ExamUser"></div>
 				    					</div>	
 				    				</div>
 				    			</div>
@@ -294,7 +294,7 @@
 				    				<div class="content-box over-half">
 				    					<label class="content-label">检查时间：</label>
 				    					<div class="content-value">
-				    						<div class="input" id="fenbao.ExamTime">2017-10-12 14:32:23</div>
+				    						<div class="input" id="fenbao.ExamTime"></div>
 				    					</div>	
 				    				</div>
 				    			</div>
@@ -576,7 +576,7 @@
 				    			<div class="content-row">
 				    				<div class="content-box">
 				    					<label class="content-label">证件审核：</label>
-				    					<div class="content-value"><span id="license.AuditUserName"></span> &nbsp;&nbsp;&nbsp; <span id="license.ProjectCompanyName"></span></div>
+				    					<div class="content-value"><span id="license.AuditUserName"></span> &nbsp;&nbsp;&nbsp; <span style="float: right;" id="license.ProjectCompanyName2"></span></div>
 				    				</div>
 				    			</div>
 				    		</div>
@@ -807,7 +807,7 @@
 						function setCertificateValue(data) {
 							data = data[0];					
 								
-							var fields = ['CertificateCode','CertificateName','IssuingAuthority','ProjectCompanyName','Remark','UserName','Gender','JobProject','CertificateDate','ValidityStartDate','ValidityEndDate','ReviewDate','IDCard','Mobile','Url', 'AuditUserName','ProjectCompanyName'];
+							var fields = ['CertificateCode','CertificateName','IssuingAuthority','Remark','UserName','Gender','JobProject','CertificateDate','ValidityStartDate','ValidityEndDate','ReviewDate','IDCard','Mobile','Url', 'AuditUserName','ProjectCompanyName'];
 							for(var i = 0; i < fields.length; i++){
 								var field = fields[i],
 									id = 'license.' + field,
@@ -827,6 +827,12 @@
 								}
 								
 								dom.innerHTML = value;
+								
+								if(field == 'ProjectCompanyName') {
+									//工程单位 和 审核单位 一样的值
+									dom = document.getElementById(id+'2');
+									dom && (dom.innerHTML = value); 
+								}
 							}
 						}
 					}

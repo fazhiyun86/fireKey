@@ -201,7 +201,7 @@
 								<div class="content-detail">
 									<label for="Mobile">证件审核：</label>
 									<div class="content-input">
-										<span id="AuditUserName"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="ProjectCompanyName"></span>
+										<span id="AuditUserName"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="float: right;" id="ProjectCompanyName2"></span>
 									</div>
 								</div>
 							</div>
@@ -374,7 +374,7 @@
 		function setCertificateValue(data) {
 			data = data[0];					
 				
-			var fields = ['CertificateCode','CertificateName','IssuingAuthority','ProjectCompanyName','Remark','UserName','Gender','JobProject','CertificateDate','ValidityStartDate','ValidityEndDate','ReviewDate','IDCard','Mobile','Url', 'AuditUserName','ProjectCompanyName'];
+			var fields = ['CertificateCode','CertificateName','IssuingAuthority','Remark','UserName','Gender','JobProject','CertificateDate','ValidityStartDate','ValidityEndDate','ReviewDate','IDCard','Mobile','Url', 'AuditUserName','ProjectCompanyName'];
 			for(var i = 0; i < fields.length; i++){
 				var field = fields[i],
 					dom = document.getElementById(field),
@@ -395,6 +395,12 @@
 				
 				if(field == 'ProjectCompanyName' || field == 'AuditUserName') {
 					dom.innerHTML = value;
+					
+					if(field == 'ProjectCompanyName') {
+						//工程单位 和 审核单位 一样的值
+						dom = document.getElementById(field+'2');
+						dom && (dom.innerHTML = value); 
+					}
 					continue;
 				}
 				

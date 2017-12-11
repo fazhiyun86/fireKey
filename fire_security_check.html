@@ -165,15 +165,19 @@
 				for(var i = 0; i < data.length; i++) {
 					var item = data[i];
 					
-					var Bratio = parseFloat(item.Ratio),
-						Lratio = Bratio.toFixed(1),
+					var Bratio;
+					if(item.Ratio != ''){
+						Bratio = parseFloat(item.Ratio);
+						Lratio = Bratio.toFixed(1);
 						Str = Lratio.toString();
-					Str = Str.replace(/\d+\.(\d*)/,"$1");
-					if( Str == 0){
-						Lratio = Bratio.toFixed(0)
-					};
-					Bratio = Lratio + '%';
-					
+						Str = Str.replace(/\d+\.(\d*)/,"$1");
+						if( Str == 0){
+							Lratio = Bratio.toFixed(0)
+						};
+						Bratio = Lratio + '%';
+					}else {
+						Bratio = '0%';
+					}
 					var classname = item.TaskStatus == '1'? 'onprocess' : item.TaskStatus == '2' ? 'complete' : 'overdue';
 					
 					html += '<div class="list-item" data-taskID='+ item.TaskID +' data-unitName='+ item.OrganiseUnitName +'>' +

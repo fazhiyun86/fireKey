@@ -151,6 +151,9 @@ textarea {
 	font-size: 0;
 	margin-bottom: 10px;
 }
+.content-detail:last-child {
+	margin-bottom: 0;
+}
 .content-detail.col-half {
 	width: 50%;
 }
