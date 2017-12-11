@@ -115,14 +115,19 @@ mui.plusReady(function() {
 			var isEnd = info["IsEnd"];
 		
 			localStorage.setItem("HeightTag", isEnd);	
-			Bratio = parseFloat(Ratio)
-			Lratio = Bratio.toFixed(1);
-			Str = Lratio.toString();
-			Str = Str.replace(/\d+\.(\d*)/,"$1");
-			if( Str == 0){
-				Lratio = Bratio.toFixed(0)
+			if(Ratio!=''){
+				Bratio = parseFloat(Ratio)
+				Lratio = Bratio.toFixed(1);
+				Str = Lratio.toString();
+				Str = Str.replace(/\d+\.(\d*)/,"$1");
+				if( Str == 0){
+					Lratio = Bratio.toFixed(0)
+				}
+				Ratio = Lratio + '%';
+			}else {
+				Ratio = '0%';
 			}
-			Ratio = Lratio + '%';
+			
 			
 			function setFontColor(Ratio){
 				Ratio = parseFloat(Ratio)
