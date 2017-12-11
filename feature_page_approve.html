@@ -115,7 +115,10 @@
 									    	'<div><span class="span_left">故障类型：'+ item.FaultType +'</span><span class="span_right">故障原因：</span></div>'+
 									    	'<div>设备位置：'+ item.Positions +'</div>'+
 									'</div>';
-						}	
+						}
+						if(len==0) {
+							html = '<p style="color:#999; font-size: 0.85rem; text-align: center; padding-top: 5px;">暂无数据</p>';
+						}
 						document.getElementById("approveWraper").innerHTML = html;
 					};
 				}
