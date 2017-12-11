@@ -7,6 +7,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" href="css/hotwork_record_detail.css" />
 		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
 		<style>
 			.mui-bar-tab {
@@ -52,13 +53,18 @@
 	<body>
 		<div class="mui-content Equipment_patrol_con ">
 			<div class="mui-content">
-				<nav class="mui-bar-tab">
+				<!--<nav class="mui-bar-tab">
 					<div class="Micro_task_tit">
 						<a href="Add_Fire_statistic_tab01.html" class="taskColormain" style="height:32px; line-height:32px"><span>动火证发放</span></a>
 						<a href="Add_Fire_statistic_tab02.html"  style="height:32px; line-height:32px"><span>动火检查记录</span></a>
 						<a href="Add_Fire_statistic_tab03.html"  style="height:32px; line-height:32px"><span>问题统计分析</span></a>
 					</div>
-				</nav>
+				</nav>-->
+				<div class="fire-stat-tab mui-segmented-control">
+			        <a class="mui-control-item mui-active" href="Add_Fire_statistic_tab01.html">动火证发放</a>
+			        <a class="mui-control-item" href="Add_Fire_statistic_tab02.html">动火检查记录</a>
+			        <a class="mui-control-item" href="Add_Fire_statistic_tab03.html">问题统计分析</a>
+			    </div>
 			</div>
 
 		</div>
@@ -95,7 +101,7 @@
 				var activeTab = subpages[0];
 				var title = document.getElementById("title");
 				//选项卡点击事件
-				mui('.Micro_task_tit').on('tap', 'a', function(e) {
+				mui('.fire-stat-tab').on('tap', 'a', function(e) {
 
 					var targetTab = this.getAttribute('href');
 					
@@ -118,8 +124,8 @@
 //					}
 //					
 
-					$('.Micro_task_tit').find('a').removeClass('taskColormain');
-					$(this).addClass('taskColormain');
+					$('.fire-stat-tab').find('a').removeClass('mui-active');
+					$(this).addClass('mui-active');
 					//					console.log(targetTab)
 					if(targetTab == activeTab) {
 						return;
