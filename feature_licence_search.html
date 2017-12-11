@@ -14,7 +14,7 @@
 	<body>
 		<header class="mui-bar mui-bar-nav titBackg">
 		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-		    <h1 class="mui-title">特种作业证审核</h1>
+		    <h1 class="mui-title">特种作业证查询</h1>
 		</header>
 		<!--下拉刷新容器-->
 		<div id="pullrefresh" class="mui-content">
@@ -65,7 +65,7 @@
 				var data = {
 					OrganiseUnitID: localStorage.getItem("UserOrganiseUnitID")
 				};
-				
+				console.log(localStorage.getItem("UserOrganiseUnitID"))
 				mui.ajax(url, {
 					type: 'get',
 					dataType: 'json',
@@ -77,6 +77,7 @@
 						setHtml(data);
 					},
 					error: function (xhr, type, e) {
+						console.log(JSON.stringify(arguments))
 						mui.toast('数据请求失败');
 					}
 				});
