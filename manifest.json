@@ -2130,7 +2130,14 @@
 					"images/weixiushenpi.png",
 					"images/zhenggaishenpi.png",
 					"images/zhenggaixiadan.png",
-					"feature_page_audit_1.html"
+					"feature_page_audit_1.html",
+					"images/icon_weixiushenpi.png",
+					"images/icon_zhengzhaoshenhe.png",
+					"images/icon_zhenggaicuiban.png",
+					"images/icon_zhenggaiyanshou.png",
+					"images/icon_donghuozhengshenpi.png",
+					"images/icon_zhengzhaochaxun.png",
+					"images/icon_xiadazhenggai.png"
 				],
 				"refer": [
 					"feature_page_audit.html",

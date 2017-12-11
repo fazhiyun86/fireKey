@@ -1859,7 +1859,7 @@ canvas {
 	color: #000000;
 }
 .flex_left {
-	padding-left: 20px;
+	padding-left: 8px;
 	padding-top: 20px;
 }
 .flex_left > span {
@@ -1874,7 +1874,6 @@ canvas {
 	flex-grow: 1;
 }
 .flex_item2 {
-	
 	/*flex-grow: 2;*/	
 }
 .in_index .flex_item {
