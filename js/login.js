@@ -176,7 +176,7 @@ mui.plusReady(function() {
 	//软件更新模块
 	var content = {
 		"status": '1.0',
-		"version": "1.0.1", 
+		"version": "1.0.56", 
 		"releaseTime": "2017-08-15"
 	};
 			
@@ -189,6 +189,7 @@ mui.plusReady(function() {
 			mui.toast('当前版本'+content.version);
 			mui.getJSON(server, null, function(data) {
 				var getDatas = data['DataSource']['Tables'][0]['Datas'];
+				
 				if(getDatas[0].appinfo != '1') {
 					plus.nativeUI.confirm(' ', confirmCB, '版本更新', ['取消', '确认']);
 	
