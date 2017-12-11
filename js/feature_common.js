@@ -15,7 +15,7 @@ featureCommon= {
 		return html;
 	},
 	//转换时间格式  2017/11/12 0:00:00  -->  2017-11-12
-	formatDate: function (date){
+	formatDate: function (date, year){
 		if(!date) return '';
 		date = new Date(date);
 		var year = date.getFullYear();
@@ -24,6 +24,9 @@ featureCommon= {
 		
 		month = month<10 ? '0'+month: month;
 		day = day<10 ? '0'+day: day;
+		if(year) {
+			return ''+ year +'年'+ month +'月'+ day+ '日'; 
+		}
 		return ''+ year +'-'+ month +'-'+ day;
 	},
 	formatTime: function (date, toSec){

@@ -179,7 +179,7 @@
 					html += '<div class="list-item" data-taskID='+ item.TaskID +' data-unitName='+ item.OrganiseUnitName +'>' +
 						'<p class="'+ classname +'"><i class="iconfont icon-shijian"></i>消防安全检查</p>'+
 						'<p>检查单位：'+ item.OrganiseUnitName +'</p>'+
-						'<p>任务期限：'+ featureCommon.formatDate(item.TaskStartTime)  +' ~ '+ featureCommon.formatDate(item.TaskEndTime)  +'</p>'+
+						'<p>任务期限：'+ featureCommon.formatDate(item.TaskStartTime, true)  +' ~ '+ featureCommon.formatDate(item.TaskEndTime, true)  +'</p>'+
 						'<p>任务进度：'+ Bratio +'&nbsp;&nbsp;&nbsp;应检：'+ item.TotalItemCount +'&nbsp;&nbsp;&nbsp;已检：'+ item.ExamItemCount +'&nbsp;&nbsp;&nbsp;异常：'+ item.AbnormalItemCount +'&nbsp;&nbsp;&nbsp;整改：'+ item.SolveCount +'</p>'+
 					'</div>';
 				}

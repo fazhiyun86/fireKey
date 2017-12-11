@@ -118,6 +118,9 @@ body {
 	color: #101010;
 	font-size: 0.75rem;
 }
+.content-value .input {
+	border: 0 none;
+}
 .img-row {
 	margin: 10px -5px 0;
 }
