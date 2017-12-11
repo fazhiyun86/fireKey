@@ -689,5 +689,43 @@
 		return result;
 	}
 	
+	// 获取查询字符串
+	common.getParams = function () {
+		var paramsStr = location.search;
+		paramsStr = paramsStr.substring(1);
+		
+		if(!paramsStr) {
+			return null;
+		}
+		
+		var arr = paramsStr.split('&');
+		var obj = {};
+		
+		for (var i = 0; i < arr.length; i++) {
+			var pair = arr[i].split('=');
+			var pkey = decodeURIComponent(pair[0]);
+			var pval = decodeURIComponent(pair[1]);
+			
+			obj[pkey] = pval;
+		}
+		
+		return obj;
+	}
+	common.android_assets = 'file:///android_asset/apps/H5A8895E7/www/';
+	common.createNewView = function (plus, url) {
+		//获取当前正在运行的activity
+		var activity = plus.android.runtimeMainActivity();
+		//导入Intent类（意图，可以理解为意图打开那个界面）
+		var Intent = plus.android.importClass("android.content.Intent");
+		//创建intent对象
+		var intent = new Intent(activity.getIntent());
+		//为intent设置要打开的界面（Activity）类全路径
+		intent.setClassName(activity, "com.fzy.hbxfm.UI.webapp.WebAppActivity");
+		//设置携带参数
+		intent.putExtra("url", url);
+		//打开新的界面
+        activity.startActivity(intent);
+	}
+	
 	window.common = common
 })()
