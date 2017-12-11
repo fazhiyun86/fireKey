@@ -114,6 +114,7 @@
 					for(var a=0;a<imgTitle.length; a++) {
 						var theUrl = imgUrl[a];
 						var theTitle = imgTitle[a];
+						if(!theUrl) continue;
 						text += '<li><img src="'+theUrl+'" /><p>'+theTitle+'</p></li>';
 					}
 					document.getElementById('imgShow').innerHTML = text;
