@@ -1876,12 +1876,12 @@ canvas {
 .flex_item2 {
 	/*flex-grow: 2;*/	
 }
-.in_index .flex_item {
+/*.in_index .flex_item {
 	width: 33%;
 }
 .in_index .flex_item2 {
 	width: 67%;
-}
+}*/
 .flex_item2 > p {
 	float: left;
 	width: 50%;

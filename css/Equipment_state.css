@@ -182,6 +182,7 @@ input[type=text] {
 .state_content_con{
 	overflow: hidden;
 	margin-bottom: -0.3rem;
+	padding: 10px !important;
 }
 
 .state_content_con p{
