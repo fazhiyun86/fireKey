@@ -56,6 +56,9 @@
 			.Equipment_patrol_ccon2 p:first-child {
 				margin: 0!important;
 			}
+			.add-time {
+				margin-bottom: 5px;
+			}
 		</style>
 	</head>
 
@@ -68,6 +71,7 @@
 							<!--<div id="Equipment_patrol_con1">
 								
 							</div>-->
+							
 							<div id="certificSend" class="content-wrap">
 								<!--<h5 class="box-category">2017年10月数据</h5>-->  <!--2017/11/28新增，TODO:动态设置 -->
 								<!--<section class="box-item tab-02-item">
@@ -136,6 +140,8 @@
 				//设置 html
 				function setHtml(data) {
 					var html = '';
+					
+					html += '<p class="add-time">'+ setTime() +'</p>';
 					for (var i = 0; i < data.length; i++) {
 						var item = data[i];
 						html += '<section class="box-item tab-02-item" data-OrganiseUnitID="'+ item.OrganiseUnitID +'">\
@@ -149,6 +155,13 @@
 					}
 					document.getElementById("certificSend").innerHTML = html;
 					plus.nativeUI.closeWaiting();
+				}
+				function setTime() {
+					var html = '';
+					var d = new Date();
+					var Y =  d.getFullYear();
+					var M = d.getMonth() + 1;
+					return Y + '年' + M + '月数据';
 				}
 				
 				mui('#certificSend').on('tap', '.tab-02-item', function() {
