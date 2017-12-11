@@ -200,7 +200,7 @@
 				function setHtml(data) {
 					var html = '';
 					if(!data.length) {
-						html += '<div class="mui-text-center">暂无数据</div>';
+						html += '<div class="mui-text-center" style="font-size: 0.75rem">暂无数据</div>';
 					}
 					for (var i = 0; i < data.length; i++) {
 						var item = data[i],
@@ -228,15 +228,15 @@
 									<div class="flex_box">\
 										<div class="content_detail third_col">\
 											<label>总包检查:</label>\
-											<span></span>\
+											<span>'+ item.firstUserName +'</span>\
 										</div>\
 										<div class="content_detail third_col">\
 											<label>分包检查:</label>\
-											<span></span>\
+											<span>'+ item.secondUserName +'</span>\
 										</div>\
 										<div class="content_detail third_col">\
 											<label>看火检查:</label>\
-											<span></span>\
+											<span>'+ item.thirdUserName +'</span>\
 										</div>\
 									</div>\
 								</div>\

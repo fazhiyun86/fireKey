@@ -76,53 +76,55 @@
 		</header>
 		<div class="feature_grid">
 			<ul id="feature_grid_list" class="mui-table-view mui-grid-view mui-grid-9 " style="background-color: none;">
+				<li id="grid_list8" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				    <a class="feature_list_8" href="#">
+				        <span class="mui-icon"><img src="images/icon_zhenggaicuiban.png" /><span id="count_ToUrge" class="mui-badge mui-badge-red">0</span></span>
+				        <div class="mui-media-body">整改催办</div>
+				    </a>
+				</li>
 				<li id="grid_list" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 				    <a class="feature_list_1" href="#">
-				        <span class="mui-icon"><img src="images/zhenggaishenpi.png" /><span id="changeCount" class="mui-badge mui-badge-red"></span></span>
-				        <div class="mui-media-body">整改审批</div>
+				        <span class="mui-icon"><img src="images/icon_zhenggaiyanshou.png" /><span id="count_RectifyAccept" class="mui-badge mui-badge-red">0</span></span>
+				        <div class="mui-media-body">整改验收</div>
 				    </a>
 				</li>
 				<li id="grid_list2" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 				    <a class="feature_list_2" href="#">
-				        <span class="mui-icons"><img src="images/zhenggaixiadan.png" /></span>
+				        <span class="mui-icons"><img src="images/icon_xiadazhenggai.png" /></span>
 				        <div class="mui-media-body">整改下单</div>
 				    </a>
 				</li>
-				<li id="grid_list3" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-				    <a class="feature_list_3" href="#">
-				        <span class="mui-icon"><img src="images/weixiushenpi.png" /><!--<span id="rushCount" class="mui-badge mui-badge-red">5</span>--></span>
-				        <div class="mui-media-body">维修审批</div>
-				    </a>
-				</li>
+				
 				<li id="grid_list4" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 				    <a class="feature_list_4" href="#">
-				        <span class="mui-icon"><img src="images/weixiushenpi.png" /></span>
+				        <span class="mui-icon"><img src="images/icon_zhengzhaochaxun.png" /></span>
 				        <div class="mui-media-body">证照查询</div>
 				    </a>
 				</li>
 				<li id="grid_list5" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 				    <a class="feature_list_5" href="#">
-				        <span class="mui-icon"><img src="images/weixiushenpi.png" /><!--<span id="rushCount" class="mui-badge mui-badge-red">0</span>--></span>
+				        <span class="mui-icon"><img src="images/icon_zhengzhaoshenhe.png" /><span id="count_CertificateAudit" class="mui-badge mui-badge-red">0</span></span>
 				        <div class="mui-media-body">证照审核</div>
 				    </a>
 				</li>
 				<li id="grid_list6" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 				    <a class="feature_list_6" href="#">
-				        <span class="mui-icon"><img src="images/weixiushenpi.png" /><!--<span id="rushCount" class="mui-badge mui-badge-red">0</span>--></span>
+				        <span class="mui-icon"><img src="images/icon_donghuozhengshenpi.png" /><span id="count_PermitAudit" class="mui-badge mui-badge-red">0</span></span>
 				        <div class="mui-media-body">动火审批</div>
 				    </a>
 				</li>
-				<li id="grid_list7" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				<!--20171209隐藏-->
+				<!--<li id="grid_list7" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 				    <a class="feature_list_7" href="#">
-				        <span class="mui-icon"><img src="images/weixiushenpi.png" /><!--<span id="rushCount" class="mui-badge mui-badge-red">5</span>--></span>
+				        <span class="mui-icon"><img src="images/weixiushenpi.png" /><span id="rushCount" class="mui-badge mui-badge-red">5</span></span>
 				        <div class="mui-media-body">维修审批</div>
 				    </a>
-				</li>
+				</li>-->
 				<!--20171125新增-->
-				<li id="grid_list8" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-				    <a class="feature_list_8" href="#">
-				        <span class="mui-icon"><img src="images/weixiushenpi.png" /><!--<span id="rushCount" class="mui-badge mui-badge-red">0</span>--></span>
-				        <div class="mui-media-body">整改催办</div>
+				<li id="grid_list3" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				    <a class="feature_list_3" href="#">
+				        <span class="mui-icon"><img src="images/icon_weixiushenpi.png" /><span id="count_RepairAudit" class="mui-badge mui-badge-red">0</span></span>
+				        <div class="mui-media-body">维修审批</div>
 				    </a>
 				</li>
 			</ul>
@@ -141,16 +143,17 @@
 				
 				mui.plusReady(function() { 
 					var selfView = plus.webview.currentWebview();
-					changeCount();
+					//changeCount();
 				})
 				
 				mui.ready(function() {
+					setTimeout(function(){
+						changeCount();
+					}, 2000);
 					
 					//点击进入详情页面
-					//整改审批
+					//整改验收
 					mui('#grid_list').on('tap', '.feature_list_1', function() {		
-					changeCount();
-						
 						mui.openWindow({
 							url: 'feature_page_audit.html',
 							id: 'feature_page_audit.html',
@@ -279,7 +282,7 @@
 						});
 					})
 					// 维修审批
-					mui('#grid_list7').on('tap', '.feature_list_7', function() {
+/*					mui('#grid_list7').on('tap', '.feature_list_7', function() {
 						mui.openWindow({
 							url: 'feature_repair.html',
 							id: 'feature_repair.html',
@@ -298,7 +301,7 @@
 								title: '加载中...', //等待对话框上显示的提示内容
 							}
 						});
-					})
+					})*/
 					
 					// 整改催办
 					mui('#grid_list8').on('tap', '.feature_list_8', function() {
@@ -327,63 +330,51 @@
 				//整改审批总数		
 				function changeCount(){
 					var data = {
-						UserID:localStorage.getItem("UserID")
+						UserID:localStorage.getItem("UserID"),
+						OrganiseUnitID: localStorage.getItem('UserOrganiseUnitID')
 					};
-					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAM_RectifyAuditTaskNumber?dataKey=00-00-00-00';
+					var url = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/';
+					url += 'TZDH_WebApp_ActionTaskCount?dataKey=00-00-00-00';
 					
-					mui.ajax(urlg,{
+					mui.ajax(url,{
 						data: data,
 						dataType: 'json',
 						type: 'get',
 						timeout: 5000,
 						success: function (data){
-							console.log(JSON.stringify(data))
-							data = data["DataSource"]["Tables"][0]["Datas"]
-							setHtml(data)
+							console.log(JSON.stringify(data));
+							if(data.Summary.StatusCode != '100') { return; }
+							data = data["DataSource"]["Tables"][0]["Datas"];
+							console.log('角标获取' + JSON.stringify(data));
+							setHtml(data);
 						},
 						error: function(){
 							console.log('请求错误');
 						}						
 					});
+					/*var data = [
+						{ActionCode: 'ToUrge',ActionCount: '5'},
+						{ActionCode: 'RectifyAccept',ActionCount: '5'},
+						{ActionCode: 'CertificateAudit',ActionCount: '5'},
+						{ActionCode: 'PermitAudit',ActionCount: '5'},
+						{ActionCode: 'RepairAudit',ActionCount: '5'}
+					]*/
 					function setHtml(data){
-						var len = data.length;
-						for(var i=0; i<len; i++){  
-
-							var ProcVerifyNumber =  data[i]["ProcVerifyNumber"];
+						if(!data.length) return;
+						for (var i = 0; i < data.length; i++) {
+							var item = data[i];
+							var ActionCode = item.ActionCode;
+							var id = 'count_' + ActionCode;
 							
-							document.getElementById('changeCount').innerHTML = ProcVerifyNumber || 0;
-
-						} 
+							if (item.ActionCount=='0' || item.ActionCount=='') {
+								document.getElementById(id).style.display = 'none';
+								continue;
+							}
+							document.getElementById(id).innerHTML = item.ActionCount;
+						}
 					}
 				};
 				
-				//维修审批总数
-//				function rushCount(){
-//					var data = {
-//						UserID:localStorage.getItem("UserID")
-//					};
-//					urlg = 'http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/DataExchange/GetData/TZDH_WebApp_EXAM_RectifyAuditTaskNumber?dataKey=00-00-00-00';
-//					
-//					mui.ajax(urlg,{
-//						data: data,
-//						dataType: 'json',
-//						type: 'get',
-//						timeout: 5000,
-//						success: function (data){
-//							console.log(JSON.stringify(data))
-//							setHtml(data)
-//						},
-//						error: function(){
-//							console.log('请求错误')
-//						}						
-//					});
-//					
-//					function setHtml(data){
-//						var ID = data['ID'] ;
-//						var ProcVerifyNumber =  data['ProcVerifyNumber'];
-////						document.getElementById('changeCount').innerHTML = 
-//					}
-//				};
 			})();
 		</script>
 		

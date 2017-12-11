@@ -114,6 +114,7 @@
 						success: function(data){
 							console.log(JSON.stringify(data))
 							var optionsArr = common.lineCharts(data['DataSource']['Tables']);
+							
 							var len = optionsArr.length;
 							
 							if(len === 0) {

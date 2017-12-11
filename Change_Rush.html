@@ -52,7 +52,7 @@
 		    	<div class="change_rush" id="tabWrap">
 					<ul>
 						<li class="change_rush_list">
-							<a class="tab_list tab-active" href="javascript:;" data-target="1">故障隐患</a>
+							<a class="tab_list tab-active" href="javascript:;" data-target="1">当前整改单</a>
 						</li>
 						<li class="change_rush_list">
 							<a class="tab_list" href="javascript:;" data-target="2">已催办整改</a>
@@ -90,7 +90,17 @@
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
 			(function(){
-	
+				mui.init({
+				    beforeback: function() {
+				　　　　 //获得父页面的webview
+				        var opener = plus.webview.currentWebview().opener();
+				　　　　 //触发父页面的自定义事件(refresh),从而进行刷新
+				        mui.fire(opener, 'featureRefresh');
+				        //返回true,继续页面关闭逻辑
+				        return true;
+				    }
+				});
+				
 				mui(".mui-scroll-wrapper").scroll({
 					bounce: false,//滚动条是否有弹力默认是true
 					indicators: false, //是否显示滚动条,默认是true

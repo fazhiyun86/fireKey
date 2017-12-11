@@ -66,6 +66,9 @@ body {
 	line-height: 1.7rem;
 	font-size: 0;
 }
+.content-box.abnormal * {
+	color: #db4527!important;
+}
 .content-box.half-col {
 	width: 50%;
 }
@@ -83,7 +86,7 @@ body {
 }
 .content-label,
 .content-value {
-	font-size: 0.8rem;
+	font-size: 0.75rem;
 }
 .content-label {
 	flex: none;/* 0 0 auto*/
@@ -113,7 +116,7 @@ body {
 	padding: 0 0.5rem;
 	border: 1px solid #bbb;
 	color: #101010;
-	font-size: 0.8rem;
+	font-size: 0.75rem;
 }
 .img-row {
 	margin: 10px -5px 0;

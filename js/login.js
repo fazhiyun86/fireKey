@@ -213,81 +213,85 @@ mui.plusReady(function() {
 
 	//登录模块
 	//有缓存自动登录
-	if(localStorage.getItem('userCodeVa') && localStorage.getItem('passWordVa')) {
-		var userCodeVa = localStorage.getItem('userCodeVa');
-		var passWordVa = localStorage.getItem('passWordVa');
-		mui.ajax('http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/User/UserLogin', {
-			data: JSON.stringify({
-				UserCode: userCodeVa,
-				Password: passWordVa,
-				ApplicationID: localStorage.getItem('ApplicationID')
-			}),
-			headers: {
-				'Content-Type': 'application/json'
-			}, //提交
-			dataType: 'json', //返回
-			type: 'post',
-			timeout: 5000,
-			processData: false,
-			success: function(data) {
-				//服务器返回响应，根据响应结果，分析是否登陆成功
-				// var getDatas = data['DataSource']['Tables'][0]['Datas'];
-				// mui.each(getDatas, function (index, item) {					 	
-				if(data.msg == 1) {
-
-					localStorage.setItem('UnitCode', data.UnitCode);
-					localStorage.setItem('OrganiseUnitCode', data.UnitCode);
-					var isActive = document.getElementById("mySwitch").classList.contains("mui-active");
-
-					if(isActive) {
-						localStorage.setItem('userCodeVa', userCodeVa);
-						localStorage.setItem('passWordVa', passWordVa);
-						document.getElementById("userCode").value = localStorage.getItem('userCodeVa');
-						document.getElementById("passWord").value = localStorage.getItem('passWordVa');
-					} else {
-						//document.getElementById("userCode").value = null;
-						document.getElementById("passWord").value = null;
-						localStorage.setItem('userCodeVa', document.getElementById("userCode").value);
-						localStorage.setItem('passWordVa', document.getElementById("passWord").value);
-					}
-					/*plus.webview.open('main.html','main',null,"slide-in-right");*/
-					mui.openWindow({
-						url: 'main.html',
-						id: 'main',
-						styles: {
-
-						},
-						extras: {
-							userCodeVa: document.getElementById("userCode").value
-						},
-						createNew: false,
-						show: {
-							autoShow: true,
-							aniShow: 'fade-in',
-							duration: 200,
-						},
-						waiting: {
-							autoShow: true,
-							title: '正在加载',
-							options: {
-
-							}
+	if ( localStorage.getItem('userQuit') !== '1' ) { // 用户自己退出后，不自动登录  1自退   0:登录
+		
+		if(localStorage.getItem('userCodeVa') && localStorage.getItem('passWordVa')) {
+			var userCodeVa = localStorage.getItem('userCodeVa');
+			var passWordVa = localStorage.getItem('passWordVa');
+			mui.ajax('http://' + localStorage.getItem("serverAddress") + ':' + localStorage.getItem("portNum") + '/WebApi/User/UserLogin', {
+				data: JSON.stringify({
+					UserCode: userCodeVa,
+					Password: passWordVa,
+					ApplicationID: localStorage.getItem('ApplicationID')
+				}),
+				headers: {
+					'Content-Type': 'application/json'
+				}, //提交
+				dataType: 'json', //返回
+				type: 'post',
+				timeout: 5000,
+				processData: false,
+				success: function(data) {
+					//服务器返回响应，根据响应结果，分析是否登陆成功
+					// var getDatas = data['DataSource']['Tables'][0]['Datas'];
+					// mui.each(getDatas, function (index, item) {					 	
+					if(data.msg == 1) {
+						localStorage.setItem('userQuit', '0');
+						localStorage.setItem('UnitCode', data.UnitCode);
+						localStorage.setItem('OrganiseUnitCode', data.UnitCode);
+						var isActive = document.getElementById("mySwitch").classList.contains("mui-active");
+	
+						if(isActive) {
+							localStorage.setItem('savePassword', '1');
+							localStorage.setItem('userCodeVa', userCodeVa);
+							localStorage.setItem('passWordVa', passWordVa);
+							document.getElementById("userCode").value = localStorage.getItem('userCodeVa');
+							document.getElementById("passWord").value = localStorage.getItem('passWordVa');
+						} else {
+							//document.getElementById("userCode").value = null;
+							document.getElementById("passWord").value = null;
+							localStorage.setItem('userCodeVa', document.getElementById("userCode").value);
+							localStorage.setItem('passWordVa', document.getElementById("passWord").value);
 						}
-					})
-
-				} else {
-					mui.toast(data.msg)
+						/*plus.webview.open('main.html','main',null,"slide-in-right");*/
+						mui.openWindow({
+							url: 'main.html',
+							id: 'main',
+							styles: {
+	
+							},
+							extras: {
+								userCodeVa: document.getElementById("userCode").value
+							},
+							createNew: false,
+							show: {
+								autoShow: true,
+								aniShow: 'fade-in',
+								duration: 200,
+							},
+							waiting: {
+								autoShow: true,
+								title: '正在加载',
+								options: {
+	
+								}
+							}
+						})
+	
+					} else {
+						mui.toast(data.msg)
+					}
+	
+					//});
+				},
+				error: function() {
+					//异常处理
+					//console.log(type);
+					mui.toast('数据请求失败')
 				}
-
-				//});
-			},
-			error: function() {
-				//异常处理
-				//console.log(type);
-				mui.toast('数据请求失败')
-			}
-		});
-	};
+			});
+		};
+	}
 	
 	//点击按钮登录
 	mui(".mui-btn-primary")[0].addEventListener('tap', function() {
@@ -328,12 +332,13 @@ mui.plusReady(function() {
 				// var getDatas = data['DataSource']['Tables'][0]['Datas'];
 				// mui.each(getDatas, function (index, item) {			
 				if(data.msg == 1) {
-
+					localStorage.setItem('userQuit', '0');
 					localStorage.setItem('UnitCode', data.UnitCode);
 					localStorage.setItem('OrganiseUnitCode', data.UnitCode);
 					var isActive = document.getElementById("mySwitch").classList.contains("mui-active");
 
 					if(isActive) {
+						localStorage.setItem('savePassword', '1');
 						localStorage.setItem('userCodeVa', userCodeVa);
 						localStorage.setItem('passWordVa', passWordVa);
 						document.getElementById("userCode").value = localStorage.getItem('userCodeVa');

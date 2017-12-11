@@ -594,7 +594,7 @@
 		result.push(sumOption)
 		//
 		var subLen = subCompanyData.length;
-		
+		console.log('下级单位'+JSON.stringify(subCompanyData))
 		var tempName = {};
 		for (var j = 0; j < subLen; j++) {
 			var jtem = subCompanyData[j];
@@ -629,8 +629,8 @@
 			
 			var tempOption = common.lineBaseOption();
 			tempOption.title.text = tempTitle;
-			tempOption.xAxis.data = totalX;
-			tempOption.series[0].data = totalY;
+			tempOption.xAxis.data = tempX;
+			tempOption.series[0].data = tempY;
 			tempOption.IsEnd = IsEnd;
 			tempOption.OrgID = OrgID;
 			
