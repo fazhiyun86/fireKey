@@ -201,7 +201,7 @@ mui.plusReady(function() {
 									var path = d.filename;
 									plus.runtime.install(path);
 								} else { //下载失败
-									alert("Download failed: " + status);
+									alert("Download failed: -" + status);
 								}
 							});
 							dtask.start();
