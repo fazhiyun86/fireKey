@@ -13,6 +13,11 @@
 		<style>
 			.safe-check-main {
 				padding: 60px 10px 0px 10px;
+				font-size: 0.75rem;
+			}
+			#projectName {
+				font-size: 0.75rem;
+				margin-bottom: 5px;
 			}
 			#safecheck {
 				padding-left: 0px;
@@ -23,6 +28,7 @@
 				font-size: 0.75rem;
 				padding: 5px;
 				margin-bottom: 5px;
+				background: #fff;
 			}
 			.safe-check-item > div:last-child {
 				padding-top: 5px;
@@ -127,7 +133,7 @@
 				
 				var html = '';
 				//TODO：全部替换or追加数据
-				if(!data.length) {
+				if(data.length == 0) {
 					wrapDom.innerHTML = '<li style="text-align: center; font-size: 0.69rem;">暂无数据</li>';
 					return;
 				}
@@ -145,7 +151,7 @@
 							</div>\
 						</li>';
 				}
-				wrapDom.innerHTML = wrapDom.innerHTML + html;
+				wrapDom.innerHTML = html;
 				
 				// 项目名字颜色的控制
 				function changeColor(item) {

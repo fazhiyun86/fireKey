@@ -35,7 +35,7 @@ mui.plusReady(function() {
 				mui.each(getDatas, function(index, item) {
 					html +=
 						'<div class="Equipment_patrol_con1" style="box-shadow: none;">' +
-						'<input class="sendId1" type="hidden"value="' + item.TaskID + '" />' +
+						'<input class="sendId1" type="hidden" value="' + item.TaskID + '" />' +
 						'<div style="width:4%;padding-top:2rem;">' +
 						stuts[item.Status] +
 						'</div>' +

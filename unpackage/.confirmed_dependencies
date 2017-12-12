@@ -104,5 +104,20 @@
 		"refer": [
 			"feature_licence_search_detail.html"
 		]
+	},
+	"Micro_task_1.html": {
+		"refer": [
+			"Micro_task_1_list.html"
+		]
+	},
+	"fire_security_check.html": {
+		"refer": [
+			"fire_security_check_list.html"
+		]
+	},
+	"fire_security_check_list.html": {
+		"refer": [
+			"fire_security_check_detile.html"
+		]
 	}
 }
