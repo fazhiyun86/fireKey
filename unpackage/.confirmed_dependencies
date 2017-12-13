@@ -14,7 +14,17 @@
 			"Change_Rush.html",
 			"fire_security_check.html"
 		],
-		"resources": []
+		"resources": [
+			"images/jing.png",
+			"js/common.js",
+			"images/icon_xiaohuoshuanzhuangtai.png",
+			"images/cuiban.png",
+			"images/icon_yinhuanzhenggai.png",
+			"css/style.css",
+			"js/radialIndicator.js",
+			"images/login_01_01.png",
+			"js/index.js"
+		]
 	},
 	"Equipment_state.html": {
 		"refer": [
@@ -36,7 +46,8 @@
 	},
 	"Add_Fire_statistic_tab.html": {
 		"resources": [
-			"Add_Fire_statistic_tab01.html"
+			"Add_Fire_statistic_tab01.html",
+			"css/hotwork_record_detail.css"
 		],
 		"refer": [
 			"Add_Fire_statistic_tab01.html",
@@ -46,7 +57,8 @@
 	},
 	"Add_Fire_statistic.html": {
 		"resources": [
-			"Add_Fire_statistic_tab.html"
+			"Add_Fire_statistic_tab.html",
+			"css/Add_Fire_statistic.css"
 		],
 		"refer": [
 			"Add_Fire_statistic_tab.html"
@@ -61,12 +73,27 @@
 			"Micro_task.html"
 		],
 		"resources": [
-			"index.html"
+			"index.html",
+			"fonts/mui-icons-extra.ttf",
+			"js/area.js",
+			"css/icons-extra.css",
+			"iconfont.css"
 		]
 	},
 	"login.html": {
 		"refer": [
 			"main.html"
+		],
+		"resources": [
+			"images/systemImg1.png",
+			"js/jquery.min.js",
+			"css/login.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"js/login.js",
+			"css/mui.min.css",
+			"images/personal.png",
+			"images/password.png"
 		]
 	},
 	"Micro_task.html": {
@@ -76,7 +103,8 @@
 			"Micro_task_2.html"
 		],
 		"resources": [
-			"Micro_task_1.html"
+			"Micro_task_1.html",
+			"css/iconfont.css"
 		]
 	},
 	"Add_Fire_statistic_tab02.html": {
@@ -98,11 +126,60 @@
 			"feature_page_approve.html",
 			"feature_fire_approve.html",
 			"feature_licence_check.html"
+		],
+		"resources": [
+			"images/icon_weixiushenpi.png",
+			"css/feature_page.css",
+			"images/icon_zhengzhaoshenhe.png",
+			"images/icon_zhenggaicuiban.png",
+			"images/header_base_01.png",
+			"images/icon_zhenggaiyanshou.png",
+			"images/icon_donghuozhengshenpi.png",
+			"images/icon_zhengzhaochaxun.png",
+			"images/icon_xiadazhenggai.png"
 		]
 	},
 	"feature_licence_search.html": {
 		"refer": [
 			"feature_licence_search_detail.html"
+		]
+	},
+	"Micro_task_1.html": {
+		"resources": [
+			"css/iconfont.woff",
+			"js/Micro_task_1.js"
+		]
+	},
+	"totalTarget_email.html": {
+		"resources": [
+			"css/totalTarget-email.css",
+			"css/base.css"
+		]
+	},
+	"Micro_task_3.html": {
+		"resources": [
+			"js/mui.picker.min.js",
+			"images/arrow_2.png",
+			"js/Uuid.js",
+			"css/mui.picker.min.css",
+			"images/fenlei.png",
+			"js/Micro_task_3.js"
+		]
+	},
+	"Password_edit.html": {
+		"resources": [
+			"images/user-photo.png"
+		]
+	},
+	"Micro_task_2.html": {
+		"resources": [
+			"js/Micro_task_2.js"
+		]
+	},
+	"Add_Fire_statistic_tab01.html": {
+		"resources": [
+			"js/echarts.min.js",
+			"images/loading.gif"
 		]
 	}
 }
